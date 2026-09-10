@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/text-area.schema.json",
+  "title": "TextArea",
+  "description": "TextArea buttons allow users to select a single option from a list of mutually exclusive options.",
+  "type": "object",
+  "properties": {
+    "label": {
+      "$ref": "http://schema.kickstartds.com/form/text-area.schema.json#/properties/label"
+    },
+    "value": {
+      "$ref": "http://schema.kickstartds.com/form/text-area.schema.json#/properties/value"
+    },
+    "name": {
+      "$ref": "http://schema.kickstartds.com/form/text-area.schema.json#/properties/name"
+    },
+    "disabled": {
+      "$ref": "http://schema.kickstartds.com/form/text-area.schema.json#/properties/disabled"
+    },
+    "placeholder": {
+      "$ref": "http://schema.kickstartds.com/form/text-area.schema.json#/properties/placeholder"
+    },
+    "hideLabel": {
+      "$ref": "http://schema.kickstartds.com/form/text-area.schema.json#/properties/hideLabel"
+    },
+    "icon": {
+      "$ref": "http://schema.kickstartds.com/form/text-area.schema.json#/properties/icon"
+    },
+    "invalid": {
+      "$ref": "http://schema.kickstartds.com/form/text-area.schema.json#/properties/invalid"
+    },
+    "invalidMessage": {
+      "$ref": "http://schema.kickstartds.com/form/text-area.schema.json#/properties/invalidMessage"
+    },
+    "hint": {
+      "$ref": "http://schema.kickstartds.com/form/text-area.schema.json#/properties/hint"
+    },
+    "className": {
+      "title": "Class",
+      "description": "Additional css classes attached to the input element",
+      "type": "string"
+    }
+  },
+  "required": ["label"]
+}

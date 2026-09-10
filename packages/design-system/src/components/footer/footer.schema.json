@@ -1,0 +1,157 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/footer.schema.json",
+  "title": "Footer",
+  "description": "Footer component for displaying site logo, grouped navigation links, social links and a legal bottom bar at the bottom of the page.",
+  "type": "object",
+  "properties": {
+    "logo": {
+      "title": "Logo",
+      "type": "object",
+      "properties": {
+        "src": {
+          "$ref": "http://schema.mydesignsystem.com/logo.schema.json#/properties/src"
+        },
+        "srcInverted": {
+          "$ref": "http://schema.mydesignsystem.com/logo.schema.json#/properties/srcInverted"
+        },
+        "alt": {
+          "$ref": "http://schema.mydesignsystem.com/logo.schema.json#/properties/alt"
+        },
+        "homepageHref": {
+          "$ref": "http://schema.mydesignsystem.com/logo.schema.json#/properties/homepageHref"
+        },
+        "width": {
+          "$ref": "http://schema.mydesignsystem.com/logo.schema.json#/properties/width"
+        },
+        "height": {
+          "$ref": "http://schema.mydesignsystem.com/logo.schema.json#/properties/height"
+        }
+      }
+    },
+    "badge": {
+      "title": "Badge",
+      "description": "Small image placed on its own line at the very bottom of the footer, for a seal, certification or origin mark",
+      "type": "object",
+      "properties": {
+        "src": {
+          "type": "string",
+          "title": "Source",
+          "description": "Badge image source",
+          "format": "uri"
+        },
+        "alt": {
+          "type": "string",
+          "title": "Alt Text",
+          "description": "Alt text to display for the badge. Leave empty when the badge is purely decorative"
+        }
+      }
+    },
+    "inverted": {
+      "type": "boolean",
+      "title": "Inverted",
+      "description": "Invert the color scheme of the footer",
+      "default": false
+    },
+    "navGroups": {
+      "type": "array",
+      "title": "Navigation Groups",
+      "description": "Groups of navigation links with headings, displayed as columns in the footer",
+      "items": {
+        "type": "object",
+        "properties": {
+          "heading": {
+            "type": "string",
+            "title": "Column Heading",
+            "description": "Heading displayed above the navigation links in this column"
+          },
+          "headingUrl": {
+            "type": "string",
+            "title": "Column Link",
+            "description": "Turns the column heading into a link. A column that only sets a heading and a link, with no links below it, becomes a single flat entry - add one per menu entry to build a one-dimensional footer navigation.",
+            "format": "uri"
+          },
+          "items": {
+            "type": "array",
+            "title": "Links",
+            "description": "Navigation links in this column",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "title": "Label"
+                },
+                "url": {
+                  "type": "string",
+                  "title": "URL",
+                  "format": "uri"
+                },
+                "newTab": {
+                  "type": "boolean",
+                  "title": "Open in New Tab",
+                  "default": false
+                }
+              },
+              "required": ["label", "url"],
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "copyright": {
+      "type": "string",
+      "title": "Copyright",
+      "description": "Copyright notice displayed in the footer bottom bar"
+    },
+    "legalLink": {
+      "type": "object",
+      "title": "Legal Link",
+      "description": "Link to the legal/privacy page displayed in the footer bottom bar",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label",
+          "default": "Legal"
+        },
+        "url": {
+          "type": "string",
+          "title": "URL",
+          "format": "uri"
+        }
+      },
+      "additionalProperties": false
+    },
+    "socialLinks": {
+      "type": "array",
+      "title": "Social Links",
+      "description": "Social media links displayed in the footer, rendered with icons from the icon sprite",
+      "items": {
+        "type": "object",
+        "properties": {
+          "icon": {
+            "type": "string",
+            "title": "Icon",
+            "description": "Icon identifier from the icon sprite (e.g. facebook, twitter, linkedin, xing)"
+          },
+          "url": {
+            "type": "string",
+            "title": "URL",
+            "format": "uri"
+          },
+          "ariaLabel": {
+            "type": "string",
+            "title": "Accessible Label",
+            "description": "Accessible label for the social link (announced by screen readers)"
+          }
+        },
+        "required": ["icon", "url"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["logo"],
+  "additionalProperties": false
+}

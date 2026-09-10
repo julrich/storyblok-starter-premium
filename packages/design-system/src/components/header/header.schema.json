@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/header.schema.json",
+  "title": "Header",
+  "description": "Header layered on top by the CMS",
+  "type": "object",
+  "properties": {
+    "logo": {
+      "title": "Logo",
+      "type": "object",
+      "properties": {
+        "src": {
+          "$ref": "http://schema.mydesignsystem.com/logo.schema.json#/properties/src"
+        },
+        "srcInverted": {
+          "$ref": "http://schema.mydesignsystem.com/logo.schema.json#/properties/srcInverted"
+        },
+        "alt": {
+          "$ref": "http://schema.mydesignsystem.com/logo.schema.json#/properties/alt"
+        },
+        "homepageHref": {
+          "$ref": "http://schema.mydesignsystem.com/logo.schema.json#/properties/homepageHref"
+        },
+        "width": {
+          "$ref": "http://schema.mydesignsystem.com/logo.schema.json#/properties/width"
+        },
+        "height": {
+          "$ref": "http://schema.mydesignsystem.com/logo.schema.json#/properties/height"
+        }
+      }
+    },
+    "flyoutInverted": {
+      "$ref": "http://schema.mydesignsystem.com/nav-main.schema.json#/properties/flyoutInverted"
+    },
+    "dropdownInverted": {
+      "$ref": "http://schema.mydesignsystem.com/nav-main.schema.json#/properties/dropdownInverted"
+    },
+    "floating": {
+      "type": "boolean",
+      "title": "Floating",
+      "description": "Make the header float over the first Section",
+      "default": false
+    },
+    "inverted": {
+      "type": "boolean",
+      "title": "Inverted",
+      "description": "Invert the color scheme of the header",
+      "default": false
+    },
+    "navItems": {
+      "$ref": "http://schema.mydesignsystem.com/nav-main.schema.json#/properties/items"
+    }
+  }
+}

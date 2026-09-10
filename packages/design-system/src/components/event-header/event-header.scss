@@ -1,0 +1,8 @@
+.dsa-event-header {
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-bottom: var(--ks-spacing-stack-s);
+  }
+}

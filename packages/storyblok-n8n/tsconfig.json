@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "commonjs",
+    "target": "es2021",
+    "lib": ["es2021"],
+    "declaration": true,
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "rootDir": ".",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "types": ["node", "jest"]
+  },
+  "include": ["credentials/**/*.ts", "nodes/**/*.ts"],
+  "exclude": ["node_modules", "dist", "test"]
+}

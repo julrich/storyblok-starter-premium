@@ -1,0 +1,7 @@
+@use "event-latest-tokens.scss";
+
+.dsa-event-latest {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ks-spacing-stack-s);
+}

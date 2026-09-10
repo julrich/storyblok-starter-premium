@@ -1,0 +1,100 @@
+.dsa-nav-main {
+  @media (min-width: 62rem) {
+    display: flex;
+    align-items: center;
+    gap: var(--ks-spacing-m);
+  }
+
+  a.dsa-nav-main__header-cta {
+    display: none;
+    align-items: center;
+    white-space: nowrap;
+    text-decoration: none;
+    font-size: var(--ks-font-size-interface-s);
+    font-family: var(--ks-font-family-interface);
+    font-weight: var(--dsa-button--font-weight);
+    color: var(--dsa-button_primary--color);
+    background-color: var(--dsa-button_primary--background-color);
+    border-radius: var(--dsa-button--border-radius);
+    border: var(--dsa-button--border-width) solid transparent;
+    padding: var(--dsa-button--padding);
+    transition: background-color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--dsa-button_primary--color_hover);
+      background-color: var(--dsa-button_primary--background-color_hover);
+      text-decoration: none;
+    }
+
+    @media (min-width: 62rem) {
+      display: flex;
+    }
+  }
+
+  .dsa-nav-main__search {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: currentColor;
+    cursor: pointer;
+    line-height: 0;
+    transition: opacity 0.2s ease;
+
+    .icon {
+      width: 1.25em;
+      height: 1.25em;
+    }
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.75;
+    }
+
+    @media (min-width: 62rem) {
+      display: flex;
+    }
+  }
+
+  .dsa-language-switcher {
+    display: none;
+    align-items: center;
+    gap: 0.3em;
+    font-size: var(--ks-font-size-interface-s);
+    font-family: var(--ks-font-family-interface);
+    font-weight: var(--ks-font-weight-semi-bold);
+    letter-spacing: 0.04em;
+
+    @media (min-width: 62rem) {
+      display: flex;
+    }
+
+    &__item {
+      color: currentColor;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+
+      &--active {
+        opacity: 0.4;
+        pointer-events: none;
+      }
+
+      &--link {
+        &:hover,
+        &:focus-visible {
+          opacity: 0.75;
+          text-decoration: none;
+        }
+      }
+    }
+
+    &__separator {
+      opacity: 0.25;
+      user-select: none;
+      font-weight: var(--ks-font-weight-regular);
+    }
+  }
+}

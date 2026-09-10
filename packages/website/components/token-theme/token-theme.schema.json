@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://cms.mydesignsystem.com/token-theme.schema.json",
+  "title": "Token Theme",
+  "description": "A named branding token theme that can be selected on pages and global settings",
+  "type": "object",
+  "properties": {
+    "name": {
+      "title": "Theme Name",
+      "description": "Human-readable name shown in the theme picker (e.g. 'Dark Mode', 'Brand Neon')",
+      "type": "string"
+    },
+    "tokens": {
+      "title": "Token Configuration (JSON)",
+      "description": "Structured branding token JSON — managed by the Design Tokens Editor, do not edit manually",
+      "type": "string",
+      "format": "textarea"
+    },
+    "css": {
+      "title": "Generated CSS",
+      "description": "Auto-generated CSS custom properties — computed from tokens JSON on save, revalidated on deploy",
+      "type": "string",
+      "format": "textarea"
+    },
+    "system": {
+      "title": "System Theme",
+      "description": "Marks this theme as system-managed. System themes are synced from the Design System and cannot be modified or deleted by users.",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": ["name"]
+}

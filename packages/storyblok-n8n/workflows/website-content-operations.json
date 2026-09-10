@@ -1,0 +1,2534 @@
+{
+  "name": "Website Magic",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "return {url: \"https://www.ruhmesmeile.com/services\"};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        64,
+        -64
+      ],
+      "id": "98c2bbf9-c3ab-476b-8af3-a62b6dc19f02",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Bitte lade den Markdown-Inhalt der folgenden URL: {{ $json.url }}\n\nBenutze exklusiv das `scrape_url` tool unseres Storyblok MCP.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        272,
+        -64
+      ],
+      "id": "3f7e71b1-b498-4657-a330-14fc8350ef73",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        224,
+        208
+      ],
+      "id": "1a6b7aa7-b784-4bbd-8851-0d10d81a4127",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "kgGPgzqjSYOaTQdv",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://ruhmesmeile-storyblok-mcp.ruhmesmeile.com/mcp",
+        "include": "selected",
+        "includeTools": [
+          "scrape_url"
+        ],
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.2,
+      "position": [
+        448,
+        208
+      ],
+      "id": "d9848550-ff38-4635-b609-549871e6a434",
+      "name": "MCP Client"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Benutze das `generate_content` tool unseres Storyblok MCP um strukturierten Inhalt für das folgende Markdown zu erzeugen. Nutze *immer* den `sectionCount` des `generate_content` Tools, um die Anzahl an Sektionen zu definieren die zurück erwartet werden. `componentType` sollte nie gesetzt werden, ebenso sollte `schema` nie verwendet werden wenn es um die Parameter des `generate_content` Tools geht. Befülle `system` und `prompt` des Tools mit dem aufgeteilten Inhalt am Ende dieses Prompts, der Text-Anteil für `system`, und der Markdown-Anteil für `prompt`. Stelle sicher alle vorhandenen Bilder im generierten Output zu verwenden.\n\nAls Rückgabe, gebe exklusiv den Inhalt des `storyblokContent` Keys aus der MCP Tool-Antwort zurück!\n\nInhalt: {{ $json.output }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        624,
+        -64
+      ],
+      "id": "65ed739c-782e-4a12-a882-186e9344a36a",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://ruhmesmeile-storyblok-mcp.ruhmesmeile.com/mcp",
+        "include": "selected",
+        "includeTools": [
+          "generate_content"
+        ],
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.2,
+      "position": [
+        752,
+        224
+      ],
+      "id": "79d199ab-8b2c-4aca-8926-bca8bfe25e81",
+      "name": "MCP Client1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        592,
+        240
+      ],
+      "id": "af7d76a9-b76b-40dc-b295-a9b49d07a5c8",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "kgGPgzqjSYOaTQdv",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Lege eine Seite in unserem Storyblok CMS an, nutze dafür das tool `create_page_with_content`... und folgendem Inhalt: {{ $json.output }} für `sections`. Als Slug (`slug`) nutze \"eine-neue-demo-hurra\" und lasse `parentId` frei. `uploadAssets` sollte auf jeden Fall aktiviert werden, `assetFolderDemo`sollte \"NeueDemo\" sein.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        976,
+        -64
+      ],
+      "id": "2997f721-2d11-42dc-9c9f-c7e04435a4f0",
+      "name": "AI Agent2",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        976,
+        192
+      ],
+      "id": "6d17433c-9fff-48bf-882c-186982e3ed22",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "kgGPgzqjSYOaTQdv",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://ruhmesmeile-storyblok-mcp.ruhmesmeile.com/mcp",
+        "include": "selected",
+        "includeTools": [
+          "create_page_with_content"
+        ],
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.2,
+      "position": [
+        1136,
+        192
+      ],
+      "id": "adefa412-52d1-4084-a10d-0c9d50a62f4f",
+      "name": "MCP Client2"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        384,
+        64
+      ],
+      "id": "8c1300ba-0c9e-4012-b46b-3a06d3509380",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.2,
+      "position": [
+        656,
+        352
+      ],
+      "id": "7ae2366d-9595-4ea2-b559-5a8f6cd50f52",
+      "name": "MCP Client3"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://ruhmesmeile-storyblok-mcp.ruhmesmeile.com/mcp",
+        "tool": {
+          "__rl": true,
+          "value": "scrape_url",
+          "mode": "list",
+          "cachedResultName": "scrape_url"
+        },
+        "parameters": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "url": "={{ $json.url }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "url",
+              "displayName": "url",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "selector",
+              "displayName": "selector",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "string",
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClient",
+      "typeVersion": 1,
+      "position": [
+        240,
+        -496
+      ],
+      "id": "892891ca-9c0a-4ea7-be9d-54707cf134cb",
+      "name": "Scrape Content"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://ruhmesmeile-storyblok-mcp.ruhmesmeile.com/mcp",
+        "tool": {
+          "__rl": true,
+          "value": "generate_content",
+          "mode": "list",
+          "cachedResultName": "generate_content"
+        },
+        "parameters": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "system": "You are a helpful assistant that generates high-quality website content based on the provided context and user instructions. Ensure the content is engaging, relevant, and well-structured.  Sections that include multiple, different components should always be set to `mode` equals `list`, sections including multiple of the same, smaller components (like teaser cards) should always use the list `mode` of `tile`.  Generally, only use `stacked` as an option in an enum, if it's really obviously the right choice. Most of the time it's not.  \n\nOnly for fields where you don't have a matching image in the input, you use placehold.co: \n- the format reads as follows: https://placehold.co/1200x600?text=Dynamic+Web+Evolution, where after the domain you follow up with the dimensions (width x height) and then the `text` parameter to specify the text shown on the placeholder image \n- as the text, use a description for a good fitting image, that should be shown here. It should theoretically work as the alt text for the image \n- if the property getting such an image URL is called `backgroundImage` in general, or specifically `image` inside the Hero component, add `transparent/999999` after the dimensions (e.g. https://placehold.co/1200x600/transparent/999999?text=Dynamic+Web+Evolution) \n- never append or use any other parameters of path segments than the ones described here when constructing such image URLs\n\nYou should always prefer using one of the provided images.",
+            "prompt": "=Bitte erstelle eine Seite aus dem folgenden Markdown, stelle sicher wirklich jeden einzelnen Inhalt zu übernehmen. Es sollte nichts ausgelassen, synthetisiert oder verkürzt werden:\n\nTitel der Seite: {{ $json.content[0].text.title }}\n\nInhalt der Seite: {{ $json.content[0].text.markdown }}\n\nZusätzlich gibt es folgende Bilder auf der Seite:\n{{ $json.content[0].text.images.map(image => `* [${image.alt || image.context}]${image.src}\\n`) }}",
+            "sectionCount": 7
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "system",
+              "displayName": "system",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "prompt",
+              "displayName": "prompt",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "schema",
+              "displayName": "schema",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "object",
+              "defaultValue": "{\n  \"name\": \"string\",\n  \"strict\": false,\n  \"schema\": {}\n}",
+              "removed": true
+            },
+            {
+              "id": "componentType",
+              "displayName": "componentType",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "sectionCount",
+              "displayName": "sectionCount",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClient",
+      "typeVersion": 1,
+      "position": [
+        448,
+        -496
+      ],
+      "id": "ccd66160-39d5-46f8-9e0e-3240c9622aab",
+      "name": "Generate Sections"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://ruhmesmeile-storyblok-mcp.ruhmesmeile.com/mcp",
+        "tool": {
+          "__rl": true,
+          "value": "create_page_with_content",
+          "mode": "list",
+          "cachedResultName": "create_page_with_content"
+        },
+        "parameters": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "name": "={{ $('Scrape Content').item.json.content[0].text.title.split(\" \")[0] }}",
+            "slug": "={{ $('Scrape URL').item.json.slug }}",
+            "sections": "={{ $json.content[0].text.storyblokContent.section }}",
+            "uploadAssets": true,
+            "assetFolderName": "RuhmesmeileTest",
+            "parentId": 145240867434144
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "slug",
+              "displayName": "slug",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "parentId",
+              "displayName": "parentId",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "sections",
+              "displayName": "sections",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "array",
+              "defaultValue": "[\n  {}\n]",
+              "removed": false
+            },
+            {
+              "id": "publish",
+              "displayName": "publish",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "boolean",
+              "removed": true
+            },
+            {
+              "id": "uploadAssets",
+              "displayName": "uploadAssets",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "boolean",
+              "removed": false
+            },
+            {
+              "id": "assetFolderName",
+              "displayName": "assetFolderName",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "skipValidation",
+              "displayName": "skipValidation",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "boolean",
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClient",
+      "typeVersion": 1,
+      "position": [
+        656,
+        -496
+      ],
+      "id": "ce09f06f-ae70-4899-93b5-52410f14b032",
+      "name": "Insert Page"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {url: \"https://www.ruhmesmeile.com/services\", sessionId: (new Date()).getTime()}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        96,
+        -256
+      ],
+      "id": "c201b300-a11b-4ca6-a9c1-5c916c337082",
+      "name": "Code in JavaScript2"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://ruhmesmeile-storyblok-mcp.ruhmesmeile.com/mcp",
+        "tool": {
+          "__rl": true,
+          "value": "scrape_url",
+          "mode": "list",
+          "cachedResultName": "scrape_url"
+        },
+        "parameters": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "url": "={{ $json.url }}",
+            "selector": "main"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "url",
+              "displayName": "url",
+              "defaultMatch": false,
+              "required": true,
+              "display": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "selector",
+              "displayName": "selector",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClient",
+      "typeVersion": 1,
+      "position": [
+        304,
+        -256
+      ],
+      "id": "7d98b974-7dc3-49cd-ab9b-cecc8d70582c",
+      "name": "Scrape Content1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  url: \"https://www.ruhmesmeile.com/marketing/cms-accelerator-industriekunden\",\n  slug: \"cms-accelerator-industriekunden\",\n  sessionId: (new Date()).getTime()\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        32,
+        -496
+      ],
+      "id": "cc5cc7e7-887c-4315-9b9d-bed998a186fe",
+      "name": "Scrape URL"
+    },
+    {
+      "parameters": {
+        "content": "## Improvement \n- Let LLM generate `slug` if not in sheet\n- Let LLM generate page title (`name`)\n- Let LLM generate appropriate `sectionCount`",
+        "height": 240
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -624,
+        -1072
+      ],
+      "id": "7f65d65e-4450-410f-86b5-6fbb5c174732",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Variant\nThis workflow is quite rigid in regards to the output format (`generate_content` with only `sectionCount` generating whole page one shot). Evaluate generation loop for specific components (using `list_components` / `get_component`)",
+        "height": 240
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -336,
+        -1072
+      ],
+      "id": "2babb67a-b36d-425e-b242-30dc0e183112",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Slugs\nMCP should be able to take `slug`s with `/` in them, creating folders as needed (think of `mkdir -p folder/subfolder/another/one`)\n\nEspecially needed for import workflows",
+        "height": 240
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -48,
+        -1072
+      ],
+      "id": "b300908a-a7e0-4fdc-8d7a-5a617b1a0592",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## Monday W1 \n**Structured mass generation**\n- Google Sheet with product details\n- Create promo pages per product for trade show",
+        "height": 240
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1504,
+        -880
+      ],
+      "id": "d3d3b033-4f77-4025-81b6-aff6222536c8",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Monday W2\n**Page migration**\n- Ingest sitemap.xml\n- Create all pages from sitemap\n- Track progress in Google Sheets",
+        "height": 240
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1504,
+        -592
+      ],
+      "id": "ec1b3fc7-50a3-4134-9030-eae9a8863827",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## Wednesday W2\n**Content audit**\n- Pull all stories\n- Calculate some metrics\n- Add them to Google Sheet",
+        "height": 240
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1504,
+        -304
+      ],
+      "id": "846a3793-1dff-41cc-b2f5-1a459b9529dc",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "## Friday W2\n**Blog autopilot**\n- Pull RSS feed weekly\n- Derive one central post topic\n- Create a blog post draft",
+        "height": 240
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1504,
+        -16
+      ],
+      "id": "eed84439-cf6c-41ce-934b-0038511a350d",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://ruhmesmeile-storyblok-mcp.ruhmesmeile.com/mcp",
+        "tool": {
+          "__rl": true,
+          "value": "list_stories",
+          "mode": "list",
+          "cachedResultName": "list_stories"
+        },
+        "parameters": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "perPage": 100,
+            "startsWith": "industry",
+            "excludeContent": false
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "startsWith",
+              "displayName": "startsWith",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "contentType",
+              "displayName": "contentType",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "page",
+              "displayName": "page",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "number",
+              "removed": true
+            },
+            {
+              "id": "perPage",
+              "displayName": "perPage",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "excludeContent",
+              "displayName": "excludeContent",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "boolean",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClient",
+      "typeVersion": 1,
+      "position": [
+        2112,
+        -304
+      ],
+      "id": "9e34956c-2459-464d-914f-8a116ffa79bd",
+      "name": "Get Stories"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://ruhmesmeile-storyblok-mcp.ruhmesmeile.com/mcp",
+        "tool": {
+          "__rl": true,
+          "value": "list_assets",
+          "mode": "list",
+          "cachedResultName": "list_assets"
+        },
+        "parameters": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "perPage": 100,
+            "inFolder": 146324080647816
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "page",
+              "displayName": "page",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "number",
+              "removed": true
+            },
+            {
+              "id": "perPage",
+              "displayName": "perPage",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "search",
+              "displayName": "search",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "inFolder",
+              "displayName": "inFolder",
+              "defaultMatch": false,
+              "required": false,
+              "display": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClient",
+      "typeVersion": 1,
+      "position": [
+        2112,
+        -160
+      ],
+      "id": "0d9607ba-a935-42fa-bc0a-278748ac39a9",
+      "name": "Get Assets"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        1904,
+        -528
+      ],
+      "id": "f6585339-df02-4242-85c1-7d16994cd921",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "13zWW3w8IljQDJjsyWJcdMLFhVOCrxfac6okSNyMn3yA",
+          "mode": "list",
+          "cachedResultName": "Content Migration",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13zWW3w8IljQDJjsyWJcdMLFhVOCrxfac6okSNyMn3yA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2087610569,
+          "mode": "list",
+          "cachedResultName": "Products",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13zWW3w8IljQDJjsyWJcdMLFhVOCrxfac6okSNyMn3yA/edit#gid=2087610569"
+        },
+        "options": {}
+      },
+      "id": "3f969cad-ddd7-488e-9943-a72923148438",
+      "name": "Read Products",
+      "type": "n8n-nodes-base.googleSheets",
+      "maxTries": 5,
+      "position": [
+        2096,
+        -816
+      ],
+      "executeOnce": true,
+      "retryOnFail": true,
+      "typeVersion": 4.5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "K0bHaT4KbbGa22Xw",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1e7e7c6d-401d-4b6e-ba9c-1e9caacb3f89",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.story_id }}",
+              "rightValue": ""
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "id": "3e1cb785-57f4-413e-b1b5-468e9b9ee775",
+      "name": "Product not imported?",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        2272,
+        -816
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Create a trade fair product landing page for the following product:\n\n**Product Name:** {{ $json.product_name }}\n**Category:** {{ $json.category }}\n**Tagline:** {{ $json.tagline }}\n**Status:** {{ $json.status }}\n\n**Description:**\n{{ $json.description }}\n\n**Key Features:**\n{{ $json.key_features.split(' | ').map((f, i) => `${i + 1}. ${f}`).join('\\n') }}\n\n**Trade Fair Messaging:**\n{{ $json.trade_fair_messaging }}\n\n**Target Audience:** {{ $json.target_audience }}\n**Landing Page Tone:** {{ $json.landing_page_tone }}\n\n**Page slug:** {{ $json.slug.split('/').pop() }}\n**Page path:** industry/hannover-messe-2026\n\nPlease follow the full workflow: plan the page, generate each section\nindividually with proper transition context, then create the page in Storyblok.",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are a senior industrial marketing specialist creating trade fair product\nlanding pages for FALKENBERG Precision GmbH, a German manufacturer of precision\nsensors and measurement systems. You are creating pages for HANNOVER MESSE 2026\n(20–24 April 2026, Hannover, Germany). FALKENBERG's booth is at Hall 11,\nStand B42.\n\n## Your Task\n\nFor each product you receive, create a compelling landing page in the Storyblok\nCMS using the available MCP tools. You MUST follow this exact workflow IN ORDER.\nDo NOT skip steps or reorder them.\n\n### Step 1 — Analyze the site (only on the very first product)\n\nCall these three tools and wait for all responses before proceeding:\n- `analyze_content_patterns` — understand existing page structures, always use `startsWith` option with value \"industry/\"\n- `list_recipes` with intent \"trade fair product landing page\" — get proven\n  section combinations and anti-patterns to avoid\n- `list_icons` — get the full list of valid icon identifiers\n\n### Step 2 — Plan the page structure\n\nCall `plan_page` with an intent derived from the product data. Example:\n\"Trade fair product landing page for {product_name} at HANNOVER MESSE 2026.\n{tagline}. Tone: {landing_page_tone}\", always use `startsWith` option with value \"industry/\"\n\nWait for the plan response. It returns a `sections` array where each entry has\na `componentType` and `intent`. You will use this plan in Step 3.\n\n### Step 3 — Generate ALL sections one by one\n\nFor EACH section in the plan (in order), call `generate_section` with:\n- `componentType`: the section type from the plan (e.g. \"hero\", \"features\")\n- `prompt`: a detailed prompt incorporating the product data, tailored to the\n  section type (hero → headline/tagline; features → key_features; CTA → booth)\n- `previousSection` and `nextSection`: set these for transition context\n- `startsWith` option with value \"industry/\"\n\nIMPORTANT — Extracting section data from the response:\nEach `generate_section` call returns a JSON object. The `section` field in that\nresponse contains the Storyblok-ready section object. You MUST extract ONLY the\n`section` field from each response. Example:\n\n  Response from generate_section:\n  {\n    \"section\": { \"component\": \"section\", \"components\": [...] },  ← USE THIS\n    \"designSystemProps\": { ... },                                ← ignore\n    \"componentType\": \"hero\",                                     ← ignore\n    \"note\": \"...\"                                                ← ignore\n  }\n\nCollect the `section` values from ALL generate_section calls into an array.\nDo NOT call `create_page_with_content` until every section has been generated.\n\n### Step 4 — Create the page (only after ALL sections are generated)\n\nCall `create_page_with_content` with:\n- `name`: the product_name\n- `slug`: take only the last segment of the slug column (e.g. \"optline-7000\")\n- `path`: \"industry/hannover-messe-2026\"\n- `sections`: the array of section objects collected in Step 3.\n  Each element MUST be a section object with `\"component\": \"section\"` and a\n  `\"components\"` array inside. Do NOT pass the full generate_section response\n  objects — only the extracted `section` field from each.\n- `uploadAssets`: true\n- `assetFolderName`: \"FALKENBERG Precision\"\n- `publish`: false\n\n## Content Guidelines\n\n- **Tone**: Follow the `landing_page_tone` field for each product. All content\n  should be professional, technically credible, and aimed at industrial\n  decision-makers.\n- **Trade fair context**: Every page must prominently feature the HANNOVER MESSE\n  2026 context — dates, booth location (Hall 11, Stand B42), and a clear call\n  to action to visit the booth or book a meeting.\n- **Icons**: Only use identifiers returned by `list_icons`. Common choices:\n  `star`, `arrow-right`, `download`, `email`, `search`, `person`.\n- **Hero sections**: Use 1–2 buttons. Primary button should drive to the booth\n  or contact. Secondary can link to product details or catalog download.\n- **Features sections**: Use 3–4 items (not more). Each feature should have an\n  icon from the valid icon list.\n- **CTA sections**: Always include the booth location and a \"Book a Meeting\"\n  or \"Visit Our Booth\" call to action.\n- **Images**: Provide descriptive image prompts in the content. The asset\n  upload pipeline will handle them.\n- **Language**: English.\n- **All content is fictional** — FALKENBERG Precision GmbH does not exist.\n\n## Reporting Results\n\nWhen you finish creating the page, report back the product_name, story_id,\nstory_uuid, slug, page_url (https://demo.ruhmesmeile.com/{slug}),\nsections_count, status, and created_at from the create_page_with_content result.",
+          "maxIterations": 15
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        2736,
+        -896
+      ],
+      "id": "f28a057f-99ae-4589-b574-c1b3bf55409d",
+      "name": "Create Product Promo Page"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        2688,
+        -704
+      ],
+      "id": "5e4b713b-ded5-4702-b500-e4b613e07e89",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "kgGPgzqjSYOaTQdv",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://ruhmesmeile-storyblok-mcp.ruhmesmeile.com/mcp",
+        "include": "selected",
+        "includeTools": [
+          "analyze_content_patterns",
+          "list_recipes",
+          "list_icons",
+          "plan_page",
+          "generate_section",
+          "create_page_with_content"
+        ],
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.2,
+      "position": [
+        2800,
+        -704
+      ],
+      "id": "1eebaa9c-8638-46fb-9e1f-6d0eb248f250",
+      "name": "Storyblok MCP"
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "45438893-6187-4af2-9773-634b7816ba24",
+      "name": "Loop Over Products",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        2496,
+        -816
+      ],
+      "retryOnFail": true,
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"product_name\": {\n      \"type\": \"string\",\n      \"description\": \"The product name exactly as provided in the input\"\n    },\n    \"story_id\": {\n      \"type\": \"number\",\n      \"description\": \"The numeric story ID returned by create_page_with_content\"\n    },\n    \"story_uuid\": {\n      \"type\": \"string\",\n      \"description\": \"The UUID returned by create_page_with_content\"\n    },\n    \"slug\": {\n      \"type\": \"string\",\n      \"description\": \"The full page slug, e.g. industry/hannover-messe-2026/optline-7000\"\n    },\n    \"page_url\": {\n      \"type\": \"string\",\n      \"description\": \"The full page URL: https://falkenberg-precision.de/{slug}\"\n    },\n    \"sections_count\": {\n      \"type\": \"number\",\n      \"description\": \"Total number of sections created on the page\"\n    },\n    \"status\": {\n      \"type\": \"string\",\n      \"enum\": [\"created\", \"error\"],\n      \"description\": \"Whether the page was created successfully\"\n    },\n    \"created_at\": {\n      \"type\": \"string\",\n      \"description\": \"ISO 8601 timestamp of when the page was created\"\n    }\n  },\n  \"required\": [\"product_name\", \"story_id\", \"slug\", \"page_url\", \"sections_count\", \"status\", \"created_at\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        2928,
+        -704
+      ],
+      "id": "3e0ad394-4f10-4f24-8b39-bdb60d7405f9",
+      "name": "Structured Output"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "13zWW3w8IljQDJjsyWJcdMLFhVOCrxfac6okSNyMn3yA",
+          "mode": "list",
+          "cachedResultName": "Content Migration",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13zWW3w8IljQDJjsyWJcdMLFhVOCrxfac6okSNyMn3yA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2087610569,
+          "mode": "list",
+          "cachedResultName": "Products",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13zWW3w8IljQDJjsyWJcdMLFhVOCrxfac6okSNyMn3yA/edit#gid=2087610569"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "slug": "={{ $json.output.slug }}",
+            "story_id": "={{ $json.output.story_id }}",
+            "story_uuid": "={{ $json.output.story_uuid }}",
+            "page_url": "={{ $json.output.page_url }}",
+            "sections_count": "={{ $json.output.sections_count }}",
+            "workflow_status": "={{ $json.output.status }}",
+            "created_at": "={{ $json.output.created_at }}"
+          },
+          "matchingColumns": [
+            "slug"
+          ],
+          "schema": [
+            {
+              "id": "product_name",
+              "displayName": "product_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "slug",
+              "displayName": "slug",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "tagline",
+              "displayName": "tagline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "description",
+              "displayName": "description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "key_features",
+              "displayName": "key_features",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "trade_fair_messaging",
+              "displayName": "trade_fair_messaging",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "target_audience",
+              "displayName": "target_audience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "landing_page_tone",
+              "displayName": "landing_page_tone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "trade_fair_name",
+              "displayName": "trade_fair_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "trade_fair_dates",
+              "displayName": "trade_fair_dates",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "trade_fair_location",
+              "displayName": "trade_fair_location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "trade_fair_booth",
+              "displayName": "trade_fair_booth",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "story_id",
+              "displayName": "story_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "story_uuid",
+              "displayName": "story_uuid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "page_url",
+              "displayName": "page_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "sections_count",
+              "displayName": "sections_count",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "workflow_status",
+              "displayName": "workflow_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "ace36f44-f9db-488e-aaa7-633044a26d47",
+      "name": "Update Product Record",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        3104,
+        -816
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "K0bHaT4KbbGa22Xw",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "13zWW3w8IljQDJjsyWJcdMLFhVOCrxfac6okSNyMn3yA",
+          "mode": "list",
+          "cachedResultName": "Content Migration",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13zWW3w8IljQDJjsyWJcdMLFhVOCrxfac6okSNyMn3yA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 559098152,
+          "mode": "list",
+          "cachedResultName": "Migration",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13zWW3w8IljQDJjsyWJcdMLFhVOCrxfac6okSNyMn3yA/edit#gid=559098152"
+        },
+        "options": {}
+      },
+      "id": "7c7dd52f-bfee-463e-a806-6db5aee9b7f3",
+      "name": "Read Import Status",
+      "type": "n8n-nodes-base.googleSheets",
+      "maxTries": 5,
+      "position": [
+        2080,
+        -528
+      ],
+      "executeOnce": true,
+      "retryOnFail": true,
+      "typeVersion": 4.5,
+      "waitBetweenTries": 5000,
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "K0bHaT4KbbGa22Xw",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7d44d4ef-f226-4de9-8b43-280ab267069e",
+              "name": "URL",
+              "value": "https://www.ruhmesmeile.com/server-sitemap.xml",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2256,
+        -528
+      ],
+      "id": "796a702f-e718-41ed-a444-73a10e182b32",
+      "name": "Sitemap URL"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.URL }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        2432,
+        -528
+      ],
+      "id": "9eaff774-5a0c-44b5-ac1e-36ee477808ed",
+      "name": "Get Sitemap"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.urlset.url"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2784,
+        -528
+      ],
+      "id": "b7f742ef-5b9b-475e-829a-64986ef095c4",
+      "name": "Unwrap Data"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e206b883-5907-42cc-bb1c-cc3da8ab823a",
+              "leftValue": "={{ $('Read Import Status').all().length }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "7c2b508d-7720-4452-b487-65e06c027af6",
+              "leftValue": "={{ $('Read Import Status').all().filter(item => item.json[\"URL\"] === $json.loc).length }}",
+              "rightValue": "=0",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "167bfac7-dc20-4897-8c30-77fcb92522c3",
+              "leftValue": "={{ $('Read Import Status').all().filter(item => item.json[\"URL\"] === $json.loc && item.json[\"Imported\"] === \"\").length }}",
+              "rightValue": 1,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2944,
+        -528
+      ],
+      "id": "d7a525fa-b575-4468-a371-5e2ee43314e1",
+      "name": "Page not imported?"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        3136,
+        -528
+      ],
+      "id": "b6ec36e2-6a1c-4ea3-a4b9-ca1c5943fd14",
+      "name": "Loop Over Pages"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2320,
+        -240
+      ],
+      "id": "42dc0c25-e3d9-4bf5-be07-fde25f4b8657",
+      "name": "Merge Data"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C01UZFJ6DAM",
+          "mode": "list",
+          "cachedResultName": "review"
+        },
+        "messageType": "block",
+        "blocksUi": "={\"blocks\": {{ $json.slackBlocks }}}",
+        "text": "={{ $json.slackText }}",
+        "otherOptions": {
+          "mrkdwn": false
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [
+        2944,
+        -240
+      ],
+      "id": "8b65ab90-f63f-4402-b567-389f85e36fa9",
+      "name": "Report to Slack",
+      "webhookId": "7ec62be6-6a9e-47f7-aefa-62ff19488123",
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "uMOW0iyNETUm4J7r",
+          "name": "Slack account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [
+                1
+              ],
+              "triggerAtHour": 12
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        1904,
+        -240
+      ],
+      "id": "830e1188-837e-47ef-967e-5bfe8703a853",
+      "name": "Every Monday"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtHour": 12
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        1888,
+        64
+      ],
+      "id": "8164645d-6192-458b-9da3-9c96412773d0",
+      "name": "Every Sunday"
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * n8n Code Node: Content Audit Rules\n *\n * Input:  $input.all() — expects items with the following shape:\n *   - Each item has a `json.story` (full story from MCP `get_story`)\n *   - One item has `json.assets` (full asset list from MCP `list_assets`, paginated & merged)\n *\n * The workflow preceding this node should:\n *   1. Call `list_stories` (paginated) to get all story stubs\n *   2. Loop over each story and call `get_story` to get full content\n *   3. Merge all story results + one `list_assets` result into the input\n *\n * Output: A single item with `json.auditResults` containing all findings,\n *         summary statistics, and metadata needed by the Report Code Node.\n */\n\n// ── Configuration ──────────────────────────────────────────────────────\nconst STALE_MONTHS = 6;\nconst MIN_TEXT_LENGTH = 50;\nconst MAX_META_TITLE_LENGTH = 60;\nconst MAX_META_DESCRIPTION_LENGTH = 160;\nconst MIN_META_TITLE_LENGTH = 10;\nconst MIN_META_DESCRIPTION_LENGTH = 50;\nconst EXTERNAL_URL_PATTERNS = [\n  \"placehold.co\",\n  \"picsum.photos\",\n  \"unsplash.com\",\n  \"placeholder.com\",\n  \"via.placeholder.com\",\n  \"dummyimage.com\",\n  \"lorempixel.com\",\n];\n\n// ── Collect inputs ─────────────────────────────────────────────────────\nconst allItems = $input.all();\n\n// Separate stories from assets\nconst stories = [];\nlet allAssets = [];\n\nfor (const story of allItems[0].json.content[0].text.stories) {\n  stories.push(story);\n}\nallAssets.concat(allItems[1].json.content[0].text.assets);\nconst now = new Date();\nconst findings = [];\nconst assetUrlSet = new Set(allAssets.map((a) => a.filename).filter(Boolean));\n\n// ── Helper: Extract filename from asset (handles both string and object) ─\nfunction getAssetFilename(value) {\n  if (!value) return null;\n  if (typeof value === \"string\") return value;\n  if (typeof value === \"object\" && value.filename) return value.filename;\n  return null;\n}\n\n// ── Helper: Check if an asset is a Storyblok-hosted asset ──────────────\nfunction isStoryblokAsset(url) {\n  if (!url) return false;\n  return url.includes(\"storyblok.com\") || url.startsWith(\"//a.storyblok.com\");\n}\n\n// ── Helper: Check if URL is a placeholder/external image ───────────────\nfunction isExternalPlaceholder(url) {\n  if (!url) return false;\n  return EXTERNAL_URL_PATTERNS.some((p) => url.includes(p));\n}\n\n// ── Helper: Check if a value is an empty/null asset object ─────────────\nfunction isEmptyAsset(value) {\n  if (!value) return true;\n  if (typeof value === \"string\") return value.trim() === \"\";\n  if (typeof value === \"object\") {\n    if (value.fieldtype === \"asset\") {\n      return !value.filename || value.filename.trim() === \"\";\n    }\n  }\n  return false;\n}\n\n// ── Helper: Get alt text from various field patterns ───────────────────\nfunction getAltText(node, imageKey) {\n  // Pattern 1: separate _alt field (e.g. image_alt for image_src)\n  const altKey = imageKey\n    .replace(/_?src$/, \"_alt\")\n    .replace(/^image$/, \"image_alt\");\n  if (altKey !== imageKey && node[altKey] !== undefined) {\n    return node[altKey];\n  }\n  // Pattern 1b: responsive variants (image_srcMobile, image_srcTablet,\n  // image_srcDesktop) share the same image_alt as image_src because they\n  // all render inside a single <picture> tag.\n  if (\n    /^image_src(Mobile|Tablet|Desktop)$/.test(imageKey) &&\n    node.image_alt !== undefined\n  ) {\n    return node.image_alt;\n  }\n  // Pattern 2: alt text inside asset object\n  if (typeof node[imageKey] === \"object\" && node[imageKey]?.alt !== undefined) {\n    return node[imageKey].alt;\n  }\n  // Pattern 3: standalone \"alt\" field on the same node\n  // Covers \"image\" fields and logo sub-components where src + alt are siblings\n  if (node.alt !== undefined && (imageKey === \"image\" || imageKey === \"src\")) {\n    return node.alt;\n  }\n  // Pattern 4: camelCase alt field (e.g. imageAlt for image on teaser-card)\n  if (imageKey === \"image\" && node.imageAlt !== undefined) {\n    return node.imageAlt;\n  }\n  return undefined;\n}\n\n// ── Helper: Months between two dates ──────────────────────────────────\nfunction monthsBetween(d1, d2) {\n  return (\n    (d2.getFullYear() - d1.getFullYear()) * 12 + (d2.getMonth() - d1.getMonth())\n  );\n}\n\n// ── Helper: Count total text length in a component tree ────────────────\nfunction countTextContent(node) {\n  let total = 0;\n  if (!node || typeof node !== \"object\") return total;\n  for (const [key, value] of Object.entries(node)) {\n    if (key === \"text\" && typeof value === \"string\") {\n      total += value.replace(/[#*_~`>\\-\\[\\]()]/g, \"\").trim().length;\n    } else if (Array.isArray(value)) {\n      value.forEach((v) => {\n        total += countTextContent(v);\n      });\n    } else if (typeof value === \"object\" && value !== null) {\n      total += countTextContent(value);\n    }\n  }\n  return total;\n}\n\n// ── Recursive content tree walker ─────────────────────────────────────\nfunction walkContent(node, path, storySlug, storyName) {\n  if (!node || typeof node !== \"object\") return;\n\n  const component = node.component;\n\n  // ── IMAGE RULES ─────────────────────────────────────────────────────\n\n  // Known image field patterns in the component schemas\n  const imageFields = [\n    \"image_src\",\n    \"image_srcMobile\",\n    \"image_srcTablet\",\n    \"image_srcDesktop\",\n    \"image\",\n    \"image_src\",\n    \"backgroundImage\",\n    \"logo_src\",\n    \"avatar_src\",\n    \"cardImage\",\n    \"src\", // gallery images sub-component\n  ];\n\n  for (const field of imageFields) {\n    if (node[field] !== undefined) {\n      const filename = getAssetFilename(node[field]);\n\n      // Rule: Empty image source (non-optional image fields)\n      if (\n        isEmptyAsset(node[field]) &&\n        [\"image_src\", \"image\", \"image_srcMobile\"].includes(field)\n      ) {\n        // Only flag if the component typically requires an image\n        if (\n          [\n            \"hero\",\n            \"image-text\",\n            \"image-story\",\n            \"gallery\",\n            \"teaser-card\",\n          ].includes(component)\n        ) {\n          findings.push({\n            rule: \"empty-image\",\n            severity: \"medium\",\n            category: \"images\",\n            story: storySlug,\n            storyName,\n            path: `${path}.${field}`,\n            component,\n            message: `Empty image source on ${component}.${field}`,\n          });\n        }\n      }\n\n      // Rule: Missing alt text\n      // Skip SEO images — they are only used as social graph / OG meta images\n      // and are never rendered with an alt attribute.\n      // Skip backgroundImage — decorative CSS background, no alt attribute.\n      if (\n        filename &&\n        !isEmptyAsset(node[field]) &&\n        !(\n          component === \"seo\" &&\n          (field === \"image\" || field === \"cardImage\")\n        ) &&\n        field !== \"backgroundImage\"\n      ) {\n        const alt = getAltText(node, field);\n        if (\n          alt === undefined ||\n          alt === null ||\n          (typeof alt === \"string\" && alt.trim() === \"\")\n        ) {\n          findings.push({\n            rule: \"missing-alt-text\",\n            severity: \"high\",\n            category: \"images\",\n            story: storySlug,\n            storyName,\n            path: `${path}.${field}`,\n            component,\n            message: `Missing alt text for ${component}.${field}`,\n            detail: filename?.substring(0, 80),\n          });\n        }\n      }\n\n      // Rule: External/placeholder image in production\n      if (filename && isExternalPlaceholder(filename)) {\n        findings.push({\n          rule: \"placeholder-image\",\n          severity: \"high\",\n          category: \"images\",\n          story: storySlug,\n          storyName,\n          path: `${path}.${field}`,\n          component,\n          message: `Placeholder/external image on ${component}.${field}`,\n          detail: filename.substring(0, 80),\n        });\n      }\n\n      // Rule: External non-Storyblok image (not placeholder but still external)\n      if (\n        filename &&\n        !isStoryblokAsset(filename) &&\n        !isExternalPlaceholder(filename) &&\n        filename.startsWith(\"http\")\n      ) {\n        findings.push({\n          rule: \"external-image\",\n          severity: \"medium\",\n          category: \"images\",\n          story: storySlug,\n          storyName,\n          path: `${path}.${field}`,\n          component,\n          message: `Non-Storyblok image on ${component}.${field} — should be uploaded as asset`,\n          detail: filename.substring(0, 80),\n        });\n      }\n    }\n  }\n\n  // ── CONTENT QUALITY RULES ───────────────────────────────────────────\n\n  // Rule: Short text content on components that should have meaningful text\n  if (component && node.text && typeof node.text === \"string\") {\n    const cleanText = node.text.replace(/[#*_~`>\\-\\[\\]()\\\\n<>]/g, \"\").trim();\n    if (cleanText.length > 0 && cleanText.length < MIN_TEXT_LENGTH) {\n      findings.push({\n        rule: \"short-text\",\n        severity: \"low\",\n        category: \"content\",\n        story: storySlug,\n        storyName,\n        path: `${path}.text`,\n        component,\n        message: `Short text (${cleanText.length} chars) on ${component}`,\n        detail: cleanText.substring(0, 60) + (cleanText.length > 60 ? \"…\" : \"\"),\n      });\n    }\n  }\n\n  // Rule: Empty section (section with 0 components)\n  if (\n    component === \"section\" &&\n    Array.isArray(node.components) &&\n    node.components.length === 0\n  ) {\n    findings.push({\n      rule: \"empty-section\",\n      severity: \"high\",\n      category: \"content\",\n      story: storySlug,\n      storyName,\n      path: `${path}`,\n      component: \"section\",\n      message: \"Section has no components\",\n    });\n  }\n\n  // Rule: Hero without headline\n  if (component === \"hero\" && (!node.headline || node.headline.trim() === \"\")) {\n    findings.push({\n      rule: \"hero-no-headline\",\n      severity: \"medium\",\n      category: \"content\",\n      story: storySlug,\n      storyName,\n      path: `${path}`,\n      component: \"hero\",\n      message: \"Hero component has no headline\",\n    });\n  }\n\n  // Rule: CTA without buttons\n  if (component === \"cta\") {\n    const hasButtons = Array.isArray(node.buttons) && node.buttons.length > 0;\n    if (!hasButtons) {\n      findings.push({\n        rule: \"cta-no-buttons\",\n        severity: \"medium\",\n        category: \"content\",\n        story: storySlug,\n        storyName,\n        path: `${path}`,\n        component: \"cta\",\n        message: \"CTA component has no buttons\",\n      });\n    }\n  }\n\n  // Rule: Teaser card without link/URL\n  if (component === \"teaser-card\") {\n    const url = node.url || node.target;\n    const hasUrl =\n      url &&\n      (typeof url === \"string\"\n        ? url.trim() !== \"\" && url !== \"#\"\n        : url.cached_url || url.url);\n    const buttonHidden = node.button_hidden === true;\n    if (!hasUrl && !buttonHidden) {\n      findings.push({\n        rule: \"teaser-no-link\",\n        severity: \"low\",\n        category: \"content\",\n        story: storySlug,\n        storyName,\n        path: `${path}`,\n        component: \"teaser-card\",\n        message: \"Teaser card has no link target\",\n      });\n    }\n  }\n\n  // ── Recurse ─────────────────────────────────────────────────────────\n  for (const [key, value] of Object.entries(node)) {\n    if (Array.isArray(value)) {\n      value.forEach((item, i) => {\n        if (typeof item === \"object\" && item !== null) {\n          walkContent(item, `${path}.${key}[${i}]`, storySlug, storyName);\n        }\n      });\n    } else if (typeof value === \"object\" && value !== null && key !== \"_uid\") {\n      walkContent(value, `${path}.${key}`, storySlug, storyName);\n    }\n  }\n}\n\n// ── Process each story ────────────────────────────────────────────────\nconst heroCountByStory = {};\nconst imageUrlsInContent = new Set();\n\nfor (const story of stories) {\n  const slug = story.full_slug || story.slug;\n  const name = story.name;\n  const content = story.content;\n  if (!content) continue;\n\n  // Skip import/migration staging pages\n  if (slug.includes(\"import\")) continue;\n\n  const contentType = content.component || \"unknown\";\n\n  // ── SEO RULES ─────────────────────────────────────────────────────\n\n  const seoArr = content.seo;\n  const hasSeo = Array.isArray(seoArr) && seoArr.length > 0;\n  const seo = hasSeo ? seoArr[0] : null;\n\n  // Rule: Missing SEO block entirely\n  if (!hasSeo) {\n    findings.push({\n      rule: \"missing-seo\",\n      severity: \"high\",\n      category: \"seo\",\n      story: slug,\n      storyName: name,\n      path: \"content.seo\",\n      component: contentType,\n      message: \"No SEO metadata configured\",\n    });\n  } else {\n    // Rule: Missing meta title\n    if (!seo.title || seo.title.trim() === \"\") {\n      findings.push({\n        rule: \"missing-meta-title\",\n        severity: \"high\",\n        category: \"seo\",\n        story: slug,\n        storyName: name,\n        path: \"content.seo[0].title\",\n        component: \"seo\",\n        message: \"Missing meta title\",\n      });\n    } else {\n      // Rule: Meta title too long\n      if (seo.title.length > MAX_META_TITLE_LENGTH) {\n        findings.push({\n          rule: \"meta-title-too-long\",\n          severity: \"medium\",\n          category: \"seo\",\n          story: slug,\n          storyName: name,\n          path: \"content.seo[0].title\",\n          component: \"seo\",\n          message: `Meta title too long (${seo.title.length}/${MAX_META_TITLE_LENGTH} chars)`,\n          detail: seo.title,\n        });\n      }\n      // Rule: Meta title too short\n      if (seo.title.length < MIN_META_TITLE_LENGTH) {\n        findings.push({\n          rule: \"meta-title-too-short\",\n          severity: \"low\",\n          category: \"seo\",\n          story: slug,\n          storyName: name,\n          path: \"content.seo[0].title\",\n          component: \"seo\",\n          message: `Meta title too short (${seo.title.length}/${MIN_META_TITLE_LENGTH} chars)`,\n          detail: seo.title,\n        });\n      }\n    }\n\n    // Rule: Missing meta description\n    if (!seo.description || seo.description.trim() === \"\") {\n      findings.push({\n        rule: \"missing-meta-description\",\n        severity: \"high\",\n        category: \"seo\",\n        story: slug,\n        storyName: name,\n        path: \"content.seo[0].description\",\n        component: \"seo\",\n        message: \"Missing meta description\",\n      });\n    } else {\n      // Rule: Meta description too long\n      if (seo.description.length > MAX_META_DESCRIPTION_LENGTH) {\n        findings.push({\n          rule: \"meta-description-too-long\",\n          severity: \"medium\",\n          category: \"seo\",\n          story: slug,\n          storyName: name,\n          path: \"content.seo[0].description\",\n          component: \"seo\",\n          message: `Meta description too long (${seo.description.length}/${MAX_META_DESCRIPTION_LENGTH} chars)`,\n          detail: seo.description.substring(0, 80) + \"…\",\n        });\n      }\n      // Rule: Meta description too short\n      if (seo.description.length < MIN_META_DESCRIPTION_LENGTH) {\n        findings.push({\n          rule: \"meta-description-too-short\",\n          severity: \"low\",\n          category: \"seo\",\n          story: slug,\n          storyName: name,\n          path: \"content.seo[0].description\",\n          component: \"seo\",\n          message: `Meta description too short (${seo.description.length}/${MIN_META_DESCRIPTION_LENGTH} chars)`,\n          detail: seo.description,\n        });\n      }\n    }\n\n    // Rule: Missing OG image\n    const ogImage = seo.image;\n    if (isEmptyAsset(ogImage)) {\n      findings.push({\n        rule: \"missing-og-image\",\n        severity: \"medium\",\n        category: \"seo\",\n        story: slug,\n        storyName: name,\n        path: \"content.seo[0].image\",\n        component: \"seo\",\n        message: \"Missing Open Graph image\",\n      });\n    }\n  }\n\n  // ── FRESHNESS RULES ─────────────────────────────────────────────────\n\n  // Rule: Stale content (not updated in N months)\n  if (story.updated_at) {\n    const updatedAt = new Date(story.updated_at);\n    const months = monthsBetween(updatedAt, now);\n    if (months >= STALE_MONTHS) {\n      findings.push({\n        rule: \"stale-content\",\n        severity: \"medium\",\n        category: \"freshness\",\n        story: slug,\n        storyName: name,\n        path: \"\",\n        component: contentType,\n        message: `Content not updated in ${months} months (since ${\n          updatedAt.toISOString().split(\"T\")[0]\n        })`,\n      });\n    }\n  }\n\n  // Rule: Never published\n  if (!story.published_at) {\n    findings.push({\n      rule: \"never-published\",\n      severity: \"info\",\n      category: \"freshness\",\n      story: slug,\n      storyName: name,\n      path: \"\",\n      component: contentType,\n      message: \"Story has never been published\",\n    });\n  }\n\n  // Rule: Draft with unpublished changes\n  if (\n    story.published_at &&\n    story.updated_at &&\n    story.updated_at > story.published_at\n  ) {\n    const pubDate = new Date(story.published_at);\n    const updDate = new Date(story.updated_at);\n    if (updDate.getTime() - pubDate.getTime() > 60000) {\n      // More than 1 minute difference\n      findings.push({\n        rule: \"unpublished-changes\",\n        severity: \"info\",\n        category: \"freshness\",\n        story: slug,\n        storyName: name,\n        path: \"\",\n        component: contentType,\n        message: `Has unpublished changes (last update: ${\n          updDate.toISOString().split(\"T\")[0]\n        }, last publish: ${pubDate.toISOString().split(\"T\")[0]})`,\n      });\n    }\n  }\n\n  // ── STRUCTURAL RULES ───────────────────────────────────────────────\n\n  // Rule: Duplicate heroes (multiple hero components on a page)\n  if (contentType === \"page\" && Array.isArray(content.section)) {\n    let heroCount = 0;\n    for (const section of content.section) {\n      if (Array.isArray(section.components)) {\n        for (const comp of section.components) {\n          if (comp.component === \"hero\") heroCount++;\n        }\n      }\n    }\n    if (heroCount > 1) {\n      findings.push({\n        rule: \"duplicate-heroes\",\n        severity: \"medium\",\n        category: \"content\",\n        story: slug,\n        storyName: name,\n        path: \"content.section\",\n        component: \"page\",\n        message: `Page has ${heroCount} hero components (usually should be 1)`,\n      });\n    }\n  }\n\n  // Rule: Page with very few sections\n  if (\n    contentType === \"page\" &&\n    Array.isArray(content.section) &&\n    content.section.length < 2\n  ) {\n    findings.push({\n      rule: \"sparse-page\",\n      severity: \"low\",\n      category: \"content\",\n      story: slug,\n      storyName: name,\n      path: \"content.section\",\n      component: \"page\",\n      message: `Page has only ${content.section.length} section(s) — may be incomplete`,\n    });\n  }\n\n  // Rule: Page overall text content is very thin\n  if (contentType === \"page\") {\n    const totalText = countTextContent(content);\n    if (totalText < 200 && totalText > 0) {\n      findings.push({\n        rule: \"thin-content\",\n        severity: \"medium\",\n        category: \"content\",\n        story: slug,\n        storyName: name,\n        path: \"\",\n        component: \"page\",\n        message: `Page has very little text content (${totalText} chars total)`,\n      });\n    }\n  }\n\n  // ── Walk the full content tree for component-level rules ────────────\n  walkContent(content, \"content\", slug, name);\n\n  // ── Collect all image URLs used in this story (for orphan detection) ─\n  function collectImageUrls(node) {\n    if (!node || typeof node !== \"object\") return;\n    for (const [key, value] of Object.entries(node)) {\n      if (typeof value === \"string\" && value.includes(\"storyblok.com\")) {\n        imageUrlsInContent.add(value);\n      } else if (typeof value === \"object\" && value !== null) {\n        if (\n          value.filename &&\n          typeof value.filename === \"string\" &&\n          value.filename.includes(\"storyblok.com\")\n        ) {\n          imageUrlsInContent.add(value.filename);\n        }\n        if (key !== \"_uid\") collectImageUrls(value);\n      } else if (Array.isArray(value)) {\n        value.forEach((v) => collectImageUrls(v));\n      }\n    }\n  }\n  collectImageUrls(content);\n}\n\n// ── ASSET RULES (cross-reference) ──────────────────────────────────────\n\n// Rule: Orphaned assets (in library but not referenced by any story)\nlet orphanedAssetCount = 0;\nconst orphanedAssets = [];\nfor (const asset of allAssets) {\n  if (!asset.filename) continue;\n  // Normalize the asset URL for comparison\n  const normalizedUrl = asset.filename;\n  // Check if any story references this asset\n  let referenced = false;\n  for (const url of imageUrlsInContent) {\n    // Compare by filename portion to handle protocol/domain variations\n    const assetFile = normalizedUrl.split(\"/\").pop();\n    if (url.includes(assetFile)) {\n      referenced = true;\n      break;\n    }\n  }\n  if (!referenced) {\n    orphanedAssetCount++;\n    orphanedAssets.push({\n      filename: asset.short_filename || asset.filename.split(\"/\").pop(),\n      url: asset.filename,\n      size: asset.content_length,\n      uploadedAt: asset.created_at,\n    });\n  }\n}\n\nif (orphanedAssetCount > 0) {\n  findings.push({\n    rule: \"orphaned-assets\",\n    severity: \"low\",\n    category: \"images\",\n    story: \"(asset library)\",\n    storyName: \"Asset Library\",\n    path: \"\",\n    component: \"assets\",\n    message: `${orphanedAssetCount} asset(s) in the library are not referenced by any story`,\n    detail: orphanedAssets\n      .slice(0, 10)\n      .map((a) => a.filename)\n      .join(\", \"),\n  });\n}\n\n// Rule: Assets without alt text in the library\nconst assetsWithoutAlt = allAssets.filter(\n  (a) => a.filename && (!a.alt || a.alt.trim() === \"\")\n);\nif (assetsWithoutAlt.length > 0) {\n  findings.push({\n    rule: \"asset-library-no-alt\",\n    severity: \"low\",\n    category: \"images\",\n    story: \"(asset library)\",\n    storyName: \"Asset Library\",\n    path: \"\",\n    component: \"assets\",\n    message: `${assetsWithoutAlt.length} asset(s) in the library have no alt text`,\n    detail: assetsWithoutAlt\n      .slice(0, 5)\n      .map((a) => a.short_filename || a.filename.split(\"/\").pop())\n      .join(\", \"),\n  });\n}\n\n// ── Build summary statistics ──────────────────────────────────────────\nconst summary = {\n  totalStories: stories.length,\n  totalAssets: allAssets.length,\n  totalFindings: findings.length,\n  byCategory: {},\n  bySeverity: { high: 0, medium: 0, low: 0, info: 0 },\n  byRule: {},\n};\n\nfor (const f of findings) {\n  // By category\n  summary.byCategory[f.category] = summary.byCategory[f.category] || {\n    high: 0,\n    medium: 0,\n    low: 0,\n    info: 0,\n    total: 0,\n  };\n  summary.byCategory[f.category][f.severity]++;\n  summary.byCategory[f.category].total++;\n\n  // By severity\n  summary.bySeverity[f.severity]++;\n\n  // By rule\n  summary.byRule[f.rule] = (summary.byRule[f.rule] || 0) + 1;\n}\n\n// Health score: 100 - (high × 3) - (medium × 1.5) - (low × 0.5)\nsummary.healthScore = Math.max(\n  0,\n  Math.min(\n    100,\n    Math.round(\n      100 -\n        summary.bySeverity.high * 3 -\n        summary.bySeverity.medium * 1.5 -\n        summary.bySeverity.low * 0.5\n    )\n  )\n);\n\n// ── Return results ────────────────────────────────────────────────────\nreturn [\n  {\n    json: {\n      auditResults: {\n        generatedAt: now.toISOString(),\n        config: {\n          staleMonths: STALE_MONTHS,\n          minTextLength: MIN_TEXT_LENGTH,\n          maxMetaTitleLength: MAX_META_TITLE_LENGTH,\n          maxMetaDescriptionLength: MAX_META_DESCRIPTION_LENGTH,\n        },\n        summary,\n        findings,\n        orphanedAssets: orphanedAssets.slice(0, 20), // top 20 for the report\n      },\n    },\n  },\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2528,
+        -240
+      ],
+      "id": "7fb2ca61-120c-4c80-b17c-18e2d411629a",
+      "name": "Analyse Content"
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * n8n Code Node: Slack Audit Report Generator (Block Kit)\n *\n * Input:  A single item from the Audit Rules Code Node with `json.auditResults`.\n * Output: A single item with:\n *   - `json.slackText`    — Plain-text fallback for notifications\n *   - `json.slackBlocks`  — Slack Block Kit blocks (JSON string)\n *   - `json.reportTitle`  — Title string for the message\n *   - `json.healthScore`  — Numeric health score\n *   - `json.totalFindings` — Total finding count\n *   - `json.criticalCount` — High-severity finding count\n *   - `json.truncated`    — Boolean, true if blocks exceeded Slack's 50-block limit\n *\n * The output is designed for the Slack node configured with:\n *   - \"Send message\" action using Block Kit\n *   - Set \"Blocks\" to `{{ $json.slackBlocks }}`\n *   - Set \"Text\" (fallback) to `{{ $json.slackText }}`\n *\n * Slack mrkdwn differences from Markdown:\n *   - Bold: *text*  (single asterisk)\n *   - Italic: _text_\n *   - Code: `text`\n *   - Links: <url|label>\n *   - No tables, no headings, no horizontal rules\n *   - Use Block Kit for structured layout\n */\n\nconst { auditResults } = $input.first().json;\nconst { summary, findings, orphanedAssets, generatedAt, config } = auditResults;\n\n// ── Emoji helpers ─────────────────────────────────────────────────────\nconst severityEmoji = { high: \"🔴\", medium: \"🟡\", low: \"🔵\", info: \"ℹ️\" };\nconst categoryEmoji = {\n  images: \"🖼️\",\n  content: \"📝\",\n  seo: \"🔎\",\n  freshness: \"📅\",\n};\nconst severityLabel = {\n  high: \"High\",\n  medium: \"Medium\",\n  low: \"Low\",\n  info: \"Info\",\n};\nconst categoryLabel = {\n  images: \"Images\",\n  content: \"Content Quality\",\n  seo: \"SEO\",\n  freshness: \"Freshness\",\n};\n\n// ── Health score badge ────────────────────────────────────────────────\nfunction healthBadge(score) {\n  if (score >= 80) return `🟢 *${score}/100* — Healthy`;\n  if (score >= 60) return `🟡 *${score}/100* — Needs Attention`;\n  if (score >= 40) return `🟠 *${score}/100* — Significant Issues`;\n  return `🔴 *${score}/100* — Critical`;\n}\n\n// ── Truncate long strings ────────────────────────────────────────────\nfunction trunc(str, len = 50) {\n  if (!str) return \"\";\n  if (str.length <= len) return str;\n  return str.substring(0, len) + \"…\";\n}\n\n// ── Slack-safe text (escape special mrkdwn chars in dynamic content) ─\nfunction esc(str) {\n  if (!str) return \"—\";\n  return String(str).replace(/&/g, \"&amp;\").replace(/</g, \"&lt;\").replace(/>/g, \"&gt;\");\n}\n\n// ── Block Kit helpers ─────────────────────────────────────────────────\nfunction headerBlock(text) {\n  return { type: \"header\", text: { type: \"plain_text\", text, emoji: true } };\n}\n\nfunction sectionBlock(mrkdwn) {\n  return { type: \"section\", text: { type: \"mrkdwn\", text: mrkdwn } };\n}\n\nfunction contextBlock(...texts) {\n  return {\n    type: \"context\",\n    elements: texts.map((t) => ({ type: \"mrkdwn\", text: t })),\n  };\n}\n\nfunction dividerBlock() {\n  return { type: \"divider\" };\n}\n\n// ── Chunked section blocks ───────────────────────────────────────────\n// Slack section text max is 3000 chars — split long content into\n// multiple section blocks to avoid truncation.\nconst CHUNK_SIZE = 2800;\n\nfunction pushChunkedSections(blocks, textLines) {\n  let chunk = \"\";\n  for (const line of textLines) {\n    if (chunk && (chunk + \"\\n\" + line).length > CHUNK_SIZE) {\n      blocks.push(sectionBlock(chunk));\n      chunk = line;\n    } else {\n      chunk += (chunk ? \"\\n\" : \"\") + line;\n    }\n  }\n  if (chunk) blocks.push(sectionBlock(chunk));\n}\n\n// ── Date formatting ──────────────────────────────────────────────────\nconst date = new Date(generatedAt).toLocaleDateString(\"en-US\", {\n  year: \"numeric\",\n  month: \"long\",\n  day: \"numeric\",\n});\n\n// ── Build Block Kit blocks ───────────────────────────────────────────\nconst blocks = [];\n\n// ── Title & Context ──────────────────────────────────────────────────\nblocks.push(headerBlock(\"📋 Content Audit Report\"));\nblocks.push(\n  contextBlock(\n    `📅 ${date}`,\n    `📄 ${summary.totalStories} stories`,\n    `🖼️ ${summary.totalAssets} assets`\n  )\n);\n\n// ── Health Score ──────────────────────────────────────────────────────\nblocks.push(dividerBlock());\nblocks.push(sectionBlock(healthBadge(summary.healthScore)));\n\n// ── Summary by Category ──────────────────────────────────────────────\nblocks.push(dividerBlock());\nblocks.push(headerBlock(\"Summary\"));\n\nconst categoryOrder = [\"images\", \"seo\", \"content\", \"freshness\"];\nconst summaryLines = [];\nlet totalHigh = 0,\n  totalMedium = 0,\n  totalLow = 0,\n  totalInfo = 0,\n  totalAll = 0;\n\nfor (const cat of categoryOrder) {\n  const data = summary.byCategory[cat];\n  if (!data) continue;\n  const emoji = categoryEmoji[cat] || \"\";\n  const label = categoryLabel[cat] || cat;\n  const h = data.high || 0;\n  const m = data.medium || 0;\n  const l = data.low || 0;\n  const inf = data.info || 0;\n  totalHigh += h;\n  totalMedium += m;\n  totalLow += l;\n  totalInfo += inf;\n  totalAll += data.total || 0;\n\n  summaryLines.push(\n    `${emoji} *${label}*  ·  ${severityEmoji.high} ${h}  ${severityEmoji.medium} ${m}  ${severityEmoji.low} ${l}  ${severityEmoji.info} ${inf}  →  *${data.total}* total`\n  );\n}\n\n// Totals row\nsummaryLines.push(\"\");\nsummaryLines.push(\n  `*Total*  ·  ${severityEmoji.high} *${totalHigh}*  ${severityEmoji.medium} *${totalMedium}*  ${severityEmoji.low} *${totalLow}*  ${severityEmoji.info} *${totalInfo}*  →  *${totalAll} findings*`\n);\n\nblocks.push(sectionBlock(summaryLines.join(\"\\n\")));\n\n// ── Findings by Rule ─────────────────────────────────────────────────\nblocks.push(dividerBlock());\nblocks.push(headerBlock(\"Findings by Rule\"));\n\nconst sortedRules = Object.entries(summary.byRule).sort((a, b) => b[1] - a[1]);\nconst ruleLines = sortedRules.map(\n  ([rule, count]) => `\\`${rule}\\`  ×${count}`\n);\n\npushChunkedSections(blocks, ruleLines);\n\n// ── Detailed Findings by Severity ─────────────────────────────────────\nconst severityOrder = [\"high\", \"medium\", \"low\", \"info\"];\n\nfor (const sev of severityOrder) {\n  const sevFindings = findings.filter((f) => f.severity === sev);\n  if (sevFindings.length === 0) continue;\n\n  blocks.push(dividerBlock());\n  blocks.push(\n    headerBlock(\n      `${severityEmoji[sev]} ${severityLabel[sev]} (${sevFindings.length})`\n    )\n  );\n\n  // Group by category → rule\n  for (const cat of categoryOrder) {\n    const catFindings = sevFindings.filter((f) => f.category === cat);\n    if (catFindings.length === 0) continue;\n\n    const ruleGroups = {};\n    for (const f of catFindings) {\n      ruleGroups[f.rule] = ruleGroups[f.rule] || [];\n      ruleGroups[f.rule].push(f);\n    }\n\n    const groupLines = [];\n    groupLines.push(\n      `${categoryEmoji[cat]} *${categoryLabel[cat]}*`\n    );\n\n    for (const [rule, items] of Object.entries(ruleGroups)) {\n      groupLines.push(\"\");\n      groupLines.push(`*\\`${rule}\\`* (${items.length}):`);\n\n      for (const item of items) {\n        const detail = item.detail ? `  — _${esc(trunc(item.detail, 50))}_` : \"\";\n        groupLines.push(\n          `  • *${esc(item.storyName)}*  ·  \\`${esc(item.component)}\\`  ·  ${esc(item.message)}${detail}`\n        );\n      }\n    }\n\n    pushChunkedSections(blocks, groupLines);\n  }\n}\n\n// ── Orphaned Assets Section ──────────────────────────────────────────\nif (orphanedAssets && orphanedAssets.length > 0) {\n  blocks.push(dividerBlock());\n  blocks.push(headerBlock(`🗑️ Orphaned Assets (${orphanedAssets.length})`));\n\n  const assetLines = [\n    \"_These assets exist in the Storyblok library but are not referenced by any story._\",\n    \"\",\n  ];\n\n  for (const asset of orphanedAssets) {\n    const uploaded = asset.uploadedAt\n      ? new Date(asset.uploadedAt).toLocaleDateString(\"en-US\")\n      : \"—\";\n    assetLines.push(`  • \\`${esc(asset.filename)}\\`  ·  uploaded ${uploaded}`);\n  }\n\n  pushChunkedSections(blocks, assetLines);\n}\n\n// ── Top Offenders ────────────────────────────────────────────────────\nconst storyCounts = {};\nfor (const f of findings) {\n  if (f.severity === \"info\") continue;\n  storyCounts[f.story] = storyCounts[f.story] || {\n    name: f.storyName,\n    high: 0,\n    medium: 0,\n    low: 0,\n    total: 0,\n  };\n  storyCounts[f.story][f.severity]++;\n  storyCounts[f.story].total++;\n}\n\nconst topOffenders = Object.entries(storyCounts)\n  .sort((a, b) => b[1].total - a[1].total)\n  .slice(0, 10);\n\nif (topOffenders.length > 0) {\n  blocks.push(dividerBlock());\n  blocks.push(headerBlock(\"🏆 Top Offenders\"));\n\n  const offenderLines = [\n    \"_Stories with the most issues (excluding info):_\",\n    \"\",\n  ];\n  topOffenders.forEach(([slug, data], i) => {\n    offenderLines.push(\n      `${i + 1}. *${esc(data.name)}*  (\\`${esc(slug)}\\`)  —  ${severityEmoji.high} ${data.high}  ${severityEmoji.medium} ${data.medium}  ${severityEmoji.low} ${data.low}  →  *${data.total}*`\n    );\n  });\n\n  blocks.push(sectionBlock(offenderLines.join(\"\\n\")));\n}\n\n// ── Configuration Reference ──────────────────────────────────────────\nblocks.push(dividerBlock());\nblocks.push(\n  contextBlock(\n    `⚙️ *Audit Configuration*`,\n    `Stale: ${config.staleMonths}mo`,\n    `Min text: ${config.minTextLength} chars`,\n    `Title: ≤${config.maxMetaTitleLength}`,\n    `Desc: ≤${config.maxMetaDescriptionLength}`\n  )\n);\n\n// ── Footer ───────────────────────────────────────────────────────────\nblocks.push(dividerBlock());\nblocks.push(\n  contextBlock(\n    `_Automated audit by <https://www.kickstartDS.com|kickstartDS> Content-Ops pipeline_`\n  )\n);\n\n// ── Plain-text fallback (for notifications & non-Block-Kit clients) ──\nconst slackText = [\n  `📋 Content Audit Report — ${date}`,\n  healthBadge(summary.healthScore),\n  `${summary.totalFindings} findings across ${summary.totalStories} stories`,\n  summary.bySeverity.high > 0\n    ? `🔴 ${summary.bySeverity.high} critical issues require attention`\n    : \"✅ No critical issues\",\n].join(\"\\n\");\n\n// ── Slack Block Kit has a max of 50 blocks per message ───────────────\n// If we exceed, truncate detail blocks and add a note\nconst MAX_BLOCKS = 50;\nlet truncatedNote = false;\nif (blocks.length > MAX_BLOCKS) {\n  blocks.length = MAX_BLOCKS - 2;\n  truncatedNote = true;\n  blocks.push(dividerBlock());\n  blocks.push(\n    contextBlock(\n      `⚠️ _Report truncated (${blocks.length + 2} blocks needed, Slack max is ${MAX_BLOCKS}). ${summary.totalFindings} total findings — view the full markdown report for complete details._`\n    )\n  );\n}\n\nreturn [\n  {\n    json: {\n      reportTitle: `Content Audit — ${date}`,\n      slackText,\n      slackBlocks: JSON.stringify(blocks),\n      healthScore: summary.healthScore,\n      totalFindings: summary.totalFindings,\n      criticalCount: summary.bySeverity.high,\n      truncated: truncatedNote,\n    },\n  },\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2736,
+        -240
+      ],
+      "id": "09b6168a-27f5-416c-8f8b-4c24bbdf0913",
+      "name": "Create Report"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7d44d4ef-f226-4de9-8b43-280ab267069e",
+              "name": "URL",
+              "value": "http://metrology.news/feed/",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2096,
+        64
+      ],
+      "id": "5ae25602-26b1-4f02-9c5d-8380d65faac3",
+      "name": "RSS Feed URL"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.URL }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        2304,
+        64
+      ],
+      "id": "4c57e746-2496-46a1-a649-b7c65ed8a51c",
+      "name": "Get RSS Feed"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        2608,
+        -528
+      ],
+      "id": "abd70d9f-308e-45b0-b37b-ff26c58a35db",
+      "name": "Sitemap to JSON"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        2512,
+        64
+      ],
+      "id": "08d4d370-5124-4228-a3bb-1fa270d09acc",
+      "name": "RSS Feed to JSON"
+    },
+    {
+      "parameters": {
+        "jsCode": "const content = $input.first().json.rss.channel.item.slice(0, 6).reduce((acc, item) => acc.concat(`Title: ${item.title}\\nDescription: ${item.description}Link: ${item.link}\\n\\n`), \"\")\nreturn {\n  data: [content]\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2720,
+        64
+      ],
+      "id": "6f1e21a2-8860-4d26-88d5-111b56a1b872",
+      "name": "Extract Fresh Content"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Here are the 6 most recent articles from Metrology News (metrology.news):\n\n{{ $json.data }}\n\nPlease select the most relevant article for a FALKENBERG Precision blog post,\nscrape the full article, and generate a complete blog post following this\nexact workflow:\n\n1. Plan the page with `plan_page(contentType: \"blog-post\")`\n2. Generate each section with `generate_section`\n3. Generate root fields with `generate_root_field` for: head, aside, cta\n4. Generate SEO metadata with `generate_seo`\n5. Create the page with `create_page_with_content` passing BOTH sections\n   AND rootFields: { head, aside, cta, seo }\n\nDo NOT skip the root fields — without them the blog post will be incomplete\n(missing header, sidebar, and SEO metadata).\n\nReport back:\n- Selected article title and URL\n- Generated blog post title\n- Storyblok story_id and slug\n- Brief summary of the angle you took\n",
+        "options": {
+          "systemMessage": "You are a content strategist for FALKENBERG Precision GmbH, a German\nmanufacturer of precision sensors and measurement systems (founded 1983,\nStuttgart, ~420 employees, €78M revenue).\n\nFALKENBERG's core competencies:\n- Precision sensors: inductive, capacitive, optical, confocal chromatic\n- Measurement systems for inline quality inspection\n- Industrial IoT (FalkenConnect Gateway) for Industry 4.0\n- ISO 17025 calibration services\n- Key industries: automotive, aerospace, pharma, energy\n\n## Your Task\n\nYou will receive a list of recent industry news articles from Metrology News.\nYour job is to:\n\n1. ANALYZE (only on the first execution): Call these three tools:\n   - `analyze_content_patterns` with `contentType: \"blog-post\"` — understand\n     existing blog post structures and patterns on the site\n   - `list_recipes` with `contentType: \"blog-post\"` — get proven section\n     combinations and anti-patterns for blog posts\n   - `list_icons` — get the full list of valid icon identifiers\n\n2. SELECT the single most compelling article to react to. Choose one that:\n   - Directly relates to FALKENBERG's product categories or target industries\n   - Presents a trend, challenge, or innovation FALKENBERG can comment on\n   - Offers an opportunity to demonstrate thought leadership\n   - Is timely and likely to interest FALKENBERG's audience (production\n     managers, quality engineers, C-level in manufacturing)\n\n3. SCRAPE the full article using `scrape_url` to get the complete text\n\n4. PLAN the blog post structure using `plan_page` with:\n   - `contentType: \"blog-post\"`\n   - `intent`: a description derived from the selected article, e.g.\n     \"Blog post reacting to '{article_title}' — discussing {topic} from\n     FALKENBERG's perspective as a precision sensor manufacturer\"\n   The response contains TWO important parts:\n   - `sections`: the recommended section sequence (used in Step 5)\n   - `rootFieldMeta`: root-level fields for the blog-post with priority\n     annotations (required/recommended/optional) — used in Steps 6 and 7\n\n5. GENERATE each section using `generate_section` for each entry in the plan:\n   - Use the scraped article content in the `prompt` for context\n   - Set `previousSection` and `nextSection` for transition awareness\n   - Extract ONLY the `section` field from each response\n\n6. GENERATE ROOT FIELDS using `generate_root_field` for each field in\n   `rootFieldMeta` with priority \"required\" or \"recommended\":\n   - `generate_root_field(fieldName: \"head\", contentType: \"blog-post\",\n     prompt: \"Blog post header: title '{blog_title}', author Dr. Lena\n     Falkenberg (CEO, FALKENBERG Precision), published today. Include a\n     relevant header image.\")`\n   - `generate_root_field(fieldName: \"aside\", contentType: \"blog-post\",\n     prompt: \"Sidebar with author info for Dr. Lena Falkenberg, CEO of\n     FALKENBERG Precision (precision sensor manufacturer since 1983).\n     Include related topics from FALKENBERG's expertise.\")`\n   - `generate_root_field(fieldName: \"cta\", contentType: \"blog-post\",\n     prompt: \"Newsletter signup CTA: Subscribe to FALKENBERG's industry\n     insights newsletter for weekly precision measurement updates.\")`\n   Extract the generated content from each response.\n\n7. GENERATE SEO using `generate_seo` with:\n   - `contentType: \"blog-post\"`\n   - `prompt`: A summary of the blog post content, target keywords, and\n     audience. Include the blog title and main topic.\n\n8. CREATE the blog post in Storyblok using `create_page_with_content` with:\n   - `contentType: \"blog-post\"`\n   - `path: \"industry/blog\"`\n   - `sections`: the array of section objects collected in Step 5\n   - `rootFields`: an object containing the root field content from Steps\n     6 and 7:\n     ```json\n     {\n       \"head\": <result from generate_root_field(\"head\")>,\n       \"aside\": <result from generate_root_field(\"aside\")>,\n       \"cta\": <result from generate_root_field(\"cta\")>,\n       \"seo\": <result from generate_seo()>\n     }\n     ```\n   - Generate a URL-friendly slug from the blog title\n   - `uploadAssets: true`, `assetFolderName: \"FALKENBERG Precision\"`\n   - `publish: false` (draft for human review)\n\n## Content Guidelines\n\n- **Blog post length:** 800–1200 words across all sections.\n- **Structure:** The generated sections should result in a post that:\n  - Opens with a reference to the source article (\"A recent report by\n    Metrology News highlighted...\" or similar)\n  - Summarizes the key point of the source article (2–3 sentences)\n  - Provides FALKENBERG's perspective or commentary (the core of the post)\n  - Connects to FALKENBERG's products/services where natural (not forced)\n  - Ends with a practical takeaway or forward-looking statement\n  - Includes a CTA to a relevant FALKENBERG page\n- **Root fields (CRITICAL for blog-post content type):**\n  - `head`: MUST be generated — contains the blog post title, author, date,\n    and header image. Use `generate_root_field(fieldName: \"head\")`.\n  - `aside`: SHOULD be generated — sidebar content with author bio and\n    related topics. Use `generate_root_field(fieldName: \"aside\")`.\n  - `cta`: SHOULD be generated — bottom call-to-action (newsletter signup\n    or link to relevant product/solution page). Use\n    `generate_root_field(fieldName: \"cta\")`.\n  - `seo`: SHOULD be generated — SEO metadata (title, description, keywords,\n    OG image). Use `generate_seo()`.\n  Without root fields, the blog post will render with missing header info,\n  no sidebar, and no SEO metadata.\n- **Tone:** Authoritative but approachable. FALKENBERG is a 40-year veteran\n  commenting on industry developments — knowledgeable, not salesy.\n- **Attribution:** Always credit the source article with title and publication.\n  Never plagiarize — summarize and react, don't copy.\n- **Balance:** ~30% source summary, ~50% FALKENBERG commentary/insight,\n  ~20% practical takeaway + CTA.\n- **Language:** English.\n- **All content is fictional** — FALKENBERG Precision GmbH does not exist."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        2928,
+        64
+      ],
+      "id": "e3c6c725-4961-43e8-bc08-0ec5315d0672",
+      "name": "Create Blog Post"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://ruhmesmeile-storyblok-mcp.ruhmesmeile.com/mcp",
+        "include": "selected",
+        "includeTools": [
+          "list_recipes",
+          "list_icons",
+          "scrape_url",
+          "analyze_content_patterns",
+          "plan_page",
+          "generate_section",
+          "create_page_with_content",
+          "generate_root_field",
+          "generate_seo"
+        ],
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.2,
+      "position": [
+        3072,
+        272
+      ],
+      "id": "8cd267bd-0b41-40ba-9b4d-9499ef557614",
+      "name": "Storyblok MCP1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        2928,
+        272
+      ],
+      "id": "0e9560d4-54b0-4abb-be69-55fb45475de3",
+      "name": "OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "kgGPgzqjSYOaTQdv",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://ruhmesmeile-storyblok-mcp.ruhmesmeile.com/mcp",
+        "include": "selected",
+        "includeTools": [
+          "analyze_content_patterns",
+          "list_recipes",
+          "list_icons",
+          "plan_page",
+          "generate_section",
+          "create_page_with_content",
+          "scrape_url",
+          "generate_root_field"
+        ],
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.2,
+      "position": [
+        3440,
+        -400
+      ],
+      "id": "2ad75c06-8d8c-45ec-bb63-b65f80a3b158",
+      "name": "Storyblok MCP "
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"page_name\": {\n      \"type\": \"string\",\n      \"description\": \"The product name exactly as provided in the input\"\n    },\n    \"story_id\": {\n      \"type\": \"number\",\n      \"description\": \"The numeric story ID returned by create_page_with_content\"\n    },\n    \"story_uuid\": {\n      \"type\": \"string\",\n      \"description\": \"The UUID returned by create_page_with_content\"\n    },\n    \"slug\": {\n      \"type\": \"string\",\n      \"description\": \"The full page slug, e.g. industry/hannover-messe-2026/optline-7000\"\n    },\n    \"page_url\": {\n      \"type\": \"string\",\n      \"description\": \"The full page URL: https://falkenberg-precision.de/{slug}\"\n    },\n    \"sections_count\": {\n      \"type\": \"number\",\n      \"description\": \"Total number of sections created on the page\"\n    },\n    \"status\": {\n      \"type\": \"string\",\n      \"enum\": [\"created\", \"error\"],\n      \"description\": \"Whether the page was created successfully\"\n    },\n    \"created_at\": {\n      \"type\": \"string\",\n      \"description\": \"ISO 8601 timestamp of when the page was created\"\n    }\n  },\n  \"required\": [\"product_name\", \"story_id\", \"slug\", \"page_url\", \"sections_count\", \"status\", \"created_at\"]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        3568,
+        -400
+      ],
+      "id": "ae6b7222-1c65-4012-97ef-be5e124336fe",
+      "name": "Structured Output "
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        3328,
+        -400
+      ],
+      "id": "3cfbfd87-e556-4df6-a8d0-38123f5e980b",
+      "name": "OpenAI ",
+      "credentials": {
+        "openAiApi": {
+          "id": "kgGPgzqjSYOaTQdv",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "13zWW3w8IljQDJjsyWJcdMLFhVOCrxfac6okSNyMn3yA",
+          "mode": "list",
+          "cachedResultName": "Content Migration",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13zWW3w8IljQDJjsyWJcdMLFhVOCrxfac6okSNyMn3yA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2087610569,
+          "mode": "list",
+          "cachedResultName": "Products",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/13zWW3w8IljQDJjsyWJcdMLFhVOCrxfac6okSNyMn3yA/edit#gid=2087610569"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "slug": "={{ $json.output.slug }}",
+            "story_id": "={{ $json.output.story_id }}",
+            "story_uuid": "={{ $json.output.story_uuid }}",
+            "page_url": "={{ $json.output.page_url }}",
+            "sections_count": "={{ $json.output.sections_count }}",
+            "workflow_status": "={{ $json.output.status }}",
+            "created_at": "={{ $json.output.created_at }}"
+          },
+          "matchingColumns": [
+            "slug"
+          ],
+          "schema": [
+            {
+              "id": "product_name",
+              "displayName": "product_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "category",
+              "displayName": "category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "slug",
+              "displayName": "slug",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "tagline",
+              "displayName": "tagline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "description",
+              "displayName": "description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "key_features",
+              "displayName": "key_features",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "trade_fair_messaging",
+              "displayName": "trade_fair_messaging",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "target_audience",
+              "displayName": "target_audience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "landing_page_tone",
+              "displayName": "landing_page_tone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "trade_fair_name",
+              "displayName": "trade_fair_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "trade_fair_dates",
+              "displayName": "trade_fair_dates",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "trade_fair_location",
+              "displayName": "trade_fair_location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "trade_fair_booth",
+              "displayName": "trade_fair_booth",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "story_id",
+              "displayName": "story_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "story_uuid",
+              "displayName": "story_uuid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "page_url",
+              "displayName": "page_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "sections_count",
+              "displayName": "sections_count",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "workflow_status",
+              "displayName": "workflow_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "051bf868-81d8-41e3-ab7d-ef29ed7c205b",
+      "name": "Update Import Status",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        3728,
+        -528
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "K0bHaT4KbbGa22Xw",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Import the following page into our website, as part of our website migration:\n{{ $json.loc }}\n\nPlease follow the full workflow: scrape the url, plan the page, generate each sectionindividually with proper transition context, then create the page in Storyblok.",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=# Page Migration System Prompt\n\nYou are a content migration specialist importing pages into the Storyblok CMS for a kickstartDS-powered website. Your task is to scrape an existing web page, extract its content, and recreate it using the available kickstartDS components while preserving the original intent and information architecture.\n\n## Your Task\n\nFor each URL you receive, migrate its content into Storyblok as a new page. You MUST follow this exact workflow IN ORDER. Do NOT skip steps or reorder them.\n\n### Step 1 — Scrape the source page\n\nCall `scrape_url` with the target URL. This returns:\n- `title` — the page title\n- `markdown` — clean Markdown content (main article body)\n- `images` — structured array of all images with src, alt, and context metadata\n- `url` — the original source URL\n\nReview the extracted content carefully. Note the heading hierarchy, key sections, CTAs, and image placements.\n\n### Step 2 — Analyze the site (only on the very first migration)\n\nCall these three tools and wait for all responses before proceeding:\n- `analyze_content_patterns` — understand existing page structures. If migrating to a specific site section (e.g. blog, case studies), use the `startsWith` parameter (e.g. `\"blog/\"`, `\"case-studies/\"`)\n- `list_recipes` with a descriptive intent — get proven section combinations and anti-patterns to avoid\n- `list_icons` — get the full list of valid icon identifiers for component icon fields\n\n### Step 3 — Plan the page structure\n\nBased on the scraped content, call `plan_page` with an intent that describes the page type and content. Example:\n\"Migrate {page_type} about {main_topic}. Original content includes {key_sections}. Preserve {important_elements}.\"\n\nIf migrating to a specific site section, include the `startsWith` parameter matching the `contentType` patterns (e.g. `startsWith: \"blog/\"` for blog posts).\n\nWait for the plan response. It returns a `sections` array where each entry has a `componentType` and `intent`. You will use this plan to adapt the scraped content.\n\n### Step 4 — Generate ALL sections one by one\n\nFor EACH section in the plan (in order), call `generate_section` with:\n- `componentType`: the section type from the plan (e.g. \"hero\", \"text\", \"media\")\n- `prompt`: a detailed prompt that references the scraped Markdown content and images, tailored to the section type. Include relevant excerpts from the original content. Example for a text section:\n  ```\n  Create a text section using this content from the original page:\n  \n  [relevant markdown excerpt]\n  \n  Preserve the key information and tone. Adapt formatting to kickstartDS components.\n  ```\n- `previousSection` and `nextSection`: set these for transition context\n- If you used `startsWith` in plan_page, use the same value here\n\nIMPORTANT — Extracting section data from the response:\nEach `generate_section` call returns a JSON object. The `section` field in that response contains the Storyblok-ready section object. You MUST extract ONLY the `section` field from each response. Example:\n\n```json\nResponse from generate_section:\n{\n  \"section\": { \"component\": \"section\", \"components\": [...] },  ← USE THIS\n  \"designSystemProps\": { ... },                                ← ignore\n  \"componentType\": \"text\",                                     ← ignore\n  \"note\": \"...\"                                                ← ignore\n}\n```\n\nCollect the `section` values from ALL generate_section calls into an array. Do NOT call `create_page_with_content` until every section has been generated.\n\n### Step 5 — Generate SEO metadata (optional but recommended)\n\nCall `generate_seo` with a summary of the migrated page content. Include the original page title, key topics, and target audience. Example:\n```\nPage about {main_topic}. Original title: \"{title}\". Key topics: {topics}. Target audience: {audience}.\n```\n\nThis returns a `seo` object to merge into `rootFields`.\n\n### Step 6 — Create the page (only after ALL sections are generated)\n\nCall `create_page_with_content` with:\n- `name`: the page title (from scraped data or adapted)\n- `slug`: determine from the original URL or create a new SEO-friendly slug\n- `path`: the folder path in Storyblok (e.g. `\"en/blog\"`, `\"case-studies\"`)\n- `contentType`: if migrating to a non-page content type (e.g. `\"blog-post\"`, `\"event-detail\"`), specify it here\n- `sections`: the array of section objects collected in Step 4. Each element MUST be a section object with `\"component\": \"section\"` and a `\"components\"` array inside. Do NOT pass the full generate_section response objects — only the extracted `section` field from each.\n- `rootFields`: if you generated SEO metadata in Step 5, include it here: `{ \"seo\": <seo_object> }`. For hybrid content types like blog-post, also include other root fields as needed.\n- `uploadAssets`: true (this will download and rehost all images from the scraped page)\n- `assetFolderName`: descriptive name for the image folder (e.g. `\"Migrated Content\"`, `\"Blog Images\"`)\n- `publish`: false (creates as draft for review)\n\n## Migration Guidelines\n\n- **Preserve intent**: The migrated page should serve the same purpose as the original while fitting naturally into the kickstartDS component architecture\n- **Adapt, don't copy**: Don't force the original structure — use kickstartDS components that best represent the content (e.g. a feature grid might become a features section, a testimonial quote might become a quote or testimonial component)\n- **Image handling**: All images will be automatically downloaded and uploaded to Storyblok. The `scrape_url` tool provides structured image data with context — use this to place images appropriately in sections.\n- **Content fidelity**: Preserve key information, tone, and message hierarchy. If the original has technical details, preserve them. If it has emotional appeals, maintain that tone.\n- **Icons**: Only use identifiers returned by `list_icons`. Review the list before generating sections and select semantically appropriate icons.\n- **CTAs**: Identify and preserve all calls-to-action from the original page. Adapt button text and links as needed.\n- **Language**: Preserve the original page's language unless instructed otherwise\n- **Metadata**: Capture and preserve meta information (author, date, categories) when available and relevant to the content type\n\n## Content Mapping Examples\n\nOriginal Structure → kickstartDS Components:\n- Hero banner → hero section\n- Feature grid → features section\n- Long text blocks → text section (potentially split into multiple)\n- Image gallery → gallery section\n- Testimonial quotes → testimonials section or quote component\n- Stats/metrics → stats section\n- FAQ accordion → faq section\n- Contact form → contact section\n- Team member profiles → team-member items in a team section\n\n## Reporting Results\n\nWhen you finish creating the page, report back:\n- Original URL\n- Migrated page name\n- story_id, story_uuid\n- Final slug and path\n- Page URL (constructed from site domain + path + slug)\n- sections_count\n- Images migrated count\n- Status (draft/published)\n- created_at timestamp\n\nIf any content was difficult to map or required significant adaptation, note those decisions in your report.\n",
+          "maxIterations": 15
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        3376,
+        -592
+      ],
+      "id": "74762965-822e-40a3-ad81-ad80cab72743",
+      "name": "Import Page"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Client": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Client1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Client2": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        []
+      ]
+    },
+    "MCP Client3": {
+      "ai_tool": [
+        []
+      ]
+    },
+    "Scrape Content": {
+      "main": [
+        [
+          {
+            "node": "Generate Sections",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Sections": {
+      "main": [
+        [
+          {
+            "node": "Insert Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript2": {
+      "main": [
+        [
+          {
+            "node": "Scrape Content1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape URL": {
+      "main": [
+        [
+          {
+            "node": "Scrape Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Stories": {
+      "main": [
+        [
+          {
+            "node": "Merge Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Assets": {
+      "main": [
+        [
+          {
+            "node": "Merge Data",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Read Products": {
+      "main": [
+        [
+          {
+            "node": "Product not imported?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Product not imported?": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Product Promo Page": {
+      "main": [
+        [
+          {
+            "node": "Update Product Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Read Import Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create Product Promo Page",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Storyblok MCP": {
+      "ai_tool": [
+        [
+          {
+            "node": "Create Product Promo Page",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Products": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Create Product Promo Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Create Product Promo Page",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Product Record": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Import Status": {
+      "main": [
+        [
+          {
+            "node": "Sitemap URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sitemap URL": {
+      "main": [
+        [
+          {
+            "node": "Get Sitemap",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Sitemap": {
+      "main": [
+        [
+          {
+            "node": "Sitemap to JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Unwrap Data": {
+      "main": [
+        [
+          {
+            "node": "Page not imported?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Page not imported?": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Pages": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Import Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Data": {
+      "main": [
+        [
+          {
+            "node": "Analyse Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every Monday": {
+      "main": [
+        [
+          {
+            "node": "Get Stories",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Assets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every Sunday": {
+      "main": [
+        [
+          {
+            "node": "RSS Feed URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyse Content": {
+      "main": [
+        [
+          {
+            "node": "Create Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Report": {
+      "main": [
+        [
+          {
+            "node": "Report to Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Feed URL": {
+      "main": [
+        [
+          {
+            "node": "Get RSS Feed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get RSS Feed": {
+      "main": [
+        [
+          {
+            "node": "RSS Feed to JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sitemap to JSON": {
+      "main": [
+        [
+          {
+            "node": "Unwrap Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Feed to JSON": {
+      "main": [
+        [
+          {
+            "node": "Extract Fresh Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Fresh Content": {
+      "main": [
+        [
+          {
+            "node": "Create Blog Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Storyblok MCP1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Create Blog Post",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Create Blog Post",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Storyblok MCP ": {
+      "ai_tool": [
+        [
+          {
+            "node": "Import Page",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output ": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Import Page",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI ": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Import Page",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Import Status": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Import Page": {
+      "main": [
+        [
+          {
+            "node": "Update Import Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "59222168-ab48-4bef-9d1d-dd12777604cc",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "0b2f94312c65744f7c6fa0114c011dd7236562f19332faff62edc6a499cd7cca"
+  },
+  "id": "UVLlMGuK-4IkhSDSUgQcT",
+  "tags": []
+}

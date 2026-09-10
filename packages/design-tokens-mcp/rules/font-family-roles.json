@@ -1,0 +1,115 @@
+{
+  "id": "font-family-roles",
+  "name": "Font-Family Role Assignments",
+  "description": "Each font family has a designated role in the design system. Using the wrong font family for a context breaks the typographic hierarchy.",
+  "severity": "warning",
+  "category": "semantic-hierarchy",
+  "tokenPattern": "--ks-font-family-*",
+  "tokens": {
+    "--ks-font-family-display": {
+      "role": "Display and headline typography — hero text, page titles, large-format headings",
+      "validContexts": [
+        "h1",
+        "h2",
+        "hero-headline",
+        "cta-headline",
+        "display-text",
+        "page-title",
+        "banner-text"
+      ],
+      "invalidContexts": [
+        "body-copy",
+        "form-labels",
+        "button-labels",
+        "input-text",
+        "navigation-labels",
+        "descriptions"
+      ],
+      "rationale": "Display font is optimized for large sizes with tight line-height; not suited for body text or small UI elements"
+    },
+    "--ks-font-family-copy": {
+      "role": "Body copy and reading text — paragraphs, descriptions, long-form content",
+      "validContexts": [
+        "p",
+        "body-text",
+        "descriptions",
+        "captions",
+        "card-copy",
+        "list-items",
+        "article-text",
+        "faq-text"
+      ],
+      "invalidContexts": [
+        "hero-headlines",
+        "page-titles",
+        "button-labels",
+        "form-controls"
+      ],
+      "rationale": "Copy font is optimized for readability at body sizes with comfortable line-height"
+    },
+    "--ks-font-family-interface": {
+      "role": "UI controls and interface elements — form inputs, buttons, navigation, labels",
+      "validContexts": [
+        "button-labels",
+        "form-labels",
+        "input-text",
+        "select-text",
+        "navigation-labels",
+        "tab-labels",
+        "badge-text",
+        "control-text"
+      ],
+      "invalidContexts": [
+        "hero-headlines",
+        "body-copy",
+        "article-text",
+        "long-form-content"
+      ],
+      "rationale": "Interface font is designed for UI controls — compact, clear at small sizes"
+    },
+    "--ks-font-family-mono": {
+      "role": "Monospace text — code blocks, technical values, data display",
+      "validContexts": [
+        "code-block",
+        "code-inline",
+        "technical-value",
+        "data-display",
+        "pre-formatted"
+      ],
+      "invalidContexts": [
+        "body-copy",
+        "headings",
+        "buttons",
+        "navigation",
+        "form-labels"
+      ],
+      "rationale": "Mono font is for code and technical content only"
+    }
+  },
+  "pairingRules": [
+    {
+      "fontFamily": "--ks-font-family-display",
+      "expectedFontSize": "--ks-font-size-display-*",
+      "expectedLineHeight": "--ks-line-height-display-*",
+      "expectedTextColor": "--ks-text-color-display"
+    },
+    {
+      "fontFamily": "--ks-font-family-copy",
+      "expectedFontSize": "--ks-font-size-copy-*",
+      "expectedLineHeight": "--ks-line-height-copy-*",
+      "expectedTextColor": "--ks-text-color-copy"
+    },
+    {
+      "fontFamily": "--ks-font-family-interface",
+      "expectedFontSize": "--ks-font-size-interface-*",
+      "expectedLineHeight": "--ks-line-height-interface-*",
+      "expectedTextColor": "--ks-text-color-interface"
+    },
+    {
+      "fontFamily": "--ks-font-family-mono",
+      "expectedFontSize": "--ks-font-size-mono-*",
+      "expectedLineHeight": "--ks-line-height-mono-*",
+      "expectedTextColor": null
+    }
+  ]
+}

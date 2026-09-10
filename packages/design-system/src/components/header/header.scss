@@ -1,0 +1,85 @@
+@use "header-tokens.scss";
+
+.dsa-header {
+  z-index: 999;
+  background: var(--dsa-header--background, var(--ks-background-color-default));
+  width: 100%;
+  display: flex;
+  padding: var(--dsa-header--spacing-vertical) 0;
+  transition: height var(--ks-transition-collapse);
+  height: calc(var(--dsa-logo--height) + var(--dsa-header--spacing-vertical) * 2);
+  justify-content: center;
+
+  &--overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--ks-color-fg-alpha-3);
+    opacity: 0;
+    transition: opacity var(--ks-transition-fade);
+    pointer-events: none;
+
+    .overlay-open & {
+      opacity: 1;
+    }
+  }
+
+  .overlay-open & {
+    height: 100vh;
+  }
+
+  &--floating {
+    width: calc(100vw - var(--dsa-header_floating--spacing-horizontal) * 2);
+    max-width: calc(var(--dsa-header--max-width) + var(--dsa-header_floating--spacing-horizontal) * 2);
+    top: 10px;
+    padding: var(--dsa-header--spacing-vertical) 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: var(--dsa-header_floating--background, var(--dsa-overlay-box_opaque--background-color));
+    backdrop-filter: var(--dsa-header_floating--backdrop-filter, blur(10px));
+    position: absolute;
+    border-radius: var(--ks-border-radius-surface);
+
+    .overlay-open & {
+      background: var(--dsa-header--background, var(--ks-background-color-default));
+      height: 95%;
+    }
+
+    .c-nav-main__link {
+      text-shadow: 0 0 10px var(--ks-color-bg-alpha-5);
+    }
+  }
+
+  &__content {
+    padding: 0 var(--dsa-header--spacing-horizontal);
+    max-width: calc(var(--dsa-header--max-width) + var(--dsa-header--spacing-horizontal) * 2);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @media (min-width: "62rem") {
+      align-items: center;
+    }
+
+    .dsa-header--floating & {
+      max-width: calc(var(--dsa-header--max-width) + var(--dsa-header_floating--spacing-horizontal) * 2);
+      padding: 0 var(--dsa-header_floating--spacing-horizontal);
+    }
+  }
+}
+
+.dsa-header--spacer {
+  display: none;
+
+  @media (min-width: 640px) {
+    display: block;
+    height: var(--dsa-header--height);
+    z-index: -1;
+    position: relative;
+    background-color: var(--ks-background-color-default);
+  }
+}

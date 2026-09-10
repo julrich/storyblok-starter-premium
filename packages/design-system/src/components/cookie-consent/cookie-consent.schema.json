@@ -1,0 +1,210 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/cookie-consent.schema.json",
+  "title": "Cookie Consent",
+  "description": "Cookie consent component for managing user consent regarding cookies and tracking technologies on a website.",
+  "type": "object",
+  "properties": {
+    "notice": {
+      "title": "Initial Cookie Consent Notice",
+      "description": "The initial notice displayed to users regarding cookie consent.",
+      "type": "object",
+      "properties": {
+        "displayMode": {
+          "type": "string",
+          "enum": ["card", "banner"],
+          "description": "The display mode of the cookie consent component",
+          "default": "card"
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the cookie consent section",
+          "examples": ["We value your privacy"]
+        },
+        "acceptButton": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "The label for the accept button",
+              "examples": ["Accept All Cookies"]
+            }
+          }
+        },
+        "rejectButton": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "The label for the reject button",
+              "examples": ["Reject All Cookies"]
+            }
+          }
+        },
+        "customizeButton": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "The label for the customize button",
+              "examples": ["Customize Cookies"]
+            },
+            "variant": {
+              "$ref": "http://schema.mydesignsystem.com/button.schema.json#/properties/variant"
+            }
+          }
+        },
+        "decisionButtonVariant": {
+          "$ref": "http://schema.mydesignsystem.com/button.schema.json#/properties/variant"
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the cookie consent section",
+          "examples": [
+            "This website uses cookies to ensure you get the best experience on our website."
+          ]
+        }
+      }
+    },
+    "revisitButton": {
+      "type": "object",
+      "title": "Revisit Cookie Consent Button",
+      "description": "The button that allows users to revisit their cookie preferences.",
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "The label for the revisit button",
+          "default": "Manage Cookies"
+        }
+      }
+    },
+    "dialog": {
+      "type": "object",
+      "title": "Cookie Consent Dialogue",
+      "description": "The dialog displayed when users choose to customize their cookie preferences.",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The title of the cookie consent dialogue",
+          "examples": ["Manage Cookie Preferences"]
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the cookie consent dialogue",
+          "examples": [
+            "Customize your privacy settings here. You can choose which types of cookies and tracking technologies you allow."
+          ]
+        },
+        "required": {
+          "title": "Required Cookies",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "title": "Internal Key",
+                "examples": ["necessary"]
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the required cookie",
+                "examples": ["Session Cookie"]
+              },
+              "description": {
+                "type": "string",
+                "description": "A description of the required cookie",
+                "examples": [
+                  "This cookie is essential for the website to function and cannot be disabled."
+                ]
+              }
+            }
+          }
+        },
+        "buttons": {
+          "type": "object",
+          "properties": {
+            "acceptLabel": {
+              "type": "string",
+              "description": "The label for the accept button in the dialog",
+              "default": "Accept All"
+            },
+            "rejectLabel": {
+              "type": "string",
+              "description": "The label for the reject button in the dialog",
+              "default": "Reject All"
+            },
+            "savePreferencesLabel": {
+              "type": "string",
+              "description": "The label for the button to save preferences",
+              "default": "Save Preferences"
+            }
+          }
+        },
+        "decisionButtonVariant": {
+          "type": "string",
+          "description": "The variant of the decision buttons in the dialog",
+          "enum": ["secondary", "tertiary"]
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "title": "Internal Key",
+                "examples": [
+                  "functionality",
+                  "measurement",
+                  "experience",
+                  "marketing"
+                ]
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the cookie category",
+                "examples": ["Essential Cookies"]
+              },
+              "description": {
+                "type": "string",
+                "description": "A description of the cookie category",
+                "examples": [
+                  "These cookies are necessary for the website to function."
+                ]
+              }
+            }
+          }
+        },
+        "toggleLabels": {
+          "type": "object",
+          "properties": {
+            "accept": {
+              "type": "string",
+              "description": "Label for enabled toggle state",
+              "default": "Accept"
+            },
+            "reject": {
+              "type": "string",
+              "description": "Label for disabled toggle state",
+              "default": "Reject"
+            }
+          },
+          "additionalProperties": false
+        },
+        "alwaysActiveLabel": {
+          "type": "string",
+          "description": "Label that indicates that the cookie category is always active",
+          "default": "Always Active"
+        }
+      }
+    },
+    "component": {
+      "title": "`ks-component` attribute",
+      "description": "Optional custom component identifier",
+      "type": "string",
+      "default": "dsa.cookie-consent"
+    }
+  },
+  "additionalProperties": false
+}

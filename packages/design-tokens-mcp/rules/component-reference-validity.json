@@ -1,0 +1,13 @@
+{
+  "id": "component-reference-validity",
+  "name": "Component Cross-Reference Validity",
+  "description": "Component tokens that reference other component tokens (--dsa-* cross-references) must point to real, existing component tokens. Invalid cross-references create phantom token chains.",
+  "severity": "critical",
+  "category": "existence",
+  "rule": "When a component token's value contains var(--dsa-*), the referenced token must exist in the component token files. Cross-component references are a valid pattern (e.g., a hero referencing headline tokens), but the target must exist.",
+  "validPattern": "var(--dsa-{component}[__{element}][_{variant}]--{property}[_{state}])",
+  "examples": {
+    "valid": "var(--dsa-headline--color) — references an existing headline token",
+    "invalid": "var(--dsa-nonexistent--color) — references a component token that doesn't exist"
+  }
+}

@@ -1,0 +1,86 @@
+@use "@kickstartds/core/source/core/container";
+@include container.wrapper("event-location");
+
+.l-container--event-location + .l-container--event-location {
+  margin-top: var(--ks-spacing-stack-m);
+}
+
+.dsa-event-location {
+  --dsa-event-location__icon--size: calc(var(--ks-font-size-copy-m) * var(--ks-line-height-copy-m));
+
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--ks-spacing-stack-s) var(--ks-spacing-inline-m);
+  background-color: var(--ks-background-color-card);
+  padding: var(--ks-spacing-inset-l);
+  border-radius: var(--ks-border-radius-card);
+  border: var(--ks-border-card);
+
+  --dsa-event-location__info--flex-basis: 280px;
+  --dsa-event-location__appointments--min-width: 12em;
+
+  &--spacious {
+    --dsa-event-location__info--flex-basis: 50%;
+    --dsa-event-location__appointments--min-width: 20em;
+  }
+
+  &__info {
+    display: flex;
+    gap: var(--ks-spacing-inline-xs);
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: var(--dsa-event-location__info--flex-basis, 280px);
+  }
+
+  &__icon {
+    color: var(--ks-text-color-primary);
+    width: var(--dsa-event-location__icon--size);
+    height: var(--dsa-event-location__icon--size);
+    flex-shrink: 0;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ks-spacing-stack-s);
+  }
+
+  &__name {
+    font: var(--ks-font-interface-m);
+    color: var(--dsa-topic--color);
+    font-weight: var(--dsa-topic--font-weight);
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: var(--ks-spacing-xxs);
+  }
+
+  &__link {
+    width: fit-content;
+    font: var(--ks-font-interface-s);
+  }
+
+  &__appointments {
+    display: grid;
+    justify-content: flex-end;
+    gap: var(--ks-spacing-s);
+    flex-grow: 100;
+    flex-shrink: 1;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(min(var(--dsa-event-location__appointments--min-width, 12em), 100%), 1fr)
+    );
+
+    // Font size is set on the grid container so column widths in em units scale with the font size of its items.
+    font: var(--ks-font-interface-s);
+  }
+
+  .l-container--rich-text {
+    container-type: normal;
+  }
+}

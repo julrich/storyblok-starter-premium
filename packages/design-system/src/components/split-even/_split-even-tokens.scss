@@ -1,0 +1,19 @@
+.l-split-even {
+  --dsa-split-even--sticky-margin: var(--ks-spacing-stack-xl);
+
+  --dsa-split-even--v-gutter_small: var(--ks-spacing-stack-s);
+  --dsa-split-even--v-gutter_default: var(--ks-spacing-stack-l);
+  --dsa-split-even--v-gutter_large: var(--dsa-content--vertical-spacing);
+
+  --dsa-split-even--h-gutter_default: var(--ks-spacing-inline-l);
+  --dsa-split-even--h-gutter_small: var(--ks-spacing-inline-m);
+  --dsa-split-even--h-gutter_large: var(--ks-spacing-inline-xxl);
+
+  --dsa-split-even__content--gutter_small: var(--ks-spacing-s);
+  --dsa-split-even__content--gutter_default: var(--ks-spacing-m);
+  --dsa-split-even__content--gutter_large: var(--ks-spacing-xl);
+
+  --dsa-split-even__content--flex-basis_narrow: var(--dsa-tile--width_medium);
+  --dsa-split-even__content--flex-basis_medium: var(--dsa-tile--width_large);
+  --dsa-split-even__content--flex-basis_wide: var(--dsa-tile--width_largest);
+}

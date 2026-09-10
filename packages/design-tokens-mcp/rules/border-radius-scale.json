@@ -1,0 +1,65 @@
+{
+  "id": "border-radius-scale",
+  "name": "Border-Radius Scale",
+  "description": "Border-radius tokens encode shape semantics — different radii for different component types. Hardcoded border-radius values should use tokens instead.",
+  "severity": "warning",
+  "category": "hierarchy",
+  "tokenPattern": "--ks-border-radius-*",
+  "scale": [
+    {
+      "token": "--ks-border-radius-control",
+      "level": 1,
+      "label": "Control",
+      "purpose": "Form inputs, buttons, small interactive controls",
+      "validContexts": [
+        "form-input",
+        "button",
+        "select",
+        "checkbox",
+        "toggle",
+        "small-control"
+      ]
+    },
+    {
+      "token": "--ks-border-radius-card",
+      "level": 2,
+      "label": "Card",
+      "purpose": "Cards, panels, content blocks, teasers",
+      "validContexts": [
+        "card",
+        "teaser-card",
+        "panel",
+        "content-block",
+        "image-container"
+      ]
+    },
+    {
+      "token": "--ks-border-radius-surface",
+      "level": 3,
+      "label": "Surface",
+      "purpose": "Modals, flyouts, large floating surfaces",
+      "validContexts": ["modal", "flyout", "dropdown", "overlay", "dialog"]
+    },
+    {
+      "token": "--ks-border-radius-pill",
+      "level": 4,
+      "label": "Pill",
+      "purpose": "Pill-shaped elements — tags, badges, fully rounded buttons",
+      "validContexts": [
+        "pill-button",
+        "tag",
+        "badge",
+        "chip",
+        "rounded-element"
+      ]
+    },
+    {
+      "token": "--ks-border-radius-circle",
+      "level": 5,
+      "label": "Circle",
+      "purpose": "Circular elements — avatars, round icons, radio buttons",
+      "validContexts": ["avatar", "round-icon", "radio", "circular-element"]
+    }
+  ],
+  "rule": "Border-radius should use scale tokens rather than arbitrary pixel values. The scale ensures visual consistency across components."
+}

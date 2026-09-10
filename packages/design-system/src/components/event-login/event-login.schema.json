@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/event-login.schema.json",
+  "title": "Event Login",
+  "description": "Event login component for user authentication to access event-related content.",
+  "type": "object",
+  "properties": {
+    "headline": {
+      "title": "Headline",
+      "description": "Headline for the event login",
+      "type": "string",
+      "examples": ["Welcome back!"]
+    },
+    "text": {
+      "title": "Text",
+      "description": "Text for the event login",
+      "type": "string",
+      "examples": ["Please enter your details to login"]
+    },
+    "usernameInput": {
+      "title": "Username Input",
+      "description": "Input field for the username",
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "examples": ["Username"]
+        },
+        "placeholder": {
+          "type": "string",
+          "examples": ["Enter your username"]
+        }
+      }
+    },
+    "passwordInput": {
+      "title": "Password Input",
+      "description": "Input field for the password",
+      "type": "object",
+      "properties": {
+        "label": {
+          "title": "Label",
+          "description": "Label for the password input",
+          "type": "string",
+          "examples": ["Password"]
+        },
+        "placeholder": {
+          "title": "Placeholder",
+          "description": "Placeholder text for the email input",
+          "type": "string",
+          "examples": ["Enter your password"]
+        }
+      }
+    },
+    "cta": {
+      "title": "Call to Action",
+      "type": "object",
+      "properties": {
+        "label": {
+          "title": "Button Label",
+          "description": "Label for the call to action button",
+          "type": "string",
+          "examples": ["Login"]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "examples": ["#"]
+        },
+        "ariaLabel": {
+          "title": "Aria Label",
+          "description": "Aria label for the cta button",
+          "type": "string",
+          "examples": ["Event Login"]
+        }
+      }
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "description": "Link to reset password",
+      "type": "object",
+      "properties": {
+        "label": {
+          "title": "Label",
+          "description": "Text for the reset password link",
+          "type": "string",
+          "examples": ["Reset Password?"]
+        },
+        "url": {
+          "title": "URL",
+          "description": "URL for the reset password link",
+          "type": "string",
+          "format": "uri",
+          "default": "#"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

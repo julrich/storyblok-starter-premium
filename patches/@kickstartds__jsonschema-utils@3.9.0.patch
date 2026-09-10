@@ -1,0 +1,30 @@
+diff --git a/lib/helpers.js b/lib/helpers.js
+index cb67330..e07d6b8 100644
+--- a/lib/helpers.js
++++ b/lib/helpers.js
+@@ -39,7 +39,10 @@ export function getSchemaRegistry({ support2019 = false } = {}) {
+         'uuid',
+         'date-time',
+         'icon',
+-        'table'
++        'table',
++        'textarea',
++        'theme',
++        'sharepoint-folder'
+     ];
+     ignoredFormats.forEach((ignoredFormat) => ajv.addFormat(ignoredFormat, { validate: () => true }));
+     ajv.addKeyword({
+@@ -189,8 +192,12 @@ export function reduceSchemaAllOfs(schema, ajv, replaceExamples = false) {
+                     }
+                 }
+                 else {
+-                    schema.properties = reduceSchemaAllOf(subSchema, ajv, replaceExamples).properties;
++                    const reduced = reduceSchemaAllOf(subSchema, ajv, replaceExamples);
++                    schema.properties = reduced.properties;
++                    if (reduced.title && !schema.title) schema.title = reduced.title;
++                    if (reduced.description && !schema.description) schema.description = reduced.description;
+                     delete schema.allOf;
++                    if (reduced.required) schema.required = reduced.required;
+                 }
+             }
+         }

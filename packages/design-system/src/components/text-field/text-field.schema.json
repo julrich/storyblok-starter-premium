@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/text-field.schema.json",
+  "title": "TextField",
+  "description": "TextField buttons allow users to select a single option from a list of mutually exclusive options.",
+  "type": "object",
+  "properties": {
+    "label": {
+      "$ref": "http://schema.kickstartds.com/form/text-field.schema.json#/properties/label"
+    },
+    "value": {
+      "$ref": "http://schema.kickstartds.com/form/text-field.schema.json#/properties/value"
+    },
+    "name": {
+      "$ref": "http://schema.kickstartds.com/form/text-field.schema.json#/properties/name"
+    },
+    "disabled": {
+      "$ref": "http://schema.kickstartds.com/form/text-field.schema.json#/properties/disabled"
+    },
+    "placeholder": {
+      "$ref": "http://schema.kickstartds.com/form/text-field.schema.json#/properties/placeholder"
+    },
+    "type": {
+      "$ref": "http://schema.kickstartds.com/form/text-field.schema.json#/properties/type"
+    },
+    "inputMode": {
+      "$ref": "http://schema.kickstartds.com/form/text-field.schema.json#/properties/inputMode"
+    },
+    "hideLabel": {
+      "$ref": "http://schema.kickstartds.com/form/text-field.schema.json#/properties/hideLabel"
+    },
+    "icon": {
+      "$ref": "http://schema.kickstartds.com/form/text-field.schema.json#/properties/icon"
+    },
+    "invalid": {
+      "$ref": "http://schema.kickstartds.com/form/text-field.schema.json#/properties/invalid"
+    },
+    "invalidMessage": {
+      "$ref": "http://schema.kickstartds.com/form/text-field.schema.json#/properties/invalidMessage"
+    },
+    "hint": {
+      "$ref": "http://schema.kickstartds.com/form/text-field.schema.json#/properties/hint"
+    },
+    "className": {
+      "title": "Class",
+      "description": "Additional css classes attached to the input element",
+      "type": "string"
+    }
+  },
+  "required": ["label"]
+}

@@ -1,0 +1,51 @@
+.dsa-nav-flyout {
+  --dsa-nav-flyout--padding: 0 var(--ks-spacing-inset-xl);
+  --dsa-nav-flyout--max-width: 100%;
+  --dsa-nav-flyout--shadow: 0px 0px 0px 100px var(--ks-color-fg-alpha-2-base);
+  --dsa-nav-flyout--gap: var(--ks-spacing-stack-m);
+  --dsa-nav-flyout--background: linear-gradient(
+    125deg,
+    var(--ks-background-color-default),
+    var(--ks-color-primary-to-bg-6)
+  );
+  --dsa-nav-flyout--transition-delay: var(--ks-duration-immediate);
+
+  --dsa-nav-flyout__label--color: var(--ks-color-fg);
+  --dsa-nav-flyout__label--color_hover: var(--ks-text-color-interface-interactive-hover);
+  --dsa-nav-flyout__label--color_active: var(--ks-text-color-interface-interactive-active);
+  --dsa-nav-flyout__label--background-color_hover: unset;
+  --dsa-nav-flyout__label--background-color_active: unset;
+  --dsa-nav-flyout__label--font: var(--ks-font-interface-l);
+  --dsa-nav-flyout__label--font-family: var(--ks-font-family-display);
+  --dsa-nav-flyout__label--font-weight: var(--ks-font-weight-semi-bold);
+  --dsa-nav-flyout__label--font-weight_active: var(--ks-font-weight-bold);
+  --dsa-nav-flyout__label--padding: 0.25em 0;
+  --dsa-nav-flyout__label--text-decoration: none;
+  --dsa-nav-flyout__label--text-decoration_hover: none;
+  --dsa-nav-flyout__label_dimmed--opacity: 0.8;
+  --dsa-nav-flyout__label--transition: var(--ks-transition-hover);
+  --dsa-nav-flyout__label--transition-property: background-color, color, opacity;
+
+  --dsa-nav-flyout__sublist--padding: 0.25em 0 0.5em 0.75em;
+
+  --dsa-nav-flyout__sublist__label--color: var(--ks-color-fg);
+  --dsa-nav-flyout__sublist__label--font: var(--ks-font-interface-l);
+  --dsa-nav-flyout__sublist__label--font-family: var(--ks-font-family-display);
+  --dsa-nav-flyout__sublist__label--font-weight: var(--ks-font-weight-semi-bold);
+  --dsa-nav-flyout__sublist__label--padding: 0.25em 0;
+}
+
+// ─── drhubert overrides ───────────────────────────────────────────
+// Ported verbatim from the pre-monorepo website (components/nav-flyout/nav-flyout-tokens.scss).
+// Kept as a trailing block so the original selectors and specificity are
+// preserved; these win over the design system defaults above.
+:root {
+  .dsa-nav-flyout {
+    --dsa-nav-flyout--shadow: 20px 0px 30px var(--ks-color-fg-alpha-7-base);
+    --dsa-nav-flyout--background: var(--ks-color-fg-to-bg-9);
+    --dsa-nav-flyout--gap: 0.35em;
+    // Sub-items were `interface-m` before; the starter raised them to
+    // `interface-l`, which makes them compete with their own parent label.
+    --dsa-nav-flyout__sublist__label--font: var(--ks-font-interface-m);
+  }
+}

@@ -1,0 +1,102 @@
+@use "sass:math";
+@use "./utils/breakpoints";
+
+$previewShrunkScale: 0.25;
+
+html,
+body,
+#root,
+.content {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  position: relative;
+
+  &__pane {
+    min-height: 100%;
+  }
+
+  &__editor-pane {
+    width: min((1 - $previewShrunkScale) * 100vw, 35rem);
+    overflow: auto;
+
+    @include breakpoints.phone {
+      width: min(50vw, 30rem);
+
+      &--hidden {
+        width: 0;
+      }
+    }
+
+    &--wide {
+      width: 60vw;
+
+      @include breakpoints.phone {
+        width: 60vw;
+
+        &.content__editor-pane--hidden {
+          width: 0;
+        }
+      }
+    }
+  }
+
+  &__preview-pane {
+    position: absolute;
+    inset: 0;
+    transform-origin: top right;
+    flex-grow: 1;
+    transition: 0.2s;
+
+    @include breakpoints.phone {
+      position: relative;
+    }
+
+    &--shrunk {
+      min-height: math.div(1, $previewShrunkScale) * 100%;
+      transform: scale($previewShrunkScale);
+    }
+  }
+
+  &__editor-toggle {
+    $bottom: 0.5rem;
+    $left: -1px;
+
+    position: absolute;
+    bottom: $bottom;
+    z-index: 1;
+    left: -1px;
+    transform-origin: bottom left;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      border-left: none;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .content__preview-pane--shrunk & {
+      transform: scale(math.div(1, $previewShrunkScale));
+      bottom: math.div(1, $previewShrunkScale) * $bottom;
+      left: math.div(1, $previewShrunkScale) * $left + $left;
+    }
+  }
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}

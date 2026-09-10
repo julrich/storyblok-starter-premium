@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/event-latest.schema.json",
+  "title": "Event Latest",
+  "description": "Display a list of latest events, ordered chronologically",
+  "type": "object",
+  "properties": {
+    "events": {
+      "title": "Events",
+      "description": "List of events to display",
+      "type": "array",
+      "items": {
+        "$ref": "http://schema.mydesignsystem.com/event-latest-teaser.schema.json"
+      },
+      "minItems": 1,
+      "examples": [
+        [
+          {
+            "date": "12/30/2022",
+            "headline": "Event 1",
+            "location": "Location 1",
+            "link": {
+              "url": "https://example.com/event1",
+              "text": "Show event 1"
+            }
+          },
+          {
+            "date": "01/15/2023",
+            "headline": "Event 2",
+            "location": "Location 2",
+            "link": {
+              "url": "https://example.com/event2",
+              "text": "Show event 2"
+            }
+          }
+        ]
+      ]
+    },
+
+    "className": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": []
+}

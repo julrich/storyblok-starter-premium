@@ -1,0 +1,27 @@
+.dsa-search-filter {
+  background-color: var(--ks-background-color-card);
+  border-radius: var(--ks-border-radius-card);
+  padding: var(--ks-spacing-inset-m);
+  border: var(--ks-border-card);
+
+  &__title {
+    font: var(--dsa-topic--font);
+    color: var(--dsa-topic--color);
+    font-weight: var(--dsa-topic--font-weight);
+  }
+
+  &__categories {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ks-spacing-xxs);
+    margin-top: var(--ks-spacing-stack-s);
+  }
+
+  &__category {
+    --g-link--text-decoration: none;
+    --g-link--text-decoration-hover: none;
+
+    font: var(--ks-font-interface-m);
+    color: var(--ks-text-color-interface);
+  }
+}

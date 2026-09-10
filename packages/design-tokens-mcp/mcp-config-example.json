@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "design-tokens-local": {
+      "command": "node",
+      "args": ["/absolute/path/to/design-tokens-mcp/index.js"],
+      "description": "Design tokens server (local, stdio transport)"
+    },
+    "design-tokens-remote": {
+      "type": "streamable-http",
+      "url": "https://tokens.yourdomain.com/mcp",
+      "description": "Design tokens server (remote, Streamable HTTP transport)"
+    }
+  }
+}

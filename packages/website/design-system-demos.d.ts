@@ -1,0 +1,11 @@
+declare module "@kickstartds/design-system/playground/color-demo";
+declare module "@kickstartds/design-system/playground/font-demo";
+declare module "@kickstartds/design-system/playground/spacing-demo";
+declare module "@kickstartds/design-system/playground/border-demo";
+declare module "@kickstartds/design-system/playground/shadow-demo";
+declare module "@kickstartds/design-system/playground/transition-demo";
+declare module "@kickstartds/design-system/pages/landingpage";
+declare module "@kickstartds/design-system/pages/about";
+declare module "@kickstartds/design-system/pages/jobs";
+declare module "@kickstartds/design-system/pages/jobs-detail";
+declare module "@kickstartds/design-system/pages/overview";

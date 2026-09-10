@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/button-group.schema.json",
+  "title": "Button Group",
+  "type": "object",
+  "properties": {
+    "buttons": {
+      "$ref": "http://schema.kickstartds.com/base/button-group.schema.json#/properties/items"
+    },
+    "colorNeutral": {
+      "title": "Color Neutral",
+      "description": "Set the buttons to a color neutral variant",
+      "default": false,
+      "type": "boolean"
+    },
+    "size": {
+      "$ref": "http://schema.kickstartds.com/base/button.schema.json#/properties/size"
+    },
+    "arrangement": {
+      "$ref": "http://schema.kickstartds.com/base/button-group.schema.json#/properties/arrangement"
+    },
+    "className": {
+      "$ref": "http://schema.kickstartds.com/base/button-group.schema.json#/properties/className"
+    }
+  },
+  "additionalProperties": false
+}

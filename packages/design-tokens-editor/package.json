@@ -1,0 +1,74 @@
+{
+  "name": "@kickstartds/design-tokens-editor",
+  "version": "1.0.0",
+  "description": "Browser-based Design Token WYSIWYG editor with live preview",
+  "private": true,
+  "license": "(MIT OR Apache-2.0)",
+  "author": {
+    "name": "kickstartDS",
+    "email": "info@kickstartds.com"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kickstartDS/storyblok-starter-premium.git",
+    "directory": "packages/design-tokens-editor"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "build": "rm -rf dist && vite build && tsc --project tsconfig.server.json",
+    "dev": "concurrently -P \"vite\" \"dotenvx run -f .env -- tsx watch src/server/cli.ts\"",
+    "format": "oxfmt",
+    "preview": "vite preview",
+    "start": "dotenvx run -f .env -- tsx src/server/cli.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@jsonforms/core": "^3.7.0",
+    "@jsonforms/material-renderers": "^3.7.0",
+    "@jsonforms/react": "^3.7.0",
+    "@kickstartds/base": "^4.0.2",
+    "@kickstartds/blog": "^4.0.2",
+    "@kickstartds/content": "^4.1.1",
+    "@kickstartds/core": "^4.0.2",
+    "@kickstartds/design-system": "workspace:*",
+    "@kickstartds/form": "^4.0.2",
+    "@kickstartds/shared-auth": "workspace:*",
+    "@kickstartds/token-graph": "workspace:*",
+    "@mui/icons-material": "^7.3.5",
+    "@mui/material": "^7.3.5",
+    "@mui/x-date-pickers": "^8.19.0",
+    "classnames": "^2.3.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "tinycolor2": "^1.6.0",
+    "traverse": "^0.6.11"
+  },
+  "overrides": {
+    "dotenv": "npm:@dotenvx/dotenvx"
+  },
+  "devDependencies": {
+    "@dotenvx/dotenvx": "^1.7.0",
+    "@types/cookie-parser": "^1.4.0",
+    "@types/cors": "^2.8.0",
+    "@types/express": "^4.17.0",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@types/tinycolor2": "^1.4.3",
+    "@types/traverse": "^0.6.37",
+    "@vitejs/plugin-react": "^5.1.2",
+    "concurrently": "^8.2.0",
+    "oxfmt": "^0.27.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.7"
+  }
+}

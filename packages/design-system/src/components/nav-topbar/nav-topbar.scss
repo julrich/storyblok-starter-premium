@@ -1,0 +1,151 @@
+@use "sass:meta";
+@use "bourbon/core/bourbon";
+@use "nav-topbar-tokens";
+
+.dsa-nav-topbar {
+  --g-link--text-decoration: none;
+  --g-link--text-decoration_hover: none;
+
+  ul {
+    list-style: none;
+  }
+
+  .dsa-nav-topbar__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+
+    > ul.dsa-nav-main__list {
+      display: none;
+    }
+
+    &:hover {
+      .dsa-nav-topbar__item:not(:hover, .dsa-nav-topbar__item--active) {
+        .dsa-nav-topbar__label {
+          opacity: var(--dsa-nav-topbar__label_dimmed--opacity);
+        }
+
+        .dsa-header--floating & {
+          opacity: var(--dsa-nav-topbar_floating__label_dimmed--opacity);
+        }
+      }
+    }
+  }
+
+  .dsa-nav-topbar__item {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+
+    &--dropdown {
+      &:last-of-type,
+      &:nth-last-of-type(2) {
+        .dsa-nav-dropdown {
+          right: 0;
+        }
+      }
+    }
+
+    .dsa-nav-dropdown {
+      transition: all var(--ks-transition-fade);
+      transform: translateY(-5%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &--active {
+      .dsa-nav-topbar__label {
+        color: var(--dsa-nav-topbar__label--color_active);
+        background-color: var(--dsa-nav-topbar__label--background-color_active);
+        font-weight: var(--dsa-nav-topbar__label--font-weight_active);
+      }
+    }
+
+    &:hover,
+    &:focus-within {
+      > .dsa-nav-dropdown {
+        display: flex;
+        pointer-events: all;
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+
+  .dsa-nav-topbar__label {
+    display: flex;
+    font-family: var(--dsa-nav-topbar__label--font-family);
+    font-size: var(--dsa-nav-topbar__label--font-size);
+    font-weight: var(--dsa-nav-topbar__label--font-weight);
+    color: var(--dsa-nav-topbar__label--color);
+    background-color: var(--dsa-nav-topbar__label--background-color);
+    border-radius: var(--ks-border-radius-control);
+    height: 100%;
+    align-items: center;
+    padding: var(--dsa-nav-topbar__label--padding);
+    text-decoration: var(--dsa-nav-topbar__label--text-decoration);
+    transition: var(--dsa-nav-topbar__label--transition);
+    transition-property: var(--dsa-nav-topbar__label--transition-property);
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--dsa-nav-topbar__label--color_hover);
+      background-color: var(--dsa-nav-topbar__label--background-color_hover);
+      text-decoration: var(--dsa-nav-topbar__label--text-decoration_hover);
+    }
+
+    .dsa-header--floating & {
+      color: var(--dsa-nav-topbar_floating__label--color);
+
+      &:hover {
+        color: var(--dsa-nav-topbar_floating__label--color_hover);
+      }
+
+      &:active {
+        color: var(--dsa-nav-topbar_floating__label--color_active);
+      }
+    }
+
+    .icon {
+      width: var(--dsa-nav-topbar__label__icon--size);
+      height: var(--dsa-nav-topbar__label__icon--size);
+    }
+  }
+
+  .dsa-nav-topbar__label:not(.dsa-nav-topbar__link) {
+    cursor: default;
+  }
+}
+
+// ─── drhubert overrides ───────────────────────────────────────────
+// Ported from the pre-monorepo website (components/nav-topbar/nav-topbar.scss).
+// The `__lang` block from that file is intentionally NOT carried over: the
+// language switcher now lives in the website's NavMainWithCta as
+// `.dsa-language-switcher` (styled in components/header/nav-header-cta.scss)
+// and links to real translated alternates instead of hardcoded / and /en.
+:root {
+  .dsa-nav-topbar {
+    .dsa-nav-topbar__list {
+      gap: 0.25em;
+    }
+
+    .dsa-nav-topbar__label {
+      transition: var(--ks-transition-hover);
+      transition-property: background-color;
+      border-radius: var(--ks-border-radius-pill);
+
+      &:has(.icon) {
+        padding-right: 0.5em;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--ks-color-primary-alpha-8);
+      }
+    }
+  }
+}

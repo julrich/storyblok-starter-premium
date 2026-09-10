@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string",
+      "description": "Text content (supports markdown)"
+    },
+    "layout": {
+      "type": "string",
+      "enum": ["above", "below", "beside_right", "beside_left"],
+      "description": "Image position relative to text"
+    },
+    "highlightText": {
+      "type": "boolean",
+      "description": "Visually highlight the text"
+    },
+    "image_alt": {
+      "type": "string",
+      "description": "Alt text for the image"
+    }
+  },
+  "required": ["text"],
+  "additionalProperties": false
+}

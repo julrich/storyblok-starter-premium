@@ -1,0 +1,32 @@
+{
+  "id": "color-semantic-layer",
+  "name": "Use Semantic Color Tokens",
+  "description": "Components should use semantic color tokens (--ks-text-color-*, --ks-background-color-*, --ks-border-color-*) rather than raw primitive color tokens (--ks-color-*). The primitive layer is for building the semantic layer, not for direct use in components.",
+  "severity": "warning",
+  "category": "semantic-hierarchy",
+  "rule": "Direct references to --ks-color-* tokens (e.g., --ks-color-primary-alpha-5, --ks-color-fg-to-bg-3) in component tokens bypass the semantic layer. Use the appropriate semantic token instead.",
+  "primitivePatterns": [
+    "--ks-color-primary-alpha-*",
+    "--ks-color-primary-to-bg-*",
+    "--ks-color-primary-to-fg-*",
+    "--ks-color-primary-inverted-*",
+    "--ks-color-fg-alpha-*",
+    "--ks-color-fg-to-bg-*",
+    "--ks-color-fg-inverted-*",
+    "--ks-color-bg-*",
+    "--ks-color-link-*",
+    "--ks-color-positive-*",
+    "--ks-color-negative-*",
+    "--ks-color-notice-*",
+    "--ks-color-informative-*"
+  ],
+  "semanticAlternatives": {
+    "color (text)": "Use --ks-text-color-* tokens for text/foreground colors",
+    "background-color": "Use --ks-background-color-* tokens for background colors",
+    "border-color": "Use --ks-border-color-* tokens for border colors"
+  },
+  "exceptions": [
+    "The --ks-color-transparent token is acceptable for explicit transparency",
+    "Calculated values using primitives may be acceptable when no semantic token covers the use case"
+  ]
+}

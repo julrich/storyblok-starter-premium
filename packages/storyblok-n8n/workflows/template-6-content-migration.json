@@ -1,0 +1,102 @@
+{
+  "name": "Content Migration: Scrape Site → Generate → Create Pages",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger-1",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Define the pages to migrate from the source site\nconst pagesToMigrate = [\n  { url: 'https://old-site.com/', slug: 'home', name: 'Home', path: 'en' },\n  { url: 'https://old-site.com/about', slug: 'about-us', name: 'About Us', path: 'en' },\n  { url: 'https://old-site.com/services', slug: 'services', name: 'Services', path: 'en' },\n  { url: 'https://old-site.com/contact', slug: 'contact', name: 'Contact', path: 'en' }\n];\n\nreturn pagesToMigrate.map(p => ({ json: p }));"
+      },
+      "id": "code-1",
+      "name": "Define Pages to Migrate",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "resource": "space",
+        "operation": "scrapeUrl",
+        "scrapeUrlTarget": "={{ $json.url }}",
+        "scrapeSelector": "main"
+      },
+      "id": "scrape-1",
+      "name": "Scrape Source Page",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [720, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "aiContent",
+        "operation": "generate",
+        "system": "You are migrating content from an old website to a new kickstartDS Design System website. Transform the provided content into well-structured sections using appropriate components (hero, features, text, cta, etc.). Maintain the original message and information while adapting it to the new component structure.",
+        "prompt": "=Transform this page content into Design System components:\n\nPage title: {{ $json.title }}\n\nContent:\n{{ $json.markdown }}",
+        "schemaMode": "auto",
+        "autoComponentType": "",
+        "autoSectionCount": 4,
+        "model": "gpt-4o"
+      },
+      "id": "generate-1",
+      "name": "Generate DS Content",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [960, 300],
+      "credentials": {
+        "openAiApi": { "id": "1", "name": "OpenAI" },
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "story",
+        "operation": "createPage",
+        "name": "={{ $('Define Pages to Migrate').item.json.name }}",
+        "slug": "={{ $('Define Pages to Migrate').item.json.slug }}",
+        "sections": "={{ JSON.stringify($json.storyblokContent ? [$json.storyblokContent] : $json.designSystemProps?.section || []) }}",
+        "createContentType": "page",
+        "path": "={{ $('Define Pages to Migrate').item.json.path }}",
+        "publish": false,
+        "uploadAssets": true,
+        "assetFolderName": "Migrated Content"
+      },
+      "id": "create-1",
+      "name": "Create Page in Storyblok",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [1200, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [{ "node": "Define Pages to Migrate", "type": "main", "index": 0 }]
+      ]
+    },
+    "Define Pages to Migrate": {
+      "main": [[{ "node": "Scrape Source Page", "type": "main", "index": 0 }]]
+    },
+    "Scrape Source Page": {
+      "main": [[{ "node": "Generate DS Content", "type": "main", "index": 0 }]]
+    },
+    "Generate DS Content": {
+      "main": [
+        [{ "node": "Create Page in Storyblok", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateId": "storyblok-kds-content-migration" }
+}

@@ -1,0 +1,43 @@
+# Docker Compose for local development and testing
+# Usage: docker compose up --build
+
+version: "3.8"
+
+services:
+  design-tokens-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: design-tokens-mcp
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount tokens directory for live updates during development
+      - ./tokens:/app/tokens:ro
+    environment:
+      - NODE_ENV=development
+      - MCP_TRANSPORT=http
+      - PORT=3000
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--quiet",
+          "--tries=1",
+          "--spider",
+          "http://localhost:3000/health",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.design-tokens-mcp.rule=PathPrefix(`/mcp`) || PathPrefix(`/health`)"
+      - "traefik.http.services.design-tokens-mcp.loadbalancer.server.port=3000"
+
+networks:
+  default:
+    name: design-tokens-network

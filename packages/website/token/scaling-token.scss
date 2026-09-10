@@ -1,0 +1,93 @@
+:root {
+  /* Interpolated scaling tokens using normalized input and max tokens */
+  --font-size-display-shrink-factor: calc(
+    1 + (var(--ks-brand-font-size-display-shrink-factor) - 1) * (var(--font-size-display-shrink-factor-max, 0.65) - 1)
+  );
+  --font-size-display-grow-factor: calc(
+    1 + (var(--ks-brand-font-size-display-grow-factor) - 1) * (var(--font-size-display-grow-factor-max, 1.75) - 1)
+  );
+  --font-size-display-bp-factor: calc(
+    1 + (var(--ks-brand-font-size-display-bp-factor) - 1) * (var(--font-size-display-bp-factor-max, 1.04) - 1)
+  );
+
+  --font-size-copy-shrink-factor: calc(
+    1 + (var(--ks-brand-font-size-copy-shrink-factor) - 1) * (var(--font-size-copy-shrink-factor-max, 0.65) - 1)
+  );
+  --font-size-copy-grow-factor: calc(
+    1 + (var(--ks-brand-font-size-copy-grow-factor) - 1) * (var(--font-size-copy-grow-factor-max, 1.75) - 1)
+  );
+  --font-size-copy-bp-factor: calc(
+    1 + (var(--ks-brand-font-size-copy-bp-factor) - 1) * (var(--font-size-copy-bp-factor-max, 1.04) - 1)
+  );
+
+  --font-size-interface-shrink-factor: calc(
+    1 + (var(--ks-brand-font-size-interface-shrink-factor) - 1) *
+      (var(--font-size-interface-shrink-factor-max, 0.65) - 1)
+  );
+  --font-size-interface-grow-factor: calc(
+    1 + (var(--ks-brand-font-size-interface-grow-factor) - 1) * (var(--font-size-interface-grow-factor-max, 1.75) - 1)
+  );
+  --font-size-interface-bp-factor: calc(
+    1 + (var(--ks-brand-font-size-interface-bp-factor) - 1) * (var(--font-size-interface-bp-factor-max, 1.04) - 1)
+  );
+
+  --font-size-mono-shrink-factor: calc(
+    1 + (var(--ks-brand-font-size-mono-shrink-factor) - 1) * (var(--font-size-mono-shrink-factor-max, 0.65) - 1)
+  );
+  --font-size-mono-grow-factor: calc(
+    1 + (var(--ks-brand-font-size-mono-grow-factor) - 1) * (var(--font-size-mono-grow-factor-max, 1.75) - 1)
+  );
+  --font-size-mono-bp-factor: calc(
+    1 + (var(--ks-brand-font-size-mono-bp-factor) - 1) * (var(--font-size-mono-bp-factor-max, 1.04) - 1)
+  );
+
+  --ks-scale-spacing-shrink-factor: calc(
+    1 + (var(--ks-brand-spacing-shrink-factor) - 1) * (var(--ks-scale-spacing-shrink-factor-max, 0.5) - 1)
+  );
+  --ks-scale-spacing-grow-factor: calc(
+    1 + (var(--ks-brand-spacing-grow-factor) - 1) * (var(--ks-scale-spacing-grow-factor-max, 2) - 1)
+  );
+  --spacing-bp-factor: calc(
+    1 + (var(--ks-brand-spacing-bp-factor) - 1) * (var(--ks-scale-spacing-bp-factor-max, 1.05) - 1)
+  );
+}
+
+// Branding
+:root,
+[ks-theme],
+[ks-inverted="false"],
+[ks-inverted="true"] {
+  /* Interpolated scaling tokens using normalized input and max tokens */
+  --ks-scale-spacing-shrink-factor: calc(
+    1 + (var(--ks-brand-spacing-shrink-factor) - 1) * (var(--ks-scale-spacing-shrink-factor-max, 0.5) - 1)
+  );
+  --ks-scale-spacing-grow-factor: calc(
+    1 + (var(--ks-brand-spacing-grow-factor) - 1) * (var(--ks-scale-spacing-grow-factor-max, 2) - 1)
+  );
+  --spacing-bp-factor: calc(
+    1 + (var(--ks-brand-spacing-bp-factor) - 1) * (var(--ks-scale-spacing-bp-factor-max, 1.05) - 1)
+  );
+}
+
+/* Set max values for your scales */
+:root {
+  --font-size-display-shrink-factor-max: 0.825;
+  --font-size-display-grow-factor-max: 1.35;
+  --font-size-display-bp-factor-max: 1.015;
+
+  --font-size-copy-shrink-factor-max: 0.825;
+  --font-size-copy-grow-factor-max: 1.35;
+  --font-size-copy-bp-factor-max: 1.015;
+
+  --font-size-interface-shrink-factor-max: 0.825;
+  --font-size-interface-grow-factor-max: 1.35;
+  --font-size-interface-bp-factor-max: 1.015;
+
+  --font-size-mono-shrink-factor-max: 0.825;
+  --font-size-mono-grow-factor-max: 1.35;
+  --font-size-mono-bp-factor-max: 1.015;
+
+  --ks-scale-spacing-shrink-factor-max: 0.35;
+  --ks-scale-spacing-grow-factor-max: 1.8;
+  --ks-scale-spacing-bp-factor-max: 1.02;
+}

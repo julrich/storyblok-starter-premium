@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "headline": {
+      "type": "string",
+      "description": "CTA headline"
+    },
+    "sub": {
+      "type": "string",
+      "description": "Subheadline text"
+    },
+    "text": {
+      "type": "string",
+      "description": "Body text (supports markdown)"
+    },
+    "highlightText": {
+      "type": "boolean",
+      "description": "Visually highlight the text"
+    },
+    "textAlign": {
+      "type": "string",
+      "enum": ["left", "center"],
+      "description": "Text alignment"
+    },
+    "buttons": {
+      "type": "array",
+      "description": "Call-to-action buttons",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "Button label text"
+          },
+          "url": {
+            "type": "string",
+            "description": "Button target URL"
+          }
+        },
+        "required": ["label", "url"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["headline", "text", "buttons"],
+  "additionalProperties": false
+}

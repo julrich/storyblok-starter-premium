@@ -1,0 +1,143 @@
+{
+  "id": "background-color-layers",
+  "name": "Background-Color Layer Intent",
+  "description": "Background-color tokens encode visual layer intent. Each token family represents a specific visual layer in the UI hierarchy.",
+  "severity": "info",
+  "category": "semantic-hierarchy",
+  "tokenPattern": "--ks-background-color-*",
+  "tokens": {
+    "--ks-background-color-default": {
+      "role": "Page-level background — the base canvas of the application",
+      "validContexts": [
+        "page-background",
+        "section-default",
+        "main-content-area"
+      ],
+      "invalidContexts": [
+        "card-surface",
+        "modal-overlay",
+        "floating-element",
+        "button"
+      ],
+      "rationale": "Default background is the base canvas, not for elevated surfaces"
+    },
+    "--ks-background-color-card": {
+      "role": "Elevated card surfaces — cards, teasers, content blocks that sit above the page",
+      "validContexts": [
+        "card",
+        "teaser-card",
+        "content-block",
+        "panel",
+        "article-card"
+      ],
+      "invalidContexts": [
+        "page-background",
+        "section-background",
+        "modal-overlay"
+      ],
+      "rationale": "Card background uses primary-alpha for subtle elevation above page level"
+    },
+    "--ks-background-color-interface": {
+      "role": "UI control surfaces — form inputs, selects, interactive controls",
+      "validContexts": [
+        "form-input",
+        "select-dropdown",
+        "toggle",
+        "control-surface",
+        "checkbox-background"
+      ],
+      "invalidContexts": [
+        "page-background",
+        "card-surface",
+        "section-background",
+        "hero-background"
+      ],
+      "rationale": "Interface background uses fg-alpha for neutral control surfaces"
+    },
+    "--ks-background-color-primary": {
+      "role": "Primary brand-color surfaces — primary buttons, branded sections, CTAs",
+      "validContexts": [
+        "primary-button",
+        "cta-section",
+        "branded-surface",
+        "hero-primary",
+        "highlight-section"
+      ],
+      "invalidContexts": ["default-card", "form-input", "page-background"],
+      "rationale": "Primary background is the brand color at full strength, use with --ks-text-color-on-primary for contrast"
+    },
+    "--ks-background-color-accent": {
+      "role": "Accent surfaces — subtle emphasis areas, highlighted sections",
+      "validContexts": [
+        "accent-section",
+        "highlighted-block",
+        "feature-highlight",
+        "aside"
+      ],
+      "invalidContexts": ["primary-button", "form-input"],
+      "rationale": "Accent uses fg-to-bg blend for subtle surface differentiation"
+    },
+    "--ks-background-color-bold": {
+      "role": "Bold surfaces — strong visual emphasis, inverted sections",
+      "validContexts": [
+        "bold-section",
+        "inverted-section",
+        "footer-background",
+        "strong-emphasis"
+      ],
+      "invalidContexts": ["default-card", "form-input", "subtle-element"],
+      "rationale": "Bold uses primary-to-bg blend for strong visual differentiation"
+    },
+    "--ks-background-color-clear": {
+      "role": "Transparent surfaces — elements that reveal the background behind them",
+      "validContexts": [
+        "ghost-button",
+        "transparent-overlay",
+        "clear-surface",
+        "tertiary-button"
+      ],
+      "invalidContexts": ["card-surface", "section-with-contrast"],
+      "rationale": "Clear is transparent by default, with interactive states that show subtle color on hover/active"
+    },
+    "--ks-background-color-positive": {
+      "role": "Positive/success state backgrounds — success banners, valid state indicators",
+      "validContexts": [
+        "success-banner",
+        "valid-state-background",
+        "positive-feedback"
+      ],
+      "invalidContexts": ["default-surface", "navigation", "cards"],
+      "rationale": "Semantic background for positive feedback states"
+    },
+    "--ks-background-color-negative": {
+      "role": "Negative/error state backgrounds — error banners, invalid state indicators",
+      "validContexts": [
+        "error-banner",
+        "invalid-state-background",
+        "negative-feedback"
+      ],
+      "invalidContexts": ["default-surface", "navigation", "cards"],
+      "rationale": "Semantic background for negative/error feedback states"
+    },
+    "--ks-background-color-notice": {
+      "role": "Notice/warning state backgrounds — warning banners, caution indicators",
+      "validContexts": [
+        "warning-banner",
+        "caution-state-background",
+        "notice-feedback"
+      ],
+      "invalidContexts": ["default-surface", "navigation", "cards"],
+      "rationale": "Semantic background for warning/notice feedback states"
+    },
+    "--ks-background-color-informative": {
+      "role": "Informative state backgrounds — info banners, helper backgrounds",
+      "validContexts": [
+        "info-banner",
+        "helper-background",
+        "informative-feedback"
+      ],
+      "invalidContexts": ["default-surface", "navigation", "cards"],
+      "rationale": "Semantic background for informational feedback states"
+    }
+  }
+}

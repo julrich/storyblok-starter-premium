@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/pagination.schema.json",
+  "title": "Pagination",
+  "description": "Pagination component for navigating through pages of content.",
+  "type": "object",
+  "properties": {
+    "truncate": {
+      "type": "boolean"
+    },
+    "ariaLabels": {
+      "type": "object",
+      "properties": {
+        "previousPage": {
+          "type": "string",
+          "description": "Aria label for the previous page link",
+          "default": "Go to previous page"
+        },
+        "nextPage": {
+          "type": "string",
+          "description": "Aria label for the next page link",
+          "default": "Go to next page"
+        },
+        "skipToFirstPage": {
+          "type": "string",
+          "description": "Aria label for the link to skip to the first page",
+          "default": "Skip to first page"
+        },
+        "skipToLastPage": {
+          "type": "string",
+          "description": "Aria label for the link to skip to the last page",
+          "default": "Skip to last page"
+        },
+        "goToPage": {
+          "type": "string",
+          "description": "Aria label for the link to go to a specific page (will be placed before the page number)",
+          "default": "Go to page"
+        }
+      }
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The URL to the page"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Indicates if the page is currently active",
+            "default": false
+          }
+        },
+        "required": ["url"]
+      }
+    }
+  },
+  "additionalProperties": false
+}

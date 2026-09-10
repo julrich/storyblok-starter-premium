@@ -1,0 +1,52 @@
+{
+  "name": "@kickstartds/component-builder-mcp",
+  "version": "1.0.0",
+  "description": "MCP server providing instructions and templates for building Design System components following kickstartDS patterns",
+  "license": "(MIT OR Apache-2.0)",
+  "author": {
+    "name": "kickstartDS",
+    "email": "info@kickstartds.com"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "component-builder-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "start:http": "MCP_TRANSPORT=http node dist/index.js",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "design-system",
+    "component-builder",
+    "kickstartds"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kickstartDS/storyblok-starter-premium.git",
+    "directory": "packages/component-builder-mcp"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@kickstartds/shared-auth": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

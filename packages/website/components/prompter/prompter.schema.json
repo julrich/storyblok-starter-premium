@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://cms.mydesignsystem.com/prompter.schema.json",
+  "title": "Prompter",
+  "description": "Component used to create new website content using AI prompts",
+  "type": "object",
+  "properties": {
+    "mode": {
+      "title": "Mode",
+      "description": "Generation mode. 'section' generates editor-selected sections via generate_section. 'page' uses plan_page → generate_section for AI-planned full-page generation.",
+      "type": "string",
+      "enum": ["section", "page"],
+      "default": "section"
+    },
+    "componentTypes": {
+      "title": "Component Types",
+      "description": "Ordered list of component types to generate (section mode only). E.g. ['faq'] for a single section, or ['features', 'testimonials', 'cta'] for multiple. Ignored in page mode.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sections": {
+      "title": "Section count (deprecated)",
+      "description": "Deprecated — in page mode, section count is determined by plan_page. In section mode, determined by componentTypes array length. Kept for backward compat.",
+      "type": "integer"
+    },
+    "includeStory": {
+      "title": "Include Story?",
+      "description": "Whether to include the current story as main context",
+      "type": "boolean",
+      "default": true
+    },
+    "useIdea": {
+      "title": "Use Idea?",
+      "description": "Whether to use an idea as part of the context",
+      "type": "boolean",
+      "default": true
+    },
+    "relatedStories": {
+      "title": "Related Stories",
+      "description": "Additional related stories to include as context",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "userPrompt": {
+      "title": "User Prompt",
+      "description": "In section mode: prompt describing the section(s) content. In page mode: intent for page planning.",
+      "type": "string"
+    },
+    "systemPrompt": {
+      "title": "System Prompt",
+      "description": "Optional system prompt override (default: auto-generated with site context)",
+      "type": "string",
+      "default": "You are a helpful assistant that generates high-quality website content based on the provided context and user instructions. Ensure the content is engaging, relevant, and well-structured. For images you use placehold.co. The format reads as follows: https://placehold.co/1200x600?text=Dynamic+Web+Evolution, where after the domain you follow up with the dimensions (width x height) and then the text parameter to specify the text shown on the placeholder image. As the text, use a description for a good fitting image, that should be shown here. It should theoretically work as the alt text for the image. Never append or use any other parameters of path segments when constructing such image URLs"
+    },
+    "contentType": {
+      "title": "Content Type",
+      "description": "Content type for generation. Auto-detected from story if not set.",
+      "type": "string",
+      "enum": ["page", "blog-post", "blog-overview"],
+      "default": "page"
+    },
+    "startsWith": {
+      "title": "Pattern Slug Prefix",
+      "description": "Optional slug prefix filter for pattern analysis (e.g. 'case-studies/' to match style of that section)",
+      "type": "string"
+    },
+    "uploadAssets": {
+      "title": "Upload Assets?",
+      "description": "Upload generated image URLs to Storyblok CDN on save",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "additionalProperties": false
+}

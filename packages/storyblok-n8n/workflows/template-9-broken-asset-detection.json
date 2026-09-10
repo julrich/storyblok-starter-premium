@@ -1,0 +1,115 @@
+{
+  "name": "Broken Asset Detection: List Assets + Stories → Cross-Reference → Report",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger-1",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "resource": "space",
+        "operation": "listAssets",
+        "assetPerPage": 100
+      },
+      "id": "assets-1",
+      "name": "List All Assets",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [480, 200],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "story",
+        "operation": "list",
+        "contentType": "page",
+        "perPage": 100,
+        "excludeContent": false
+      },
+      "id": "stories-1",
+      "name": "List All Stories",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [480, 420],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const assets = $('List All Assets').first().json.assets || [];\nconst stories = $('List All Stories').first().json.stories || [];\n\n// Collect all asset URLs referenced in story content\nconst referencedUrls = new Set();\n\nfunction extractUrls(obj) {\n  if (!obj || typeof obj !== 'object') return;\n  for (const [key, value] of Object.entries(obj)) {\n    if (typeof value === 'string' && value.includes('a.storyblok.com')) {\n      referencedUrls.add(value.split('?')[0]); // strip query params\n    } else if (typeof value === 'object') {\n      extractUrls(value);\n    }\n  }\n}\n\nfor (const story of stories) {\n  extractUrls(story.content);\n}\n\n// Find unused assets (in Storyblok but not referenced in any story)\nconst unusedAssets = assets.filter(asset => {\n  const assetUrl = (asset.filename || '').split('?')[0];\n  return !referencedUrls.has(assetUrl);\n});\n\n// Find broken references (URLs in stories that don't match any asset)\nconst assetUrls = new Set(assets.map(a => (a.filename || '').split('?')[0]));\nconst brokenRefs = [];\nfor (const url of referencedUrls) {\n  if (!assetUrls.has(url)) {\n    brokenRefs.push(url);\n  }\n}\n\nreturn [{\n  json: {\n    totalAssets: assets.length,\n    totalStories: stories.length,\n    referencedAssets: referencedUrls.size,\n    unusedAssets: unusedAssets.map(a => ({ filename: a.filename, id: a.id, alt: a.alt })),\n    unusedCount: unusedAssets.length,\n    brokenReferences: brokenRefs,\n    brokenCount: brokenRefs.length,\n    summary: `${unusedAssets.length} unused assets, ${brokenRefs.length} broken references out of ${assets.length} total assets across ${stories.length} stories`\n  }\n}];"
+      },
+      "id": "code-1",
+      "name": "Cross-Reference Assets",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.unusedCount + $json.brokenCount }}",
+              "operation": "larger",
+              "value2": 0
+            }
+          ]
+        }
+      },
+      "id": "if-1",
+      "name": "Has Issues?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [960, 300]
+    },
+    {
+      "parameters": {
+        "channel": "#content-audit",
+        "text": "=🔍 Asset Audit Report\n\n{{ $json.summary }}\n\n{{ $json.unusedCount > 0 ? '🗑️ Unused assets:\\n' + $json.unusedAssets.slice(0, 10).map(a => '• ' + a.filename).join('\\n') : '✅ No unused assets' }}\n\n{{ $json.brokenCount > 0 ? '💔 Broken references:\\n' + $json.brokenReferences.slice(0, 10).map(u => '• ' + u).join('\\n') : '✅ No broken references' }}"
+      },
+      "id": "slack-1",
+      "name": "Send Report",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [1200, 200],
+      "credentials": {
+        "slackApi": { "id": "3", "name": "Slack" }
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          { "node": "List All Assets", "type": "main", "index": 0 },
+          { "node": "List All Stories", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "List All Assets": {
+      "main": [
+        [{ "node": "Cross-Reference Assets", "type": "main", "index": 0 }]
+      ]
+    },
+    "List All Stories": {
+      "main": [
+        [{ "node": "Cross-Reference Assets", "type": "main", "index": 0 }]
+      ]
+    },
+    "Cross-Reference Assets": {
+      "main": [[{ "node": "Has Issues?", "type": "main", "index": 0 }]]
+    },
+    "Has Issues?": {
+      "main": [[{ "node": "Send Report", "type": "main", "index": 0 }], []]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateId": "storyblok-kds-broken-asset-detection" }
+}

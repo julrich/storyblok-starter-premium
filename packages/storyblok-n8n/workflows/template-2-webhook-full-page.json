@@ -1,0 +1,110 @@
+{
+  "name": "Webhook → Generate Full Page → Import → Slack Notification",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "generate-page",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook-1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "generate-page"
+    },
+    {
+      "parameters": {
+        "resource": "aiContent",
+        "operation": "generate",
+        "system": "You are a senior content strategist for a digital agency. Create comprehensive, well-structured page content with multiple sections. Each section should serve a clear purpose in the user journey.",
+        "prompt": "={{ $json.body.prompt || 'Create a full landing page with hero, features section with 4 features, testimonials with 3 quotes, FAQ with 5 questions, and a CTA section.' }}",
+        "schemaMode": "custom",
+        "customSchemaName": "full_page",
+        "customSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"sections\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"component\": { \"type\": \"string\" },\n          \"headline\": { \"type\": \"string\" },\n          \"text\": { \"type\": \"string\" },\n          \"items\": { \"type\": \"array\", \"items\": { \"type\": \"object\" } }\n        },\n        \"required\": [\"component\", \"headline\"]\n      }\n    }\n  },\n  \"required\": [\"sections\"]\n}",
+        "model": "gpt-4o-2024-08-06"
+      },
+      "id": "generate-page-1",
+      "name": "Generate Page Content",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [480, 300],
+      "credentials": {
+        "openAiApi": { "id": "1", "name": "OpenAI" },
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "aiContent",
+        "operation": "import",
+        "storyUid": "={{ $json.body?.storyUid || $node['Webhook'].json.body.storyUid }}",
+        "placementMode": "prompter",
+        "prompterUid": "={{ $json.body?.prompterUid || $node['Webhook'].json.body.prompterUid }}",
+        "page": "={{ JSON.stringify({ content: { section: $json.generatedContent.sections } }) }}",
+        "publish": false
+      },
+      "id": "import-page-1",
+      "name": "Import into Storyblok",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [720, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "channel": "#content-updates",
+        "text": "=✅ New page content generated and imported!\n\nStory: {{ $json.story?.name || 'Unknown' }}\nSections imported: {{ $json._meta?.sectionsImported || 'N/A' }}\nStatus: {{ $json._meta?.published ? 'Published' : 'Draft' }}\nTimestamp: {{ $json._meta?.timestamp }}",
+        "otherOptions": {}
+      },
+      "id": "slack-1",
+      "name": "Slack Notification",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "credentials": {
+        "slackApi": { "id": "3", "name": "Slack" }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: true, story: $node['Import into Storyblok'].json.story?.name, sectionsImported: $node['Import into Storyblok'].json._meta?.sectionsImported }) }}"
+      },
+      "id": "respond-1",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [960, 500]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [{ "node": "Generate Page Content", "type": "main", "index": 0 }]
+      ]
+    },
+    "Generate Page Content": {
+      "main": [
+        [{ "node": "Import into Storyblok", "type": "main", "index": 0 }]
+      ]
+    },
+    "Import into Storyblok": {
+      "main": [
+        [
+          { "node": "Slack Notification", "type": "main", "index": 0 },
+          { "node": "Respond to Webhook", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateId": "storyblok-kds-webhook-full-page"
+  }
+}

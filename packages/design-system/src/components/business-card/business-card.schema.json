@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/business-card.schema.json",
+  "title": "Business Card",
+  "description": "Business card component representing an individual's or company's contact information and branding.",
+  "type": "object",
+  "properties": {
+    "centered": {
+      "type": "boolean",
+      "title": "Centered",
+      "description": "Whether the business card content is centered.",
+      "default": false
+    },
+    "image": {
+      "type": "object",
+      "title": "Background Image",
+      "description": "A background or feature image displayed on the business card.",
+      "properties": {
+        "src": {
+          "type": "string",
+          "title": "Image Source",
+          "format": "image",
+          "description": "URL of the background image shown on the business card."
+        },
+        "alt": {
+          "type": "string",
+          "title": "Image Alt Text",
+          "description": "Alternative text describing the background image."
+        }
+      },
+      "required": ["src"]
+    },
+    "logo": {
+      "type": "object",
+      "title": "Company Logo",
+      "description": "The logo of the company or organization displayed on the business card.",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "image",
+          "title": "Logo Image",
+          "description": "URL of the company or organization logo."
+        },
+        "alt": {
+          "type": "string",
+          "title": "Logo Alt Text",
+          "description": "Alternative text describing the logo."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "title": "Logo Target",
+          "description": "URL to the company's website or landing page."
+        }
+      },
+      "required": ["src"]
+    },
+    "topic": {
+      "type": "string",
+      "title": "Topic",
+      "description": "A headline or main topic for the business card, such as a job title or department."
+    },
+    "address": {
+      "type": "string",
+      "title": "Address",
+      "description": "The physical or mailing address displayed on the business card."
+    },
+    "avatar": {
+      "type": "object",
+      "title": "Avatar",
+      "description": "A profile image or avatar representing the person on the business card.",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "image",
+          "title": "Avatar Image",
+          "description": "URL of the person's avatar or profile image."
+        },
+        "alt": {
+          "type": "string",
+          "title": "Avatar Alt Text",
+          "description": "Alternative text describing the avatar."
+        }
+      },
+      "required": ["src"]
+    },
+    "contactLinks": {
+      "type": "array",
+      "title": "Contact Information",
+      "description": "A list of contact methods for the person or business (e.g., email, phone, website).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "title": "Contact Label",
+            "description": "Label describing the contact method (e.g., 'Email', 'Phone')."
+          },
+          "icon": {
+            "type": "string",
+            "format": "icon",
+            "title": "Contact Icon",
+            "description": "Icon name or identifier representing the contact method."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "title": "Contact URL",
+            "description": "URL or link for the contact method, if applicable."
+          }
+        },
+        "required": ["label"]
+      }
+    },
+    "buttons": {
+      "type": "array",
+      "title": "Buttons",
+      "description": "A list of action buttons shown on the business card.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "title": "Button Label",
+            "description": "Text label for the link."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "title": "Button URL",
+            "description": "URL the link points to."
+          }
+        },
+        "required": ["label", "url"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

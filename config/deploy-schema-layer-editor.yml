@@ -1,0 +1,45 @@
+# Name of your application. Used to uniquely configure containers.
+service: ruhmesmeile-schema-layer-editor
+
+# Name of the container image.
+image: <%= ENV["DOCKER_SCHEMA_LAYER_EDITOR_IMAGE_NAME"] %>
+
+# Deploy to the same server as the main site.
+servers:
+  web:
+    - <%= ENV["HOSTING_SERVER_IP"] %>
+
+# Enable SSL auto certification via Let's Encrypt.
+# The schema-layer-editor gets its own subdomain on the same host.
+proxy:
+  ssl: true
+  hosts:
+    - <%= ENV["SCHEMA_LAYER_EDITOR_PUBLIC_DOMAIN"] %>
+  app_port: 8080
+  response_timeout: 60
+  healthcheck:
+    path: /api/schemas
+
+# Credentials for your image host.
+registry:
+  username: <%= ENV["DOCKER_USERNAME"] %>
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+# Configure builder setup.
+builder:
+  arch: amd64
+  # Build context is the repo root so workspace packages and design-system schemas are available
+  context: .
+  dockerfile: packages/schema-layer-editor/Dockerfile
+  # Bust the source-code cache on every deploy so code changes always ship
+  args:
+    CACHEBUST: <%= Time.now.to_i %>
+
+# Inject ENV variables into containers.
+# No secrets required — this is a self-contained schema editing tool.
+env:
+  clear:
+    NODE_ENV: production
+    SCHEMA_LAYER_NAMESPACE: visibility
+    SCHEMA_LAYER_PORT: 8080

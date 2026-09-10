@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/logo.schema.json",
+  "title": "Logo",
+  "type": "object",
+  "properties": {
+    "src": {
+      "title": "Source",
+      "description": "Picture source",
+      "type": "string",
+      "format": "image"
+    },
+    "srcInverted": {
+      "title": "Source",
+      "description": "Picture source",
+      "type": "string",
+      "format": "image"
+    },
+    "alt": {
+      "title": "Alt text",
+      "description": "Alt text to display for picture",
+      "type": "string"
+    },
+    "homepageHref": {
+      "type": "string",
+      "format": "uri",
+      "default": "/"
+    },
+    "inverted": {
+      "type": "boolean",
+      "title": "Inverted",
+      "description": "Toggle wether the inverted or default version of the logo is being displayed"
+    },
+    "width": {
+      "title": "Width",
+      "description": "Width of the picture",
+      "type": "integer",
+      "minimum": 0,
+      "examples": [300]
+    },
+    "height": {
+      "title": "Height",
+      "description": "Height of the picture",
+      "type": "integer",
+      "minimum": 0,
+      "examples": [300]
+    },
+    "className": {
+      "title": "Additional Classes",
+      "description": "Add additional css classes that should be applied to the logo",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

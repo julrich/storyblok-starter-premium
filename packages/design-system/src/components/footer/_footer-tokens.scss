@@ -1,0 +1,54 @@
+.dsa-footer {
+  --dsa-footer--background-color: var(--ks-background-color-default);
+  --dsa-footer--border-top: var(--ks-border-width-default) solid var(--ks-border-color-default);
+  --dsa-footer--max-width: var(--dsa-content--width_wide);
+  --dsa-footer--gap-vertical: var(--ks-spacing-stack-l);
+
+  --dsa-footer__columns--gap: var(--ks-spacing-stack-l) var(--ks-spacing-inline-xl);
+  --dsa-footer__column--gap: var(--ks-spacing-stack-s);
+
+  --dsa-footer__column-heading--font: var(--ks-font-interface-s);
+  --dsa-footer__column-heading--font-weight: var(--ks-font-weight-bold);
+  --dsa-footer__column-heading--text-transform: uppercase;
+  --dsa-footer__column-heading--letter-spacing: 0.05em;
+  --dsa-footer__column-heading--color: var(--ks-text-color-default);
+
+  // Flat variant, used when no group has a second level: the headings are the
+  // whole menu, so they take the header's nav-link typography instead of the
+  // column-label look. See `&__columns--flat` in footer.scss.
+  --dsa-footer__columns_flat--gap: var(--ks-spacing-stack-s) var(--ks-spacing-inline-m);
+  --dsa-footer__column-heading_flat--font: var(--ks-font-interface-s);
+  --dsa-footer__column-heading_flat--font-family: var(--ks-font-family-display);
+  --dsa-footer__column-heading_flat--font-weight: var(--ks-font-weight-medium);
+  --dsa-footer__column-heading_flat--text-transform: none;
+  --dsa-footer__column-heading_flat--letter-spacing: normal;
+  --dsa-footer__column-heading_flat--color: var(--ks-text-color-interface-interactive);
+  --dsa-footer__column-heading_flat--color_hover: var(--ks-text-color-interface-interactive-hover);
+  --dsa-footer__column-heading-link_flat--text-decoration_hover: none;
+
+  --dsa-footer__nav-list--gap: var(--ks-spacing-stack-xs);
+
+  --dsa-footer__link--font: var(--ks-font-interface-s);
+  --dsa-footer__link--font-weight: var(--dsa-link--font-weight);
+  --dsa-footer__link--color: var(--ks-text-color-interface-interactive);
+  --dsa-footer__link--color_hover: var(--ks-text-color-interface-interactive-hover);
+  --dsa-footer__link--text-decoration: none;
+  --dsa-footer__link--text-decoration_hover: underline;
+
+  --dsa-footer__social--gap: var(--ks-spacing-inline-s);
+  --dsa-footer__social-link--size: 1.5rem;
+  --dsa-footer__social-link--color: var(--ks-text-color-interface-interactive);
+  --dsa-footer__social-link--color_hover: var(--ks-text-color-interface-interactive-hover);
+
+  --dsa-footer__bottom--gap: var(--ks-spacing-stack-s);
+  --dsa-footer__bottom--padding-top: var(--ks-spacing-stack-m);
+  --dsa-footer__bottom--border-top: var(--ks-border-width-default) solid var(--ks-border-color-default);
+
+  --dsa-footer__copyright--font: var(--ks-font-copy-xs);
+  --dsa-footer__copyright--color: var(--ks-text-color-default);
+
+  --dsa-footer__legal-link--color: var(--ks-text-color-interface-interactive);
+  --dsa-footer__legal-link--color_hover: var(--ks-text-color-interface-interactive-hover);
+  --dsa-footer__legal-link--text-decoration: underline;
+}
+

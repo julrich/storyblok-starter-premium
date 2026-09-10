@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/event-appointment.schema.json",
+  "title": "Event Appointment",
+  "type": "object",
+  "properties": {
+    "date": {
+      "title": "Date",
+      "description": "Date of the appointment",
+      "type": "string",
+      "format": "date",
+      "examples": ["18.09.2025"]
+    },
+    "time": {
+      "title": "Time",
+      "description": "Time of the appointment",
+      "type": "string",
+      "examples": ["09:00 – 17:00"]
+    },
+    "label": {
+      "title": "CTA Label",
+      "description": "Label for the call to action button",
+      "type": "string",
+      "examples": ["Register"]
+    },
+    "url": {
+      "title": "URL",
+      "description": "URL for the call to action button",
+      "type": "string",
+      "format": "uri",
+      "default": "#"
+    },
+    "newTab": {
+      "title": "Open in New Tab",
+      "description": "Whether the link should open in a new tab",
+      "type": "boolean",
+      "default": true
+    },
+    "ariaLabel": {
+      "title": "Aria Label",
+      "description": "Aria label for the link",
+      "type": "string",
+      "default": "Event Appointment"
+    }
+  },
+  "additionalProperties": false
+}

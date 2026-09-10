@@ -1,0 +1,18 @@
+:root {
+  .dsa-section[data-ai-draft] {
+    position: relative;
+    z-index: 2;
+
+    // Decorative line along the left section edge
+    &::after {
+      content: "";
+      top: 4rem;
+      bottom: 2rem;
+      width: 1px;
+      border-left: 4px solid var(--prompter-color);
+      position: absolute;
+      border-radius: 99px;
+      left: 1rem;
+    }
+  }
+}

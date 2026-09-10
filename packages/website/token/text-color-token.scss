@@ -1,0 +1,485 @@
+:root,
+[ks-theme] {
+  --ks-text-color-default-base: var(--ks-color-fg-alpha-3);
+  --ks-text-color-default-inverted-base: var(--ks-color-fg-inverted-alpha-2);
+
+  --ks-text-color-default-interactive-base: var(--ks-color-link);
+  --ks-text-color-default-inverted-interactive-base: var(--ks-color-link-inverted);
+
+  --ks-text-color-default-interactive-hover-base: var(--ks-color-link-to-fg-4);
+  --ks-text-color-default-inverted-interactive-hover-base: var(--ks-color-link-inverted-alpha-4);
+
+  --ks-text-color-default-interactive-active-base: var(--ks-color-link);
+  --ks-text-color-default-inverted-interactive-active-base: var(--ks-color-link-inverted);
+
+  --ks-text-color-default-interactive-selected-base: var(--ks-color-link);
+  --ks-text-color-default-inverted-interactive-selected-base: var(--ks-color-link-inverted);
+
+  --ks-text-color-copy-base: var(--ks-color-fg-alpha-3);
+  --ks-text-color-copy-inverted-base: var(--ks-color-fg-inverted-alpha-3);
+
+  --ks-text-color-copy-interactive-base: var(--ks-color-link);
+  --ks-text-color-copy-inverted-interactive-base: var(--ks-color-link-inverted);
+
+  --ks-text-color-copy-interactive-hover-base: var(--ks-color-link-to-fg-2);
+  --ks-text-color-copy-inverted-interactive-hover-base: var(--ks-color-link-inverted-to-fg-2);
+
+  --ks-text-color-copy-interactive-active-base: var(--ks-color-link-to-fg-3);
+  --ks-text-color-copy-inverted-interactive-active-base: var(--ks-color-link-inverted-to-fg-2);
+
+  --ks-text-color-copy-interactive-selected-base: var(--ks-color-link-to-fg-3);
+  --ks-text-color-copy-inverted-interactive-selected-base: var(--ks-color-link-inverted-to-fg-2);
+
+  --ks-text-color-display-base: var(--ks-color-fg);
+  --ks-text-color-display-inverted-base: var(--ks-color-fg-inverted);
+
+  --ks-text-color-display-interactive-base: var(--ks-color-link);
+  --ks-text-color-display-inverted-interactive-base: var(--ks-color-link-inverted);
+
+  --ks-text-color-display-interactive-hover-base: var(--ks-color-link-to-fg-2);
+  --ks-text-color-display-inverted-interactive-hover-base: var(--ks-color-link-inverted-to-fg-2);
+
+  --ks-text-color-display-interactive-active-base: var(--ks-color-link-to-fg-3);
+  --ks-text-color-display-inverted-interactive-active-base: var(--ks-color-link-inverted-to-fg-2);
+
+  --ks-text-color-display-interactive-selected-base: var(--ks-color-link-to-fg-3);
+  --ks-text-color-display-inverted-interactive-selected-base: var(--ks-color-link-inverted-to-fg-2);
+
+  --ks-text-color-interface-base: var(--ks-color-fg-alpha-2);
+  --ks-text-color-interface-inverted-base: var(--ks-color-fg-inverted-alpha-4);
+
+  --ks-text-color-interface-interactive-base: var(--ks-color-fg-alpha-4);
+  --ks-text-color-interface-inverted-interactive-base: var(--ks-color-fg-inverted-alpha-3);
+
+  --ks-text-color-interface-interactive-hover-base: var(--ks-color-fg);
+  --ks-text-color-interface-inverted-interactive-hover-base: var(--ks-color-fg-inverted);
+
+  --ks-text-color-interface-interactive-active-base: var(--ks-color-fg);
+  --ks-text-color-interface-inverted-interactive-active-base: var(--ks-color-fg-inverted);
+
+  --ks-text-color-interface-interactive-selected-base: var(--ks-color-fg);
+  --ks-text-color-interface-inverted-interactive-selected-base: var(--ks-color-fg-inverted);
+
+  --ks-text-color-card-base: var(--ks-color-fg-alpha-2);
+  --ks-text-color-card-inverted-base: var(--ks-color-fg-inverted-alpha-2);
+
+  --ks-text-color-card-interactive-base: var(--ks-color-fg);
+  --ks-text-color-card-inverted-interactive-base: var(--ks-color-fg-inverted);
+
+  --ks-text-color-card-interactive-hover-base: var(--ks-color-fg);
+  --ks-text-color-card-inverted-interactive-hover-base: var(--ks-color-fg-inverted);
+
+  --ks-text-color-card-interactive-active-base: var(--ks-color-fg);
+  --ks-text-color-card-inverted-interactive-active-base: var(--ks-color-fg-inverted);
+
+  --ks-text-color-card-interactive-selected-base: var(--ks-color-fg);
+  --ks-text-color-card-inverted-interactive-selected-base: var(--ks-color-fg-inverted);
+
+  --ks-text-color-primary-base: var(--ks-color-primary);
+  --ks-text-color-primary-inverted-base: var(--ks-color-primary-inverted);
+
+  --ks-text-color-primary-interactive-base: var(--ks-color-primary);
+  --ks-text-color-primary-inverted-interactive-base: var(--ks-color-primary-inverted-alpha-2);
+
+  --ks-text-color-primary-interactive-hover-base: var(--ks-color-primary-alpha-2);
+  --ks-text-color-primary-inverted-interactive-hover-base: var(--ks-color-primary-inverted-alpha-2);
+
+  --ks-text-color-primary-interactive-active-base: var(--ks-color-primary-alpha-2);
+  --ks-text-color-primary-inverted-interactive-active-base: var(--ks-color-primary-inverted-alpha-2);
+
+  --ks-text-color-primary-interactive-selected-base: var(--ks-color-primary-alpha-2);
+  --ks-text-color-primary-inverted-interactive-selected-base: var(--ks-color-primary-inverted-alpha-2);
+
+  --ks-text-color-on-primary-base: var(--ks-color-on-primary);
+  --ks-text-color-on-primary-inverted-base: var(--ks-color-on-primary-inverted);
+
+  --ks-text-color-positive-base: var(--ks-color-positive);
+  --ks-text-color-positive-inverted-base: var(--ks-color-positive-inverted);
+
+  --ks-text-color-positive-interactive-base: var(--ks-color-positive);
+  --ks-text-color-positive-inverted-interactive-base: var(--ks-color-positive-inverted-alpha-2);
+
+  --ks-text-color-positive-interactive-hover-base: var(--ks-color-positive-alpha-2);
+  --ks-text-color-positive-inverted-interactive-hover-base: var(--ks-color-positive-inverted-alpha-2);
+
+  --ks-text-color-positive-interactive-active-base: var(--ks-color-positive-alpha-2);
+  --ks-text-color-positive-inverted-interactive-active-base: var(--ks-color-positive-inverted-alpha-2);
+
+  --ks-text-color-positive-interactive-selected-base: var(--ks-color-positive-alpha-2);
+  --ks-text-color-positive-inverted-interactive-selected-base: var(--ks-color-positive-inverted-alpha-2);
+
+  --ks-text-color-informative-base: var(--ks-color-informative);
+  --ks-text-color-informative-inverted-base: var(--ks-color-informative-inverted);
+
+  --ks-text-color-informative-interactive-base: var(--ks-color-informative);
+  --ks-text-color-informative-inverted-interactive-base: var(--ks-color-informative-inverted-alpha-2);
+
+  --ks-text-color-informative-interactive-hover-base: var(--ks-color-informative-alpha-2);
+  --ks-text-color-informative-inverted-interactive-hover-base: var(--ks-color-informative-inverted-alpha-2);
+
+  --ks-text-color-informative-interactive-active-base: var(--ks-color-informative-alpha-2);
+  --ks-text-color-informative-inverted-interactive-active-base: var(--ks-color-informative-inverted-alpha-2);
+
+  --ks-text-color-informative-interactive-selected-base: var(--ks-color-informative-alpha-2);
+  --ks-text-color-informative-inverted-interactive-selected-base: var(--ks-color-informative-inverted-alpha-2);
+
+  --ks-text-color-notice-base: var(--ks-color-notice);
+  --ks-text-color-notice-inverted-base: var(--ks-color-notice-inverted);
+
+  --ks-text-color-notice-interactive-base: var(--ks-color-notice);
+  --ks-text-color-notice-inverted-interactive-base: var(--ks-color-notice-inverted-alpha-2);
+
+  --ks-text-color-notice-interactive-hover-base: var(--ks-color-notice-alpha-2);
+  --ks-text-color-notice-inverted-interactive-hover-base: var(--ks-color-notice-inverted-alpha-2);
+
+  --ks-text-color-notice-interactive-active-base: var(--ks-color-notice-alpha-2);
+  --ks-text-color-notice-inverted-interactive-active-base: var(--ks-color-notice-inverted-alpha-2);
+
+  --ks-text-color-notice-interactive-selected-base: var(--ks-color-notice-alpha-2);
+  --ks-text-color-notice-inverted-interactive-selected-base: var(--ks-color-notice-inverted-alpha-2);
+
+  --ks-text-color-negative-base: var(--ks-color-negative);
+  --ks-text-color-negative-inverted-base: var(--ks-color-negative-inverted);
+
+  --ks-text-color-negative-interactive-base: var(--ks-color-negative);
+  --ks-text-color-negative-inverted-interactive-base: var(--ks-color-negative-inverted-alpha-2);
+
+  --ks-text-color-negative-interactive-hover-base: var(--ks-color-negative-alpha-2);
+  --ks-text-color-negative-inverted-interactive-hover-base: var(--ks-color-negative-inverted-alpha-2);
+
+  --ks-text-color-negative-interactive-active-base: var(--ks-color-negative-alpha-2);
+  --ks-text-color-negative-inverted-interactive-active-base: var(--ks-color-negative-inverted-alpha-2);
+
+  --ks-text-color-negative-interactive-selected-base: var(--ks-color-negative-alpha-2);
+  --ks-text-color-negative-inverted-interactive-selected-base: var(--ks-color-negative-inverted-alpha-2);
+}
+
+:root {
+  --ks-text-color-default: var(--ks-text-color-default-base);
+  --ks-text-color-default-inverted: var(--ks-text-color-default-inverted-base);
+
+  --ks-text-color-default-interactive: var(--ks-text-color-default-interactive-base);
+  --ks-text-color-default-inverted-interactive: var(--ks-text-color-default-inverted-interactive-base);
+
+  --ks-text-color-default-interactive-hover: var(--ks-text-color-default-interactive-hover-base);
+  --ks-text-color-default-inverted-interactive-hover: var(--ks-text-color-default-inverted-interactive-hover-base);
+
+  --ks-text-color-default-interactive-active: var(--ks-text-color-default-interactive-active-base);
+  --ks-text-color-default-inverted-interactive-active: var(--ks-text-color-default-inverted-interactive-active-base);
+
+  --ks-text-color-default-interactive-selected: var(--ks-text-color-default-interactive-selected-base);
+  --ks-text-color-default-inverted-interactive-selected: var(
+    --ks-text-color-default-inverted-interactive-selected-base
+  );
+
+  --ks-text-color-copy: var(--ks-text-color-copy-base);
+  --ks-text-color-copy-inverted: var(--ks-text-color-copy-inverted-base);
+
+  --ks-text-color-copy-interactive: var(--ks-text-color-copy-interactive-base);
+  --ks-text-color-copy-inverted-interactive: var(--ks-text-color-copy-inverted-interactive-base);
+
+  --ks-text-color-copy-interactive-hover: var(--ks-text-color-copy-interactive-hover-base);
+  --ks-text-color-copy-inverted-interactive-hover: var(--ks-text-color-copy-inverted-interactive-hover-base);
+
+  --ks-text-color-copy-interactive-active: var(--ks-text-color-copy-interactive-active-base);
+  --ks-text-color-copy-inverted-interactive-active: var(--ks-text-color-copy-inverted-interactive-active-base);
+
+  --ks-text-color-copy-interactive-selected: var(--ks-text-color-copy-interactive-selected-base);
+  --ks-text-color-copy-inverted-interactive-selected: var(--ks-text-color-copy-inverted-interactive-selected-base);
+
+  --ks-text-color-display: var(--ks-text-color-display-base);
+  --ks-text-color-display-inverted: var(--ks-text-color-display-inverted-base);
+
+  --ks-text-color-display-interactive: var(--ks-text-color-display-interactive-base);
+  --ks-text-color-display-inverted-interactive: var(--ks-text-color-display-inverted-interactive-base);
+
+  --ks-text-color-display-interactive-hover: var(--ks-text-color-display-interactive-hover-base);
+  --ks-text-color-display-inverted-interactive-hover: var(--ks-text-color-display-inverted-interactive-hover-base);
+
+  --ks-text-color-display-interactive-active: var(--ks-text-color-display-interactive-active-base);
+  --ks-text-color-display-inverted-interactive-active: var(--ks-text-color-display-inverted-interactive-active-base);
+
+  --ks-text-color-display-interactive-selected: var(--ks-text-color-display-interactive-selected-base);
+  --ks-text-color-display-inverted-interactive-selected: var(
+    --ks-text-color-display-inverted-interactive-selected-base
+  );
+
+  --ks-text-color-interface: var(--ks-text-color-interface-base);
+  --ks-text-color-interface-inverted: var(--ks-text-color-interface-inverted-base);
+
+  --ks-text-color-interface-interactive: var(--ks-text-color-interface-interactive-base);
+  --ks-text-color-interface-inverted-interactive: var(--ks-text-color-interface-inverted-interactive-base);
+
+  --ks-text-color-interface-interactive-hover: var(--ks-text-color-interface-interactive-hover-base);
+  --ks-text-color-interface-inverted-interactive-hover: var(--ks-text-color-interface-inverted-interactive-hover-base);
+
+  --ks-text-color-interface-interactive-active: var(--ks-text-color-interface-interactive-active-base);
+  --ks-text-color-interface-inverted-interactive-active: var(
+    --ks-text-color-interface-inverted-interactive-active-base
+  );
+
+  --ks-text-color-interface-interactive-selected: var(--ks-text-color-interface-interactive-selected-base);
+  --ks-text-color-interface-inverted-interactive-selected: var(
+    --ks-text-color-interface-inverted-interactive-selected-base
+  );
+
+  --ks-text-color-card: var(--ks-text-color-card-base);
+  --ks-text-color-card-inverted: var(--ks-text-color-card-inverted-base);
+
+  --ks-text-color-card-interactive: var(--ks-text-color-card-interactive-base);
+  --ks-text-color-card-inverted-interactive: var(--ks-text-color-card-inverted-interactive-base);
+
+  --ks-text-color-card-interactive-hover: var(--ks-text-color-card-interactive-hover-base);
+  --ks-text-color-card-inverted-interactive-hover: var(--ks-text-color-card-inverted-interactive-hover-base);
+
+  --ks-text-color-card-interactive-active: var(--ks-text-color-card-interactive-active-base);
+  --ks-text-color-card-inverted-interactive-active: var(--ks-text-color-card-inverted-interactive-active-base);
+
+  --ks-text-color-card-interactive-selected: var(--ks-text-color-card-interactive-selected-base);
+  --ks-text-color-card-inverted-interactive-selected: var(--ks-text-color-card-inverted-interactive-selected-base);
+
+  --ks-text-color-primary: var(--ks-text-color-primary-base);
+  --ks-text-color-primary-inverted: var(--ks-text-color-primary-inverted-base);
+
+  --ks-text-color-primary-interactive: var(--ks-text-color-primary-interactive-base);
+  --ks-text-color-primary-inverted-interactive: var(--ks-text-color-primary-inverted-interactive-base);
+
+  --ks-text-color-primary-interactive-hover: var(--ks-text-color-primary-interactive-hover-base);
+  --ks-text-color-primary-inverted-interactive-hover: var(--ks-text-color-primary-inverted-interactive-hover-base);
+
+  --ks-text-color-primary-interactive-active: var(--ks-text-color-primary-interactive-active-base);
+  --ks-text-color-primary-inverted-interactive-active: var(--ks-text-color-primary-inverted-interactive-active-base);
+
+  --ks-text-color-primary-interactive-selected: var(--ks-text-color-primary-interactive-selected-base);
+  --ks-text-color-primary-inverted-interactive-selected: var(
+    --ks-text-color-primary-inverted-interactive-selected-base
+  );
+
+  --ks-text-color-on-primary: var(--ks-text-color-on-primary-base);
+  --ks-text-color-on-primary-inverted: var(--ks-text-color-on-primary-inverted-base);
+
+  --ks-text-color-positive: var(--ks-text-color-positive-base);
+  --ks-text-color-positive-inverted: var(--ks-text-color-positive-inverted-base);
+
+  --ks-text-color-positive-interactive: var(--ks-text-color-positive-interactive-base);
+  --ks-text-color-positive-inverted-interactive: var(--ks-text-color-positive-inverted-interactive-base);
+
+  --ks-text-color-positive-interactive-hover: var(--ks-text-color-positive-interactive-hover-base);
+  --ks-text-color-positive-inverted-interactive-hover: var(--ks-text-color-positive-inverted-interactive-hover-base);
+
+  --ks-text-color-positive-interactive-active: var(--ks-text-color-positive-interactive-active-base);
+  --ks-text-color-positive-inverted-interactive-active: var(--ks-text-color-positive-inverted-interactive-active-base);
+
+  --ks-text-color-positive-interactive-selected: var(--ks-text-color-positive-interactive-selected-base);
+  --ks-text-color-positive-inverted-interactive-selected: var(
+    --ks-text-color-positive-inverted-interactive-selected-base
+  );
+
+  --ks-text-color-informative: var(--ks-text-color-informative-base);
+  --ks-text-color-informative-inverted: var(--ks-text-color-informative-inverted-base);
+
+  --ks-text-color-informative-interactive: var(--ks-text-color-informative-interactive-base);
+  --ks-text-color-informative-inverted-interactive: var(--ks-text-color-informative-inverted-interactive-base);
+
+  --ks-text-color-informative-interactive-hover: var(--ks-text-color-informative-interactive-hover-base);
+  --ks-text-color-informative-inverted-interactive-hover: var(
+    --ks-text-color-informative-inverted-interactive-hover-base
+  );
+
+  --ks-text-color-informative-interactive-active: var(--ks-text-color-informative-interactive-active-base);
+  --ks-text-color-informative-inverted-interactive-active: var(
+    --ks-text-color-informative-inverted-interactive-active-base
+  );
+
+  --ks-text-color-informative-interactive-selected: var(--ks-text-color-informative-interactive-selected-base);
+  --ks-text-color-informative-inverted-interactive-selected: var(
+    --ks-text-color-informative-inverted-interactive-selected-base
+  );
+
+  --ks-text-color-notice: var(--ks-text-color-notice-base);
+  --ks-text-color-notice-inverted: var(--ks-text-color-notice-inverted-base);
+
+  --ks-text-color-notice-interactive: var(--ks-text-color-notice-interactive-base);
+  --ks-text-color-notice-inverted-interactive: var(--ks-text-color-notice-inverted-interactive-base);
+
+  --ks-text-color-notice-interactive-hover: var(--ks-text-color-notice-interactive-hover-base);
+  --ks-text-color-notice-inverted-interactive-hover: var(--ks-text-color-notice-inverted-interactive-hover-base);
+
+  --ks-text-color-notice-interactive-active: var(--ks-text-color-notice-interactive-active-base);
+  --ks-text-color-notice-inverted-interactive-active: var(--ks-text-color-notice-inverted-interactive-active-base);
+
+  --ks-text-color-notice-interactive-selected: var(--ks-text-color-notice-interactive-selected-base);
+  --ks-text-color-notice-inverted-interactive-selected: var(--ks-text-color-notice-inverted-interactive-selected-base);
+
+  --ks-text-color-negative: var(--ks-text-color-negative-base);
+  --ks-text-color-negative-inverted: var(--ks-text-color-negative-inverted-base);
+
+  --ks-text-color-negative-interactive: var(--ks-text-color-negative-interactive-base);
+  --ks-text-color-negative-inverted-interactive: var(--ks-text-color-negative-inverted-interactive-base);
+
+  --ks-text-color-negative-interactive-hover: var(--ks-text-color-negative-interactive-hover-base);
+  --ks-text-color-negative-inverted-interactive-hover: var(--ks-text-color-negative-inverted-interactive-hover-base);
+
+  --ks-text-color-negative-interactive-active: var(--ks-text-color-negative-interactive-active-base);
+  --ks-text-color-negative-inverted-interactive-active: var(--ks-text-color-negative-inverted-interactive-active-base);
+
+  --ks-text-color-negative-interactive-selected: var(--ks-text-color-negative-interactive-selected-base);
+  --ks-text-color-negative-inverted-interactive-selected: var(
+    --ks-text-color-negative-inverted-interactive-selected-base
+  );
+}
+
+[ks-inverted="true"] {
+  --ks-text-color-default: var(--ks-text-color-default-inverted-base);
+  --ks-text-color-default-inverted: var(--ks-text-color-default-base);
+
+  --ks-text-color-default-interactive: var(--ks-text-color-default-inverted-interactive-base);
+  --ks-text-color-default-inverted-interactive: var(--ks-text-color-default-interactive-base);
+
+  --ks-text-color-default-interactive-hover: var(--ks-text-color-default-inverted-interactive-hover-base);
+  --ks-text-color-default-inverted-interactive-hover: var(--ks-text-color-default-interactive-hover-base);
+
+  --ks-text-color-default-interactive-active: var(--ks-text-color-default-inverted-interactive-active-base);
+  --ks-text-color-default-inverted-interactive-active: var(--ks-text-color-default-interactive-active-base);
+
+  --ks-text-color-default-interactive-selected: var(--ks-text-color-default-inverted-interactive-selected-base);
+  --ks-text-color-default-inverted-interactive-selected: var(--ks-text-color-default-interactive-selected-base);
+
+  --ks-text-color-copy: var(--ks-text-color-copy-inverted-base);
+  --ks-text-color-copy-inverted: var(--ks-text-color-copy-base);
+
+  --ks-text-color-copy-interactive: var(--ks-text-color-copy-inverted-interactive-base);
+  --ks-text-color-copy-inverted-interactive: var(--ks-text-color-copy-interactive-base);
+
+  --ks-text-color-copy-interactive-hover: var(--ks-text-color-copy-inverted-interactive-hover-base);
+  --ks-text-color-copy-inverted-interactive-hover: var(--ks-text-color-copy-interactive-hover-base);
+
+  --ks-text-color-copy-interactive-active: var(--ks-text-color-copy-inverted-interactive-active-base);
+  --ks-text-color-copy-inverted-interactive-active: var(--ks-text-color-copy-interactive-active-base);
+
+  --ks-text-color-copy-interactive-selected: var(--ks-text-color-copy-inverted-interactive-selected-base);
+  --ks-text-color-copy-inverted-interactive-selected: var(--ks-text-color-copy-interactive-selected-base);
+
+  --ks-text-color-display: var(--ks-text-color-display-inverted-base);
+  --ks-text-color-display-inverted: var(--ks-text-color-display-base);
+
+  --ks-text-color-display-interactive: var(--ks-text-color-display-inverted-interactive-base);
+  --ks-text-color-display-inverted-interactive: var(--ks-text-color-display-interactive-base);
+
+  --ks-text-color-display-interactive-hover: var(--ks-text-color-display-inverted-interactive-hover-base);
+  --ks-text-color-display-inverted-interactive-hover: var(--ks-text-color-display-interactive-hover-base);
+
+  --ks-text-color-display-interactive-active: var(--ks-text-color-display-inverted-interactive-active-base);
+  --ks-text-color-display-inverted-interactive-active: var(--ks-text-color-display-interactive-active-base);
+
+  --ks-text-color-display-interactive-selected: var(--ks-text-color-display-inverted-interactive-selected-base);
+  --ks-text-color-display-inverted-interactive-selected: var(--ks-text-color-display-interactive-selected-base);
+
+  --ks-text-color-interface: var(--ks-text-color-interface-inverted-base);
+  --ks-text-color-interface-inverted: var(--ks-text-color-interface-base);
+
+  --ks-text-color-interface-interactive: var(--ks-text-color-interface-inverted-interactive-base);
+  --ks-text-color-interface-inverted-interactive: var(--ks-text-color-interface-interactive-base);
+
+  --ks-text-color-interface-interactive-hover: var(--ks-text-color-interface-inverted-interactive-hover-base);
+  --ks-text-color-interface-inverted-interactive-hover: var(--ks-text-color-interface-interactive-hover-base);
+
+  --ks-text-color-interface-interactive-active: var(--ks-text-color-interface-inverted-interactive-active-base);
+  --ks-text-color-interface-inverted-interactive-active: var(--ks-text-color-interface-interactive-active-base);
+
+  --ks-text-color-interface-interactive-selected: var(--ks-text-color-interface-inverted-interactive-selected-base);
+  --ks-text-color-interface-inverted-interactive-selected: var(--ks-text-color-interface-interactive-selected-base);
+
+  --ks-text-color-card: var(--ks-text-color-card-inverted-base);
+  --ks-text-color-card-inverted: var(--ks-text-color-card-base);
+
+  --ks-text-color-card-interactive: var(--ks-text-color-card-inverted-interactive-base);
+  --ks-text-color-card-inverted-interactive: var(--ks-text-color-card-interactive-base);
+
+  --ks-text-color-card-interactive-hover: var(--ks-text-color-card-inverted-interactive-hover-base);
+  --ks-text-color-card-inverted-interactive-hover: var(--ks-text-color-card-interactive-hover-base);
+
+  --ks-text-color-card-interactive-active: var(--ks-text-color-card-inverted-interactive-active-base);
+  --ks-text-color-card-inverted-interactive-active: var(--ks-text-color-card-interactive-active-base);
+
+  --ks-text-color-card-interactive-selected: var(--ks-text-color-card-inverted-interactive-selected-base);
+  --ks-text-color-card-inverted-interactive-selected: var(--ks-text-color-card-interactive-selected-base);
+
+  --ks-text-color-primary: var(--ks-text-color-primary-inverted-base);
+  --ks-text-color-primary-inverted: var(--ks-text-color-primary-base);
+
+  --ks-text-color-primary-interactive: var(--ks-text-color-primary-inverted-interactive-base);
+  --ks-text-color-primary-inverted-interactive: var(--ks-text-color-primary-interactive-base);
+
+  --ks-text-color-primary-interactive-hover: var(--ks-text-color-primary-inverted-interactive-hover-base);
+  --ks-text-color-primary-inverted-interactive-hover: var(--ks-text-color-primary-interactive-hover-base);
+
+  --ks-text-color-primary-interactive-active: var(--ks-text-color-primary-inverted-interactive-active-base);
+  --ks-text-color-primary-inverted-interactive-active: var(--ks-text-color-primary-interactive-active-base);
+
+  --ks-text-color-primary-interactive-selected: var(--ks-text-color-primary-inverted-interactive-selected-base);
+  --ks-text-color-primary-inverted-interactive-selected: var(--ks-text-color-primary-interactive-selected-base);
+
+  --ks-text-color-on-primary: var(--ks-text-color-on-primary-inverted-base);
+  --ks-text-color-on-primary-inverted: var(--ks-text-color-on-primary-base);
+
+  --ks-text-color-positive: var(--ks-text-color-positive-inverted-base);
+  --ks-text-color-positive-inverted: var(--ks-text-color-positive-base);
+
+  --ks-text-color-positive-interactive: var(--ks-text-color-positive-inverted-interactive-base);
+  --ks-text-color-positive-inverted-interactive: var(--ks-text-color-positive-interactive-base);
+
+  --ks-text-color-positive-interactive-hover: var(--ks-text-color-positive-inverted-interactive-hover-base);
+  --ks-text-color-positive-inverted-interactive-hover: var(--ks-text-color-positive-interactive-hover-base);
+
+  --ks-text-color-positive-interactive-active: var(--ks-text-color-positive-inverted-interactive-active-base);
+  --ks-text-color-positive-inverted-interactive-active: var(--ks-text-color-positive-interactive-active-base);
+
+  --ks-text-color-positive-interactive-selected: var(--ks-text-color-positive-inverted-interactive-selected-base);
+  --ks-text-color-positive-inverted-interactive-selected: var(--ks-text-color-positive-interactive-selected-base);
+
+  --ks-text-color-informative: var(--ks-text-color-informative-inverted-base);
+  --ks-text-color-informative-inverted: var(--ks-text-color-informative-base);
+
+  --ks-text-color-informative-interactive: var(--ks-text-color-informative-inverted-interactive-base);
+  --ks-text-color-informative-inverted-interactive: var(--ks-text-color-informative-interactive-base);
+
+  --ks-text-color-informative-interactive-hover: var(--ks-text-color-informative-inverted-interactive-hover-base);
+  --ks-text-color-informative-inverted-interactive-hover: var(--ks-text-color-informative-interactive-hover-base);
+
+  --ks-text-color-informative-interactive-active: var(--ks-text-color-informative-inverted-interactive-active-base);
+  --ks-text-color-informative-inverted-interactive-active: var(--ks-text-color-informative-interactive-active-base);
+
+  --ks-text-color-informative-interactive-selected: var(--ks-text-color-informative-inverted-interactive-selected-base);
+  --ks-text-color-informative-inverted-interactive-selected: var(--ks-text-color-informative-interactive-selected-base);
+
+  --ks-text-color-notice: var(--ks-text-color-notice-inverted-base);
+  --ks-text-color-notice-inverted: var(--ks-text-color-notice-base);
+
+  --ks-text-color-notice-interactive: var(--ks-text-color-notice-inverted-interactive-base);
+  --ks-text-color-notice-inverted-interactive: var(--ks-text-color-notice-interactive-base);
+
+  --ks-text-color-notice-interactive-hover: var(--ks-text-color-notice-inverted-interactive-hover-base);
+  --ks-text-color-notice-inverted-interactive-hover: var(--ks-text-color-notice-interactive-hover-base);
+
+  --ks-text-color-notice-interactive-active: var(--ks-text-color-notice-inverted-interactive-active-base);
+  --ks-text-color-notice-inverted-interactive-active: var(--ks-text-color-notice-interactive-active-base);
+
+  --ks-text-color-notice-interactive-selected: var(--ks-text-color-notice-inverted-interactive-selected-base);
+  --ks-text-color-notice-inverted-interactive-selected: var(--ks-text-color-notice-interactive-selected-base);
+
+  --ks-text-color-negative: var(--ks-text-color-negative-inverted-base);
+  --ks-text-color-negative-inverted: var(--ks-text-color-negative-base);
+
+  --ks-text-color-negative-interactive: var(--ks-text-color-negative-inverted-interactive-base);
+  --ks-text-color-negative-inverted-interactive: var(--ks-text-color-negative-interactive-base);
+
+  --ks-text-color-negative-interactive-hover: var(--ks-text-color-negative-inverted-interactive-hover-base);
+  --ks-text-color-negative-inverted-interactive-hover: var(--ks-text-color-negative-interactive-hover-base);
+
+  --ks-text-color-negative-interactive-active: var(--ks-text-color-negative-inverted-interactive-active-base);
+  --ks-text-color-negative-inverted-interactive-active: var(--ks-text-color-negative-interactive-active-base);
+
+  --ks-text-color-negative-interactive-selected: var(--ks-text-color-negative-inverted-interactive-selected-base);
+  --ks-text-color-negative-inverted-interactive-selected: var(--ks-text-color-negative-interactive-selected-base);
+}

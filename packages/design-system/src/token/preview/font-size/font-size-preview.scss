@@ -1,0 +1,143 @@
+.font-sizes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ks-spacing-stack-m);
+
+  &-display {
+    font-family: var(--ks-font-family-display, sans-serif);
+  }
+
+  &-interface {
+    font-family: var(--ks-font-family-interface, sans-serif);
+  }
+
+  &-copy {
+    font-family: var(--ks-font-family-copy, sans-serif);
+  }
+
+  &-mono {
+    font-family: var(--ks-font-family-mono, monospace);
+  }
+}
+
+.font-size {
+  &-display {
+    &-xxs {
+      font: var(--ks-font-display-xxs);
+    }
+    &-xs {
+      font: var(--ks-font-display-xs);
+    }
+    &-s {
+      font: var(--ks-font-display-s);
+    }
+    &-m {
+      font: var(--ks-font-display-m);
+    }
+    &-l {
+      font: var(--ks-font-display-l);
+    }
+    &-xl {
+      font: var(--ks-font-display-xl);
+    }
+    &-xxl {
+      font: var(--ks-font-display-xxl);
+    }
+  }
+
+  &-copy {
+    &-xxs {
+      font-size: var(--ks-font-size-copy-xxs);
+    }
+    &-xs {
+      font-size: var(--ks-font-size-copy-xs);
+    }
+    &-s {
+      font-size: var(--ks-font-size-copy-s);
+    }
+    &-m {
+      font-size: var(--ks-font-size-copy-m);
+    }
+    &-l {
+      font-size: var(--ks-font-size-copy-l);
+    }
+    &-xl {
+      font-size: var(--ks-font-size-copy-xl);
+    }
+    &-xxl {
+      font-size: var(--ks-font-size-copy-xxl);
+    }
+  }
+
+  &-interface {
+    &-xxs {
+      font-size: var(--ks-font-size-interface-xxs);
+    }
+    &-xs {
+      font-size: var(--ks-font-size-interface-xs);
+    }
+    &-s {
+      font-size: var(--ks-font-size-interface-s);
+    }
+    &-m {
+      font-size: var(--ks-font-size-interface-m);
+    }
+    &-l {
+      font-size: var(--ks-font-size-interface-l);
+    }
+    &-xl {
+      font-size: var(--ks-font-size-interface-xl);
+    }
+    &-xxl {
+      font-size: var(--ks-font-size-interface-xxl);
+    }
+  }
+
+  &-mono {
+    &-xxs {
+      font-size: var(--ks-font-size-mono-xxs);
+    }
+    &-xs {
+      font-size: var(--ks-font-size-mono-xs);
+    }
+    &-s {
+      font-size: var(--ks-font-size-mono-s);
+    }
+    &-m {
+      font-size: var(--ks-font-size-mono-m);
+    }
+    &-l {
+      font-size: var(--ks-font-size-mono-l);
+    }
+    &-xl {
+      font-size: var(--ks-font-size-mono-xl);
+    }
+    &-xxl {
+      font-size: var(--ks-font-size-mono-xxl);
+    }
+  }
+
+  &-base {
+    &-xxs {
+      font-size: var(--ks-font-size-xxs);
+    }
+    &-xs {
+      font-size: var(--ks-font-size-xs);
+    }
+    &-s {
+      font-size: var(--ks-font-size-s);
+    }
+    &-m {
+      font-size: var(--ks-font-size-m);
+    }
+    &-l {
+      font-size: var(--ks-font-size-l);
+    }
+    &-xl {
+      font-size: var(--ks-font-size-xl);
+    }
+    &-xxl {
+      font-size: var(--ks-font-size-xxl);
+    }
+  }
+}

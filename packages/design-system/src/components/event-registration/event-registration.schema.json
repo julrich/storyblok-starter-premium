@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/event-registration.schema.json",
+  "title": "Event Registration",
+  "description": "Event registration component for users to register for events.",
+  "type": "object",
+  "properties": {
+    "label": {
+      "title": "Label",
+      "description": "Label of the event registration",
+      "type": "string",
+      "examples": ["Registration Request"]
+    },
+    "title": {
+      "title": "Title",
+      "description": "Title of the event",
+      "type": "string",
+      "examples": ["The Future of AI"]
+    },
+    "link": {
+      "type": "object",
+      "title": "Link",
+      "description": "Link to the event details",
+      "properties": {
+        "url": {
+          "type": "string",
+          "title": "URL",
+          "description": "URL to the event details",
+          "examples": ["#"],
+          "format": "uri"
+        },
+        "text": {
+          "title": "Link Text",
+          "description": "Text for the link to the event details",
+          "type": "string",
+          "examples": ["More Information on the Event"]
+        }
+      }
+    },
+    "date": {
+      "title": "Date",
+      "description": "Date of the registration",
+      "type": "string",
+      "format": "date",
+      "examples": ["18.09.2025"]
+    },
+    "time": {
+      "title": "Time",
+      "description": "Time of the registration",
+      "type": "string",
+      "examples": ["09:00 – 17:00"]
+    },
+    "location": {
+      "type": "object",
+      "title": "Location",
+      "description": "Location of the event",
+      "properties": {
+        "name": {
+          "type": "string",
+          "examples": ["Berlin Congress Center"]
+        },
+        "address": {
+          "type": "string",
+          "examples": ["Alexanderplatz 1, 10178 Berlin"]
+        }
+      }
+    },
+    "nameInput": {
+      "title": "Name Input",
+      "description": "Input field for the name",
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "examples": ["Name*"]
+        },
+        "placeholder": {
+          "type": "string",
+          "examples": ["Enter your name"]
+        }
+      }
+    },
+    "emailInput": {
+      "title": "Email Input",
+      "description": "Input field for the email",
+      "type": "object",
+      "properties": {
+        "label": {
+          "title": "Label",
+          "description": "Label for the email input",
+          "type": "string",
+          "examples": ["Email*"]
+        },
+        "placeholder": {
+          "title": "Placeholder",
+          "description": "Placeholder text for the email input",
+          "type": "string",
+          "examples": ["Enter your email"]
+        }
+      }
+    },
+    "confirmationCheckboxLabel": {
+      "title": "Label",
+      "description": "Label for the confirmation checkbox",
+      "type": "string",
+      "examples": ["I read and agree to the terms and conditions*"]
+    },
+    "mandatoryText": {
+      "title": "Mandatory Text",
+      "description": "Text indicating that the checkbox is mandatory",
+      "type": "string",
+      "default": "_* Mandatory_"
+    },
+    "cta": {
+      "title": "Call to Action",
+      "type": "object",
+      "properties": {
+        "label": {
+          "title": "Button Label",
+          "description": "Label for the call to action button",
+          "type": "string",
+          "examples": ["Send Request"]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "default": "#"
+        },
+        "ariaLabel": {
+          "title": "Aria Label",
+          "description": "Aria label for the cta button",
+          "type": "string",
+          "default": "Event Registration"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

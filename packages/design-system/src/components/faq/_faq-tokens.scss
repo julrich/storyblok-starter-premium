@@ -1,0 +1,26 @@
+.dsa-faq {
+  --dsa-faq--border: var(--ks-border-divider);
+
+  --dsa-faq__summary--color: var(--dsa-topic--color);
+  --dsa-faq__summary--font-weight: var(--dsa-topic--font-weight);
+  --dsa-faq__summary--font: var(--dsa-topic--font);
+  --dsa-faq__summary--font-family: var(--dsa-topic--font-family);
+
+  --dsa-faq__answer--color: var(--dsa-headline--color);
+  --dsa-faq__answer--font: var(--dsa-topic--font);
+
+  --dsa-faq__icon--color: var(--ks-text-color-primary-interactive);
+
+  --dsa-faq_header--padding: 1em 0;
+  --dsa-faq_content--padding: 0em 0em 1em 0em;
+}
+
+// ─── drhubert overrides ───────────────────────────────────────────
+// Ported verbatim from the pre-monorepo website (components/faq/faq-tokens.scss).
+// Kept as a trailing block so the original selectors and specificity are
+// preserved; these win over the design system defaults above.
+:root {
+  .dsa-faq {
+    --dsa-faq--border-color: var(--ks-border-color-accent);
+  }
+}

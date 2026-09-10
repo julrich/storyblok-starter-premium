@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "layout": {
+      "type": "string",
+      "enum": ["largeTiles", "smallTiles", "list"],
+      "description": "Grid layout for features"
+    },
+    "style": {
+      "type": "string",
+      "enum": ["intext", "stack", "centered", "besideLarge", "besideSmall"],
+      "description": "Feature card visual style"
+    },
+    "feature": {
+      "type": "array",
+      "description": "Array of feature items",
+      "items": {
+        "type": "object",
+        "properties": {
+          "icon": {
+            "type": "string",
+            "description": "Icon name (e.g. 'rocket', 'shield', 'gear')"
+          },
+          "title": {
+            "type": "string",
+            "description": "Feature title"
+          },
+          "text": {
+            "type": "string",
+            "description": "Feature description (supports markdown)"
+          },
+          "cta_label": {
+            "type": "string",
+            "description": "Call-to-action link label"
+          },
+          "cta_url": {
+            "type": "string",
+            "description": "Call-to-action target URL"
+          }
+        },
+        "required": ["title", "text"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["feature"],
+  "additionalProperties": false
+}

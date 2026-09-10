@@ -1,0 +1,73 @@
+:root,
+[ks-theme] {
+  --ks-box-shadow-card-base: 0 var(--ks-brand-box-shadow-card-blur) calc(var(--ks-brand-box-shadow-card-blur) * 3) 0
+    var(--ks-color-fg-alpha-8);
+  --ks-box-shadow-card-hover-base: 0 var(--ks-brand-box-shadow-card-blur) calc(var(--ks-brand-box-shadow-card-blur) * 3)
+    0 var(--ks-color-fg-alpha-7);
+
+  --ks-box-shadow-card-inverted-base: 0 var(--ks-brand-box-shadow-card-blur)
+    calc(var(--ks-brand-box-shadow-card-blur) * 3) 0 var(--ks-color-fg-inverted-alpha-7);
+  --ks-box-shadow-card-inverted-hover-base: 0 var(--ks-brand-box-shadow-card-blur)
+    calc(var(--ks-brand-box-shadow-card-blur) * 3) 0 var(--ks-color-fg-inverted-alpha-6);
+
+  // Control: smaller, sharper shadow for input fields
+  --ks-box-shadow-control-base: 0 var(--ks-brand-box-shadow-control-blur)
+    calc(var(--ks-brand-box-shadow-control-blur) * 2.5) 0 var(--ks-color-fg-alpha-7);
+  --ks-box-shadow-control-hover-base: 0 var(--ks-brand-box-shadow-control-blur)
+    calc(var(--ks-brand-box-shadow-control-blur) * 2.5) 0 var(--ks-color-fg-alpha-8);
+
+  --ks-box-shadow-control-inverted-base: 0 var(--ks-brand-box-shadow-control-blur)
+    calc(var(--ks-brand-box-shadow-control-blur) * 2.5) 0 var(--ks-color-fg-inverted-alpha-6);
+  --ks-box-shadow-control-inverted-hover-base: 0 var(--ks-brand-box-shadow-control-blur)
+    calc(var(--ks-brand-box-shadow-control-blur) * 2.5) 0 var(--ks-color-fg-inverted-alpha-7);
+
+  // Surface: bigger, smoother shadow for large elements
+  --ks-box-shadow-surface-base: 0 var(--ks-brand-box-shadow-surface-blur)
+    calc(var(--ks-brand-box-shadow-surface-blur) * 2) 0 var(--ks-color-fg-alpha-8);
+  --ks-box-shadow-surface-hover-base: 0 var(--ks-brand-box-shadow-surface-blur) 0 var(--ks-color-fg-alpha-7);
+
+  --ks-box-shadow-surface-inverted-base: 0 var(--ks-brand-box-shadow-surface-blur)
+    calc(var(--ks-brand-box-shadow-surface-blur) * 2) 0 var(--ks-color-fg-inverted-alpha-8);
+  --ks-box-shadow-surface-inverted-hover-base: 0 calc(var(--ks-brand-box-shadow-surface-blur) * 2) 0
+    var(--ks-color-fg-inverted-alpha-7);
+}
+
+:root {
+  --ks-box-shadow-card: var(--ks-box-shadow-card-base);
+  --ks-box-shadow-card-inverted: var(--ks-box-shadow-card-inverted-base);
+
+  --ks-box-shadow-control: var(--ks-box-shadow-control-base);
+  --ks-box-shadow-control-inverted: var(--ks-box-shadow-control-inverted-base);
+
+  --ks-box-shadow-surface: var(--ks-box-shadow-surface-base);
+  --ks-box-shadow-surface-inverted: var(--ks-box-shadow-surface-inverted-base);
+
+  --ks-box-shadow-card-hover: var(--ks-box-shadow-card-hover-base);
+  --ks-box-shadow-card-inverted-hover: var(--ks-box-shadow-card-inverted-hover-base);
+
+  --ks-box-shadow-control-hover: var(--ks-box-shadow-control-hover-base);
+  --ks-box-shadow-control-inverted-hover: var(--ks-box-shadow-control-inverted-hover-base);
+
+  --ks-box-shadow-surface-hover: var(--ks-box-shadow-surface-hover-base);
+  --ks-box-shadow-surface-inverted-hover: var(--ks-box-shadow-surface-inverted-hover-base);
+}
+
+[ks-inverted="true"] {
+  --ks-box-shadow-card: var(--ks-box-shadow-card-inverted-base);
+  --ks-box-shadow-card-inverted: var(--ks-box-shadow-card-base);
+
+  --ks-box-shadow-control: var(--ks-box-shadow-control-inverted-base);
+  --ks-box-shadow-control-inverted: var(--ks-box-shadow-control-base);
+
+  --ks-box-shadow-surface: var(--ks-box-shadow-surface-inverted-base);
+  --ks-box-shadow-surface-inverted: var(--ks-box-shadow-surface-base);
+
+  --ks-box-shadow-card-hover: var(--ks-box-shadow-card-inverted-hover-base);
+  --ks-box-shadow-card-inverted-hover: var(--ks-box-shadow-card-hover-base);
+
+  --ks-box-shadow-control-hover: var(--ks-box-shadow-control-inverted-hover-base);
+  --ks-box-shadow-control-inverted-hover: var(--ks-box-shadow-control-hover-base);
+
+  --ks-box-shadow-surface-hover: var(--ks-box-shadow-surface-inverted-hover-base);
+  --ks-box-shadow-surface-inverted-hover: var(--ks-box-shadow-surface-hover-base);
+}

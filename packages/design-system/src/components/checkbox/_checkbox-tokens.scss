@@ -1,0 +1,24 @@
+.dsa-checkbox {
+  --dsa-checkbox--background: transparent;
+  --dsa-checkbox--background_checked: var(--ks-color-primary);
+  --dsa-checkbox--background_active: transparent;
+
+  --dsa-checkbox--border: var(--ks-border-width-default) solid;
+  --dsa-checkbox--border-color: var(--ks-border-color-interface-interactive);
+  --dsa-checkbox--border-color_hover: var(--ks-border-color-interface-interactive-hover);
+  --dsa-checkbox--border-color_focus: var(--ks-border-color-interface-interactive-active);
+  --dsa-checkbox--border-color_checked: var(--ks-border-color-interface-interactive-selected);
+
+  --dsa-checkbox--size: 1.5em;
+
+  --dsa-checkbox--shadow_focus: 0 0 0 var(--ks-border-width-emphasized);
+
+  --dsa-checkbox--border-radius: min(var(--ks-border-radius-control), calc(var(--dsa-checkbox--size) / 4));
+
+  --dsa-checkbox__checkmark--color: var(--ks-text-color-on-primary);
+
+  --dsa-checkbox__label--font: var(--ks-font-interface-s);
+  --dsa-checkbox__label--font-weight: var(--ks-font-weight-regular);
+  --dsa-checkbox__label--color: var(--ks-text-color-interface);
+  --dsa-checkbox__label--margin-left: 0.5em;
+}

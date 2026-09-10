@@ -1,19 +1,22 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
+node_modules/
+.pnp
 .pnp.js
 
+# lockfiles (only pnpm-lock.yaml at root is valid)
+package-lock.json
+
 # testing
-/coverage
+coverage/
 
 # next.js
-/.next/
-/out/
+.next/
+out/
 
 # production
-/build
+build/
 
 # misc
 .DS_Store
@@ -24,9 +27,11 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # local env files
 .env*.local
+.env.sh
 
 # vercel
 .vercel
@@ -39,27 +44,49 @@ next-env.d.ts
 *.pem
 
 # storyblok
-types/components.*.json
-tmp/*
+.storyblok/
+packages/website/types/components.*.json
+packages/website/tmp/*
+packages/website/cms/merged/
+packages/website/cms/components.generated.json
+packages/website/cms/presets.generated.json
+packages/website/cms/merge-report.json
+packages/website/types/logs
 
 # kickstartDS
 *.dereffed.json
 *-tokens.json
-components/bundle-hash.ts
-token/tokens.css
-token/IconSprite.js
-token/tokens.js
-token/icon-sprite.html
-token/storybook/tokens.css
-token/storybook/tokens.js
-token/storybook/icons.svg
-token/components.js
-token/calculated.js
-token/InlineIcon.tsx
+packages/website/components/bundle-hash.ts
+packages/website/token/tokens.css
+packages/website/token/IconSprite.js
+packages/website/token/tokens.js
+packages/website/token/icon-sprite.html
+packages/website/token/storybook/tokens.css
+packages/website/token/storybook/tokens.js
+packages/website/token/storybook/icons.svg
+packages/website/token/components.js
+packages/website/token/calculated.js
+packages/website/token/InlineIcon.tsx
+build-storybook.log
 
 # Next
-public/sitemap*
-public/robots.txt
-public/img/screenshots
-public/client.js
-public/_
+packages/website/public/sitemap*
+packages/website/public/robots.txt
+packages/website/public/img/screenshots
+packages/website/public/client.js
+packages/website/public/_
+packages/website/public/pagefind
+
+# Build outputs
+packages/storyblok-services/dist/
+packages/storyblok-mcp/dist/
+packages/storyblok-n8n/dist/
+packages/component-builder-mcp/dist/
+packages/design-tokens-mcp/dist/
+packages/design-tokens-editor/dist/
+packages/design-system/debug-storybook.log
+packages/design-system/dist/
+packages/design-system/storybook-static/
+
+# Storyblok space backups (scripts/backupSpace.sh) - content snapshots, never committed
+packages/website/backup/

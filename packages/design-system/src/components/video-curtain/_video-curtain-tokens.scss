@@ -1,0 +1,29 @@
+.dsa-video-curtain {
+  --dsa-video-curtain__headline--color: var(--dsa-headline--color);
+  --dsa-video-curtain__subheadline--color: var(--dsa-headline__subheadline--color);
+
+  --dsa-video-curtain_color-neutral__headline--color: var(--ks-text-color-default);
+  --dsa-video-curtain_color-neutral__subheadline--color: var(--ks-text-color-default);
+
+  --dsa-video-curtain__copy--color: var(--ks-text-color-default);
+  --dsa-video-curtain__copy--font: var(--ks-font-copy-m);
+  --dsa-video-curtain_highlight-text__copy--font: var(--ks-font-copy-l);
+  --dsa-video-curtain_color-neutral__copy--color: var(--ks-text-color-default);
+
+  --dsa-video-curtain__textbox--background-color: var(--ks-color-bg-alpha-2);
+  --dsa-video-curtain__textbox--border-radius: var(--ks-border-radius-surface);
+  --dsa-video-curtain__textbox--max-width: var(--dsa-section__content--width_narrow);
+  --dsa-video-curtain__textbox--padding: var(--ks-spacing-inset-squish-xl);
+
+  --dsa-video-curtain_corner__overlay--background: linear-gradient(
+    20deg,
+    var(--ks-color-fg-inverted-alpha-2) 30%,
+    transparent 80%
+  );
+
+  --dsa-video-curtain_bottom__overlay--background: linear-gradient(
+    0deg,
+    var(--ks-color-fg-inverted-alpha-1),
+    transparent
+  );
+}

@@ -1,0 +1,20 @@
+{
+  "options": [
+    {
+      "name": "proxyUrl",
+      "value": ""
+    },
+    {
+      "name": "siteHostname",
+      "value": ""
+    },
+    {
+      "name": "sitePath",
+      "value": ""
+    },
+    {
+      "name": "driveId",
+      "value": ""
+    }
+  ]
+}

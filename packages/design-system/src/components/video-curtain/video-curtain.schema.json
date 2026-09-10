@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/video-curtain.schema.json",
+  "title": "Video Curtain",
+  "description": "Video curtain component for displaying a video background with overlay text and buttons.",
+  "type": "object",
+  "properties": {
+    "headline": {
+      "title": "Headline",
+      "description": "Headline for the visual",
+      "type": "string",
+      "format": "markdown"
+    },
+    "sub": {
+      "title": "Module Subheadline",
+      "description": "Subheadline below the module headline",
+      "type": "string",
+      "format": "markdown"
+    },
+    "text": {
+      "title": "Module Text",
+      "description": "Info text for the module element",
+      "type": "string",
+      "format": "markdown"
+    },
+    "highlightText": {
+      "type": "boolean",
+      "title": "Highlight Text",
+      "description": "Visually highlight the text",
+      "default": false
+    },
+    "colorNeutral": {
+      "title": "Color Neutral",
+      "description": "Make the text and buttons color neutral",
+      "default": false,
+      "type": "boolean"
+    },
+    "buttons": {
+      "type": "array",
+      "items": {
+        "title": "Button",
+        "type": "object",
+        "properties": {
+          "label": {
+            "$ref": "http://schema.mydesignsystem.com/button.schema.json#/properties/label"
+          },
+          "icon": {
+            "$ref": "http://schema.mydesignsystem.com/button.schema.json#/properties/icon"
+          },
+          "url": {
+            "$ref": "http://schema.mydesignsystem.com/button.schema.json#/properties/url"
+          }
+        }
+      }
+    },
+    "overlay": {
+      "$ref": "http://schema.kickstartds.com/content/visual.schema.json#/properties/overlay"
+    },
+    "video": {
+      "$ref": "http://schema.kickstartds.com/content/visual.schema.json#/properties/media/properties/video"
+    },
+    "textPosition": {
+      "title": "Module aligment",
+      "description": "Choose the alginment of the module content",
+      "enum": ["center", "bottom", "left", "right", "corner"],
+      "type": "string",
+      "default": "center"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/text.schema.json",
+  "title": "Text",
+  "description": "Component used for displaying text in chapters",
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string",
+      "format": "markdown",
+      "title": "Text",
+      "description": "Text",
+      "examples": [
+        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+      ]
+    },
+    "layout": {
+      "type": "string",
+      "title": "Layout",
+      "description": "Variant of layout to be used",
+      "enum": ["singleColumn", "multiColumn"],
+      "default": "singleColumn"
+    },
+    "align": {
+      "type": "string",
+      "title": "Alignment",
+      "description": "Alignment of text",
+      "enum": ["left", "center"],
+      "default": "left"
+    },
+    "highlightText": {
+      "type": "boolean",
+      "title": "Highlight Text",
+      "description": "Visually highlight the text",
+      "default": false
+    }
+  },
+  "additionalProperties": false,
+  "required": ["text"]
+}

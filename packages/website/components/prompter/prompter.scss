@@ -1,0 +1,217 @@
+@import "./prompter-badge/prompter-badge.scss";
+@import "./prompter-headline/prompter-headline.scss";
+@import "./prompter-button/prompter-button.scss";
+@import "./prompter-section/prompter-section.scss";
+@import "./prompter-section-input/prompter-section-input.scss";
+@import "./prompter-select-field/prompter-select-field.scss";
+@import "./prompter-selection-display/prompter-selection-display.scss";
+@import "./prompter-submitted-text/prompter-submitted-text.scss";
+@import "./prompter-loading-indicator/prompter-loading-indicator.scss";
+@import "./prompter-mode-toggle/prompter-mode-toggle.scss";
+@import "./prompter-component-picker/prompter-component-picker.scss";
+@import "./prompter-plan-review/prompter-plan-review.scss";
+@import "./prompter-progress/prompter-progress.scss";
+@import "./prompter-warnings/prompter-warnings.scss";
+
+:root {
+  --prompter-color: #800080;
+  --prompter-font-family:
+    system-ui, -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande",
+    "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
+    "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+  --prompter-interface-border: 2px solid #e0e0e0;
+  --prompter-interface-border-color-hover: #c0c0c0;
+  --prompter-interface-border-color-active: var(--prompter-color);
+  --prompter-interface-font: var(--prompter-interface-font-size) / 1.125 var(--prompter-font-family);
+  --prompter-interface-transition: all 0.2s ease;
+  --prompter-interface-font-size: 1.125rem;
+  --prompter-interface-padding: 1rem;
+  --prompter-interface-color: #333;
+
+  .prompter {
+    position: relative;
+
+    &__generated-content {
+      position: relative;
+
+      &::after {
+        content: "";
+        top: 4rem;
+        bottom: 2rem;
+        width: 1px;
+        border: 0;
+        border-left: 4px dashed var(--prompter-color);
+        position: absolute;
+        left: 1rem;
+      }
+    }
+  }
+
+  .prompter-init-loading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--prompter-font-family);
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.5rem 0;
+  }
+
+  .prompter-init-warning {
+    font-family: var(--prompter-font-family);
+    font-size: 0.85rem;
+    color: #996600;
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    margin: 0.25rem 0;
+  }
+
+  .prompter-prompt-textarea {
+    width: 100%;
+    border: var(--prompter-interface-border);
+    border-radius: 12px;
+    padding: var(--prompter-interface-padding);
+    font: var(--prompter-interface-font);
+    resize: vertical;
+    line-height: 1.5;
+    color: var(--prompter-interface-color);
+    margin: 1rem 0;
+    box-sizing: border-box;
+
+    &:hover {
+      border-color: var(--prompter-interface-border-color-hover);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--prompter-interface-border-color-active);
+    }
+
+    &::placeholder {
+      color: #999;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+  }
+
+  .prompter-section-preview {
+    position: relative;
+
+    &--loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+      background: rgba(128, 0, 128, 0.03);
+      border-radius: 8px;
+      margin: 0.5rem 0;
+    }
+
+    &__regenerate {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      z-index: 10;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.8rem;
+      font-family: var(--prompter-font-family);
+      font-weight: 600;
+      color: var(--prompter-color);
+      background: white;
+      border: 1px solid var(--prompter-color);
+      border-radius: 6px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.2s;
+
+      &:hover {
+        background: rgba(128, 0, 128, 0.06);
+      }
+    }
+
+    &:hover .prompter-section-preview__regenerate {
+      opacity: 1;
+    }
+  }
+
+  // ── Loading dots (pure CSS, replaces react-loader-spinner) ──
+  .prompter-dots {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    &::before,
+    &::after,
+    & {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--prompter-color);
+      animation: prompter-dot-pulse 1.4s infinite ease-in-out both;
+    }
+
+    &::before {
+      animation-delay: -0.32s;
+    }
+
+    & {
+      animation-delay: -0.16s;
+    }
+
+    &::after {
+      animation-delay: 0s;
+    }
+
+    &--small {
+      gap: 4px;
+
+      &::before,
+      &::after,
+      & {
+        width: 6px;
+        height: 6px;
+      }
+    }
+  }
+
+  @keyframes prompter-dot-pulse {
+    0%,
+    80%,
+    100% {
+      transform: scale(0.4);
+      opacity: 0.4;
+    }
+    40% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .prompter-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    width: 100%;
+    font-family: var(--prompter-font-family);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #cc3333;
+    background: #fff0f0;
+    border: 1px solid #ffcccc;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    word-break: break-word;
+
+    &__icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/event-detail.schema.json",
+  "title": "Event Detail",
+  "type": "object",
+  "properties": {
+    "title": {
+      "title": "Event Title",
+      "description": "Title of the event",
+      "type": "string"
+    },
+    "categories": {
+      "title": "Categories",
+      "description": "Categories to which the event belongs",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "title": "Label",
+            "description": "Label of the category",
+            "examples": ["Web Development", "Design", "Marketing"]
+          }
+        }
+      }
+    },
+    "intro": {
+      "title": "Intro",
+      "description": "Short intro text for the event",
+      "type": "string"
+    },
+    "locations": {
+      "title": "Locations",
+      "description": "List of locations with attendable appointments",
+      "type": "array",
+      "items": {
+        "$ref": "http://schema.mydesignsystem.com/event-location.schema.json"
+      }
+    },
+    "download": {
+      "$ref": "http://schema.mydesignsystem.com/downloads.schema.json#/properties/download"
+    },
+    "description": {
+      "title": "Description",
+      "description": "Description of the event",
+      "type": "string",
+      "format": "markdown"
+    },
+    "images": {
+      "$ref": "http://schema.mydesignsystem.com/gallery.schema.json#/properties/images"
+    },
+    "button": {
+      "title": "Button",
+      "description": "Button at the bottom of the event detail",
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label",
+          "description": "Label of the button",
+          "examples": ["See all Events"]
+        },
+        "url": {
+          "type": "string",
+          "title": "Url",
+          "description": "URL the button links to",
+          "format": "uri"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

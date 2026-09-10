@@ -1,0 +1,119 @@
+@use "logos-tokens.scss";
+
+.dsa-logos {
+  .c-logo-tiles {
+    --c-logo-tiles--cols: var(--dsa-logo-tiles--cols);
+    --c-logo-tiles--gutter: var(--dsa-logos__grid--gap-horizontal);
+  }
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--dsa-logos-gap, var(--ks-spacing-stack-m));
+
+  &__tagline {
+    font: var(--dsa-logos__tagline--font, var(--ks-font-display-m));
+    font-weight: var(--dsa-logos__tagline--font-weight, var(--dsa-headline--font-weight));
+    max-width: var(--dsa-content--width_narrow);
+    color: var(--dsa-logos__tagline--color, var(--dsa-headline--color, var(--ks-text-color-display)));
+    width: 100%;
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ks-spacing-stack-m);
+
+    .c-button {
+      width: fit-content;
+    }
+
+    &__text {
+      color: var(--ks-text-color-default);
+      max-width: var(--dsa-content--width_narrow);
+    }
+
+    &__text,
+    &__link {
+      font: var(--ks-font-copy-m);
+    }
+  }
+
+  &--align-left {
+    .dsa-logo-tiles {
+      justify-content: start;
+    }
+  }
+
+  &--align-center {
+    .dsa-logos__cta {
+      align-items: center;
+    }
+
+    .dsa-logos__cta__text,
+    .dsa-logos__tagline {
+      text-align: center;
+      margin: auto;
+    }
+  }
+
+  .dsa-logo-tiles {
+    --dsa-logo-tiles--cols: var(--dsa-logos__grid_mobile--cols, 2);
+
+    @container logo-tiles (min-width: 420px) {
+      --dsa-logo-tiles--cols: var(--dsa-logos__grid_tablet--cols, 3);
+
+      &--cols-2 {
+        --dsa-logo-tiles--cols: 2;
+      }
+    }
+
+    @container logo-tiles (min-width: 640px) {
+      &--cols-2 {
+        --dsa-logo-tiles--cols: 2;
+      }
+
+      &--cols-3 {
+        --dsa-logo-tiles--cols: 3;
+      }
+
+      &--cols-4 {
+        --dsa-logo-tiles--cols: 4;
+      }
+
+      &--cols-5 {
+        --dsa-logo-tiles--cols: 5;
+      }
+
+      &--cols-6 {
+        --dsa-logo-tiles--cols: 6;
+      }
+
+      &--cols-7 {
+        --dsa-logo-tiles--cols: 7;
+      }
+
+      &--cols-8 {
+        --dsa-logo-tiles--cols: 8;
+      }
+    }
+
+    gap: var(--dsa-logos__grid--gap-vertical) var(--dsa-logos__grid--gap-horizontal);
+    margin: 0;
+
+    .c-logo-tiles__col {
+      margin: 0;
+      aspect-ratio: 16/9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    img {
+      position: relative;
+    }
+  }
+}

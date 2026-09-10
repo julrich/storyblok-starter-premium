@@ -1,0 +1,64 @@
+.prompter-section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: linear-gradient(95.13deg, #fdfdfd 0%, #f5f4f4 100%);
+
+  &__content {
+    position: relative;
+    z-index: 9999;
+    max-width: 800px;
+    margin: auto;
+    padding: 60px;
+    color: rgb(70, 70, 70);
+    font-family: var(--prompter-font-family);
+    font-size: 1.25rem;
+    border: 5px solid #0000;
+    border-radius: 25px;
+    background:
+      conic-gradient(#fff 0 0) padding-box,
+      linear-gradient(45deg, var(--prompter-color), rgb(203, 38, 203)) border-box;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  &__description {
+    color: rgb(70, 70, 70);
+    font-family: var(--prompter-font-family);
+    font-size: 1.25rem;
+    line-height: 1.25;
+  }
+
+  &__children {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .prompter-button {
+      margin-top: 2rem;
+
+      &--spacing-top {
+        margin-top: 2.5rem;
+      }
+    }
+  }
+
+  &__button-row {
+    margin-top: 0.5rem;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    justify-content: stretch;
+
+    > * {
+      flex-grow: 1;
+      flex-basis: 50%;
+    }
+  }
+}

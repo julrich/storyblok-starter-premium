@@ -1,0 +1,135 @@
+.prompter-plan-review {
+  width: 100%;
+  font-family: var(--prompter-font-family);
+
+  &__reasoning {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    padding: 0.75rem 1rem;
+    background: rgba(128, 0, 128, 0.04);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--prompter-color);
+
+    strong {
+      color: var(--prompter-color);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__item {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background: white;
+    overflow: hidden;
+    transition: border-color 0.2s;
+
+    &:hover {
+      border-color: var(--prompter-color);
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  &__index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: var(--prompter-color);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  &__type {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  &__move-btn,
+  &__remove-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #666;
+    transition: all 0.15s;
+    padding: 0;
+
+    &:hover:not(:disabled) {
+      background: #f0f0f0;
+      border-color: #bbb;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+  }
+
+  &__remove-btn {
+    color: #cc3333;
+    font-size: 1.1rem;
+
+    &:hover:not(:disabled) {
+      background: #fff0f0;
+      border-color: #cc3333;
+    }
+  }
+
+  &__intent {
+    width: 100%;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-family: var(--prompter-font-family);
+    color: #555;
+    background: transparent;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      background: rgba(128, 0, 128, 0.02);
+    }
+
+    &:disabled {
+      cursor: default;
+    }
+  }
+
+  &__empty {
+    text-align: center;
+    padding: 2rem;
+    color: #999;
+    font-size: 0.95rem;
+  }
+}

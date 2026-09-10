@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/faq.schema.json",
+  "title": "Faq",
+  "description": "Component used to display a Faq section",
+  "type": "object",
+  "properties": {
+    "questions": {
+      "type": "array",
+      "title": "Questions",
+      "description": "The questions and answers in the Faq section",
+      "items": {
+        "title": "Question",
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "format": "markdown",
+            "title": "Question",
+            "description": "The question",
+            "examples": ["What is the product made of?"]
+          },
+          "answer": {
+            "type": "string",
+            "format": "markdown",
+            "title": "Answer",
+            "description": "The answer to the question",
+            "examples": ["The product is made of high-quality materials"]
+          }
+        },
+        "additionalProperties": false,
+        "required": ["question"]
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": false,
+  "required": ["questions"]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "transition-consistency",
+  "name": "Transition Token Consistency",
+  "description": "Transition tokens define standard animation timings for interactive states. Hardcoded transition values should use tokens to ensure consistent motion across the design system.",
+  "severity": "info",
+  "category": "semantic-hierarchy",
+  "tokenPattern": "--ks-transition-*",
+  "tokens": {
+    "--ks-transition-hover": {
+      "role": "Hover state transitions — color changes, opacity shifts on mouse enter/leave",
+      "validContexts": [
+        "hover-effect",
+        "button-hover",
+        "link-hover",
+        "card-hover",
+        "interactive-hover"
+      ],
+      "rationale": "Standard hover timing ensures consistent feel across all interactive elements"
+    },
+    "--ks-transition-collapse": {
+      "role": "Expand/collapse transitions — accordion, FAQ, content reveal",
+      "validContexts": [
+        "accordion",
+        "collapse",
+        "expand",
+        "faq-toggle",
+        "content-reveal"
+      ],
+      "rationale": "Collapse timing is tuned for content height changes"
+    },
+    "--ks-transition-fade": {
+      "role": "Fade in/out transitions — modal appear/disappear, overlay, tooltip",
+      "validContexts": [
+        "modal-fade",
+        "overlay-fade",
+        "tooltip-appear",
+        "content-fade"
+      ],
+      "rationale": "Fade timing is tuned for opacity transitions"
+    },
+    "--ks-transition-toggle": {
+      "role": "Toggle transitions — nav toggle, switch, checkbox animation",
+      "validContexts": [
+        "nav-toggle",
+        "switch-toggle",
+        "menu-toggle",
+        "state-toggle"
+      ],
+      "rationale": "Toggle timing is tuned for binary state changes"
+    }
+  },
+  "rule": "Hardcoded transition values (e.g., 'transition: 0.3s ease') should use transition tokens. This ensures consistent motion design and allows global timing adjustments."
+}

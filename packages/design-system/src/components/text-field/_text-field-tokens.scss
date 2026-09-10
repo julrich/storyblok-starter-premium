@@ -1,0 +1,27 @@
+.dsa-text-field {
+  --dsa-text-field--font: var(--ks-font-interface-s);
+  --dsa-text-field--color: var(--ks-text-color-interface);
+
+  --dsa-text-field--border: var(--ks-border-width-default) solid;
+  --dsa-text-field--border-color: var(--ks-border-color-interface-interactive);
+  --dsa-text-field--border-color_hover: var(--ks-border-color-interface-interactive-hover);
+  --dsa-text-field--border-color_focus: var(--ks-border-color-interface-interactive-active);
+  --dsa-text-field--border-color_active: var(--ks-border-color-interface-interactive-active);
+
+  --dsa-text-field--background: transparent;
+  --dsa-text-field--background_focus: transparent;
+
+  --dsa-text-field--padding: 0.4rem 0.75rem 0.35rem;
+
+  --dsa-text-field--transition: var(--ks-transition-hover);
+
+  --dsa-text-field--shadow: var(--ks-box-shadow-control);
+  --dsa-text-field--shadow_focus: 0 0 0 var(--ks-border-width-emphasized);
+
+  --dsa-text-field__label--padding-bottom: 0.25em;
+  --dsa-text-field__label--color: var(--ks-text-color-interface);
+  --dsa-text-field__label--font: var(--ks-font-interface-s);
+  --dsa-text-field__label--font-weight: var(--ks-font-weight-semi-bold);
+
+  --dsa-text-field__placeholder--color: var(--ks-color-fg-alpha-5);
+}

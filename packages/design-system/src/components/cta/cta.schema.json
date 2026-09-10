@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/cta.schema.json",
+  "title": "Cta",
+  "description": "Call to Action (CTA) component for prompting users to take specific actions on a website.",
+  "type": "object",
+  "properties": {
+    "headline": {
+      "title": "Component Headline",
+      "description": "Headline for the Component element",
+      "type": "string",
+      "format": "markdown",
+      "examples": ["Headline"]
+    },
+    "sub": {
+      "title": "Component Subheadline",
+      "description": "Subheadline below the component headline",
+      "type": "string",
+      "format": "markdown",
+      "examples": ["Subheadline"]
+    },
+    "text": {
+      "title": "Component Text",
+      "description": "Info text for the component element",
+      "type": "string",
+      "format": "markdown"
+    },
+    "highlightText": {
+      "type": "boolean",
+      "title": "Highlight Text",
+      "description": "Visually highlight the text",
+      "default": false
+    },
+    "colorNeutral": {
+      "title": "Color Neutral",
+      "description": "Make the text and buttons color neutral",
+      "default": false,
+      "type": "boolean"
+    },
+    "inverted": {
+      "title": "Inverted",
+      "description": "Invert the text and button colors for use on dark backgrounds",
+      "default": false,
+      "type": "boolean"
+    },
+    "buttons": {
+      "type": "array",
+      "items": {
+        "title": "Button",
+        "type": "object",
+        "properties": {
+          "label": {
+            "$ref": "http://schema.mydesignsystem.com/button.schema.json#/properties/label"
+          },
+          "icon": {
+            "$ref": "http://schema.mydesignsystem.com/button.schema.json#/properties/icon"
+          },
+          "url": {
+            "$ref": "http://schema.mydesignsystem.com/button.schema.json#/properties/url"
+          }
+        }
+      }
+    },
+    "backgroundColor": {
+      "$ref": "http://schema.kickstartds.com/content/storytelling.schema.json#/properties/backgroundColor"
+    },
+    "backgroundImage": {
+      "$ref": "http://schema.kickstartds.com/content/storytelling.schema.json#/properties/backgroundImage"
+    },
+    "image": {
+      "title": "Image",
+      "description": "Image displayed alongside the text content",
+      "type": "object",
+      "properties": {
+        "src": {
+          "title": "Image source",
+          "description": "Image source to use",
+          "type": "string",
+          "format": "image"
+        },
+        "padding": {
+          "title": "Padding",
+          "description": "Toggle padding of the image",
+          "type": "boolean",
+          "default": true
+        },
+        "alt": {
+          "title": "Alt text",
+          "description": "Image description",
+          "type": "string"
+        },
+        "align": {
+          "title": "Vertical alignment of the image",
+          "description": "Select a vertical alignment for the image",
+          "type": "string",
+          "enum": ["center", "top", "bottom"],
+          "default": "center"
+        }
+      },
+      "additionalProperties": false
+    },
+    "order": {
+      "title": "Order",
+      "description": "Choose what comes first on mobile and desktop: image or text",
+      "type": "object",
+      "properties": {
+        "mobileImageLast": {
+          "title": "Mobile image after text",
+          "description": "Switch to displaying the image after the text on mobile",
+          "type": "boolean",
+          "default": false
+        },
+        "desktopImageLast": {
+          "title": "Desktop image after text",
+          "description": "Switch to displaying the image after the text on desktop",
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "textAlign": {
+      "title": "Text Alignment",
+      "description": "Choose the alginment of the text",
+      "enum": ["left", "center"],
+      "type": "string",
+      "default": "left"
+    },
+    "align": {
+      "title": "Vertical alignment of the content",
+      "description": "Select a vertical alignment for the content",
+      "type": "string",
+      "enum": ["center", "top", "bottom"],
+      "default": "center"
+    },
+    "padding": {
+      "title": "Padding",
+      "description": "Toggle padding of the content",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "additionalProperties": false
+}

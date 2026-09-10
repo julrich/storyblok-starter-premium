@@ -1,0 +1,60 @@
+@use "text-area-tokens.scss";
+
+.dsa-text-area {
+  --c-form-field_label--padding: 0 0 var(--dsa-text-area__label--padding-bottom, 0.25em) 0;
+  --c-form-field--border: var(--dsa-text-area--border, var(--ks-border-width-default) solid);
+  --c-form-field--border-color: var(--dsa-text-area--border-color, var(--ks-border-color-interface-interactive));
+  --c-form-field-hover--border-color: var(
+    --dsa-text-area--border-color_hover,
+    var(--ks-border-color-interface-interactive-hover)
+  );
+  --c-form-field-focus--border-color: var(
+    --dsa-text-area--border-color_focus,
+    var(--ks-border-color-interface-interactive-active)
+  );
+
+  --c-form-field--background: var(--dsa-text-area--background, var(--ks-background-color-interface-interactive));
+
+  --c-form-field_focus--shadow: var(--dsa-text-area--shadow_focus, 0 0 4px 0);
+
+  --c-form-field--background-disabled: var(
+    --ks-background-color-interface-interactive-disabled,
+    var(--ks-background-color-interface-interactive-disabled)
+  );
+  --c-form-field--color: var(--dsa-text-area--color, var(--ks-text-color-interface));
+  --c-form-field_hover--border-color: var(
+    --dsa-text-area--border-color_hover,
+    var(--ks-border-color-interface-interactive-hover)
+  );
+  --c-form-field_focus--border-color: var(
+    --dsa-text-area--border-color_active,
+    var(--ks-border-color-interface-interactive-active)
+  );
+  --c-form-field_icon--size: calc(var(--ks-line-height-interface-m) * 0.75em);
+  --c-form-field_icon--color: var(--ks-color-fg-alpha-3);
+
+  --c-form-field_label--color: var(--dsa-text-area__label--color, var(--ks-text-color-interface));
+
+  .c-form-field__input {
+    font: var(--dsa-text-area--font, var(--ks-font-interface-m));
+    padding: var(--dsa-text-area--padding, 0.4rem 0.75rem 0.35rem);
+    transition: var(--dsa-text-area--transition, var(--ks-transition-hover));
+
+    &:not(:focus-visible) {
+      box-shadow: var(--dsa-text-area--shadow, var(--ks-box-shadow-control));
+    }
+
+    &::placeholder {
+      color: var(--dsa-text-area__placeholder--color, var(--ks-color-fg-alpha-5));
+    }
+
+    &:focus {
+      background-color: var(--dsa-text-area--background_focus, var(--ks-background-color-interface-interactive-active));
+    }
+  }
+
+  .c-form-field__label {
+    font: var(--dsa-text-area__label--font, var(--ks-font-interface-s));
+    font-weight: var(--dsa-text-area__label--font-weight, var(--ks-font-weight-regular));
+  }
+}

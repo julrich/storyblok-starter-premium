@@ -1,0 +1,10 @@
+@use "radio-group-tokens.scss";
+
+.dsa-radio-group {
+  span.c-form-check-group__label {
+    color: var(--dsa-radio-group__label--color, var(--ks-text-color-interface));
+    font: var(--dsa-radio-group__label--font, var(--ks-font-interface-s));
+    font-weight: var(--dsa-radio-group__label--font-weight, var(--ks-font-weight-semi-bold));
+    padding-bottom: var(--dsa-radio-group__label--padding-bottom, 0.25em);
+  }
+}

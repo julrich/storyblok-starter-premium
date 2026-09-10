@@ -1,0 +1,23 @@
+[template]
+  incoming-hooks = ["Storyblok"]
+
+[template.environment]
+  NEXT_STORYBLOK_API_TOKEN = "Add your Storyblok API token for the newly created Space here"
+  NEXT_STORYBLOK_OAUTH_TOKEN = "Add your Oauth token, generated from your personal account here"
+  NEXT_STORYBLOK_SPACE_ID = "Add your Storyblok Space ID for the newly created Space here (without the #)"
+  STORYBLOK_LOGIN_EMAIL = "Add the email you used on Storyblok for the newly created Space here"
+  STORYBLOK_REGION = "Add the region you used on Storyblok for the newly created Space here"
+
+[build]
+  command = "(pnpm --filter website run netlify-init && pnpm --filter '...@kickstartds/ruhmesmeile-storyblok-starter' run build) || pnpm --filter '...@kickstartds/ruhmesmeile-storyblok-starter' run build"
+  publish = ".next"
+  base = "/"
+
+[build.environment]
+  PNPM_VERSION = "9.15.0"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[plugins]]
+  package = "/plugins/netlify-plugin-ksds-storyblok"

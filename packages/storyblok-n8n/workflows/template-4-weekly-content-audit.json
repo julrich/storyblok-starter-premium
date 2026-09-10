@@ -1,0 +1,126 @@
+{
+  "name": "Weekly Content Audit → Analyze Patterns → Report",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "weeksInterval": 1,
+              "triggerAtDay": 1,
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "id": "schedule-1",
+      "name": "Weekly Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "resource": "aiContent",
+        "operation": "analyzePatterns",
+        "patternContentType": "page",
+        "patternStartsWith": ""
+      },
+      "id": "analyze-1",
+      "name": "Analyze Page Patterns",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [480, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "story",
+        "operation": "list",
+        "contentType": "page",
+        "perPage": 100,
+        "excludeContent": false
+      },
+      "id": "list-1",
+      "name": "List All Pages",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [480, 520],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const patterns = $('Analyze Page Patterns').first().json.patterns;\nconst stories = $('List All Pages').first().json.stories;\n\nconst issues = [];\nfor (const story of stories) {\n  const content = story.content;\n  if (!content || !content.section) continue;\n  const sections = Array.isArray(content.section) ? content.section : [];\n  \n  // Check for missing CTA\n  const hasCta = sections.some(s => {\n    if (!Array.isArray(s.components)) return false;\n    return s.components.some(c => c.component === 'cta');\n  });\n  const hasHero = sections.some(s => {\n    if (!Array.isArray(s.components)) return false;\n    return s.components.some(c => c.component === 'hero');\n  });\n  const hasFeatures = sections.some(s => {\n    if (!Array.isArray(s.components)) return false;\n    return s.components.some(c => c.component === 'features' || c.component === 'split');\n  });\n  if (!hasCta && hasHero && hasFeatures && sections.length > 2) {\n    issues.push({ story: story.full_slug, issue: 'Missing CTA section on conversion page', severity: 'warning', category: 'composition' });\n  }\n  \n  // Check for sparse pages\n  if (sections.length < 2) {\n    issues.push({ story: story.full_slug, issue: `Only ${sections.length} section(s)`, severity: 'warning', category: 'content' });\n  }\n  \n  // Check for duplicate heroes\n  let heroCount = 0;\n  for (const s of sections) {\n    if (Array.isArray(s.components)) {\n      heroCount += s.components.filter(c => c.component === 'hero' || c.component === 'video-curtain').length;\n    }\n  }\n  if (heroCount > 1) {\n    issues.push({ story: story.full_slug, issue: `${heroCount} hero sections (should be 1)`, severity: 'error', category: 'composition' });\n  }\n  \n  // Check for adjacent same-type sections\n  const sectionTypes = sections.map(s => {\n    if (Array.isArray(s.components) && s.components.length > 0) return s.components[0].component;\n    return null;\n  }).filter(Boolean);\n  for (let i = 1; i < sectionTypes.length; i++) {\n    if (sectionTypes[i] === sectionTypes[i-1] && sectionTypes[i] !== 'divider') {\n      issues.push({ story: story.full_slug, issue: `Adjacent \"${sectionTypes[i]}\" sections — may look repetitive`, severity: 'info', category: 'composition' });\n    }\n  }\n  \n  // Check for sparse sub-items\n  const subItemMins = { stats: 3, features: 2, testimonials: 2, slider: 3, 'logos-companies': 4, mosaic: 3, gallery: 3 };\n  for (const s of sections) {\n    if (!Array.isArray(s.components)) continue;\n    for (const comp of s.components) {\n      const type = comp.component;\n      if (!type || !subItemMins[type]) continue;\n      const subKeys = Object.keys(comp).filter(k => Array.isArray(comp[k]) && comp[k].length > 0 && typeof comp[k][0] === 'object' && comp[k][0].component);\n      for (const key of subKeys) {\n        if (comp[key].length < subItemMins[type]) {\n          issues.push({ story: story.full_slug, issue: `\"${type}\" has only ${comp[key].length} sub-items (min: ${subItemMins[type]})`, severity: 'warning', category: 'composition' });\n        }\n      }\n    }\n  }\n}\n\nreturn [{\n  json: {\n    totalPages: stories.length,\n    totalIssues: issues.length,\n    componentFrequency: patterns.componentFrequency,\n    pageArchetypes: patterns.pageArchetypes,\n    issues,\n    compositionIssues: issues.filter(i => i.category === 'composition').length,\n    contentIssues: issues.filter(i => i.category === 'content').length\n  }\n}];"
+      },
+      "id": "code-1",
+      "name": "Build Audit Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 400]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.totalIssues }}",
+              "operation": "larger",
+              "value2": 0
+            }
+          ]
+        }
+      },
+      "id": "if-1",
+      "name": "Has Issues?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [960, 400]
+    },
+    {
+      "parameters": {
+        "channel": "#content-audit",
+        "text": "=📋 Weekly Content Audit Report\n\n📊 Total pages: {{ $json.totalPages }}\n⚠️ Issues found: {{ $json.totalIssues }}\n🧩 Composition: {{ $json.compositionIssues }} · 📝 Content: {{ $json.contentIssues }}\n\nTop issues:\n{{ $json.issues.slice(0, 10).map(i => `• ${i.severity.toUpperCase()}: ${i.story} — ${i.issue}`).join('\\n') }}"
+      },
+      "id": "slack-1",
+      "name": "Send Slack Report",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [1200, 300],
+      "credentials": {
+        "slackApi": { "id": "3", "name": "Slack" }
+      }
+    }
+  ],
+  "connections": {
+    "Weekly Schedule": {
+      "main": [
+        [
+          { "node": "Analyze Page Patterns", "type": "main", "index": 0 },
+          { "node": "List All Pages", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Analyze Page Patterns": {
+      "main": [[{ "node": "Build Audit Report", "type": "main", "index": 0 }]]
+    },
+    "List All Pages": {
+      "main": [[{ "node": "Build Audit Report", "type": "main", "index": 0 }]]
+    },
+    "Build Audit Report": {
+      "main": [[{ "node": "Has Issues?", "type": "main", "index": 0 }]]
+    },
+    "Has Issues?": {
+      "main": [
+        [{ "node": "Send Slack Report", "type": "main", "index": 0 }],
+        []
+      ]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateId": "storyblok-kds-weekly-content-audit" }
+}

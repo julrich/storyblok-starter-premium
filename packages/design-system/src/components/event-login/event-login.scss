@@ -1,0 +1,36 @@
+.dsa-event-login {
+  display: flex;
+  flex-direction: column;
+
+  &__text {
+    font: var(--ks-font-copy-m);
+    color: var(--ks-text-color-copy);
+    margin-top: var(--ks-spacing-stack-xs);
+  }
+
+  &__link {
+    width: fit-content;
+    font: var(--ks-font-interface-s);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--ks-spacing-stack-m);
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ks-spacing-stack-s);
+  }
+
+  &__actions {
+    margin-top: var(--ks-spacing-stack-m);
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    gap: var(--ks-spacing-stack-m) var(--ks-spacing-inline-xs);
+    justify-content: space-between;
+  }
+}

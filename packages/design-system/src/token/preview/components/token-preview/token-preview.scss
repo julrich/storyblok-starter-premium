@@ -1,0 +1,40 @@
+.token-preview {
+  vertical-align: top;
+
+  td {
+    border-bottom: 1px solid var(--ks-border-color-interface);
+    padding: 0.5em 0;
+
+    &:not(:last-child) {
+      padding-right: 0.5em;
+    }
+  }
+
+  &__info {
+    width: 100%;
+  }
+
+  &__name {
+    position: relative;
+    font: var(--ks-font-mono-xs);
+    background-color: rgb(240, 240, 240);
+    padding: 0.2em 0.75em;
+    border-radius: 0.35em;
+    width: fit-content;
+    margin-right: 1em;
+    transition: background-color var(--ks-transition-hover);
+
+    &:hover {
+      background-color: rgb(220, 220, 220);
+
+      .copy-tooltip {
+        opacity: 1;
+        transform: translate(-50%, -120%);
+      }
+    }
+  }
+
+  &__description {
+    font: var(--ks-font-interface-xs);
+  }
+}

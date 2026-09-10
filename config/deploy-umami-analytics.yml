@@ -1,0 +1,61 @@
+# Name of your application. Used to uniquely configure containers.
+service: analytics
+
+# Name of the container image.
+image: <%= ENV["DOCKER_ANALYTICS_IMAGE_NAME"] %>
+
+deploy_timeout: 60
+
+# Deploy to the same server as the main site.
+servers:
+  web:
+    - <%= ENV["HOSTING_SERVER_IP"] %>
+
+# Enable SSL auto certification via Let's Encrypt.
+# Umami analytics gets its own subdomain on the same host.
+proxy:
+  ssl: true
+  hosts:
+    - <%= ENV["NEXT_PUBLIC_ANALYTICS_DOMAIN"] %>
+  app_port: 3000
+  healthcheck:
+    path: /api/heartbeat
+
+# Credentials for your image host.
+registry:
+  username: <%= ENV["DOCKER_USERNAME"] %>
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+# Configure builder setup.
+builder:
+  arch: amd64
+  # Build context is the repo root for consistency with other services
+  context: .
+  dockerfile: packages/umami-analytics/Dockerfile
+  args:
+    DATABASE_URL: "postgresql://kamal_pg:#{POSTGRES_PASSWORD}@postgres:5432/kamal_pg_production"
+    DATABASE_TYPE: postgresql
+
+# Inject ENV variables into containers.
+env:
+  secret:
+    - POSTGRES_PASSWORD
+    - DATABASE_URL
+    - DATABASE_TYPE
+
+# PostgreSQL accessory
+accessories:
+  db:
+    service: postgres
+    image: postgres:15
+    host: <%= ENV["HOSTING_SERVER_IP"] %>
+    port: 5432
+    env:
+      clear:
+        POSTGRES_USER: "kamal_pg"
+        POSTGRES_DB: "kamal_pg_production"
+      secret:
+        - POSTGRES_PASSWORD
+    directories:
+      - data:/var/lib/postgresql/data

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/search-modal.schema.json",
+  "title": "Search Modal",
+  "description": "Search modal component for displaying a search interface in a modal dialog.",
+  "type": "object",
+  "properties": {
+    "headline": {
+      "type": "string",
+      "default": "Search"
+    },
+    "closeAriaLabel": {
+      "type": "string",
+      "default": "close"
+    },
+    "form": {
+      "$ref": "http://schema.mydesignsystem.com/search-form.schema.json"
+    }
+  },
+  "required": ["headline", "closeAriaLabel"],
+  "additionalProperties": false
+}

@@ -1,0 +1,394 @@
+{
+  "color": {
+    "primary": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0.4784, 0.6392]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.1843, 0.8157, 0.9765]
+        }
+      }
+    },
+    "bg": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 1, 1]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0.3765, 0.502]
+        }
+      }
+    },
+    "fg": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0.0627, 0.2118]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 1, 1]
+        }
+      }
+    },
+    "link": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.051, 0.6078, 0.749]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.1843, 0.8157, 0.9765]
+        }
+      }
+    },
+    "positive": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.1373, 0.5137, 0.1059]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.4314, 0.8588, 0.3922]
+        }
+      }
+    },
+    "negative": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 0.102, 0.3412]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.8235, 0.1137, 0.2824]
+        }
+      }
+    },
+    "notice": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.3922, 0.7608, 0.8588]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0.4431, 0.5608]
+        }
+      }
+    },
+    "informative": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.3922, 0.7608, 0.8588]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0.4431, 0.5608]
+        }
+      }
+    },
+    "scale": {
+      "1": {
+        "$type": "number",
+        "$value": 0.95
+      },
+      "2": {
+        "$type": "number",
+        "$value": 0.85
+      },
+      "3": {
+        "$type": "number",
+        "$value": 0.73
+      },
+      "4": {
+        "$type": "number",
+        "$value": 0.61
+      },
+      "5": {
+        "$type": "number",
+        "$value": 0.5
+      },
+      "6": {
+        "$type": "number",
+        "$value": 0.39
+      },
+      "7": {
+        "$type": "number",
+        "$value": 0.27
+      },
+      "8": {
+        "$type": "number",
+        "$value": 0.15
+      },
+      "9": {
+        "$type": "number",
+        "$value": 0.05
+      }
+    },
+    "onPrimary": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 1, 1]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.0078, 0.2196, 0.2706]
+        }
+      }
+    }
+  },
+  "font": {
+    "family": {
+      "display": {
+        "$type": "fontFamily",
+        "$value": ["Merriweather"]
+      },
+      "copy": {
+        "$type": "fontFamily",
+        "$value": ["Inter"]
+      },
+      "interface": {
+        "$type": "fontFamily",
+        "$value": ["Inter"]
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": [
+          "ui-monospace",
+          "SFMono-Regular",
+          "SF Mono",
+          "Menlo",
+          "Consolas",
+          "Liberation Mono",
+          "monospace"
+        ]
+      }
+    },
+    "weight": {
+      "light": {
+        "$type": "fontWeight",
+        "$value": 300
+      },
+      "regular": {
+        "$type": "fontWeight",
+        "$value": 400
+      },
+      "medium": {
+        "$type": "fontWeight",
+        "$value": 500
+      },
+      "semi-bold": {
+        "$type": "fontWeight",
+        "$value": 600
+      },
+      "bold": {
+        "$type": "fontWeight",
+        "$value": 700
+      }
+    },
+    "size": {
+      "display": {
+        "base": {
+          "$type": "dimension",
+          "$value": {
+            "value": 18,
+            "unit": "px"
+          }
+        },
+        "shrink-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "grow-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "bp-factor": {
+          "$type": "number",
+          "$value": 1.5
+        }
+      },
+      "copy": {
+        "base": {
+          "$type": "dimension",
+          "$value": {
+            "value": 12,
+            "unit": "px"
+          }
+        },
+        "shrink-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "grow-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "bp-factor": {
+          "$type": "number",
+          "$value": 1.5
+        }
+      },
+      "interface": {
+        "base": {
+          "$type": "dimension",
+          "$value": {
+            "value": 12,
+            "unit": "px"
+          }
+        },
+        "shrink-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "grow-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "bp-factor": {
+          "$type": "number",
+          "$value": 1.5
+        }
+      },
+      "mono": {
+        "base": {
+          "$type": "dimension",
+          "$value": {
+            "value": 12,
+            "unit": "px"
+          }
+        },
+        "shrink-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "grow-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "bp-factor": {
+          "$type": "number",
+          "$value": 1.5
+        }
+      }
+    }
+  },
+  "spacing": {
+    "base": {
+      "$type": "dimension",
+      "$value": {
+        "value": 20,
+        "unit": "px"
+      }
+    },
+    "shrink-factor": {
+      "$type": "number",
+      "$value": 1.8
+    },
+    "grow-factor": {
+      "$type": "number",
+      "$value": 1.4
+    },
+    "bp-factor": {
+      "$type": "number",
+      "$value": 1.4
+    },
+    "factor": {
+      "$type": "number",
+      "$value": 1.5
+    }
+  },
+  "_fontHref": {
+    "display": "https://fonts.googleapis.com/css2?family=Merriweather",
+    "copy": "https://fonts.googleapis.com/css2?family=Inter",
+    "interface": "https://fonts.googleapis.com/css2?family=Inter"
+  },
+  "duration": {
+    "factor": {
+      "$type": "number",
+      "$value": 1.05
+    }
+  },
+  "border": {
+    "radius-factor": {
+      "$type": "number",
+      "$value": 1
+    },
+    "width": {
+      "default": {
+        "$type": "dimension",
+        "$value": {
+          "value": 1,
+          "unit": "px"
+        }
+      },
+      "emphasized": {
+        "$type": "dimension",
+        "$value": {
+          "value": 2,
+          "unit": "px"
+        }
+      }
+    }
+  },
+  "box-shadow": {
+    "spread-factor": {
+      "$type": "number",
+      "$value": 1
+    },
+    "opacity-factor": {
+      "$type": "number",
+      "$value": 1
+    },
+    "blur-factor": {
+      "$type": "number",
+      "$value": 1
+    }
+  }
+}

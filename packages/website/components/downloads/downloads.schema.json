@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://cms.mydesignsystem.com/downloads.schema.json",
+  "title": "Downloads",
+  "description": "Downloads component for providing users with downloadable files and resources.",
+  "type": "object",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "sharepointFolder": {
+          "type": "string",
+          "format": "sharepoint-folder",
+          "title": "SharePoint Folder",
+          "description": "Select a SharePoint folder to automatically list its files as downloads. When set, replaces manually added download items."
+        }
+      }
+    },
+    {
+      "$ref": "http://schema.mydesignsystem.com/downloads.schema.json"
+    }
+  ],
+  "additionalProperties": false
+}

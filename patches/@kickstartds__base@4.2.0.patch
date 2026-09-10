@@ -1,0 +1,120 @@
+diff --git a/lib/teaser-box/index.d.ts b/lib/teaser-box/index.d.ts
+index 78fc871fda38bf202513d6b2753a616d9d60da3f..6c3edfb87992eae24f083be23093584107f95424 100644
+--- a/lib/teaser-box/index.d.ts
++++ b/lib/teaser-box/index.d.ts
+@@ -1,16 +1,19 @@
+ /// <reference types="react" />
+ declare const TeaserBoxContextDefault: import("react").ForwardRefExoticComponent<import("../teaser/typing.js").TeaserProps & {
+     image?: string;
++    alt?: string;
+     ratio?: import("./typing.js").ImageRatio;
+     imageSpacing?: boolean;
+ } & import("react").HTMLAttributes<HTMLDivElement> & import("react").RefAttributes<HTMLDivElement>>;
+ declare const TeaserBoxContext: import("react").Context<import("react").ForwardRefExoticComponent<import("@kickstartds/base/lib/teaser/typing").TeaserProps & {
+     image?: string;
++    alt?: string;
+     ratio?: import("@kickstartds/base/lib/teaser-box/typing").ImageRatio;
+     imageSpacing?: boolean;
+ } & import("react").HTMLAttributes<HTMLDivElement> & import("react").RefAttributes<HTMLDivElement>>>;
+ declare const TeaserBox: import("react").ForwardRefExoticComponent<import("@kickstartds/base/lib/teaser/typing").TeaserProps & {
+     image?: string;
++    alt?: string;
+     ratio?: import("@kickstartds/base/lib/teaser-box/typing").ImageRatio;
+     imageSpacing?: boolean;
+ } & import("react").HTMLAttributes<HTMLDivElement> & import("react").RefAttributes<HTMLDivElement>>;
+diff --git a/lib/teaser-box/index.js b/lib/teaser-box/index.js
+index f12b1a3f8611d51d14a28f12192c2b86a078575d..d330c729b6ca2d3e56ab3c24894d4121865517c1 100644
+--- a/lib/teaser-box/index.js
++++ b/lib/teaser-box/index.js
+@@ -1 +1 @@
+-import{forwardRef as e,createContext as r}from"react";import{withContainer as t}from"@kickstartds/core/lib/container";import o from"@babel/runtime/helpers/esm/defineProperty";import i from"@babel/runtime/helpers/esm/objectWithoutProperties";import s from"classnames";import{Picture as c}from"../picture/index.js";import{Teaser as n}from"../teaser/index.js";import{jsx as a}from"react/jsx-runtime";import"./teaser-box.css";import"@kickstartds/core/lib/core";import"../rich-text/index.js";import"markdown-to-jsx";import"../rich-text/rich-text.css";import"../button/index.js";import"../link/index.js";import"../icon/index.js";import"../icon/icon.css";import"../button/button.css";import"../teaser/teaser.css";import"../teaser/lazyTeaser.js";const m=["image","ratio","imageSpacing","className"];function p(e,r){var t=Object.keys(e);if(Object.getOwnPropertySymbols){var o=Object.getOwnPropertySymbols(e);r&&(o=o.filter((function(r){return Object.getOwnPropertyDescriptor(e,r).enumerable}))),t.push.apply(t,o)}return t}function b(e){for(var r=1;r<arguments.length;r++){var t=null!=arguments[r]?arguments[r]:{};r%2?p(Object(t),!0).forEach((function(r){o(e,r,t[r])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(t)):p(Object(t)).forEach((function(r){Object.defineProperty(e,r,Object.getOwnPropertyDescriptor(t,r))}))}return e}const l=e(((e,r)=>{let{image:t,ratio:o,imageSpacing:p=!1,className:l}=e,f=i(e,m);return a(n,b(b({className:s("c-teaser-box",{"image--spacing":p},l),ref:r},f),{},{children:t&&a("div",{className:s({"c-teaser__image--four-to-three":"4:3"===o,"c-teaser__image--sixteen-to-nine":"16:9"===o,"c-teaser__image--square":"1:1"===o}),children:a(c,{src:t,alt:"",className:"c-teaser__image"})})}))}));const f=r(l);const u=t("teaser-box",f);export{u as TeaserBox,f as TeaserBoxContext,l as TeaserBoxContextDefault};
++import{forwardRef as e,createContext as r}from"react";import{withContainer as t}from"@kickstartds/core/lib/container";import o from"@babel/runtime/helpers/esm/defineProperty";import i from"@babel/runtime/helpers/esm/objectWithoutProperties";import s from"classnames";import{Picture as c}from"../picture/index.js";import{Teaser as n}from"../teaser/index.js";import{jsx as a}from"react/jsx-runtime";import"./teaser-box.css";import"@kickstartds/core/lib/core";import"../rich-text/index.js";import"markdown-to-jsx";import"../rich-text/rich-text.css";import"../button/index.js";import"../link/index.js";import"../icon/index.js";import"../icon/icon.css";import"../button/button.css";import"../teaser/teaser.css";import"../teaser/lazyTeaser.js";const m=["image","ratio","imageSpacing","className"];function p(e,r){var t=Object.keys(e);if(Object.getOwnPropertySymbols){var o=Object.getOwnPropertySymbols(e);r&&(o=o.filter((function(r){return Object.getOwnPropertyDescriptor(e,r).enumerable}))),t.push.apply(t,o)}return t}function b(e){for(var r=1;r<arguments.length;r++){var t=null!=arguments[r]?arguments[r]:{};r%2?p(Object(t),!0).forEach((function(r){o(e,r,t[r])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(t)):p(Object(t)).forEach((function(r){Object.defineProperty(e,r,Object.getOwnPropertyDescriptor(t,r))}))}return e}const l=e(((e,r)=>{let{image:t,alt:altContent,ratio:o,imageSpacing:p=!1,className:l}=e,f=i(e,m);return a(n,b(b({className:s("c-teaser-box",{"image--spacing":p},l),ref:r},f),{},{children:t&&a("div",{className:s({"c-teaser__image--four-to-three":"4:3"===o,"c-teaser__image--sixteen-to-nine":"16:9"===o,"c-teaser__image--square":"1:1"===o}),children:a(c,{src:t,alt:altContent,className:"c-teaser__image"})})}))}));const f=r(l);const u=t("teaser-box",f);export{u as TeaserBox,f as TeaserBoxContext,l as TeaserBoxContextDefault};
+diff --git a/lib/teaser-box/teaser-box.schema.dereffed.json b/lib/teaser-box/teaser-box.schema.dereffed.json
+index d72fea0a59365ba70b41e76e8640eb20a2e30097..5f2e26b54f48434480b23f9f61f85af1f3b268ae 100644
+--- a/lib/teaser-box/teaser-box.schema.dereffed.json
++++ b/lib/teaser-box/teaser-box.schema.dereffed.json
+@@ -18,6 +18,14 @@
+         "https://picsum.photos/seed/kdsteaserbox/500/300"
+       ]
+     },
++    "alt": {
++      "title": "Image alt text",
++      "description": "Alternative text for the image, used for accessibility",
++      "type": "string",
++      "examples": [
++        "A random image from picsum.photos"
++      ]
++    },
+     "ratio": {
+       "title": "Image ratio",
+       "description": "Choose the ratio used to crop and display the image",
+diff --git a/lib/teaser-box/teaser-box.schema.json b/lib/teaser-box/teaser-box.schema.json
+index f616179f1e9cc8a6eb3b8011f6c54b9dea42e6e3..2100c0710244a701f4d05a20bc172907ba41b448 100644
+--- a/lib/teaser-box/teaser-box.schema.json
++++ b/lib/teaser-box/teaser-box.schema.json
+@@ -18,6 +18,14 @@
+           "format": "image",
+           "examples": ["https://picsum.photos/seed/kdsteaserbox/500/300"]
+         },
++        "alt": {
++          "title": "Image alt text",
++          "description": "Alternative text for the image, used for accessibility",
++          "type": "string",
++          "examples": [
++            "A random image from picsum.photos"
++          ]
++        },
+         "ratio": {
+           "title": "Image ratio",
+           "description": "Choose the ratio used to crop and display the image",
+diff --git a/lib/teaser-box/teaser-box.stories.ts b/lib/teaser-box/teaser-box.stories.ts
+index 956a3145ea45881329e2df46e6aa32d1fdd2db50..2b9b150aadf302979fbabf51c173b91a0c3aa298 100644
+--- a/lib/teaser-box/teaser-box.stories.ts
++++ b/lib/teaser-box/teaser-box.stories.ts
+@@ -25,6 +25,14 @@ const schema: JSONSchema7 = {
+         "https://picsum.photos/seed/kdsteaserbox/500/300"
+       ]
+     },
++    "alt": {
++      "title": "Image alt text",
++      "description": "Alternative text for the image, used for accessibility",
++      "type": "string",
++      "examples": [
++        "A random image from picsum.photos"
++      ]
++    },
+     "ratio": {
+       "title": "Image ratio",
+       "description": "Choose the ratio used to crop and display the image",
+@@ -258,7 +266,7 @@ const meta: Meta<typeof TeaserBox> = {
+   component: TeaserBox,
+   excludeStories: ['Template'],
+   parameters: {
+-    
++
+     designToken: {
+       disable: true,
+     },
+diff --git a/lib/teaser-box/typing.d.ts b/lib/teaser-box/typing.d.ts
+index 81d892dcd3d7fa0698e421d363359cfa9f3c15de..a56b39ba8390e5e9a45e26f204f48f7e5eb8c07c 100644
+--- a/lib/teaser-box/typing.d.ts
++++ b/lib/teaser-box/typing.d.ts
+@@ -10,6 +10,7 @@ import { TeaserProps } from "@kickstartds/base/lib/teaser/typing";
+  */
+ type TeaserBoxProps = TeaserProps & {
+     image?: ImageSource;
++    alt?: ImageAlt;
+     ratio?: ImageRatio;
+     imageSpacing?: ImageSpacing;
+ };
+@@ -17,6 +18,10 @@ type TeaserBoxProps = TeaserProps & {
+  * Select an image to display inside the teaser box, at the top
+  */
+ type ImageSource = string;
++/**
++ * Alternative text for the image, used for accessibility
++ */
++type ImageAlt = string;
+ /**
+  * Choose the ratio used to crop and display the image
+  */

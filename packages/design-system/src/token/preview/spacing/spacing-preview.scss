@@ -1,0 +1,39 @@
+.spacings {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.spacing {
+  height: 26px;
+  background-color: rgb(0, 0, 0);
+  position: relative;
+}
+
+.spacing-xxs {
+  width: var(--ks-spacing-xxs);
+}
+
+.spacing-xs {
+  width: var(--ks-spacing-xs);
+}
+
+.spacing-s {
+  width: var(--ks-spacing-s);
+}
+
+.spacing-m {
+  width: var(--ks-spacing-m);
+}
+
+.spacing-l {
+  width: var(--ks-spacing-l);
+}
+
+.spacing-xl {
+  width: var(--ks-spacing-xl);
+}
+
+.spacing-xxl {
+  width: var(--ks-spacing-xxl);
+}

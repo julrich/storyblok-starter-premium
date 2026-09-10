@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/checkbox.schema.json",
+  "title": "Checkbox",
+  "description": "Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.",
+  "type": "object",
+  "properties": {
+    "label": {
+      "$ref": "http://schema.kickstartds.com/form/checkbox.schema.json#/properties/label"
+    },
+    "disabled": {
+      "$ref": "http://schema.kickstartds.com/form/checkbox.schema.json#/properties/disabled"
+    },
+    "invalid": {
+      "$ref": "http://schema.kickstartds.com/form/checkbox.schema.json#/properties/invalid"
+    },
+    "invalidMessage": {
+      "$ref": "http://schema.kickstartds.com/form/checkbox.schema.json#/properties/invalidMessage"
+    },
+    "hint": {
+      "$ref": "http://schema.kickstartds.com/form/checkbox.schema.json#/properties/hint"
+    },
+    "className": {
+      "title": "Class",
+      "description": "Additional css classes attached to the input element",
+      "type": "string"
+    }
+  },
+  "required": ["label"]
+}

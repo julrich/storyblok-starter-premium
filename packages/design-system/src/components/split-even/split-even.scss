@@ -1,0 +1,190 @@
+@use "split-even-tokens.scss";
+
+.l-split-even {
+  --dsa-split-even--v-gutter: var(--dsa-split-even--v-gutter_default, var(--ks-spacing-stack-m));
+  --dsa-split-even--h-gutter: var(--dsa-split-even--h-gutter_default, var(--ks-spacing-inline-l));
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dsa-split-even--v-gutter) var(--dsa-split-even--h-gutter);
+
+  &--v-gutter {
+    &-small {
+      --dsa-split-even--v-gutter: var(--dsa-split-even--v-gutter_small, var(--ks-spacing-stack-s));
+    }
+
+    &-default {
+      --dsa-split-even--v-gutter: var(--dsa-split-even--v-gutter_default, var(--ks-spacing-stack-l));
+    }
+
+    &-large {
+      --dsa-split-even--v-gutter: var(--dsa-split-even--v-gutter_large, var(--dsa-content--vertical-spacing));
+    }
+
+    &-none {
+      --dsa-split-even--v-gutter: 0;
+    }
+  }
+
+  &--h-gutter {
+    &-small {
+      --dsa-split-even--h-gutter: var(--dsa-split-even--h-gutter_small, var(--ks-spacing-inline-m));
+    }
+
+    &-default {
+      --dsa-split-even--h-gutter: var(--dsa-split-even--h-gutter_default, var(--ks-spacing-inline-l));
+    }
+
+    &-large {
+      --dsa-split-even--h-gutter: var(--dsa-split-even--h-gutter_large, var(--ks-spacing-inline-xxl));
+    }
+
+    &-none {
+      --dsa-split-even--h-gutter: 0;
+    }
+  }
+
+  &--width {
+    &-narrow {
+      --dsa-split-even__content--flex-basis: var(
+        --dsa-split-even__content--flex-basis_narrow,
+        var(--dsa-tile--width_small)
+      );
+    }
+    &-medium {
+      --dsa-split-even__content--flex-basis: var(
+        --dsa-split-even__content--flex-basis_medium,
+        var(--dsa-tile--width_medium)
+      );
+    }
+    &-wide {
+      --dsa-split-even__content--flex-basis: var(
+        --dsa-split-even__content--flex-basis_wide,
+        var(--dsa-tile--width_large)
+      );
+    }
+  }
+
+  &--align {
+    &-top {
+      align-items: flex-start;
+    }
+
+    &-center {
+      align-items: center;
+    }
+
+    &-bottom {
+      align-items: flex-end;
+    }
+
+    &-sticky {
+      position: relative;
+
+      .l-split-even__sticky-container {
+        display: flex;
+        flex-direction: column;
+        position: sticky;
+        top: var(--dsa-split-even--sticky-margin, var(--ks-spacing-stack-xl));
+        gap: var(--dsa-split-even--v-gutter, var(--ks-spacing-stack-m));
+        height: fit-content;
+      }
+    }
+  }
+
+  &--mobile-reverse {
+    flex-wrap: wrap-reverse;
+
+    &.l-split-even--align-top {
+      align-items: flex-end;
+    }
+
+    &.l-split-even--align-bottom {
+      align-items: flex-start;
+    }
+  }
+
+  &__content {
+    flex: 1 1 var(--dsa-split-even__content--flex-basis);
+    display: flex;
+    flex-direction: column;
+
+    &--stretch-vertically {
+      align-self: stretch;
+      align-items: stretch;
+
+      .l-split-even__content-layout {
+        flex-grow: 1;
+
+        > * {
+          height: 100%;
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+
+  &__content-layout {
+    &--gutter {
+      &-none {
+        gap: 0;
+      }
+
+      &-small {
+        gap: var(--dsa-split-even__content--gutter_small, var(--ks-spacing-s));
+      }
+
+      &-default {
+        gap: var(--dsa-split-even__content--gutter_default, var(--ks-spacing-m));
+      }
+
+      &-large {
+        gap: var(--dsa-split-even__content--gutter_large, var(--ks-spacing-xl));
+      }
+    }
+
+    &--list {
+      display: grid;
+      grid-template-rows: auto;
+    }
+
+    &--smallTiles {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+
+      > * {
+        grid-column: span 2;
+      }
+
+      @media (max-width: 500px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      // Make a single item fill all columns
+      > :only-child {
+        grid-column: 1 / -1;
+      }
+
+      // For two children, add a utility class in React
+      &--two {
+        > * {
+          grid-column: span 3;
+        }
+      }
+    }
+
+    &--largeTiles {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      // Make a single item fill all columns
+      > :only-child {
+        grid-column: 1 / -1;
+      }
+
+      @media (max-width: 500px) {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/gallery.schema.json",
+  "title": "Gallery",
+  "description": "Component used to display a gallery of images",
+  "type": "object",
+  "properties": {
+    "images": {
+      "type": "array",
+      "title": "Images",
+      "description": "The images to display in the gallery",
+      "items": {
+        "type": "object",
+        "properties": {
+          "src": {
+            "type": "string",
+            "title": "src",
+            "format": "image",
+            "description": "The source of the image",
+            "examples": ["https://example.com/image1.jpg"]
+          },
+          "alt": {
+            "type": "string",
+            "title": "Alt text",
+            "description": "Alt text of the image",
+            "examples": ["https://example.com/image1.jpg"]
+          },
+          "caption": {
+            "type": "string",
+            "format": "markdown",
+            "title": "Caption",
+            "description": "The caption of the image",
+            "examples": ["Caption Image"]
+          }
+        },
+        "additionalProperties": false,
+        "required": ["src"]
+      },
+      "minItems": 1,
+      "maxItems": 10
+    },
+    "layout": {
+      "type": "string",
+      "title": "Layout",
+      "description": "The layout of the gallery images",
+      "enum": ["stack", "smallTiles", "largeTiles", "slider"],
+      "default": "smallTiles"
+    },
+    "aspectRatio": {
+      "type": "string",
+      "title": "Aspect Ratio",
+      "description": "The aspect ratio of the gallery images",
+      "enum": ["unset", "square", "wide", "landscape"],
+      "default": "unset"
+    },
+    "lightbox": {
+      "type": "boolean",
+      "title": "Lightbox",
+      "description": "Display images in a lightbox gallery",
+      "default": false
+    }
+  },
+  "additionalProperties": false,
+  "required": ["images"]
+}

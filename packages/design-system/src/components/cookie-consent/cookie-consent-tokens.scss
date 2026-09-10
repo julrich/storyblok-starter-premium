@@ -1,0 +1,93 @@
+.dsa-cookie-consent {
+  // Consent notice
+  --dsa-cookie-consent-notice--gap: var(--ks-spacing-stack-s);
+  --dsa-cookie-consent-notice--max-height: 45vh;
+
+  /// Card style
+  --dsa-cookie-consent-notice_card--background-color: var(--ks-background-color-default);
+  --dsa-cookie-consent-notice_card--padding: var(--ks-spacing-inset-m);
+  --dsa-cookie-consent-notice_card--left: var(--ks-spacing-m);
+  --dsa-cookie-consent-notice_card--bottom: var(--ks-spacing-m);
+  --dsa-cookie-consent-notice_card--border-radius: var(--ks-border-radius-card);
+  --dsa-cookie-consent-notice_card--max-width: var(--dsa-tile--width_largest);
+  --dsa-cookie-consent-notice_card--border: var(--ks-border-color-card) solid var(--ks-border-width-default);
+  --dsa-cookie-consent-notice_card--box-shadow: var(--ks-box-shadow-card);
+
+  /// Banner style
+  --dsa-cookie-consent-notice_banner--padding: var(--ks-spacing-inset-m);
+  --dsa-cookie-consent-notice_banner--background-color: var(--ks-background-color-default);
+  --dsa-cookie-consent-notice_banner--box-shadow: var(--ks-box-shadow-surface);
+  --dsa-cookie-consent-notice_banner--border-top: var(--ks-border-card);
+
+  /// Buttons
+  --dsa-cookie-consent-notice__buttons--gap: var(--ks-spacing-stack-xs) var(--ks-spacing-inline-s);
+
+  // Revisit button
+  --dsa-cookie-consent-revisit--bottom: var(--ks-spacing-m);
+  --dsa-cookie-consent-revisit--left: var(--ks-spacing-m);
+  --dsa-cookie-consent-revisit__label--background-color: var(--ks-background-color-default-inverted);
+  --dsa-cookie-consent-revisit__label--border-radius: 0.25em;
+  --dsa-cookie-consent-revisit__label--padding: var(--ks-spacing-inset-squish-xs);
+
+  // Consent dialog
+  --dsa-cookie-consent-dialog--padding-horizontal: var(--ks-spacing-inset-m);
+
+  --dsa-cookie-consent-dialog--border-radius: var(--ks-border-radius-card);
+  --dsa-cookie-consent-dialog--border: var(--ks-border-color-interface) solid var(--ks-border-width-default);
+
+  --dsa-cookie-consent-dialog--box-shadow: var(--ks-box-shadow-card);
+  --dsa-cookie-consent-dialog--background-color: var(--ks-background-color-default);
+
+  --dsa-cookie-consent-dialog--max-width: var(--dsa-tile--width_largest);
+  --dsa-cookie-consent-dialog--max-height: 100%;
+
+  @media (min-width: 48em) {
+    --dsa-cookie-consent-dialog--max-height: 90vh;
+  }
+
+  --dsa-cookie-consent-dialog--spacing-vertical: var(--ks-spacing-inset-s);
+  --dsa-cookie-consent-dialog--spacing-horizontal: var(--ks-spacing-inset-s);
+
+  /// Block
+  --dsa-cookie-consent-dialog__block--padding-vertical: var(--ks-spacing-inset-m);
+
+  /// Header
+  --dsa-cookie-consent-dialog__header--padding: var(--ks-spacing-inset-squish-m);
+  --dsa-cookie-consent-dialog__header--gap: var(--ks-spacing-inline-m);
+
+  /// Content
+  --dsa-cookie-consent-dialog__content--border: var(--ks-border-divider);
+
+  /// Close button
+  --dsa-cookie-consent-dialog__close--padding: var(--ks-spacing-inset-xs);
+
+  --dsa-cookie-consent-dialog__close--color: var(--ks-text-color-interface-interactive);
+  --dsa-cookie-consent-dialog__close--color_hover: var(--ks-text-color-interface-interactive);
+
+  --dsa-cookie-consent-dialog__close--background-color: transparent;
+  --dsa-cookie-consent-dialog__close--background-color_hover: var(--ks-color-fg-alpha-8);
+
+  /// Description
+  --dsa-cookie-consent-dialog__description--border-bottom: var(--ks-border-divider);
+  --dsa-cookie-consent-dialog__description--font: var(--ks-font-interface-s);
+  --dsa-cookie-consent-dialog__description--color: var(--ks-text-color-interface);
+
+  /// Options
+  --dsa-cookie-consent-dialog__option--border-bottom: var(--ks-border-divider);
+  --dsa-cookie-consent-dialog__option--padding-vertical: var(--ks-spacing-stack-m);
+  --dsa-cookie-consent-dialog__option--gap: var(--ks-spacing-stack-xs);
+
+  /// Label
+  --dsa-cookie-consent-dialog__label--font: var(--ks-font-interface-s);
+  --dsa-cookie-consent-dialog__label--color: var(--ks-text-color-positive);
+  --dsa-cookie-consent-dialog__label--font-weight: var(--ks-font-weight-bold);
+
+  /// Toggle
+  --dsa-cookie-consent-dialog__toggle--gap: var(--ks-spacing-stack-xs) var(--ks-spacing-inline-m);
+
+  /// Buttons
+  --dsa-cookie-consent-dialog__buttons--gap: var(--ks-spacing-stack-xs) var(--ks-spacing-inline-s);
+
+  // Overlay
+  --dsa-cookie-consent-overlay--background-color: var(--dsa-overlay--background-color);
+}

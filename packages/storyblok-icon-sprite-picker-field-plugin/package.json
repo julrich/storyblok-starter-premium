@@ -1,0 +1,28 @@
+{
+  "name": "@kickstartds/storyblok-icon-sprite-picker-field-plugin",
+  "version": "1.0.0",
+  "description": "Storyblok field plugin for picking an icon from an SVG icon sprite",
+  "private": true,
+  "license": "(MIT OR Apache-2.0)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "deploy": "npx @storyblok/field-plugin-cli@latest deploy"
+  },
+  "dependencies": {
+    "@storyblok/field-plugin": "^1.0.0",
+    "@storyblok/js": "^3.1.4",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.7",
+    "vite-plugin-css-injected-by-js": "^4.0.1"
+  }
+}

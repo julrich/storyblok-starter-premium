@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "headline": {
+      "type": "string",
+      "description": "Main hero headline"
+    },
+    "sub": {
+      "type": "string",
+      "description": "Subheadline text"
+    },
+    "text": {
+      "type": "string",
+      "description": "Body text (supports markdown)"
+    },
+    "textPosition": {
+      "type": "string",
+      "enum": [
+        "center",
+        "below",
+        "offset",
+        "left",
+        "right",
+        "corner",
+        "bottom"
+      ],
+      "description": "Position of the text block"
+    },
+    "height": {
+      "type": "string",
+      "enum": ["small", "default", "fullImage", "fullScreen"],
+      "description": "Hero display height"
+    },
+    "highlightText": {
+      "type": "boolean",
+      "description": "Whether to visually highlight the text"
+    },
+    "overlay": {
+      "type": "boolean",
+      "description": "Apply image overlay for readability"
+    },
+    "buttons": {
+      "type": "array",
+      "description": "Call-to-action buttons",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "Button label text"
+          },
+          "url": {
+            "type": "string",
+            "description": "Button target URL"
+          }
+        },
+        "required": ["label", "url"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["headline", "text", "buttons"],
+  "additionalProperties": false
+}

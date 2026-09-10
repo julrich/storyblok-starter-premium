@@ -1,0 +1,244 @@
+@use "@kickstartds/base/lib/global/base.css";
+@use "./fonts";
+@use "./global-token";
+@use "./playground/playground-preview-pages";
+@use "./token/preview/preview-pages";
+@use "./token/branding-tokens";
+@use "./token/scaling-token";
+@use "./token/color-token";
+@use "./token/font-token";
+@use "./token/font-size-token";
+@use "./token/spacing-token";
+@use "./token/border-token";
+@use "./token/box-shadow-token";
+@use "./token/transition-token";
+@use "./token/text-color-token";
+@use "./token/border-color-token";
+@use "./token/background-color-token";
+
+@use "./components/blog-teaser/blog-teaser";
+@use "./components/lightbox/lightbox";
+@use "./components/rich-text/rich-text";
+@use "./selectors" as *;
+
+body.sb-show-main.sb-main-padded {
+  padding: 0 !important;
+}
+
+.preview {
+  &--wrapper {
+    background-color: var(--ks-color-primary-to-bg-8);
+    padding: 2rem;
+  }
+
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+  padding: 42px 29px;
+  background-color: var(--ks-background-color-default);
+  border-radius: var(--ks-border-radius-card);
+}
+
+body {
+  background: var(--ks-background-color-default);
+}
+
+hr.c-divider {
+  --c-divider--background: var(--ks-border-color-accent);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+#{$selectors} {
+  --g-link--font-weight: var(
+    --dsa-link--font-weight,
+    var(--ks-font-weight-semi-bold)
+  );
+  --g-link--text-decoration: var(--dsa-link--text-decoration, underline);
+  --g-link--text-decoration-hover: var(--dsa-link--text-decoration_hover, none);
+
+  --g-link--color: var(
+    --dsa-link--color,
+    var(--ks-text-color-default-interactive)
+  );
+  --g-link--color-hover: var(
+    --dsa-link--color_hover,
+    var(--ks-text-color-default-interactive-hover)
+  );
+  --g-link--background: var(--dsa-link--background, transparent);
+  --g-link--border-radius: var(--dsa-link--border-radius, 0);
+
+  --g-topic--color: var(--dsa-topic--color, var(--ks-text-color-default));
+  --g-topic--font: var(--dsa-topic--font, var(--ks-font-display-l));
+  --g-topic--font-weight: var(
+    --dsa-topic--font-weight,
+    var(--ks-font-weight-bold)
+  );
+
+  --c-rich-text--font: var(--dsa-rich-text--font, var(--ks-font-copy-m));
+  --c-rich-text--vertical-spacing: var(
+    --dsa-rich-text--vertical-spacing,
+    var(--ks-spacing-m)
+  );
+  --c-rich-text--horizontal-spacing: var(
+    --dsa-rich-text--horizontal-spacing,
+    1em
+  );
+  --c-rich-text--color: var(
+    --dsa-rich-text--color,
+    var(--ks-text-color-default)
+  );
+  --c-rich-text--font-weight: var(
+    --dsa-rich-text--font-weight,
+    var(--ks-font-weight-regular)
+  );
+
+  --c-rich-text_headline--color: var(
+    --dsa-rich-text__headline--color,
+    var(--ks-text-color-display)
+  );
+  --c-rich-text_headline--font: var(
+    --dsa-rich-text__headline--font,
+    var(--ks-font-display-m)
+  );
+  --c-rich-text_headline--font-weight: var(
+    --dsa-rich-text__headline--font-weight,
+    var(--ks-font-weight-medium)
+  );
+  --c-rich-text_headline--margin: var(
+    --dsa-rich-text__headline--margin,
+    0.75em 0 0.5em
+  );
+}
+
+[ks-inverted="false"],
+:root,
+#root {
+  --dsa-text-color-on-primary: var(--dsa-text-color-on-primary-base);
+  --dsa-text-color-on-primary-inverted: var(
+    --dsa-text-color-on-primary-inverted-base
+  );
+
+  --dsa-overlay-text--shadow: var(--dsa-overlay-text--shadow-base);
+  --dsa-overlay-text--shadow-inverted: var(
+    --dsa-overlay-text--shadow-inverted-base
+  );
+
+  --dsa-overlay-text--text-color: var(--dsa-overlay-text--text-color-base);
+  --dsa-overlay-text--text-color-inverted: var(
+    --dsa-overlay-text--text-color-inverted-base
+  );
+}
+
+[ks-inverted="true"] {
+  --dsa-text-color-on-primary: var(--dsa-text-color-on-primary-inverted-base);
+  --dsa-text-color-on-primary-inverted: var(--dsa-text-color-on-primary-base);
+
+  --dsa-overlay-text--shadow: var(--dsa-overlay-text--shadow-inverted-base);
+  --dsa-overlay-text--shadow-inverted: var(--dsa-overlay-text--shadow-base);
+
+  --dsa-overlay-text--text-color: var(
+    --dsa-overlay-text--text-color-inverted-base
+  );
+  --dsa-overlay-text--text-color-inverted: var(
+    --dsa-overlay-text--text-color-base
+  );
+}
+
+// ─── drhubert overrides ───────────────────────────────────────────
+// Bare-element table styling, ported from the pre-monorepo website
+// (components/table/table.scss + table-tokens.scss, previously pulled in via
+// the website's index.scss). Renamed --drh- -> --dsa- to match this design
+// system. Applies to tables coming out of rich text / CMS content.
+:root {
+  --dsa-table--font: var(--ks-font-copy-m);
+}
+
+table {
+  width: 100%;
+  font: var(--dsa-table--font);
+  border-spacing: 0px;
+  border-top: var(--ks-border-width-default) solid var(--ks-border-color-accent);
+  border-bottom: var(--ks-border-width-default) solid
+    var(--ks-border-color-accent);
+
+  td,
+  th {
+    padding: 0.5em;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: var(--ks-color-primary-alpha-8);
+    text-align: left;
+  }
+
+  tr:nth-child(even) {
+    background-color: var(--ks-color-primary-alpha-9);
+  }
+}
+
+// Zammad contact form styling, ported from the pre-monorepo website
+// (components/form/form.scss + form-tokens.scss, previously pulled in via the
+// website's index.scss). The forms are third-party markup injected at runtime
+// by helpdesk.drhubert.de/assets/form/form.js from HTML bloks in Storyblok
+// (sales, support and section-library stories), so they cannot be styled from
+// a component - they are matched on the .zammad-form class the embed emits.
+:root {
+  .c-form-check {
+    --dsa-form-check--background_checked: var(--ks-color-primary);
+  }
+}
+
+.zammad-form {
+  label {
+    font: var(--ks-font-interface-s);
+    color: var(--ks-text-color-interface);
+  }
+
+  input,
+  textarea {
+    border: var(--ks-border-width-default) solid
+      var(--ks-border-color-interface-interactive);
+    padding: var(--ks-spacing-inset-xs);
+    border-radius: var(--ks-border-radius-control);
+    background-color: var(--ks-background-color-default);
+    font: var(--ks-font-interface-s);
+    color: var(--ks-text-color-interface);
+
+    &:active,
+    &:focus {
+      border-color: var(--ks-border-color-interface-interactive-active);
+      outline: 0;
+    }
+
+    &::placeholder {
+      font: var(--ks-font-interface-s);
+    }
+  }
+
+  button {
+    padding: 0.75em 1.15em;
+    border-radius: var(--ks-border-radius-pill);
+    font: var(--ks-font-interface-m);
+    font-weight: var(--ks-font-weight-semi-bold);
+    color: var(--ks-color-fg-inverted);
+    background-color: var(--ks-background-color-primary-interactive);
+
+    &:hover {
+      background-color: var(--ks-background-color-primary-interactive-hover);
+    }
+
+    &:active {
+      background-color: var(--ks-background-color-primary-interactive-active);
+    }
+  }
+}

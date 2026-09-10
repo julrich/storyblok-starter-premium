@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/select-field.schema.json",
+  "title": "SelectField",
+  "description": "SelectField buttons allow users to select a single option from a list of mutually exclusive options.",
+  "type": "object",
+  "properties": {
+    "label": {
+      "$ref": "http://schema.kickstartds.com/form/select-field.schema.json#/properties/label"
+    },
+    "value": {
+      "$ref": "http://schema.kickstartds.com/form/select-field.schema.json#/properties/value"
+    },
+    "name": {
+      "$ref": "http://schema.kickstartds.com/form/select-field.schema.json#/properties/name"
+    },
+    "disabled": {
+      "$ref": "http://schema.kickstartds.com/form/select-field.schema.json#/properties/disabled"
+    },
+    "options": {
+      "$ref": "http://schema.kickstartds.com/form/select-field.schema.json#/properties/options"
+    },
+    "hideLabel": {
+      "$ref": "http://schema.kickstartds.com/form/select-field.schema.json#/properties/hideLabel"
+    },
+    "invalid": {
+      "$ref": "http://schema.kickstartds.com/form/select-field.schema.json#/properties/invalid"
+    },
+    "invalidMessage": {
+      "$ref": "http://schema.kickstartds.com/form/select-field.schema.json#/properties/invalidMessage"
+    },
+    "hint": {
+      "$ref": "http://schema.kickstartds.com/form/select-field.schema.json#/properties/hint"
+    },
+    "icon": {
+      "$ref": "http://schema.kickstartds.com/form/select-field.schema.json#/properties/icon"
+    },
+    "className": {
+      "title": "Class",
+      "description": "Additional css classes attached to the input element",
+      "type": "string"
+    }
+  },
+  "required": ["label"]
+}

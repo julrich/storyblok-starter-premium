@@ -1,0 +1,41 @@
+@use "@kickstartds/core/source/core/container";
+@include container.wrapper("blog-teaser");
+
+.dsa-blog-teaser {
+  --dsa-blog-teaser--background: transparent;
+
+  --dsa-blog-teaser--gap: var(--ks-spacing-stack-xs) var(--ks-spacing-inline-xs);
+
+  --dsa-blog-teaser__topic--font: var(--dsa-topic--font);
+  --dsa-blog-teaser__topic--font-size: var(--ks-font-size-copy-l);
+  --dsa-blog-teaser__topic--font-weight: var(--dsa-topic--font-weight);
+
+  --dsa-blog-teaser__tag-label--font: var(--ks-font-interface-xs);
+
+  --dsa-blog-teaser__copy--font: var(--ks-font-copy-s);
+  --dsa-blog-teaser__copy--color: var(--ks-text-color-copy);
+  --dsa-blog-teaser__copy--color_hover: var(--ks-color-fg);
+  --dsa-blog-teaser__copy--margin-top: 0.5em;
+
+  --dsa-blog-teaser__meta--font: var(--ks-spacing-stack-s);
+  --dsa-blog-teaser__meta--color: var(--ks-text-color-interface);
+  --dsa-blog-teaser__meta__author--font-weight: var(--ks-font-weight-semi-bold);
+
+  --dsa-blog-teaser__avatar--size: 2em;
+
+  --dsa-blog-teaser__image--border-radius: var(--ks-border-radius-card);
+  --dsa-blog-teaser__image--transition: var(--ks-transition-fade);
+  --dsa-blog-teaser__image--transform: scale(1.05);
+
+  @include container.size("≥", 640px, "blog-teaser") {
+    --dsa-blog-teaser--gap: var(--ks-spacing-stack-s) var(--ks-spacing-inline-s);
+
+    --dsa-blog-teaser__topic--font-size: var(--ks-font-size-copy-xl);
+    --dsa-blog-teaser__copy--font: var(--ks-font-copy-m);
+    --dsa-blog-teaser__tag-label--font: var(--ks-font-interface-s);
+  }
+
+  @include container.size("≥", 1000px, "blog-teaser") {
+    --dsa-blog-teaser__topic--font-size: var(--ks-font-size-copy-xxl);
+  }
+}

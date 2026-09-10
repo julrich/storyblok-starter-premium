@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/blog-aside.schema.json",
+  "title": "Blog Aside",
+  "description": "Meta info for a singular blog entry",
+  "type": "object",
+  "properties": {
+    "author": {
+      "$ref": "http://schema.mydesignsystem.com/blog-author.schema.json"
+    },
+    "socialSharing": {
+      "type": "array",
+      "title": "Social Sharing",
+      "description": "The social sharing links for the blog post",
+      "items": {
+        "type": "object",
+        "properties": {
+          "icon": {
+            "title": "Icon",
+            "description": "The icon name for the social link",
+            "type": "string",
+            "format": "icon",
+            "examples": ["twitter", "facebook"]
+          },
+          "url": {
+            "title": "URL",
+            "description": "The url for the social link",
+            "type": "string",
+            "format": "uri",
+            "examples": [
+              "https://twitter.com/share?text=Check%20this%20out!&url=https://example.com"
+            ]
+          },
+          "title": {
+            "title": "Title",
+            "description": "The title for the social link",
+            "type": "string",
+            "examples": ["Share on Twitter"]
+          }
+        },
+        "additionalProperties": false,
+        "required": ["icon", "url", "title"]
+      }
+    },
+    "readingTime": {
+      "title": "Reading Time",
+      "description": "The reading time for the blog post",
+      "type": "string",
+      "examples": ["5 min read"]
+    },
+    "date": {
+      "title": "Published Date",
+      "description": "The date when the blog post was published",
+      "type": "string",
+      "format": "date",
+      "examples": ["12/30/2022"]
+    },
+    "className": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["author", "date"]
+}

@@ -1,0 +1,41 @@
+.dsa-nav-topbar {
+  // Topbar
+  --dsa-nav-topbar__label--color: var(--ks-color-fg);
+  --dsa-nav-topbar__label--color_hover: var(--ks-text-color-interface-interactive-hover);
+  --dsa-nav-topbar__label--color_active: var(--ks-text-color-interface-interactive-active);
+  --dsa-nav-topbar__label--background-color: transparent;
+  --dsa-nav-topbar__label--background-color_hover: var(--ks-color-fg-alpha-8);
+  --dsa-nav-topbar__label--background-color_active: transparent;
+  --dsa-nav-topbar__label--font-size: var(--ks-font-size-interface-s);
+  --dsa-nav-topbar__label--font-family: var(--ks-font-family-display);
+  --dsa-nav-topbar__label--font-weight: var(--ks-font-weight-semi-bold);
+  --dsa-nav-topbar__label--font-weight_active: var(--ks-font-weight-bold);
+  --dsa-nav-topbar__label--padding: 0.45em 0.75em;
+  --dsa-nav-topbar__label--text-decoration: none;
+  --dsa-nav-topbar__label--text-decoration_hover: none;
+  --dsa-nav-topbar__label_dimmed--opacity: 1;
+  --dsa-nav-topbar__label--transition: var(--ks-transition-hover);
+  --dsa-nav-topbar__label--transition-property: background-color, color, opacity;
+
+  --dsa-nav-topbar__label__icon--size: 1.5em;
+
+  /// Floating
+  --dsa-nav-topbar_floating__label_dimmed--opacity: 0.85;
+  --dsa-nav-topbar_floating__label--color: var(--ks-color-fg);
+  --dsa-nav-topbar_floating__label--color_active: var(--ks-color-fg);
+  --dsa-nav-topbar_floating__label--color_hover: var(--ks-color-fg);
+}
+
+// ─── drhubert overrides ───────────────────────────────────────────
+// Ported verbatim from the pre-monorepo website (components/nav-topbar/nav-topbar-tokens.scss).
+// Kept as a trailing block so the original selectors and specificity are
+// preserved; these win over the design system defaults above.
+.dsa-nav-topbar {
+  --dsa-nav-topbar__label--color: var(--ks-text-color-interface-interactive);
+  --dsa-nav-topbar__label--font-weight: var(--ks-font-weight-medium);
+  // The starter sizes nav labels at `interface-s`; the previous design system
+  // used `interface-m`, which is what the header spacing is drawn around.
+  --dsa-nav-topbar__label--font-size: var(--ks-font-size-interface-m);
+  --dsa-nav-topbar__label--padding: 0.5em 1em;
+  --dsa-nav-topbar__label_dimmed--opacity: 1;
+}

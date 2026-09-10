@@ -1,0 +1,31 @@
+diff --git a/dist/chunk-RBM5CMSM.js b/dist/chunk-RBM5CMSM.js
+index 445ceabe4d8e67da87a91b7f52fff3891652a1a4..05e21056becdf168f855f9b6158bd08524191af6 100644
+--- a/dist/chunk-RBM5CMSM.js
++++ b/dist/chunk-RBM5CMSM.js
+@@ -1,3 +1,4 @@
++import { unpackDecorator } from "@kickstartds/core/lib/storybook";
+ import { createUrl } from 'playroom';
+ import reactElementToJSXString from 'react-element-to-jsx-string';
+ import { useGlobals } from 'storybook/preview-api';
+@@ -38,7 +39,7 @@ var withGlobals = (StoryFn, context) => {
+     updateCodeUrl(globals, void 0);
+     return story;
+   }
+-  const storyCode = includeDecorators ? story : undecoratedStoryFn(context);
++  const storyCode = includeDecorators ? story : unpackDecorator(undecoratedStoryFn, context);
+   const jsxString = code || reactElementToJSXString(storyCode, reactElementToJSXStringOptions);
+   const codeUrl = url && createUrl({ baseUrl: url, code: jsxString });
+   updateCodeUrl(globals, codeUrl);
+diff --git a/dist/manager.js b/dist/manager.js
+index 5b23ed07d1912347adab708a74a866f26bae0bcb..b37d7ec857ac429983db1682435c2a08bda0da78 100644
+--- a/dist/manager.js
++++ b/dist/manager.js
+@@ -31,7 +31,7 @@ var Tab = memo(({ active }) => {
+ // src/manager.tsx
+ addons.register(ADDON_ID, () => {
+   addons.add(TAB_ID, {
+-    type: types.TAB,
++    type: types.PANEL,
+     title: "Playroom",
+     render: ({ active }) => /* @__PURE__ */ React.createElement(Tab, { active: !!active })
+   });

@@ -1,0 +1,7 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": ["pnpm-*.yaml", "src/fonts.json"],
+  "experimentalSortImports": {
+    "newlinesBetween": false
+  }
+}

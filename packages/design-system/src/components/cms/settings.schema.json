@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/settings.schema.json",
+  "title": "Settings",
+  "description": "Abstracts global settings made for a website into JSON Schema",
+  "type": "object",
+  "required": ["header", "footer", "seo"],
+  "properties": {
+    "header": {
+      "$ref": "http://schema.mydesignsystem.com/header.schema.json"
+    },
+    "footer": {
+      "$ref": "http://schema.mydesignsystem.com/footer.schema.json"
+    },
+    "seo": {
+      "$ref": "http://schema.mydesignsystem.com/seo.schema.json"
+    },
+    "iconSprite": {
+      "type": "string",
+      "title": "Icon Sprite",
+      "description": "Content of the icon sprite for this project"
+    },
+    "token": {
+      "type": "string",
+      "title": "CSS custom property overrides",
+      "description": "CSS custom property overrides to be included in the global styles — layers on top of the selected theme"
+    },
+    "hideBreadcrumbs": {
+      "type": "boolean",
+      "title": "Hide Breadcrumbs",
+      "description": "Whether to hide breadcrumbs across the site",
+      "default": false
+    }
+  }
+}

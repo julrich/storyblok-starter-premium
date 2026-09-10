@@ -1,0 +1,402 @@
+{
+  "recipes": [
+    {
+      "name": "Hero with CTA",
+      "contentType": "page",
+      "intent": "Landing page opener, product launch, campaign entry point",
+      "components": ["hero"],
+      "subComponents": { "buttons": [1, 2] },
+      "notes": "Use buttons sub-component for primary + secondary CTA. Set a compelling image or video. Write a concise, action-oriented headline.",
+      "frequency": "very-common",
+      "goodFollowUps": ["features", "stats", "logos"],
+      "compositionHints": {
+        "section": {
+          "headline": "Omit the section headline (headline_text) when the hero already has its own headline. Only use the section headline for a brief category label above the hero (rare).",
+          "buttons": "Do not use section-level buttons when the hero already has CTA buttons. Double CTAs confuse the user about what to click.",
+          "spaceBefore": "Use 'none' for the first section on a page (hero sections are typically first). Use 'default' when the hero is not the first section.",
+          "spaceAfter": "Use 'default' for most cases. Use 'small' only when the next section is visually tightly coupled.",
+          "width": "Use 'full' for full-bleed heroes with background images. Use 'default' for contained heroes without background imagery.",
+          "content_mode": "Always use 'default' for hero sections. Heroes are single-component."
+        },
+        "hero": {
+          "height": "Use 'fullImage' or 'fullScreen' when the section is full-width with a strong background image. Use 'default' for text-focused heroes.",
+          "textbox": "Use true (default) for heroes with background images to ensure text readability. Only set false when text has sufficient contrast."
+        }
+      }
+    },
+    {
+      "name": "Video Opener",
+      "contentType": "page",
+      "intent": "Video-first landing page, brand storytelling, immersive entry",
+      "components": ["video-curtain"],
+      "subComponents": { "buttons": [1, 2] },
+      "notes": "Full-width video background with overlay text and CTA. Use sparingly — one per page max. Alternative to hero for video-heavy pages.",
+      "frequency": "occasional",
+      "goodFollowUps": ["features", "stats"],
+      "compositionHints": {
+        "section": {
+          "headline": "Omit the section headline — the video-curtain has its own overlay text.",
+          "buttons": "Do not use section-level buttons — the video-curtain has its own CTA overlay.",
+          "spaceBefore": "Use 'none' when this is the page opener.",
+          "width": "Use 'full' for immersive video backgrounds."
+        }
+      }
+    },
+    {
+      "name": "Feature Showcase",
+      "contentType": "page",
+      "intent": "Present product capabilities, service offerings, key benefits",
+      "components": ["features"],
+      "subComponents": { "feature": [3, 4] },
+      "notes": "3-4 feature items with icons. Keep text concise (1-2 sentences per feature). Use consistent icon style throughout. Icons must come from list_icons.",
+      "frequency": "very-common",
+      "goodFollowUps": ["testimonials", "cta", "stats"],
+      "compositionHints": {
+        "section": {
+          "content_mode": "Use 'list' for feature sections (schema default). Only use 'tile' if the user explicitly requests a card-grid layout.",
+          "content_tileWidth": "Use 'default' for most feature grids. Use 'narrow' for 4+ features in a compact grid.",
+          "width": "Use 'default' for most feature sections. Use 'wide' for full-width feature showcases."
+        }
+      }
+    },
+    {
+      "name": "Social Proof Block",
+      "contentType": "page",
+      "intent": "Build trust, show customer validation, increase conversion confidence",
+      "components": ["testimonials"],
+      "subComponents": { "testimonial": [2, 3] },
+      "notes": "Include real names, job titles, and company names. Photos greatly increase trust. Keep quotes concise and specific — avoid vague praise.",
+      "frequency": "common",
+      "goodFollowUps": ["cta", "stats", "faq"],
+      "compositionHints": {
+        "section": {
+          "content_mode": "Use 'list' for testimonial sections (schema default). Only use 'slider' if the user explicitly requests carousel behavior."
+        }
+      }
+    },
+    {
+      "name": "Statistics Display",
+      "contentType": "page",
+      "intent": "Data-driven persuasion, showcase achievements, establish credibility",
+      "components": ["stats"],
+      "subComponents": { "stat": [3, 4] },
+      "notes": "3-4 stat items with large numbers. Use specific numbers (not rounded). Place before a CTA to establish credibility first. Each stat needs a label and value.",
+      "frequency": "common",
+      "goodFollowUps": ["cta", "testimonials"],
+      "compositionHints": {
+        "section": {
+          "content_mode": "Use 'list' for stats sections (schema default). Only use 'tile' if the user explicitly requests a side-by-side grid."
+        }
+      }
+    },
+    {
+      "name": "Call to Action",
+      "contentType": "page",
+      "intent": "Conversion point, sign-up prompt, contact invitation",
+      "components": ["cta"],
+      "subComponents": { "buttons": [1, 2] },
+      "notes": "Clear, action-oriented headline. Primary + optional secondary button. Usually the last section on a conversion-oriented page. Keep text focused on a single action.",
+      "frequency": "very-common",
+      "goodFollowUps": [],
+      "compositionHints": {
+        "section": {
+          "headline": "Omit the section headline — the CTA component has its own headline. Only use the section headline for a brief label above the CTA (rare).",
+          "buttons": "Do not use section-level buttons — the CTA component has its own buttons.",
+          "width": "Use 'default' for focused CTAs. Use 'wide' for bold, attention-grabbing CTAs."
+        }
+      }
+    },
+    {
+      "name": "FAQ Section",
+      "contentType": "page",
+      "intent": "Answer common questions, reduce support load, boost SEO, address objections",
+      "components": ["faq"],
+      "subComponents": { "questions": [5, 8] },
+      "notes": "5-8 questions is ideal. Keep answers concise but complete. Order questions by importance/frequency. Great for addressing purchase objections.",
+      "frequency": "common",
+      "goodFollowUps": ["cta", "contact"],
+      "compositionHints": {
+        "section": {
+          "headline": "Use a section headline (e.g. 'Frequently Asked Questions') — FAQ components rarely have their own headline.",
+          "content_mode": "Use 'default' — FAQ items are vertically stacked by design."
+        }
+      }
+    },
+    {
+      "name": "Logo Wall",
+      "contentType": "page",
+      "intent": "Client logos, partner brands, trust signals, social proof",
+      "components": ["logos"],
+      "subComponents": { "logo": [5, 8] },
+      "notes": "Minimum 5 logos for visual impact. Works best after hero or before CTA. All logos should have similar visual weight (size, contrast).",
+      "frequency": "occasional",
+      "goodFollowUps": ["testimonials", "features", "cta"],
+      "compositionHints": {
+        "section": {
+          "content_mode": "Use 'default' for logo walls — the logos component handles its own grid layout.",
+          "width": "Use 'default' for most logo walls."
+        }
+      }
+    },
+    {
+      "name": "Visual Portfolio / Team Grid",
+      "contentType": "page",
+      "intent": "Mosaic gallery, team members, project showcase, case studies",
+      "components": ["mosaic"],
+      "subComponents": { "tile": [4, 6] },
+      "notes": "4-6 tiles with images. Each tile can have its own link. Use consistent image aspect ratios. Good for visual-first content.",
+      "frequency": "occasional",
+      "goodFollowUps": ["cta", "testimonials", "contact"]
+    },
+    {
+      "name": "Blog Teaser Group",
+      "contentType": "page",
+      "intent": "Cross-promote articles, content hub section, related reading",
+      "components": ["blog-teaser", "blog-teaser", "blog-teaser"],
+      "notes": "Always group 3 blog-teasers per section for visual balance. Each teaser must have a link_url — without it, teasers create dead-end content. Include tags and author info.",
+      "frequency": "occasional",
+      "goodFollowUps": ["cta"],
+      "compositionHints": {
+        "section": {
+          "content_mode": "Use 'list' for blog teaser sections (schema default). Only use 'tile' if the user explicitly requests a card-grid layout.",
+          "content_tileWidth": "Use 'default' for standard 3-column blog teaser grids."
+        }
+      }
+    },
+    {
+      "name": "Contact Information",
+      "contentType": "page",
+      "intent": "Contact details, office locations, get in touch",
+      "components": ["contact"],
+      "notes": "Include relevant contact channels (email, phone, address). Can be combined with a contact form. Use appropriate icons from list_icons.",
+      "frequency": "occasional",
+      "goodFollowUps": ["faq", "cta"]
+    },
+    {
+      "name": "Content Slider",
+      "contentType": "page",
+      "intent": "Showcase multiple items in limited space, rotating testimonials, image gallery",
+      "components": ["slider"],
+      "notes": "Minimum 3 slides for meaningful navigation. The slider accepts full components in its slots — use it to rotate through splits, features, or other content sections.",
+      "frequency": "occasional",
+      "goodFollowUps": ["cta", "features"],
+      "compositionHints": {
+        "section": {
+          "content_mode": "Use 'slider' — the slider component requires this mode to enable carousel behavior."
+        }
+      }
+    },
+    {
+      "name": "Section Divider",
+      "contentType": "page",
+      "intent": "Visual break between thematic blocks, transition marker",
+      "components": ["divider"],
+      "notes": "Use sparingly — only between major thematic shifts. Do not use between every section. Consider using section background colors instead for visual separation.",
+      "frequency": "rare",
+      "goodFollowUps": []
+    },
+    {
+      "name": "Blog Article Body",
+      "contentType": "blog-post",
+      "intent": "Main article content — long-form text with optional images",
+      "components": ["text"],
+      "notes": "The primary building block of blog posts. Use text sections for article body content. Blog posts should be text-heavy — do NOT use hero sections (the head root object handles title/date/author/featured image) and do NOT use cta sections (the cta root object handles the post's call-to-action). Keep sections focused on readable, well-structured prose.",
+      "frequency": "very-common",
+      "goodFollowUps": ["image-text", "text"]
+    },
+    {
+      "name": "Blog Image + Text",
+      "contentType": "blog-post",
+      "intent": "Visual illustration alongside article text — image with explanation",
+      "components": ["image-text"],
+      "notes": "Use image-text sections to pair an image with explanatory text. Ideal for showing screenshots, diagrams, photos, or infographics alongside prose.",
+      "frequency": "common",
+      "goodFollowUps": ["text", "image-text"]
+    },
+    {
+      "name": "Blog FAQ",
+      "contentType": "blog-post",
+      "intent": "Address reader questions at the end of an article",
+      "components": ["faq"],
+      "subComponents": { "questions": [3, 5] },
+      "notes": "Use sparingly — only when the article topic naturally invites Q&A (e.g. how-to guides, product comparisons). Place near the end of the article. 3-5 questions is ideal for blog posts. This is an exception component — most blog posts should consist of text and split sections only.",
+      "frequency": "occasional",
+      "goodFollowUps": ["text"]
+    },
+    {
+      "name": "Event Detail Layout",
+      "contentType": "event-detail",
+      "intent": "Event page with details, images, and registration",
+      "components": [],
+      "notes": "Event-detail is a flat (Tier 2) content type — it uses root scalar and array fields (title, description, categories, locations, download, images, button) instead of sections. Populate title, intro, description first, then add categories, locations, and images arrays. Use button for registration/RSVP link.",
+      "frequency": "common",
+      "goodFollowUps": []
+    },
+    {
+      "name": "Event List Layout",
+      "contentType": "event-list",
+      "intent": "Event listing page with filterable events",
+      "components": [],
+      "notes": "Event-list is a flat (Tier 2) content type — it has an events array and a filter object at the root level. Populate the events array with event items and configure the filter object for filtering capabilities.",
+      "frequency": "common",
+      "goodFollowUps": []
+    }
+  ],
+  "pageTemplates": [
+    {
+      "name": "Product Landing Page",
+      "contentType": "page",
+      "sequence": ["hero", "features", "testimonials", "stats", "cta"],
+      "intent": "Convert visitors for a product or service",
+      "notes": "Classic conversion-optimized layout. Hero grabs attention, features explain value, testimonials build trust, stats prove impact, CTA converts."
+    },
+    {
+      "name": "Company About Page",
+      "contentType": "page",
+      "sequence": ["hero", "image-text", "mosaic", "testimonials", "cta"],
+      "intent": "Tell the company story with visual elements",
+      "notes": "Start with company mission (hero), detail the story (image-text), show the team (mosaic), prove impact (testimonials), invite engagement (CTA)."
+    },
+    {
+      "name": "Service Detail Page",
+      "contentType": "page",
+      "sequence": ["hero", "features", "faq", "testimonials", "cta"],
+      "intent": "Explain a service, address objections, build trust",
+      "notes": "Hero introduces service, features list capabilities, FAQ addresses objections, testimonials validate, CTA converts."
+    },
+    {
+      "name": "Blog / Content Hub",
+      "contentType": "page",
+      "sequence": ["hero", "blog-teaser", "blog-teaser", "cta"],
+      "intent": "Showcase articles and drive engagement",
+      "notes": "Hero sets the theme, blog teasers showcase recent/featured articles, CTA encourages subscription or further reading."
+    },
+    {
+      "name": "Minimal Landing Page",
+      "contentType": "page",
+      "sequence": ["hero", "cta"],
+      "intent": "Single-purpose conversion page, event registration, waitlist",
+      "notes": "Maximum focus on one action. No distractions. Hero + CTA only."
+    },
+    {
+      "name": "Trust-Heavy Landing Page",
+      "contentType": "page",
+      "sequence": ["hero", "logos", "features", "testimonials", "stats", "cta"],
+      "intent": "Enterprise sales, high-value conversion with maximum social proof",
+      "notes": "Logos immediately after hero for instant credibility. Layer multiple proof types before the CTA."
+    },
+    {
+      "name": "Knowledge Base / Support",
+      "contentType": "page",
+      "sequence": ["hero", "faq", "faq", "contact"],
+      "intent": "Self-service support, help center, knowledge base",
+      "notes": "Multiple FAQ sections can be grouped by topic. End with contact for unresolved questions."
+    },
+    {
+      "name": "Blog Post - Standard Article",
+      "contentType": "blog-post",
+      "sequence": ["text", "image-text", "text"],
+      "intent": "Standard blog article mixing prose with illustrative images",
+      "notes": "Do NOT include hero or cta sections — blog posts have dedicated root objects for those (head for title/date/author/featured image, cta for the post's call-to-action). Use text sections for article body and image-text sections for image + text pairings. Also populate aside for sidebar content and seo for meta tags via generate_root_field."
+    },
+    {
+      "name": "Blog Post - Long-Form",
+      "contentType": "blog-post",
+      "sequence": ["text", "image-text", "text", "image-text", "text"],
+      "intent": "In-depth article with multiple image-text pairings",
+      "notes": "For longer articles that need several visual breaks. Alternate between text and split sections for reading rhythm. Each split should illustrate a key point with an image. Do NOT use hero or cta sections."
+    },
+    {
+      "name": "Blog Post - Tutorial / How-To",
+      "contentType": "blog-post",
+      "sequence": ["text", "image-text", "text", "faq"],
+      "intent": "Step-by-step tutorial with FAQ for common issues",
+      "notes": "Text sections for step-by-step content, split for screenshots/diagrams, FAQ for troubleshooting. Do NOT use hero or cta sections — those are handled by root objects. FAQ is an exception component, only use when the topic naturally invites Q&A."
+    },
+    {
+      "name": "Blog Post - Short Update",
+      "contentType": "blog-post",
+      "sequence": ["text"],
+      "intent": "Brief announcement, news update, or opinion piece",
+      "notes": "A single text section is often enough for short-form blog content. Do NOT use hero or cta sections. Keep it simple — not every post needs images or special components."
+    },
+    {
+      "name": "Blog Overview - Standard",
+      "contentType": "blog-overview",
+      "sequence": ["hero"],
+      "intent": "Blog listing page with featured and categorized posts",
+      "notes": "Blog overview uses root objects latest, list, and more for article groupings. The section array is for additional page sections. Use latestTitle, listTitle, moreTitle scalars for section headings."
+    },
+    {
+      "name": "Event Detail - Standard",
+      "contentType": "event-detail",
+      "sequence": [],
+      "intent": "Event page with all relevant event information",
+      "notes": "Flat content type — no sections. Set title, intro, description scalars. Populate categories, locations, download, images arrays. Use button object for registration link."
+    },
+    {
+      "name": "Event List - Standard",
+      "contentType": "event-list",
+      "sequence": [],
+      "intent": "Filterable list of events",
+      "notes": "Flat content type — no sections. Populate events array with event items. Configure filter object for filtering UI."
+    }
+  ],
+  "antiPatterns": [
+    {
+      "rule": "Never place two hero or video-curtain sections on the same page",
+      "reason": "Confuses the visual hierarchy — a page should have exactly one opening section"
+    },
+    {
+      "rule": "Avoid consecutive text-heavy sections without visual breaks",
+      "reason": "Creates a wall of text — alternate between text and visual components"
+    },
+    {
+      "rule": "Don't use slider with fewer than 3 items",
+      "reason": "Navigation controls are confusing with too few items to slide through"
+    },
+    {
+      "rule": "blog-teaser without link_url creates dead-end content",
+      "reason": "Users expect to click through to the full article"
+    },
+    {
+      "rule": "stats with fewer than 3 stat items looks sparse",
+      "reason": "The visual grid needs at least 3 items to look intentional"
+    },
+    {
+      "rule": "logos with fewer than 4 logos looks empty",
+      "reason": "A logo wall needs density to convey widespread adoption"
+    },
+    {
+      "rule": "Don't repeat the same component type in adjacent sections (except blog-teaser groups)",
+      "reason": "Creates visual monotony — vary the layout between sections"
+    },
+    {
+      "rule": "Always end a conversion-oriented page with a cta section",
+      "reason": "Give visitors a clear next action at the bottom of the page"
+    },
+    {
+      "rule": "Don't use features with fewer than 2 feature items",
+      "reason": "A single feature looks like a mistake — use split instead for a single feature deep-dive"
+    },
+    {
+      "rule": "Don't use testimonials with only 1 testimonial",
+      "reason": "Multiple voices are more convincing — use at least 2 testimonials"
+    },
+    {
+      "rule": "Never use hero sections in blog-post content",
+      "reason": "Blog posts have a dedicated head root object for title, date, author, and featured image. Adding a hero section duplicates this and breaks the visual hierarchy.",
+      "contentType": "blog-post"
+    },
+    {
+      "rule": "Never use cta sections in blog-post content",
+      "reason": "Blog posts have a dedicated cta root object for the post's call-to-action. Adding a cta section duplicates it and creates competing conversion points.",
+      "contentType": "blog-post"
+    },
+    {
+      "rule": "Blog post sections should be predominantly text and split (image+text)",
+      "reason": "Blog articles are reading-focused content. Components like features, stats, logos, mosaic, testimonials, and video-curtain are designed for marketing pages, not articles. Use them only as rare exceptions when the content truly demands it.",
+      "contentType": "blog-post"
+    }
+  ]
+}

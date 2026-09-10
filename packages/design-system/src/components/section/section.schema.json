@@ -1,0 +1,267 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/section.schema.json",
+  "title": "Section",
+  "description": "Component used to layout components into pages",
+  "type": "object",
+  "properties": {
+    "width": {
+      "type": "string",
+      "title": "Width",
+      "description": "Width of section to use",
+      "enum": ["full", "max", "wide", "default", "narrow"],
+      "default": "default"
+    },
+    "style": {
+      "type": "string",
+      "title": "Style",
+      "description": "Style of background",
+      "enum": ["default", "framed", "deko"],
+      "default": "default"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "title": "Style",
+      "description": "Color of background",
+      "enum": ["default", "accent", "bold"],
+      "default": "default"
+    },
+    "transition": {
+      "type": "string",
+      "title": "Style",
+      "description": "Color of background",
+      "enum": ["none", "to-default", "to-accent", "to-bold", "to-inverted"],
+      "default": "none"
+    },
+    "backgroundImage": {
+      "title": "Background image",
+      "description": "Background image for the whole section",
+      "type": "string",
+      "format": "image"
+    },
+    "spotlight": {
+      "type": "boolean",
+      "title": "Spotlight",
+      "description": "Show spotlight behind cursor",
+      "default": false
+    },
+    "spaceBefore": {
+      "type": "string",
+      "title": "Space Before",
+      "description": "Amount of spacing before the section",
+      "enum": ["default", "small", "none"],
+      "default": "default"
+    },
+    "spaceAfter": {
+      "type": "string",
+      "title": "Space After",
+      "description": "Amount of spacing after the section",
+      "enum": ["default", "small", "none"],
+      "default": "default"
+    },
+    "inverted": {
+      "type": "boolean",
+      "title": "Inverted",
+      "description": "Whether to invert the section",
+      "default": false
+    },
+    "headerSpacing": {
+      "type": "boolean",
+      "title": "Header Spacing",
+      "description": "Reserve additional spacing for a floating header",
+      "default": false
+    },
+    "headline": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "title": "Headline",
+          "description": "Headline Text for the section",
+          "examples": ["Section headline"]
+        },
+        "large": {
+          "type": "boolean",
+          "title": "Large Headline",
+          "description": "Make the headline larger",
+          "default": false
+        },
+        "width": {
+          "type": "string",
+          "title": "Headline Width",
+          "description": "Width of headline to use",
+          "enum": ["unset", "narrow", "default", "wide"],
+          "default": "unset"
+        },
+        "textAlign": {
+          "title": "Headline Text Alignment",
+          "description": "Choose the text alignment for the headline",
+          "type": "string",
+          "enum": ["left", "center", "right"]
+        },
+        "align": {
+          "title": "Headline Alignment",
+          "description": "Choose an alignment for positioning the headline",
+          "type": "string",
+          "enum": ["left", "center", "right"]
+        },
+        "sub": {
+          "type": "string",
+          "title": "Subheadline",
+          "description": "Subheadline for the section"
+        },
+        "switchOrder": {
+          "type": "boolean",
+          "title": "Switch Headline Order",
+          "description": "Switch the order of headline and subheadline"
+        }
+      },
+      "additionalProperties": false
+    },
+    "content": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "string",
+          "title": "Content Width",
+          "description": "Width of content to use",
+          "enum": ["unset", "narrow", "default", "wide"],
+          "default": "unset"
+        },
+        "align": {
+          "title": "Content Alignment",
+          "description": "Choose an alignment for the content",
+          "type": "string",
+          "enum": ["left", "center", "right"],
+          "default": "center"
+        },
+        "gutter": {
+          "type": "string",
+          "title": "Gutter",
+          "description": "Size of gutter to use",
+          "enum": ["large", "default", "small", "none"],
+          "default": "default"
+        },
+        "mode": {
+          "type": "string",
+          "title": "Mode",
+          "description": "Layout mode used for section contents",
+          "enum": ["default", "tile", "list", "slider"],
+          "default": "list"
+        },
+        "tileWidth": {
+          "type": "string",
+          "title": "Tile Width",
+          "description": "Set min-width for the tiles in the grid",
+          "enum": ["smallest", "default", "medium", "large", "largest", "full"],
+          "default": "default"
+        }
+      },
+      "additionalProperties": false
+    },
+    "components": {
+      "type": "array",
+      "title": "Content",
+      "description": "Allowed components for content",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "http://schema.mydesignsystem.com/blog-teaser.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/business-card.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/button.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/contact.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/content-nav.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/cta.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/divider.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/downloads.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/event-latest-teaser.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/event-list-teaser.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/faq.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/features.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/gallery.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/headline.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/hero.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/html.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/image-story.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/image-text.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/logos.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/mosaic.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/slider.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/split-even.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/split-weighted.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/stats.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/teaser-card.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/testimonials.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/text.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/video-curtain.schema.json"
+          }
+        ]
+      }
+    },
+    "buttons": {
+      "$ref": "http://schema.mydesignsystem.com/button-group.schema.json#/properties/buttons"
+    },
+    "aiDraft": {
+      "title": "AI Draft?",
+      "description": "If true, the section is marked as an AI-generated draft",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "additionalProperties": false,
+  "required": []
+}

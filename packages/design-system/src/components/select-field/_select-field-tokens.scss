@@ -1,0 +1,27 @@
+.dsa-select-field {
+  --dsa-select-field--font: var(--ks-font-interface-s);
+  --dsa-select-field--color: var(--ks-text-color-interface);
+
+  --dsa-select-field--border: var(--ks-border-width-default) solid;
+  --dsa-select-field--border-color: var(--ks-border-color-interface-interactive);
+  --dsa-select-field--border-color_hover: var(--ks-border-color-interface-interactive-hover);
+  --dsa-select-field--border-color_focus: var(--ks-border-color-interface-interactive-active);
+  --dsa-select-field--border-color_active: var(--ks-border-color-interface-interactive-active);
+
+  --dsa-select-field--background: transparent;
+  --dsa-select-field--background_focus: transparent;
+
+  --dsa-select-field--padding: 0.4rem 0.75rem 0.35rem;
+
+  --dsa-select-field--transition: var(--ks-transition-hover);
+
+  --dsa-select-field--shadow: var(--ks-box-shadow-control);
+  --dsa-select-field--shadow_focus: 0 0 0 var(--ks-border-width-emphasized);
+
+  --dsa-select-field__label--padding-bottom: 0.25em;
+  --dsa-select-field__label--color: var(--ks-text-color-interface);
+  --dsa-select-field__label--font: var(--ks-font-interface-s);
+  --dsa-select-field__label--font-weight: var(--ks-font-weight-semi-bold);
+
+  --dsa-select-field__placeholder--color: var(--ks-color-fg-alpha-5);
+}

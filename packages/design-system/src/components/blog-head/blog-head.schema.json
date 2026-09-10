@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/blog-head.schema.json",
+  "title": "Blog Head",
+  "description": "Intro portion of a singular blog entry",
+  "type": "object",
+  "properties": {
+    "date": {
+      "title": "Published Date",
+      "description": "The date when the blog post was published",
+      "type": "string",
+      "format": "date",
+      "examples": ["12/30/2022"]
+    },
+    "tags": {
+      "type": "array",
+      "title": "Tags",
+      "description": "The tags associated with the blog post",
+      "items": {
+        "$ref": "http://schema.mydesignsystem.com/blog-tag.schema.json"
+      }
+    },
+    "headline": {
+      "title": "Headline",
+      "description": "The headline of the blog post",
+      "type": "string",
+      "format": "markdown",
+      "examples": ["This is a blog post headline"]
+    },
+    "image": {
+      "title": "Cover Image",
+      "description": "The source of the cover image for the blog post",
+      "type": "string",
+      "format": "image",
+      "examples": ["img/close-up-young-business-team-working.png"]
+    },
+    "alt": {
+      "title": "Alt Text",
+      "description": "The alt text for the cover image",
+      "type": "string",
+      "examples": ["Image of a business team working"]
+    }
+  },
+  "additionalProperties": false,
+  "required": ["headline"]
+}

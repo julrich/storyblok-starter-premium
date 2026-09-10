@@ -1,0 +1,33 @@
+.dsa-stats {
+  --dsa-stats--gap-vertical: var(--ks-spacing-stack-l);
+  --dsa-stats--gap-horizontal: var(--ks-spacing-inline-m);
+
+  --dsa-stats__item--gap: var(--ks-spacing-stack-xs);
+
+  --dsa-stats__icon--color: var(--ks-text-color-primary);
+  --dsa-stats__icon--size: 5em;
+
+  --dsa-stats__number--font: var(--ks-font-interface-xxl);
+  --dsa-stats__number--font-weight: var(--ks-font-weight-semi-bold);
+  --dsa-stats__number--background: var(--dsa-typo--highlight);
+  --dsa-stats__topic--font: var(--ks-font-copy-l);
+  --dsa-stats__topic--font-family: var(--ks-font-family-display);
+  --dsa-stats__topic--color: var(--ks-text-color-display);
+  --dsa-stats__topic--font-weight: var(--dsa-topic--font-weight);
+
+  --dsa-stats__copy--font: var(--ks-font-copy-s);
+  --dsa-stats__copy--color: var(--ks-text-color-default);
+}
+
+// ─── drhubert overrides ───────────────────────────────────────────
+// Ported verbatim from the pre-monorepo website (components/stats/stats-tokens.scss).
+// Kept as a trailing block so the original selectors and specificity are
+// preserved; these win over the design system defaults above.
+:root {
+  .dsa-stats {
+    --dsa-stats__number--backgroud: var(--ks-color-primary);
+    // The starter moved the big number onto the interface scale
+    // (`interface-xxl`). It belongs on the display scale, as a headline.
+    --dsa-stats__number--font: var(--ks-font-display-xl);
+  }
+}

@@ -1,0 +1,90 @@
+@use "./book-a-demo-tokens.scss";
+
+a.dsa-book-a-demo {
+  position: fixed;
+  z-index: var(--dsa-book-a-demo--z-index);
+  text-decoration: none;
+  font: var(--dsa-book-a-demo--font);
+  border-radius: var(--dsa-book-a-demo--border-radius);
+  box-shadow: var(--dsa-book-a-demo--box-shadow);
+  transition: var(--dsa-book-a-demo--transition);
+  cursor: pointer;
+  white-space: nowrap;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dsa-book-a-demo--background-color);
+  padding: var(--dsa-book-a-demo--padding-block)
+    var(--dsa-book-a-demo--padding-inline);
+
+  // Desktop: vertical tab on right edge, rotated
+  // writing-mode avoids the cropping issues that come with CSS transforms
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+
+  &:hover,
+  &:focus-visible {
+    box-shadow: var(--dsa-book-a-demo--box-shadow_hover);
+    transform: translateY(-50%) rotate(180deg) translateY(2px);
+  }
+
+  // Mobile: fixed bottom bar
+  @media (max-width: 47.999em) {
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
+
+    &:hover,
+    &:focus-visible {
+      transform: none;
+      box-shadow: var(--dsa-book-a-demo--box-shadow_hover);
+    }
+  }
+
+  // Variant: primary (default)
+  &--primary {
+    background: var(--dsa-book-a-demo_primary--background-color);
+    color: var(--dsa-book-a-demo_primary--color);
+
+    &:hover,
+    &:focus-visible {
+      background: var(--dsa-book-a-demo_primary--background-color_hover);
+      color: var(--dsa-book-a-demo_primary--color);
+    }
+  }
+
+  // Variant: secondary
+  &--secondary {
+    background: var(--dsa-book-a-demo_secondary--background-color);
+    color: var(--dsa-book-a-demo_secondary--color);
+
+    &:hover,
+    &:focus-visible {
+      background: var(--dsa-book-a-demo_secondary--background-color_hover);
+      color: var(--dsa-book-a-demo_secondary--color);
+    }
+  }
+
+  // Variant: tertiary
+  &--tertiary {
+    background: var(--dsa-book-a-demo_tertiary--background-color);
+    color: var(--dsa-book-a-demo_tertiary--color);
+
+    &:hover,
+    &:focus-visible {
+      background: var(--dsa-book-a-demo_tertiary--background-color_hover);
+      color: var(--dsa-book-a-demo_tertiary--color);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/radio.schema.json",
+  "title": "Radio",
+  "description": "Radio buttons allow users to select a single option from a list of mutually exclusive options.",
+  "type": "object",
+  "properties": {
+    "label": {
+      "$ref": "http://schema.kickstartds.com/form/radio.schema.json#/properties/label"
+    },
+    "disabled": {
+      "$ref": "http://schema.kickstartds.com/form/radio.schema.json#/properties/disabled"
+    },
+    "invalid": {
+      "$ref": "http://schema.kickstartds.com/form/radio.schema.json#/properties/invalid"
+    },
+    "invalidMessage": {
+      "$ref": "http://schema.kickstartds.com/form/radio.schema.json#/properties/invalidMessage"
+    },
+    "hint": {
+      "$ref": "http://schema.kickstartds.com/form/radio.schema.json#/properties/hint"
+    },
+    "className": {
+      "title": "Class",
+      "description": "Additional css classes attached to the input element",
+      "type": "string"
+    }
+  },
+  "required": ["label"]
+}

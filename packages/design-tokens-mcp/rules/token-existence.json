@@ -1,0 +1,17 @@
+{
+  "id": "token-existence",
+  "name": "Phantom Token Detection",
+  "description": "Every var(--ks-*) and var(--dsa-*) reference in a component token must resolve to an actual token defined in the system. Phantom tokens (referenced but non-existent) silently fail at runtime — the CSS property falls through to its inherited or initial value with no error.",
+  "severity": "critical",
+  "category": "existence",
+  "rule": "All var() references must point to tokens that exist in the global token files (tokens/*.scss) or component token files (tokens/componentToken/*.scss). A phantom token breaks theming and produces invisible failures.",
+  "patterns": {
+    "globalTokens": "var(--ks-*)",
+    "componentTokens": "var(--dsa-*)",
+    "layoutTokens": "var(--l-*)"
+  },
+  "exceptions": [
+    "CSS custom properties defined inline or in component stylesheets (not in the token system) are outside this rule's scope",
+    "Fallback values in var(--token, fallback) mitigate phantom risk but the primary token should still exist"
+  ]
+}

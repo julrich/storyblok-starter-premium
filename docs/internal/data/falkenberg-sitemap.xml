@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Fiktive Sitemap: FALKENBERG Precision GmbH
+  Bestandswebsite vor Migration in den ruhmesmeile CMS Website-Accelerator
+  ~67 Seiten, typische Struktur eines deutschen Industrieunternehmens (Sensorik / Messtechnik)
+  Domain: https://www.falkenberg-precision.de
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       STARTSEITE
+       ════════════════════════════════════════════════════════════════════ -->
+  <url><loc>https://www.falkenberg-precision.de/</loc><lastmod>2026-02-10</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       PRODUKTE
+       ════════════════════════════════════════════════════════════════════ -->
+  <url><loc>https://www.falkenberg-precision.de/produkte/</loc><lastmod>2026-02-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- Präzisionssensoren -->
+  <url><loc>https://www.falkenberg-precision.de/produkte/praezisionssensoren/</loc><lastmod>2026-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/praezisionssensoren/induktive-sensoren/</loc><lastmod>2026-01-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/praezisionssensoren/kapazitive-sensoren/</loc><lastmod>2026-01-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/praezisionssensoren/optische-triangulationssensoren/</loc><lastmod>2026-01-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/praezisionssensoren/konfokale-chromatische-sensoren/</loc><lastmod>2025-12-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <!-- Einzelne Sensorprodukte -->
+  <url><loc>https://www.falkenberg-precision.de/produkte/praezisionssensoren/fp-200-induktiv/</loc><lastmod>2025-11-20</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/praezisionssensoren/fp-350-induktiv-hd/</loc><lastmod>2025-11-20</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/praezisionssensoren/fc-120-kapazitiv/</loc><lastmod>2025-10-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/praezisionssensoren/fo-500-optisch/</loc><lastmod>2025-09-15</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/praezisionssensoren/fo-750-optisch-langstrecke/</loc><lastmod>2025-09-15</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/praezisionssensoren/fk-100-konfokal/</loc><lastmod>2025-08-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+
+  <!-- Messsysteme -->
+  <url><loc>https://www.falkenberg-precision.de/produkte/messsysteme/</loc><lastmod>2026-01-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/messsysteme/inline-inspektion/</loc><lastmod>2025-12-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/messsysteme/oberflaechen-profilometrie/</loc><lastmod>2025-12-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/messsysteme/spalt-und-versatz-messung/</loc><lastmod>2025-11-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/messsysteme/falkenmeasure-pro-3000/</loc><lastmod>2025-10-15</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/messsysteme/falkenmeasure-inline-5000/</loc><lastmod>2025-10-15</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+
+  <!-- IoT Gateways -->
+  <url><loc>https://www.falkenberg-precision.de/produkte/iot-gateways/</loc><lastmod>2026-02-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/iot-gateways/falkenconnect-500/</loc><lastmod>2025-12-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/iot-gateways/falkenconnect-1000/</loc><lastmod>2025-12-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/iot-gateways/falkenconnect-cloud-plattform/</loc><lastmod>2026-01-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Kalibriergeräte -->
+  <url><loc>https://www.falkenberg-precision.de/produkte/kalibriergeraete/</loc><lastmod>2025-11-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/kalibriergeraete/falkenref-100-referenznormal/</loc><lastmod>2025-09-20</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/produkte/kalibriergeraete/falkencal-mobil/</loc><lastmod>2025-09-20</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       LÖSUNGEN / BRANCHEN
+       ════════════════════════════════════════════════════════════════════ -->
+  <url><loc>https://www.falkenberg-precision.de/loesungen/</loc><lastmod>2026-01-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/loesungen/automotive/</loc><lastmod>2025-12-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/loesungen/luft-und-raumfahrt/</loc><lastmod>2025-12-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/loesungen/pharma-medizintechnik/</loc><lastmod>2025-11-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/loesungen/energie-erneuerbare/</loc><lastmod>2025-11-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/loesungen/elektronik-halbleiter/</loc><lastmod>2025-10-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/loesungen/industrie-4-0/</loc><lastmod>2026-01-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       UNTERNEHMEN
+       ════════════════════════════════════════════════════════════════════ -->
+  <url><loc>https://www.falkenberg-precision.de/unternehmen/</loc><lastmod>2025-12-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/unternehmen/geschichte/</loc><lastmod>2025-06-15</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/unternehmen/werte-philosophie/</loc><lastmod>2025-06-15</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/unternehmen/geschaeftsfuehrung/</loc><lastmod>2025-09-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/unternehmen/standorte/</loc><lastmod>2025-08-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/unternehmen/forschung-entwicklung/</loc><lastmod>2025-12-01</lastmod><changefreq>quarterly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/unternehmen/qualitaet-zertifizierungen/</loc><lastmod>2025-07-20</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/unternehmen/nachhaltigkeit/</loc><lastmod>2025-10-15</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/unternehmen/partner-distributoren/</loc><lastmod>2025-11-01</lastmod><changefreq>quarterly</changefreq><priority>0.6</priority></url>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       KARRIERE
+       ════════════════════════════════════════════════════════════════════ -->
+  <url><loc>https://www.falkenberg-precision.de/karriere/</loc><lastmod>2026-02-15</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/karriere/offene-stellen/</loc><lastmod>2026-02-15</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/karriere/ausbildung-duales-studium/</loc><lastmod>2025-10-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/karriere/werkstudenten-praktika/</loc><lastmod>2025-10-01</lastmod><changefreq>quarterly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/karriere/benefits-arbeiten-bei-falkenberg/</loc><lastmod>2025-08-20</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       SERVICE & SUPPORT
+       ════════════════════════════════════════════════════════════════════ -->
+  <url><loc>https://www.falkenberg-precision.de/service/</loc><lastmod>2026-01-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/service/kalibrierung/</loc><lastmod>2025-12-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/service/schulungen/</loc><lastmod>2026-01-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/service/technischer-support/</loc><lastmod>2025-11-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/service/ersatzteile-reparatur/</loc><lastmod>2025-11-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/service/inbetriebnahme-installation/</loc><lastmod>2025-10-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/service/wartungsvertraege/</loc><lastmod>2025-10-05</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       DOWNLOADS / MEDIATHEK
+       ════════════════════════════════════════════════════════════════════ -->
+  <url><loc>https://www.falkenberg-precision.de/downloads/</loc><lastmod>2026-02-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/downloads/datenblaetter/</loc><lastmod>2026-01-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/downloads/software-firmware/</loc><lastmod>2026-01-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/downloads/cad-3d-modelle/</loc><lastmod>2025-11-15</lastmod><changefreq>quarterly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/downloads/zertifikate-pruefberichte/</loc><lastmod>2025-10-10</lastmod><changefreq>quarterly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/downloads/anwendungsberichte/</loc><lastmod>2025-12-20</lastmod><changefreq>quarterly</changefreq><priority>0.6</priority></url>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       NEWS / AKTUELLES
+       ════════════════════════════════════════════════════════════════════ -->
+  <url><loc>https://www.falkenberg-precision.de/news/</loc><lastmod>2026-02-18</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/news/falkenconnect-2-0-release/</loc><lastmod>2026-02-18</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/news/hannover-messe-2026-messeauftritt/</loc><lastmod>2026-02-10</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/news/neuer-konfokal-sensor-fk-200-vorgestellt/</loc><lastmod>2026-01-22</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/news/iso-17025-reakkreditierung-2025/</loc><lastmod>2025-12-05</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/news/partnerschaft-fraunhofer-ipk/</loc><lastmod>2025-11-12</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/news/40-jahre-falkenberg-jubilaeum/</loc><lastmod>2025-09-28</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/news/auszeichnung-innovationspreis-bw/</loc><lastmod>2025-07-15</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/news/erweiterung-tuebingen-werk/</loc><lastmod>2025-05-20</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       MESSEN & VERANSTALTUNGEN
+       ════════════════════════════════════════════════════════════════════ -->
+  <url><loc>https://www.falkenberg-precision.de/veranstaltungen/</loc><lastmod>2026-02-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/veranstaltungen/hannover-messe-2026/</loc><lastmod>2026-02-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/veranstaltungen/sensor-test-nuernberg-2026/</loc><lastmod>2026-01-30</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/veranstaltungen/control-messe-stuttgart-2025/</loc><lastmod>2025-04-10</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       KONTAKT
+       ════════════════════════════════════════════════════════════════════ -->
+  <url><loc>https://www.falkenberg-precision.de/kontakt/</loc><lastmod>2025-12-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/kontakt/vertrieb-anfrage/</loc><lastmod>2025-12-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/kontakt/service-anfrage/</loc><lastmod>2025-12-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/kontakt/anfahrt-standorte/</loc><lastmod>2025-08-10</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/kontakt/internationaler-vertrieb/</loc><lastmod>2025-11-01</lastmod><changefreq>quarterly</changefreq><priority>0.6</priority></url>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       RECHTLICHES / FOOTER-SEITEN
+       ════════════════════════════════════════════════════════════════════ -->
+  <url><loc>https://www.falkenberg-precision.de/impressum/</loc><lastmod>2025-03-01</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/datenschutz/</loc><lastmod>2025-05-15</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/agb/</loc><lastmod>2025-03-01</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.falkenberg-precision.de/einkaufsbedingungen/</loc><lastmod>2025-03-01</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+</urlset>

@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/hero.schema.json",
+  "title": "Hero",
+  "description": "Hero component for displaying a prominent visual section with headline, subheadline, text, and call-to-action buttons.",
+  "type": "object",
+  "properties": {
+    "headline": {
+      "title": "Headline",
+      "description": "Headline for the visual",
+      "type": "string",
+      "format": "markdown"
+    },
+    "sub": {
+      "title": "Module Subheadline",
+      "description": "Subheadline below the module headline",
+      "type": "string",
+      "format": "markdown"
+    },
+    "text": {
+      "title": "Module Text",
+      "description": "Info text for the module element",
+      "type": "string",
+      "format": "markdown"
+    },
+    "highlightText": {
+      "type": "boolean",
+      "title": "Highlight Text",
+      "description": "Visually highlight the text",
+      "default": false
+    },
+    "colorNeutral": {
+      "title": "Color Neutral",
+      "description": "Make the text and buttons color neutral",
+      "default": false,
+      "type": "boolean"
+    },
+    "height": {
+      "title": "Height",
+      "type": "string",
+      "enum": ["small", "default", "fullImage", "fullScreen"],
+      "default": "default"
+    },
+    "textbox": {
+      "type": "boolean",
+      "title": "Textbox",
+      "default": true,
+      "description": "Toggle wether you want your text to be displayed within in box"
+    },
+    "mobileTextBelow": {
+      "type": "boolean",
+      "title": "Mobile Text Below",
+      "description": "On mobile devices, display the text below the image",
+      "default": true
+    },
+    "invertText": {
+      "type": "boolean",
+      "title": "Invert Text",
+      "description": "Invert the text color for better contrast against the background",
+      "default": false
+    },
+    "buttons": {
+      "type": "array",
+      "items": {
+        "title": "Button",
+        "type": "object",
+        "properties": {
+          "label": {
+            "$ref": "http://schema.mydesignsystem.com/button.schema.json#/properties/label"
+          },
+          "icon": {
+            "$ref": "http://schema.mydesignsystem.com/button.schema.json#/properties/icon"
+          },
+          "url": {
+            "$ref": "http://schema.mydesignsystem.com/button.schema.json#/properties/url"
+          }
+        }
+      }
+    },
+    "skipButton": {
+      "type": "boolean",
+      "title": "Skip Button",
+      "description": "Add a skip button to the hero module",
+      "default": false
+    },
+    "overlay": {
+      "$ref": "http://schema.kickstartds.com/content/visual.schema.json#/properties/overlay"
+    },
+    "image": {
+      "$ref": "http://schema.kickstartds.com/content/visual.schema.json#/properties/media/properties/image"
+    },
+    "textPosition": {
+      "title": "Module aligment",
+      "description": "Choose the alginment of the module content",
+      "enum": [
+        "center",
+        "below",
+        "offset",
+        "left",
+        "right",
+        "corner",
+        "bottom"
+      ],
+      "type": "string",
+      "default": "left"
+    }
+  },
+  "additionalProperties": false
+}

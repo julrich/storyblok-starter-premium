@@ -1,0 +1,27 @@
+.l-split-weighted {
+  --dsa-split-weighted--sticky-margin: var(--ks-spacing-stack-xl);
+
+  --dsa-split-weighted--v-gutter_small: var(--ks-spacing-stack-s);
+  --dsa-split-weighted--v-gutter_default: var(--ks-spacing-stack-l);
+  --dsa-split-weighted--v-gutter_large: var(--dsa-content--vertical-spacing);
+
+  --dsa-split-weighted--h-gutter_small: var(--ks-spacing-inline-m);
+  --dsa-split-weighted--h-gutter_default: var(--ks-spacing-inline-l);
+  --dsa-split-weighted--h-gutter_large: var(--ks-spacing-inline-xxl);
+
+  --dsa-split-weighted__main--flex-basis_default: var(--dsa-tile--width_largest);
+  --dsa-split-weighted__main--flex-basis_narrow: var(--dsa-tile--width_large);
+  --dsa-split-weighted__main--flex-basis_wide: calc(var(--dsa-tile--width_largest) * 1.25);
+
+  --dsa-split-weighted__main--gutter_small: var(--ks-spacing-s);
+  --dsa-split-weighted__main--gutter_default: var(--ks-spacing-l);
+  --dsa-split-weighted__main--gutter_large: var(--ks-spacing-xl);
+
+  --dsa-split-weighted__aside--flex-basis_default: var(--dsa-tile--width_medium);
+  --dsa-split-weighted__aside--flex-basis_narrow: var(--dsa-tile--width_small);
+  --dsa-split-weighted__aside--flex-basis_wide: var(--dsa-tile--width_large);
+
+  --dsa-split-weighted__aside--gutter_small: var(--ks-spacing-xs);
+  --dsa-split-weighted__aside--gutter_default: var(--ks-spacing-s);
+  --dsa-split-weighted__aside--gutter_large: var(--ks-spacing-m);
+}

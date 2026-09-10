@@ -1,0 +1,134 @@
+@use "@kickstartds/core/source/core/container";
+@include container.wrapper("section");
+
+.dsa-section {
+  //Columns
+  --dsa-section__col--repeat: auto-fit;
+  --dsa-section__col--max-width: 1fr;
+  --dsa-section__col--min-width_smallest: var(--dsa-tile--width_smallest);
+  --dsa-section__col--min-width_small: var(--dsa-tile--width_small);
+  --dsa-section__col--min-width_medium: var(--dsa-tile--width_medium);
+  --dsa-section__col--min-width_large: var(--dsa-tile--width_large);
+  --dsa-section__col--min-width_largest: var(--dsa-tile--width_largest);
+
+  //Vertical Space After & Before
+  --dsa-section--space_default: var(--dsa-content--vertical-spacing);
+  --dsa-section--space_small: calc(var(--ks-spacing-xxl) / 2);
+
+  //Gutter
+  --dsa-section--gutter_small: var(--ks-spacing-s);
+  --dsa-section--gutter_default: var(--ks-spacing-m);
+  --dsa-section--gutter_large: var(--ks-spacing-l);
+
+  //Buttons
+  --dsa-section__buttons--space-before: var(--ks-spacing-stack-m);
+
+  //Content Width
+  --dsa-section__content--width_narrow: var(--dsa-content--width_narrow);
+  --dsa-section__content--width_default: var(--dsa-content--width_default);
+  --dsa-section__content--width_wide: var(--dsa-content--width_wide);
+  --dsa-section__content--width_max: 100vw;
+  --dsa-section__content--width_full: 100vw;
+  --dsa-section__content--padding: var(--dsa-content--horizontal-spacing);
+
+  //Background Color
+  --dsa-section--background-color_default: var(--ks-background-color-default);
+  --dsa-section--background-color_accent: var(--ks-background-color-accent);
+  --dsa-section--background-color_bold: var(--ks-background-color-bold);
+
+  //Background Transitions
+  --dsa-section--transition_to-default: linear-gradient(
+    180deg,
+    transparent 50%,
+    var(--ks-background-color-default) 50%
+  );
+  --dsa-section--transition_to-accent: linear-gradient(180deg, transparent 50%, var(--ks-background-color-accent) 50%);
+  --dsa-section--transition_to-bold: linear-gradient(180deg, transparent 50%, var(--ks-background-color-bold) 50%);
+  --dsa-section--transition_to-inverted: linear-gradient(
+    180deg,
+    transparent 50%,
+    var(--ks-background-color-default-inverted) 50%
+  );
+
+  //Slider Arrows
+  --dsa-section__slider-arrow--color: var(--ks-text-color-interface-interactive);
+  --dsa-section__slider-arrow--size: 2rem;
+  --dsa-section__slider-arrow--padding: 0.5em;
+  --dsa-section__slider-arrow--opacity: 0.6;
+  --dsa-section__slider-arrow--opacity_hover: 1;
+  --dsa-section__slider-arrow--opacity_disabled: 0.3;
+  --dsa-section__slider-arrow--background: transparent;
+
+  //Slider Nav
+  --dsa-section__slider-nav--margin-top: var(--ks-spacing-stack-m);
+
+  //Background Styles
+
+  //Spotlight
+  --dsa-section__spotlight--size: 50px;
+  --dsa-section__spotlight--blur: 0%;
+  --dsa-section__spotlight--color: var(--ks-color-primary-alpha-5);
+}
+
+// ─── drhubert overrides ───────────────────────────────────────────
+// Ported verbatim from the pre-monorepo website (components/section/section-tokens.scss).
+// Kept as a trailing block so the original selectors and specificity are
+// preserved; these win over the design system defaults above.
+:root {
+  .dsa-section {
+    --dsa-section__slider-arrow--background: var(--ks-color-fg-alpha-4);
+    --dsa-section__slider-arrow--color: var(--ks-color-bg);
+
+    --dsa-section_stagelights--background-image: radial-gradient(
+        50% 100% at 100% -50%,
+        var(--ks-color-primary-alpha-5) 0%,
+        transparent 100%
+      ),
+      radial-gradient(50% 100% at 0% -50%, var(--ks-color-primary-alpha-5) 0%, transparent 100%);
+
+    &[ks-inverted="true"] {
+      --dsa-section_stagelights--background-image: radial-gradient(
+          50% 100% at 100% -50%,
+          var(--ks-color-primary-to-bg-1-base) 0%,
+          transparent 100%
+        ),
+        radial-gradient(50% 100% at 0% -50%, var(--ks-color-primary-to-bg-1-base) 0%, transparent 100%);
+    }
+
+    --dsa-section_anchor-glow--background-image: radial-gradient(
+      50% 50% at 50% 100%,
+      var(--ks-color-primary-alpha-8) 0%,
+      transparent 100%
+    );
+
+    &[ks-inverted="true"] {
+      --dsa-section_anchor-glow--background-image: radial-gradient(
+        50% 50% at 50% 100%,
+        var(--ks-color-primary-to-bg-1-base) 0%,
+        transparent 100%
+      );
+    }
+
+    --dsa-section_symmetric-glow--background-image: radial-gradient(
+        20% 50% at 100% 50%,
+        var(--ks-color-primary-alpha-7) 0%,
+        transparent 100%
+      ),
+      radial-gradient(20% 50% at 0% 50%, var(--ks-color-primary-alpha-7) 0%, transparent 100%);
+
+    --dsa-section_vertical-gradient--background-image: linear-gradient(
+      45deg,
+      var(--ks-background-color-default) 0%,
+      var(--ks-color-bg-to-fg-2) 100%
+    );
+
+    --dsa-section_horizontal-gradient--background-image: linear-gradient(
+      90deg,
+      var(--ks-background-color-default) 0%,
+      var(--ks-color-bg-to-fg-2) 100%
+    );
+
+    //Spotlight
+    --dsa-section__spotlight--color: var(--ks-color-primary-alpha-7);
+  }
+}

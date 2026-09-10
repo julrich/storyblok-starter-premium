@@ -1,0 +1,16 @@
+node_modules/
+*.log
+.DS_Store
+.env
+.env.*
+dist/
+build/
+*.swp
+*.swo
+*~
+
+# Token data — synced from @kickstartds/design-system at build time
+tokens/
+
+# Kamal secrets (do not commit!)
+.kamal/secrets

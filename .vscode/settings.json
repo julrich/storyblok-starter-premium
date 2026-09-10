@@ -1,0 +1,36 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // ── File-watcher exclusions (inotify) ──────────────────────
+  // These patterns are NOT watched for changes at all → biggest inotify savings
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.next/**": true,
+    "**/dist/**": true,
+    "**/storybook-static/**": true,
+    "**/.cache/**": true,
+    "**/coverage/**": true,
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/pnpm-lock.yaml": true,
+    "**/__snapshots__/**": true
+  },
+
+  // ── Explorer / tree-view exclusions ────────────────────────
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true
+  },
+
+  // ── Search exclusions ──────────────────────────────────────
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.next": true,
+    "**/storybook-static": true,
+    "**/pnpm-lock.yaml": true,
+    "**/__snapshots__": true,
+    "**/coverage": true
+  }
+}

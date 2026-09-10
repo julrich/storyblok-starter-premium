@@ -1,0 +1,46 @@
+# Name of your application. Used to uniquely configure containers.
+service: ruhmesmeile-design-tokens-mcp
+
+# Name of the container image.
+image: <%= ENV["DOCKER_DESIGN_TOKENS_MCP_IMAGE_NAME"] %>
+
+# Deploy to the same server as the main site.
+servers:
+  web:
+    - <%= ENV["HOSTING_SERVER_IP"] %>
+
+# Enable SSL auto certification via Let's Encrypt.
+# The design tokens MCP server gets its own subdomain on the same host.
+proxy:
+  ssl: true
+  hosts:
+    - <%= ENV["DESIGN_TOKENS_MCP_PUBLIC_DOMAIN"] %>
+  app_port: 8080
+  response_timeout: 300
+  healthcheck:
+    path: /health
+
+# Credentials for your image host.
+registry:
+  username: <%= ENV["DOCKER_USERNAME"] %>
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+# Configure builder setup.
+builder:
+  arch: amd64
+  # Build context is the repo root so workspace packages are available
+  context: .
+  dockerfile: packages/design-tokens-mcp/Dockerfile
+  # Bust the source-code cache on every deploy so code changes always ship
+  args:
+    CACHEBUST: <%= Time.now.to_i %>
+
+# Inject ENV variables into containers.
+# No secrets required — this server reads only local token files.
+env:
+  clear:
+    MCP_TRANSPORT: http
+    MCP_PORT: 8080
+  secret:
+    - MCP_JWT_SECRET

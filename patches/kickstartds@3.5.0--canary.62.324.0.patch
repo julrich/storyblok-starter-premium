@@ -1,0 +1,20 @@
+--- a/dist/src/tasks/cms/storyblok-task.js
++++ b/dist/src/tasks/cms/storyblok-task.js
+@@ -76,7 +76,16 @@
+         cmdLogger.info(chalkTemplate `starting: {bold reverting} storyblok command with types variable {bold ${typesVariable}}`);
+     else
+         cmdLogger.info(chalkTemplate `starting: storyblok command with types variable {bold ${typesVariable}}`);
+-    await taskInit(null, rcOnly, isRevert, shouldCleanup, debugActive);
++    const rcConfig = await taskInit(null, rcOnly, isRevert, shouldCleanup, debugActive);
++    if (rcConfig) {
++        if (rcConfig.schemaPaths) schemaPaths = rcConfig.schemaPaths;
++        if (rcConfig.layerOrder) layerOrder = rcConfig.layerOrder;
++        if (rcConfig.configurationPath) configurationPath = rcConfig.configurationPath;
++        if (rcConfig.updateConfig !== undefined) updateConfig = rcConfig.updateConfig;
++        if (rcConfig.templates) templates = rcConfig.templates;
++        if (rcConfig.globals) globals = rcConfig.globals;
++        if (rcConfig.components) components = rcConfig.components;
++    }
+     await taskStart(typesVariable, checks, tasks.run, tasks.revert);
+     if (isRevert)
+         cmdLogger.info(chalkTemplate `finished: {bold reverting} storyblok command with types variable {bold ${typesVariable}}`);

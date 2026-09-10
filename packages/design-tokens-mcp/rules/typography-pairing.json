@@ -1,0 +1,42 @@
+{
+  "id": "typography-pairing",
+  "name": "Typography Category Pairing",
+  "description": "Font-size, line-height, and text-color tokens are organized into categories (display, copy, interface, mono). Mixing categories breaks the typographic system — e.g., using a display font-size with a copy line-height produces incorrect vertical rhythm.",
+  "severity": "warning",
+  "category": "pairing",
+  "categories": {
+    "display": {
+      "fontFamily": "--ks-font-family-display",
+      "fontSizePattern": "--ks-font-size-display-*",
+      "lineHeightPattern": "--ks-line-height-display-*",
+      "textColorPattern": "--ks-text-color-display",
+      "sizes": ["xxs", "xs", "s", "m", "l", "xl", "xxl"],
+      "description": "Display typography for headlines, hero text, page titles"
+    },
+    "copy": {
+      "fontFamily": "--ks-font-family-copy",
+      "fontSizePattern": "--ks-font-size-copy-*",
+      "lineHeightPattern": "--ks-line-height-copy-*",
+      "textColorPattern": "--ks-text-color-copy",
+      "sizes": ["xxs", "xs", "s", "m", "l", "xl", "xxl"],
+      "description": "Copy typography for body text, paragraphs, descriptions"
+    },
+    "interface": {
+      "fontFamily": "--ks-font-family-interface",
+      "fontSizePattern": "--ks-font-size-interface-*",
+      "lineHeightPattern": "--ks-line-height-interface-*",
+      "textColorPattern": "--ks-text-color-interface",
+      "sizes": ["xxs", "xs", "s", "m", "l", "xl", "xxl"],
+      "description": "Interface typography for UI controls, buttons, form labels"
+    },
+    "mono": {
+      "fontFamily": "--ks-font-family-mono",
+      "fontSizePattern": "--ks-font-size-mono-*",
+      "lineHeightPattern": "--ks-line-height-mono-*",
+      "textColorPattern": null,
+      "sizes": ["xxs", "xs", "s", "m", "l", "xl", "xxl"],
+      "description": "Monospace typography for code blocks, technical content"
+    }
+  },
+  "rule": "When a component uses a font-size from one category, the corresponding line-height should come from the same category. Mixing --ks-font-size-display-l with --ks-line-height-copy-l produces incorrect vertical rhythm because display has tighter line-height (1.15 base) while copy uses wider line-height (1.5 base)."
+}

@@ -1,0 +1,152 @@
+@use "@kickstartds/core/source/core/container";
+@use "event-latest-teaser-tokens.scss";
+@include container.wrapper("event-latest-teaser");
+
+.dsa-event-latest-teaser {
+  --g-link--border-radius: var(--ks-border-radius-card);
+  --g-link--background: var(--ks-background-color-card-interactive);
+  --g-link--background-hover: var(--ks-background-color-card-interactive-hover);
+
+  display: flex;
+  gap: var(--ks-spacing-inline-s);
+  padding: var(--ks-spacing-inset-s);
+  flex-direction: column;
+  border: var(--ks-border-card-interactive);
+  box-shadow: var(--ks-box-shadow-card);
+
+  // overwrite global link styles from kickstartDS
+  :root &,
+  html & {
+    transition: var(--ks-transition-hover);
+  }
+
+  @include container.size("≥", 640px, "event-latest-teaser") {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--ks-spacing-inline-m);
+  }
+
+  &:hover {
+    border-color: var(--ks-border-color-card-interactive-hover);
+    box-shadow: var(--ks-box-shadow-card-hover);
+  }
+
+  &__content {
+    display: flex;
+    gap: var(--ks-spacing-stack-s) var(--ks-spacing-inline-s);
+    flex-grow: 1;
+    min-width: 0;
+    flex-direction: column;
+
+    @include container.size("≥", 640px, "event-latest-teaser") {
+      flex-direction: row;
+    }
+  }
+
+  .dsa-event-latest-teaser-calendar {
+    align-self: start;
+    position: relative;
+    background-color: var(--ks-background-color-primary);
+    color: var(--ks-text-color-on-primary);
+    border-radius: var(--ks-border-radius-control);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.25em;
+    padding: var(--ks-spacing-inset-s);
+    flex-shrink: 0;
+    font: var(--ks-font-display-l);
+    font-weight: var(--ks-font-weight-semi-bold);
+
+    @include container.size("≥", 640px, "event-latest-teaser") {
+      container-type: inline-size;
+      padding: var(--ks-spacing-xxs);
+      flex-direction: column;
+      align-items: center;
+      padding: var(--ks-spacing-inset-stretch-xs);
+      gap: var(--ks-spacing-xxs);
+      width: calc(var(--ks-spacing-l) * 3);
+      height: calc(var(--ks-spacing-l) * 3);
+
+      &__month,
+      &__day {
+        font-weight: var(--ks-font-weight-semi-bold) !important;
+        font-family: var(--ks-font-family-display);
+        line-height: 1;
+      }
+
+      &__day {
+        font-size: 50cqw;
+      }
+
+      &__month {
+        font-size: 25cqw;
+      }
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--ks-spacing-stack-xs);
+    flex-grow: 1;
+  }
+
+  &__title {
+    font: var(--ks-font-display-m);
+    font-weight: var(--ks-font-weight-semi-bold);
+    color: var(--ks-text-color-display);
+  }
+
+  &__infos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ks-spacing-xxs) var(--ks-spacing-inline-s);
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include container.size("≥", 640px, "event-latest-teaser") {
+      flex-direction: row;
+    }
+  }
+
+  &__info {
+    display: flex;
+    gap: calc(var(--ks-spacing-xxs) * 0.75);
+    font: var(--ks-font-interface-s);
+    align-items: center;
+    color: var(--ks-text-color-interface);
+
+    .icon {
+      align-self: flex-start;
+      width: calc(var(--ks-font-size-interface-s) * var(--ks-line-height-interface-s));
+      height: calc(var(--ks-font-size-interface-s) * var(--ks-line-height-interface-s));
+      color: var(--ks-text-color-primary);
+      flex-shrink: 0;
+      flex-grow: 1;
+    }
+  }
+
+  &__cta {
+    font: var(--ks-font-interface-s);
+    font-weight: var(--ks-font-weight-semi-bold);
+    color: var(--dsa-link--color);
+    display: flex;
+    align-items: center;
+    text-wrap: nowrap;
+    margin-left: auto;
+    transition: var(--ks-transition-hover);
+
+    &:hover {
+      color: var(--ks-text-color-primary-hover);
+    }
+
+    .icon {
+      width: calc(var(--ks-font-size-interface-s) * var(--ks-line-height-interface-s));
+      height: calc(var(--ks-font-size-interface-s) * var(--ks-line-height-interface-s));
+      flex-shrink: 0;
+      flex-grow: 1;
+    }
+  }
+}

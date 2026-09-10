@@ -1,0 +1,9 @@
+packages/design-system/__snapshots__/**/*.png filter=lfs diff=lfs merge=lfs -text
+packages/design-system/static/**/*.png filter=lfs diff=lfs merge=lfs -text
+packages/design-system/static/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+packages/design-system/static/**/*.mp4 filter=lfs diff=lfs merge=lfs -text
+packages/design-system/static/**/*.gif filter=lfs diff=lfs merge=lfs -text
+packages/website/types/components-schema.json filter=lfs diff=lfs merge=lfs -text
+packages/website/types/components-presets.json filter=lfs diff=lfs merge=lfs -text
+packages/website/cms/components.123456.json filter=lfs diff=lfs merge=lfs -text
+packages/website/cms/presets.123456.json filter=lfs diff=lfs merge=lfs -text

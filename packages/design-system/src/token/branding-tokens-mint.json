@@ -1,0 +1,429 @@
+{
+  "color": {
+    "primary": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.0078, 0.5059, 0.4314]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.4039, 0.7137, 0.6667]
+        }
+      }
+    },
+    "bg": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.9725, 0.9922, 0.9373]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.0078, 0.1686, 0.1451]
+        }
+      }
+    },
+    "fg": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.0118, 0.1922, 0.1647]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.8392, 0.8706, 0.7882]
+        }
+      }
+    },
+    "link": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0.4941, 0.4235]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.0941, 0.7569, 0.6549]
+        }
+      }
+    },
+    "positive": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.1373, 0.5137, 0.1059]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.4314, 0.8588, 0.3922]
+        }
+      }
+    },
+    "negative": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 0.102, 0.3412]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.8235, 0.1137, 0.2824]
+        }
+      }
+    },
+    "notice": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.3922, 0.7608, 0.8588]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0.4431, 0.5608]
+        }
+      }
+    },
+    "informative": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.3922, 0.7608, 0.8588]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0, 0.4431, 0.5608]
+        }
+      }
+    },
+    "scale": {
+      "1": {
+        "$type": "number",
+        "$value": 0.95
+      },
+      "2": {
+        "$type": "number",
+        "$value": 0.9
+      },
+      "3": {
+        "$type": "number",
+        "$value": 0.81
+      },
+      "4": {
+        "$type": "number",
+        "$value": 0.68
+      },
+      "5": {
+        "$type": "number",
+        "$value": 0.5
+      },
+      "6": {
+        "$type": "number",
+        "$value": 0.32
+      },
+      "7": {
+        "$type": "number",
+        "$value": 0.19
+      },
+      "8": {
+        "$type": "number",
+        "$value": 0.1
+      },
+      "9": {
+        "$type": "number",
+        "$value": 0.05
+      }
+    },
+    "onPrimary": {
+      "$root": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [1, 1, 1]
+        }
+      },
+      "inverted": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [0.0078, 0.1686, 0.1451]
+        }
+      }
+    }
+  },
+  "font": {
+    "family": {
+      "display": {
+        "$type": "fontFamily",
+        "$value": ["Oswald"]
+      },
+      "copy": {
+        "$type": "fontFamily",
+        "$value": [
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Avenir Next",
+          "Avenir",
+          "Segoe UI",
+          "Lucida Grande",
+          "Helvetica Neue",
+          "Helvetica",
+          "Fira Sans",
+          "Roboto",
+          "Noto",
+          "Droid Sans",
+          "Cantarell",
+          "Oxygen",
+          "Ubuntu",
+          "Franklin Gothic Medium",
+          "Century Gothic",
+          "Liberation Sans",
+          "sans-serif"
+        ]
+      },
+      "interface": {
+        "$type": "fontFamily",
+        "$value": [
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Avenir Next",
+          "Avenir",
+          "Segoe UI",
+          "Lucida Grande",
+          "Helvetica Neue",
+          "Helvetica",
+          "Fira Sans",
+          "Roboto",
+          "Noto",
+          "Droid Sans",
+          "Cantarell",
+          "Oxygen",
+          "Ubuntu",
+          "Franklin Gothic Medium",
+          "Century Gothic",
+          "Liberation Sans",
+          "sans-serif"
+        ]
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": [
+          "ui-monospace",
+          "SFMono-Regular",
+          "SF Mono",
+          "Menlo",
+          "Consolas",
+          "Liberation Mono",
+          "monospace"
+        ]
+      }
+    },
+    "weight": {
+      "light": {
+        "$type": "fontWeight",
+        "$value": 300
+      },
+      "regular": {
+        "$type": "fontWeight",
+        "$value": 400
+      },
+      "medium": {
+        "$type": "fontWeight",
+        "$value": 500
+      },
+      "semi-bold": {
+        "$type": "fontWeight",
+        "$value": 600
+      },
+      "bold": {
+        "$type": "fontWeight",
+        "$value": 700
+      }
+    },
+    "size": {
+      "display": {
+        "base": {
+          "$type": "dimension",
+          "$value": {
+            "value": 24,
+            "unit": "px"
+          }
+        },
+        "shrink-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "grow-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "bp-factor": {
+          "$type": "number",
+          "$value": 1.5
+        }
+      },
+      "copy": {
+        "base": {
+          "$type": "dimension",
+          "$value": {
+            "value": 18,
+            "unit": "px"
+          }
+        },
+        "shrink-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "grow-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "bp-factor": {
+          "$type": "number",
+          "$value": 1.5
+        }
+      },
+      "interface": {
+        "base": {
+          "$type": "dimension",
+          "$value": {
+            "value": 18,
+            "unit": "px"
+          }
+        },
+        "shrink-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "grow-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "bp-factor": {
+          "$type": "number",
+          "$value": 1.5
+        }
+      },
+      "mono": {
+        "base": {
+          "$type": "dimension",
+          "$value": {
+            "value": 18,
+            "unit": "px"
+          }
+        },
+        "shrink-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "grow-factor": {
+          "$type": "number",
+          "$value": 1.5
+        },
+        "bp-factor": {
+          "$type": "number",
+          "$value": 1.5
+        }
+      }
+    }
+  },
+  "spacing": {
+    "base": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "factor": {
+      "$type": "number",
+      "$value": 1.5
+    },
+    "shrink-factor": {
+      "$type": "number",
+      "$value": 1.5
+    },
+    "grow-factor": {
+      "$type": "number",
+      "$value": 1.5
+    },
+    "bp-factor": {
+      "$type": "number",
+      "$value": 1.5
+    }
+  },
+  "_fontHref": {
+    "display": "https://fonts.googleapis.com/css2?family=Oswald",
+    "copy": "",
+    "interface": ""
+  },
+  "border": {
+    "radius-factor": {
+      "$type": "number",
+      "$value": 1
+    },
+    "width": {
+      "default": {
+        "$type": "dimension",
+        "$value": {
+          "value": 2,
+          "unit": "px"
+        }
+      }
+    }
+  },
+  "box-shadow": {
+    "blur-factor": {
+      "$type": "number",
+      "$value": 1
+    },
+    "opacity-factor": {
+      "$type": "number",
+      "$value": 1
+    },
+    "spread-factor": {
+      "$type": "number",
+      "$value": 1.5
+    }
+  },
+  "duration": {
+    "factor": {
+      "$type": "number",
+      "$value": 1.48
+    }
+  }
+}

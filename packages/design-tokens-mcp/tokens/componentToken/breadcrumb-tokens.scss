@@ -1,0 +1,9 @@
+.dsa-breadcrumb {
+  --dsa-breadcrumb--gap: var(--ks-spacing-xxs);
+  --dsa-breadcrumb--font: var(--ks-font-interface-xs);
+  --dsa-breadcrumb--color: var(--ks-text-color-interface-interactive);
+  --dsa-breadcrumb--color_hover: var(--ks-text-color-interface-interactive-hover);
+  --dsa-breadcrumb__icon--size: 1.5em;
+  --dsa-breadcrumb__icon--color: var(--ks-color-fg-alpha-5);
+  --dsa-breadcrumb--color_active: var(--ks-text-color-interface-interactive-active);
+}

@@ -1,0 +1,86 @@
+{
+  "id": "spacing-scale",
+  "name": "Spacing Scale Hierarchy",
+  "description": "Spacing tokens form a consistent scale from xxs to xxxl. Hardcoded spacing values bypass the responsive scaling system and should use tokens instead.",
+  "severity": "warning",
+  "category": "hierarchy",
+  "tokenPattern": "--ks-spacing-*",
+  "scale": [
+    {
+      "token": "--ks-spacing-xxs",
+      "level": 1,
+      "label": "2XS",
+      "purpose": "Minimal spacing — icon gaps, tight padding"
+    },
+    {
+      "token": "--ks-spacing-xs",
+      "level": 2,
+      "label": "XS",
+      "purpose": "Small spacing — compact element gaps"
+    },
+    {
+      "token": "--ks-spacing-s",
+      "level": 3,
+      "label": "S",
+      "purpose": "Small-medium spacing — form field gaps, list item spacing"
+    },
+    {
+      "token": "--ks-spacing-m",
+      "level": 4,
+      "label": "M",
+      "purpose": "Medium spacing — standard component padding, section gaps"
+    },
+    {
+      "token": "--ks-spacing-l",
+      "level": 5,
+      "label": "L",
+      "purpose": "Large spacing — section padding, card padding"
+    },
+    {
+      "token": "--ks-spacing-xl",
+      "level": 6,
+      "label": "XL",
+      "purpose": "Extra large spacing — major section breaks"
+    },
+    {
+      "token": "--ks-spacing-xxl",
+      "level": 7,
+      "label": "2XL",
+      "purpose": "Maximum standard spacing — page-level vertical rhythm"
+    },
+    {
+      "token": "--ks-spacing-xxxl",
+      "level": 8,
+      "label": "3XL",
+      "purpose": "Exceptional spacing — hero sections, major page divisions"
+    }
+  ],
+  "spacingTypes": {
+    "stack": {
+      "pattern": "--ks-spacing-stack-*",
+      "purpose": "Vertical (block-axis) spacing between stacked elements",
+      "sizes": ["xxs", "xs", "s", "m", "l", "xl", "xxl"]
+    },
+    "inline": {
+      "pattern": "--ks-spacing-inline-*",
+      "purpose": "Horizontal (inline-axis) spacing between inline elements",
+      "sizes": ["xxs", "xs", "s", "m", "l", "xl", "xxl"]
+    },
+    "inset": {
+      "pattern": "--ks-spacing-inset-*",
+      "purpose": "Equal padding on all sides of a container",
+      "sizes": ["xxs", "xs", "s", "m", "l", "xl", "xxl"]
+    },
+    "inset-squish": {
+      "pattern": "--ks-spacing-inset-squish-*",
+      "purpose": "Padding with less vertical than horizontal space (buttons, pills)",
+      "sizes": ["xxs", "xs", "s", "m", "l", "xl", "xxl"]
+    },
+    "inset-stretch": {
+      "pattern": "--ks-spacing-inset-stretch-*",
+      "purpose": "Padding with more vertical than horizontal space (tall containers)",
+      "sizes": ["xxs", "xs", "s", "m", "l", "xl", "xxl"]
+    }
+  },
+  "rule": "Hardcoded pixel or rem values for spacing should be replaced with spacing tokens. The spacing scale is responsive (scales with breakpoint factors), so hardcoded values break responsive behavior."
+}

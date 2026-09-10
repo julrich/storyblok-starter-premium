@@ -1,0 +1,24 @@
+.dsa-text-area {
+  --dsa-text-area--font: var(--ks-font-interface-s);
+  --dsa-text-area--color: var(--ks-text-color-interface);
+
+  --dsa-text-area--border: var(--ks-border-width-default) solid;
+  --dsa-text-area--border-color: var(--ks-border-color-interface-interactive);
+  --dsa-text-area--border-color_hover: var(--ks-border-color-interface-interactive-hover);
+  --dsa-text-area--border-color_focus: var(--ks-border-color-interface-interactive-active);
+  --dsa-text-area--border-color_active: var(--ks-border-color-interface-interactive-active);
+
+  --dsa-text-area--background: transparent;
+  --dsa-text-area--background_focus: transparent;
+
+  --dsa-text-area--padding: 0.4rem 0.75rem 0.35rem;
+
+  --dsa-text-area--shadow_focus: 0 0 0 var(--ks-border-width-emphasized);
+
+  --dsa-text-area__label--padding-bottom: 0.25em;
+  --dsa-text-area__label--color: var(--ks-text-color-interface);
+  --dsa-text-area__label--font: var(--ks-font-interface-s);
+  --dsa-text-area__label--font-weight: var(--ks-font-weight-semi-bold);
+
+  --dsa-text-area__placeholder--color: var(--ks-color-fg-alpha-5);
+}

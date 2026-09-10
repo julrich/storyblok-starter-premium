@@ -1,0 +1,70 @@
+{
+  "name": "Manual → Generate Hero → Import into Story",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger-1",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "resource": "aiContent",
+        "operation": "generate",
+        "system": "You are a content writer for a professional digital agency website. Create engaging, modern content that speaks to tech-savvy business leaders.",
+        "prompt": "Create a hero section for a landing page about AI-powered content management. Include a compelling headline, descriptive text, and two call-to-action buttons.",
+        "schemaMode": "preset",
+        "presetSchema": "hero",
+        "model": "gpt-4o-2024-08-06"
+      },
+      "id": "generate-1",
+      "name": "Generate Hero Content",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [480, 300],
+      "credentials": {
+        "openAiApi": { "id": "1", "name": "OpenAI" },
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "aiContent",
+        "operation": "import",
+        "storyUid": "={{ $json._meta.storyUid || 'YOUR_STORY_UID' }}",
+        "placementMode": "prompter",
+        "prompterUid": "={{ $json._meta.prompterUid || 'YOUR_PROMPTER_UID' }}",
+        "page": "={{ JSON.stringify({ content: { section: [{ component: 'hero', ...($json.generatedContent) }] } }) }}",
+        "publish": false
+      },
+      "id": "import-1",
+      "name": "Import into Storyblok",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [720, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [{ "node": "Generate Hero Content", "type": "main", "index": 0 }]
+      ]
+    },
+    "Generate Hero Content": {
+      "main": [
+        [{ "node": "Import into Storyblok", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateId": "storyblok-kds-hero-generate-import"
+  }
+}

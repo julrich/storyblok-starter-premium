@@ -1,0 +1,8 @@
+// Scoped to :not(--floating) so this stacking-context fix never fights the
+// design system's own `position: absolute` on the floating header variant
+// (see header.scss's `&--floating` modifier) — same-specificity selectors
+// would otherwise depend on CSS bundle order to decide which `position` wins.
+.dsa-header:not(.dsa-header--floating) {
+  position: relative;
+  z-index: var(--dsa-header--z-index);
+}

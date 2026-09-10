@@ -1,0 +1,42 @@
+.dsa-downloads {
+  --dsa-downloads--gap: var(--ks-spacing-stack-xs);
+
+  --dsa-downloads-item--background: transparent;
+  --dsa-downloads-item--background-hover: var(--ks-color-fg-alpha-9);
+
+  --dsa-downloads-item__link--color: var(--ks-text-color-interface-interactive);
+  --dsa-downloads-item__link--color_hover: var(--ks-text-color-interface-interactive-hover);
+
+  --dsa-downloads-item--transition: var(--ks-transition-hover);
+  --dsa-downloads-item--background-color_hover: var(--ks-color-fg-alpha-9);
+  --dsa-downloads-item--padding: var(--ks-spacing-inset-xs);
+  --dsa-downloads-item--border-radius: var(--ks-border-radius-control);
+  --dsa-downloads-item--gap: var(--ks-spacing-inline-s);
+
+  --dsa-downloads-item__header-flex-basis: 120px;
+
+  --dsa-downloads-item__name--color: var(--ks-text-color-display);
+  --dsa-downloads-item__name--font: var(--ks-font-interface-s);
+  --dsa-downloads-item__name--font-weight: var(--ks-font-weight-semi-bold);
+
+  --dsa-downloads-item__description--font: var(--ks-font-interface-s);
+  --dsa-downloads-item__description--color: var(--ks-text-color-interface);
+
+  --dsa-downloads-item__infos--gap: var(--ks-spacing-xxs);
+  --dsa-downloads-item__infos--font: var(--ks-font-interface-s);
+  --dsa-downloads-item__infos--color: var(--ks-text-color-interface);
+  --dsa-downloads-item__infos--border: var(--ks-border-width-default) solid var(--ks-border-color-default);
+
+  --dsa-downloads-item__placeholder-icon--color: var(--ks-color-fg-inverted);
+  --dsa-downloads-item__placeholder-icon--background-color: var(--ks-color-fg-to-bg-5);
+  --dsa-downloads-item__placeholder-icon--border-radius: var(--ks-border-radius-control);
+  --dsa-downloads-item__placeholder-icon--size: 2.65rem;
+
+  --dsa-downloads-item__button--color: var(--ks-text-color-interface-interactive);
+  --dsa-downloads-item__button--color_hover: var(--ks-text-color-interface-interactive-hover);
+  --dsa-downloads-item__button--font: var(--ks-font-interface-s);
+  --dsa-downloads-item__button--font-weight: var(--ks-font-weight-semi-bold);
+  --dsa-downloads-item__button--gap: var(--ks-spacing-xxs);
+
+  --dsa-downloads-item__download-icon--size: 1.5rem;
+}

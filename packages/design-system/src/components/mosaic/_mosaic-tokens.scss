@@ -1,0 +1,12 @@
+.dsa-mosaic {
+  --dsa-mosaic--vertical-padding: var(--l-section--space-default);
+  --dsa-mosaic--horizontal-padding: var(--dsa-content--horizontal-spacing);
+
+  --dsa-mosaic__copy--font: var(--ks-font-copy-m);
+  --dsa-mosaic__copy--color: var(--ks-text-color-copy);
+
+  --dsa-mosaic__headline--color: var(--dsa-headline--color);
+  --dsa-mosaic__headline--font: var(--dsa-headline_h2--font);
+
+  --dsa-mosaic__subheadline--color: var(--dsa-headline__subheadline--color);
+}

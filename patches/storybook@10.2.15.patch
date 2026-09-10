@@ -1,0 +1,50 @@
+diff --git a/package.json b/package.json
+--- a/package.json
++++ b/package.json
+@@ -176,6 +176,10 @@
+     "./theming": {
+       "types": "./dist/theming/index.d.ts",
+       "default": "./dist/theming/index.js"
++    },
++    "./internal/theming": {
++      "types": "./dist/theming/index.d.ts",
++      "default": "./dist/theming/index.js"
+     },
+     "./theming/create": {
+       "types": "./dist/theming/create.d.ts",
+diff --git a/dist/csf/index.js b/dist/csf/index.js
+index bb9ba88..9115ca3 100644
+--- a/dist/csf/index.js
++++ b/dist/csf/index.js
+@@ -123,9 +123,11 @@ function toStartCaseStr(str) {
+
+ // src/csf/includeConditionalArg.ts
+ var import_tiny_isequal = __toESM(require_tiny_isequal(), 1), count = (vals) => vals.map((v) => typeof v < "u").filter(Boolean).length, testValue = (cond, value) => {
+-  let { exists, eq, neq, truthy } = cond;
+-  if (count([exists, eq, neq, truthy]) > 1)
++  let { exists, eq, neq, truthy, gt } = cond;
++  if (count([exists, eq, neq, truthy, gt]) > 1)
+     throw new Error(`Invalid conditional test ${JSON.stringify({ exists, eq, neq })}`);
++  if (typeof gt < "u")
++    return value > gt;
+   if (typeof eq < "u")
+     return (0, import_tiny_isequal.isEqual)(value, eq);
+   if (typeof neq < "u")
+diff --git a/dist/preview/runtime.js b/dist/preview/runtime.js
+index 49a4c92..069b3fc 100644
+--- a/dist/preview/runtime.js
++++ b/dist/preview/runtime.js
+@@ -16426,9 +16426,11 @@ function toStartCaseStr(str2) {
+
+ // src/csf/includeConditionalArg.ts
+ var import_tiny_isequal = __toESM(require_tiny_isequal(), 1), count = (vals) => vals.map((v) => typeof v < "u").filter(Boolean).length, testValue = (cond, value) => {
+-  let { exists, eq: eq4, neq, truthy } = cond;
+-  if (count([exists, eq4, neq, truthy]) > 1)
++  let { exists, eq: eq4, neq, truthy, gt } = cond;
++  if (count([exists, eq4, neq, truthy, gt]) > 1)
+     throw new Error(`Invalid conditional test ${JSON.stringify({ exists, eq: eq4, neq })}`);
++  if (typeof gt < "u")
++    return value > gt;
+   if (typeof eq4 < "u")
+     return (0, import_tiny_isequal.isEqual)(value, eq4);
+   if (typeof neq < "u")

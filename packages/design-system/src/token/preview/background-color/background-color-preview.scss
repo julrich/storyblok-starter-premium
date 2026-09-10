@@ -1,0 +1,32 @@
+.color {
+  &-frame {
+    width: 100px;
+    height: 100px;
+    border: var(--ks-border-width-default) solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &-test {
+    background-color: var(--ks-color-test);
+  }
+}
+
+.color-swatches {
+  display: flex;
+  gap: var(--ks-spacing-stack-m);
+
+  &[ks-inverted="true"] {
+    background-color: rgb(33, 31, 36);
+    padding: 1em;
+  }
+
+  > div {
+    width: 100px;
+    height: 50px;
+    display: flex;
+    gap: var(--ks-spacing-s);
+  }
+}

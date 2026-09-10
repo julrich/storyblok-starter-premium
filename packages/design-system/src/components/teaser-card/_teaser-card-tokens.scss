@@ -1,0 +1,151 @@
+@use "@kickstartds/core/source/core/container";
+@include container.wrapper("teaser-card");
+
+.dsa-teaser-card {
+  --dsa-teaser-card--background: var(--ks-background-color-card-interactive);
+  --dsa-teaser-card--background_hover: var(
+    --ks-background-color-card-interactive-hover
+  );
+
+  --dsa-teaser-card--border-radius: var(--ks-border-radius-card);
+  --dsa-teaser-card--border: var(--ks-border-card-interactive);
+  --dsa-teaser-card--border-color_hover: var(
+    --ks-border-color-card-interactive-hover
+  );
+
+  --dsa-teaser-card_compact--border: 0;
+  --dsa-teaser-card_compact--border-color_hover: unset;
+  --dsa-teaser-card_compact--overlay: linear-gradient(
+    transparent,
+    var(--ks-color-bg-alpha-5),
+    var(--ks-color-bg-alpha-1)
+  );
+  --dsa-teaser-card_compact--overlay_with-label: linear-gradient(
+    var(--ks-color-bg-alpha-4),
+    var(--ks-color-bg-alpha-5),
+    var(--ks-color-bg-alpha-1)
+  );
+
+  --dsa-teaser-card--shadow: var(--ks-box-shadow-card);
+  --dsa-teaser-card--shadow_hover: var(--ks-box-shadow-card-hover);
+
+  --dsa-teaser-card__image--transform_hover: scale(1.05);
+  --dsa-teaser-card__image--transition: transform var(--ks-transition-fade);
+  --dsa-teaser-card__image--padding: var(--dsa-teaser-card--padding);
+  --dsa-teaser-card__image--border-radius: var(
+    --dsa-teaser-card--border-radius
+  );
+
+  --dsa-teaser-card__body--gap: var(--ks-spacing-stack-s)
+    var(--ks-spacing-inline-m);
+
+  --dsa-teaser-card__topic--color: var(--dsa-topic--color);
+
+  --dsa-teaser-card__label--font: var(--ks-font-interface-s);
+  --dsa-teaser-card__label--font-weight: var(--ks-font-weight-semi-bold);
+  --dsa-teaser-card__label--color: var(--ks-text-color-primary);
+  --dsa-teaser-card__label--background-color: var(
+    --ks-background-color-default
+  );
+  --dsa-teaser-card__label--padding: 0.5em 1em;
+  --dsa-teaser-card__label--border-radius: var(--ks-border-radius-pill);
+  --dsa-teaser-card__label--border: var(--ks-border-width-default) solid
+    var(--ks-border-color-primary);
+
+  --dsa-teaser-card__button--font: var(--ks-font-interface-m);
+
+  // Scaling for Mobile Breakpoint
+  --dsa-teaser-card--padding: var(--ks-spacing-inset-m);
+
+  --dsa-teaser-card__topic--font: var(--ks-font-display-m);
+  --dsa-teaser-card__topic--font-weight: var(--dsa-topic--font-weight);
+
+  --dsa-teaser-card__copy--font: var(--ks-font-copy-s);
+  --dsa-teaser-card__copy--color: var(--ks-text-color-default);
+  --dsa-teaser-card__copy--margin-top: 0.5em;
+
+  --dsa-teaser-card__button--font: var(--ks-font-interface-s);
+
+  // Scaling for Mobile Breakpoint Large Tiles
+  @include container.size("≥", 400px, "teaser-card") {
+    --dsa-teaser-card--padding: var(--ks-spacing-inset-l);
+
+    --dsa-teaser-card__topic--font: var(--ks-font-display-l);
+
+    --dsa-teaser-card__copy--font: var(--ks-font-copy-m);
+
+    --dsa-teaser-card__button--font: var(--ks-font-interface-m);
+  }
+
+  @media (min-width: 48em) {
+    //Scaling for Desktop Breakpoint Small Tiles
+    --dsa-teaser-card__topic--font: var(--ks-font-display-s);
+    --dsa-teaser-card__copy--font: var(--ks-font-copy-s);
+
+    --dsa-teaser-card--padding: var(--ks-spacing-inset-m);
+
+    --dsa-teaser-card__button--font: var(--ks-font-interface-s);
+
+    // Scaling for Desktop Breakpoint Large Tiles
+    @include container.size("≥", 400px, "teaser-card") {
+      --dsa-teaser-card__topic--font: var(--ks-font-display-m);
+      --dsa-teaser-card__copy--font: var(--ks-font-copy-m);
+
+      --dsa-teaser-card__button--font: var(--ks-font-interface-m);
+    }
+  }
+}
+
+// ─── drhubert additions ──────────────────────────────────────────
+// Tokens for the `date` and `newTag` fields, ported from the pre-monorepo
+// website (renamed from the `--drh-` prefix to match this design system).
+.dsa-teaser-card {
+  --dsa-teaser-card__date--font: var(--ks-font-interface-s);
+  --dsa-teaser-card__date--font-weight: var(--ks-font-weight-regular);
+  --dsa-teaser-card__date--color: var(--ks-color-fg-to-bg-4);
+
+  --dsa-teaser-card__tag--font: var(--ks-font-interface-s);
+  --dsa-teaser-card__tag--font-weight: var(--ks-font-weight-semi-bold);
+  --dsa-teaser-card__tag--color: var(--dsa-text-color-on-primary);
+  --dsa-teaser-card__tag--background-color: var(--ks-color-secondary);
+  --dsa-teaser-card__tag--padding: 0.5em 1em;
+  --dsa-teaser-card__tag--border-radius: var(--ks-border-radius-pill);
+  --dsa-teaser-card__tag--border: 0;
+}
+
+// ─── drhubert card chrome ────────────────────────────────────────
+// Also ported from the pre-monorepo website's teaser-card, which the earlier
+// pass skipped: only the `date`/`newTag` half of that file came across. The
+// starter's card is a white, bordered, drop-shadowed tile with an inset image;
+// drhubert's is a flat grey tile with a flush image.
+.dsa-teaser-card {
+  // The old site resolved --ks-background-color-card-interactive to
+  // --ks-color-bg-to-fg-1 (#f2f3f4); this design system's semantic layer
+  // resolves the same token to plain --ks-color-bg, which is why the cards
+  // turned white. Point at the ramp step directly rather than editing
+  // src/token/tokens.css, which `kickstartDS tokens compile` regenerates.
+  --dsa-teaser-card--background: var(--ks-color-bg-to-fg-1);
+  --dsa-teaser-card--border: 0;
+  --dsa-teaser-card--shadow: none;
+
+  // Image sits flush against the card edges instead of inset with its own
+  // radius.
+  --dsa-teaser-card__image--padding: 0;
+  --dsa-teaser-card__image--border-radius: 0;
+}
+
+// `label` reads as a sub-headline above the main headline rather than the
+// starter's floating pill badge - which also freed up the top-right corner
+// the `newTag` pill occupies, where the two were overlapping.
+//
+// Scoped away from the compact layout, which overlays its label on the image
+// and needs to keep the pill treatment.
+.dsa-teaser-card:not(.dsa-teaser-card--compact) {
+  --dsa-teaser-card__label--font: var(--ks-font-copy-s);
+  --dsa-teaser-card__label--font-weight: var(--ks-font-weight-semi-bold);
+  --dsa-teaser-card__label--color: var(--ks-color-fg-to-bg-2);
+  --dsa-teaser-card__label--background-color: transparent;
+  --dsa-teaser-card__label--padding: 0;
+  --dsa-teaser-card__label--border: 0;
+  --dsa-teaser-card__label--border-radius: 0;
+}

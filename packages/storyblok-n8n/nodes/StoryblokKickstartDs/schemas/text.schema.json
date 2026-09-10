@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string",
+      "description": "Rich text content (supports markdown)"
+    },
+    "layout": {
+      "type": "string",
+      "enum": ["singleColumn", "multiColumn"],
+      "description": "Text layout mode"
+    },
+    "align": {
+      "type": "string",
+      "enum": ["left", "center"],
+      "description": "Text alignment"
+    },
+    "highlightText": {
+      "type": "boolean",
+      "description": "Visually highlight the text block"
+    }
+  },
+  "required": ["text"],
+  "additionalProperties": false
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/content-nav.schema.json",
+  "title": "Content Nav",
+  "description": "Content navigation component for navigating related topics or sections within content.",
+  "type": "object",
+  "properties": {
+    "image": {
+      "type": "object",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the image to display in the content nav."
+        },
+        "alt": {
+          "type": "string",
+          "description": "Alternative text for the image."
+        }
+      },
+      "required": ["src"]
+    },
+    "topic": {
+      "type": "string",
+      "description": "The topic of the content being navigated."
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "The text label for the link."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL the link points to."
+          }
+        },
+        "required": ["label", "url"],
+        "additionalProperties": false
+      }
+    },
+    "initiallyShown": {
+      "type": "number",
+      "default": 4,
+      "description": "Determines how many links are initially shown in the content nav. If there are more links, a 'Show More' button will be displayed."
+    }
+  },
+  "additionalProperties": false
+}

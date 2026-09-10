@@ -1,0 +1,28 @@
+@use "faq-tokens.scss";
+
+.dsa-faq {
+  .c-collapsible-box {
+    --c-collapsible-box-summary--color: var(--dsa-faq__summary--color, var(--dsa-topic--color));
+    --c-collapsible-box-summary--font-weight: var(--dsa-faq__summary--font-weight), var(--dsa-topic--font-weight);
+    --c-collapsible-box-summary--font: var(--dsa-faq__summary--font, var(--dsa-topic--font));
+    --c-collapsible-box-icon--color: var(--dsa-faq__icon--color, var(--ks-text-color-primary));
+    --c-collapsible-box_header--padding: var(--dsa-faq_header--padding, 1em 0);
+    --c-collapsible-box_content--padding: var(--dsa-faq_content--padding, 0em 0em 1em 0em);
+    --c-collapsible-box--border-color: var(--dsa-faq--border-color, var(--ks-border-color-accent));
+
+    border-bottom: var(--dsa-faq--border, var(--ks-border-divider));
+    border-top: var(--dsa-faq--border, var(--ks-border-divider));
+
+    &__header {
+      &__text {
+        color: var(--dsa-faq__summary--color, var(--dsa-topic--color));
+        font: var(--dsa-faq__summary--font, var(--dsa-topic--font));
+        font-weight: var(--dsa-faq__summary--font-weight, var(--dsa-topic--font-weight));
+      }
+
+      &__icon {
+        color: var(--c-collapsible-box-icon--color, var(--ks-text-color-primary-interactive));
+      }
+    }
+  }
+}

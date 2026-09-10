@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/features.schema.json",
+  "title": "Features",
+  "description": "Component used to display a set of features",
+  "type": "object",
+  "properties": {
+    "layout": {
+      "type": "string",
+      "title": "Layout",
+      "description": "The layout variant to use for the features",
+      "enum": ["largeTiles", "smallTiles", "list"],
+      "default": "largeTiles"
+    },
+    "style": {
+      "type": "string",
+      "enum": ["intext", "stack", "centered", "besideLarge", "besideSmall"],
+      "default": "stack"
+    },
+    "ctas": {
+      "type": "object",
+      "properties": {
+        "toggle": {
+          "type": "boolean",
+          "default": true,
+          "title": "CTA Toggle",
+          "description": "Activate/disable the CTAs"
+        },
+        "style": {
+          "type": "string",
+          "enum": ["button", "link", "intext"],
+          "default": "link"
+        }
+      },
+      "additionalProperties": false
+    },
+    "feature": {
+      "type": "array",
+      "title": "Features",
+      "description": "The features to display",
+      "items": {
+        "type": "object",
+        "title": "Feature",
+        "properties": {
+          "icon": {
+            "$ref": "http://schema.mydesignsystem.com/feature.schema.json#/properties/icon"
+          },
+          "title": {
+            "$ref": "http://schema.mydesignsystem.com/feature.schema.json#/properties/title"
+          },
+          "text": {
+            "$ref": "http://schema.mydesignsystem.com/feature.schema.json#/properties/text"
+          },
+          "cta": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "$ref": "http://schema.mydesignsystem.com/feature.schema.json#/properties/cta/properties/url"
+              },
+              "label": {
+                "$ref": "http://schema.mydesignsystem.com/feature.schema.json#/properties/cta/properties/label"
+              },
+              "icon": {
+                "$ref": "http://schema.mydesignsystem.com/feature.schema.json#/properties/cta/properties/icon"
+              }
+            }
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 8
+    }
+  },
+  "additionalProperties": false
+}

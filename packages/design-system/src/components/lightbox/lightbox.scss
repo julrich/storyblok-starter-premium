@@ -1,0 +1,66 @@
+@use "lightbox-tokens.scss";
+
+.pswp {
+  .pswp__img {
+    object-fit: contain;
+  }
+
+  .pswp__caption {
+    background-color: var(
+      --das-lightbox__caption--background-color,
+      var(--ks-color-bg-alpha-3)
+    );
+    color: var(--dsa-lightbox__caption--color, var(--ks-color-fg));
+  }
+
+  .pswp__counter {
+    font: var(--dsa-lightbox__counter--font);
+    color: var(--dsa-lightbox__counter--color);
+    opacity: 1;
+  }
+}
+
+.lightbox-image__zoom-icon {
+  color: var(--c-lightbox--icon-color);
+}
+
+.lightbox-image--with-zoom-icon:focus .lightbox-image__thumb,
+.lightbox-image--with-zoom-icon:hover .lightbox-image__thumb {
+  filter: var(--dsa-lightbox__thumb--hover-filter, none);
+}
+
+.text-media__media a {
+  position: relative;
+}
+
+:root {
+  --c-lightbox--bg: var(
+    --dsa-lightbox--background-color,
+    var(--ks-background-color-default)
+  ) !important;
+  --c-lightbox--placeholder-bg: var(
+    --dsa-lightbox__placeholder--background,
+    var(--ks-color-fg-to-bg-1)
+  ) !important;
+  --c-lightbox--root-z-index: var(
+    --dsa-lightbox--root-z-index,
+    var(--ks-depth-modal)
+  ) !important;
+  --c-lightbox--icon-color: var(
+    --dsa-lightbox__button--color,
+    var(--ks-text-color-on-primary)
+  ) !important;
+  --c-lightbox--icon-color-secondary: var(
+    --dsa-lightbox__counter--shadow,
+    var(--ks-color-fg-inverted)
+  ) !important;
+  --c-lightbox--stroke-color: var(
+    --dsa-lightbox__stroke--color,
+    var(--ks-color-fg)
+  ) !important;
+  --c-lightbox--stroke-width: var(
+    --dsa-lightbox__stroke--width,
+    2px
+  ) !important;
+  --c-lightbox--error-text-color: var(--ks-color-error) !important;
+}

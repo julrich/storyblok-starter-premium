@@ -1,0 +1,42 @@
+# Name of your application. Used to uniquely configure containers.
+service: ruhmesmeile-design-system
+
+# Name of the container image.
+image: <%= ENV["DOCKER_STORYBOOK_IMAGE_NAME"] %>
+
+# Deploy to the same server as all other services.
+servers:
+  web:
+    - <%= ENV["HOSTING_SERVER_IP"] %>
+
+# Enable SSL auto certification via Let's Encrypt.
+# Storybook gets its own subdomain on the same host.
+proxy:
+  ssl: true
+  hosts:
+    - <%= ENV["STORYBOOK_PUBLIC_DOMAIN"] %>
+  app_port: 8080
+  response_timeout: 30
+  healthcheck:
+    path: /
+
+# Credentials for your image host.
+registry:
+  username: <%= ENV["DOCKER_USERNAME"] %>
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+# Configure builder setup.
+builder:
+  arch: amd64
+  # Build context is the repo root so workspace config and patches are available
+  context: .
+  dockerfile: packages/design-system/Dockerfile
+  # Bust the source-code cache on every deploy so code changes always ship
+  args:
+    CACHEBUST: <%= Time.now.to_i %>
+    STORYBLOK_API_TOKEN: <%= ENV["STORYBLOK_API_TOKEN"] %>
+
+env:
+  clear:
+    NODE_ENV: production

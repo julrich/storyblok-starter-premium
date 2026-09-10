@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/search.schema.json",
+  "title": "Search",
+  "type": "object",
+  "properties": {
+    "headline": {
+      "$ref": "http://schema.mydesignsystem.com/headline.schema.json"
+    },
+    "searchBar": {
+      "$ref": "http://schema.mydesignsystem.com/search-bar.schema.json"
+    },
+    "searchFilter": {
+      "$ref": "http://schema.mydesignsystem.com/search-filter.schema.json"
+    },
+    "searchResults": {
+      "type": "array",
+      "items": {
+        "$ref": "http://schema.mydesignsystem.com/search-result.schema.json"
+      }
+    }
+  },
+  "additionalProperties": false
+}

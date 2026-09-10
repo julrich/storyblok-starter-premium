@@ -1,0 +1,22 @@
+.dsa-pagination {
+  --dsa-pagination--gap: var(--ks-spacing-stack-xs);
+  --dsa-pagination--background: transparent;
+  --dsa-pagination--background_hover: var(--ks-color-fg-alpha-8);
+  --dsa-pagination--color: var(--ks-text-color-interface-interactive);
+  --dsa-pagination--color_hover: var(--ks-text-color-interface-interactive);
+  --dsa-pagination--border-radius: var(--ks-border-radius-control);
+  --dsa-pagination--border: var(--ks-border-width-default) solid var(--ks-border-color-interface-interactive);
+  --dsa-pagination--width: 3.75em;
+  --dsa-pagination--font: var(--ks-font-interface-s);
+  --dsa-pagination--padding: 0.5em;
+  --dsa-pagination__icon--size: 1.25em;
+  --dsa-pagination--background_active: var(--ks-background-color-primary-interactive);
+  --dsa-pagination--background_active_hover: var(--ks-background-color-primary-interactive-hover);
+  --dsa-pagination--color_active: var(--ks-text-color-on-primary);
+  --dsa-pagination--color_active_hover: var(--ks-text-color-on-primary);
+
+  @media (min-width: 768px) {
+    --dsa-pagination--border: none;
+    --dsa-pagination--width: 3em;
+  }
+}

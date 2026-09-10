@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src/components/**/*", "src/pages/**/*", "src/playground/**/*"],
+  "exclude": ["node_modules", "**/*.stories.*", "**/*.mdx"]
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/search-filter.schema.json",
+  "title": "Search Filter",
+  "description": "Search filter component for filtering search results by categories.",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The title of the search filter.",
+      "examples": ["Search by category"]
+    },
+    "categories": {
+      "type": "array",
+      "description": "The categories to filter by.",
+      "examples": [
+        [
+          { "title": "Pages", "amount": "10" },
+          { "title": "News", "amount": "5" },
+          { "title": "Blog Posts", "amount": "8" }
+        ]
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "The name of the category.",
+            "examples": ["Pages", "News"]
+          },
+          "amount": {
+            "type": "string",
+            "description": "The number of items in the category.",
+            "examples": ["10", "5"]
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL to filter by this category.",
+            "examples": ["#"]
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

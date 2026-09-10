@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "headline": {
+      "type": "string",
+      "description": "Blog post title"
+    },
+    "teaserText": {
+      "type": "string",
+      "description": "Teaser/excerpt text (supports markdown)"
+    },
+    "date": {
+      "type": "string",
+      "description": "Publication date (ISO 8601)"
+    },
+    "readingTime": {
+      "type": "string",
+      "description": "Estimated reading time (e.g. '5 min read')"
+    },
+    "author_name": {
+      "type": "string",
+      "description": "Author display name"
+    },
+    "author_title": {
+      "type": "string",
+      "description": "Author job title"
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags for the blog post",
+      "items": {
+        "type": "object",
+        "properties": {
+          "entry": {
+            "type": "string",
+            "description": "Tag label"
+          }
+        },
+        "required": ["entry"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["headline", "teaserText"],
+  "additionalProperties": false
+}

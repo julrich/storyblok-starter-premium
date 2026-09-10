@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/teaser-card.schema.json",
+  "title": "Teaser Card",
+  "description": "Component used to tease content",
+  "type": "object",
+  "properties": {
+    "headline": {
+      "type": "string",
+      "title": "Headline",
+      "description": "Headline for the teaser card",
+      "format": "markdown"
+    },
+    "text": {
+      "type": "string",
+      "title": "Text",
+      "description": "Body text for the teaser card",
+      "format": "markdown"
+    },
+    "label": {
+      "type": "string",
+      "title": "Label",
+      "description": "Label for the Teaser Card"
+    },
+    "layout": {
+      "type": "string",
+      "enum": [
+        "stack",
+        "row",
+        "compact"
+      ],
+      "description": "Layout for the Teaser Card",
+      "default": "stack"
+    },
+    "centered": {
+      "type": "boolean",
+      "title": "Centered",
+      "description": "Whether the Teaser Card is centered",
+      "default": false
+    },
+    "url": {
+      "type": "string",
+      "title": "Url",
+      "description": "Url that should be linked",
+      "format": "uri"
+    },
+    "button": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "title": "Label",
+          "type": "string",
+          "description": "Label of the button. Still A11Y relevant when the button is hidden."
+        },
+        "chevron": {
+          "title": "Icon",
+          "description": "Toggle arrow icon",
+          "type": "boolean",
+          "default": false
+        },
+        "hidden": {
+          "type": "boolean",
+          "title": "Display Button",
+          "description": "Toggle wether you want the card to have a visible button or not",
+          "default": false
+        }
+      },
+      "required": [
+        "label"
+      ]
+    },
+    "image": {
+      "type": "string",
+      "title": "Image",
+      "description": "Image to display as cover",
+      "format": "image"
+    },
+    "imageAlt": {
+      "type": "string",
+      "title": "Image Alt",
+      "description": "Alternative text for the image, used for accessibility"
+    },
+    "imageRatio": {
+      "type": "string",
+      "enum": [
+        "wide",
+        "landscape",
+        "square",
+        "unset"
+      ],
+      "description": "Aspect ratio of the image",
+      "default": "wide"
+    },
+    "imageHoverEffect": {
+      "type": "boolean",
+      "title": "Image Hover Effect",
+      "description": "Whether the image zooms in slightly when hovering over the card",
+      "default": true
+    },
+    "date": {
+      "type": "string",
+      "title": "Date",
+      "description": "Date of the content, displayed in the card",
+      "format": "date"
+    },
+    "newTag": {
+      "type": "boolean",
+      "title": "New Tag",
+      "description": "Toggle wether the card should be marked as new with a tag",
+      "default": false
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "topic",
+    "url"
+  ]
+}

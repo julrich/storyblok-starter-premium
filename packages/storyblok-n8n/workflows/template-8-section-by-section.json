@@ -1,0 +1,135 @@
+{
+  "name": "Section-by-Section Page Generation: Analyze → Plan → Generate Loop → Create",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger-1",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "resource": "aiContent",
+        "operation": "analyzePatterns",
+        "patternContentType": "page"
+      },
+      "id": "analyze-1",
+      "name": "Analyze Patterns",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [480, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "aiContent",
+        "operation": "planPage",
+        "planIntent": "Product landing page for our new AI analytics platform. Highlight real-time insights, integrations, pricing tiers, and customer testimonials.",
+        "planSectionCount": 5,
+        "planContentType": "page",
+        "planModel": "gpt-4o"
+      },
+      "id": "plan-1",
+      "name": "Plan Page Structure",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [720, 300],
+      "credentials": {
+        "openAiApi": { "id": "1", "name": "OpenAI" },
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const plan = $input.first().json.plan;\nconst sections = plan.sections;\n\n// Emit each planned section as a separate item with transition context\nreturn sections.map((section, index) => ({\n  json: {\n    componentType: section.componentType,\n    intent: section.intent,\n    notes: section.notes || '',\n    previousSection: index > 0 ? sections[index - 1].componentType : '',\n    nextSection: index < sections.length - 1 ? sections[index + 1].componentType : '',\n    sectionIndex: index,\n    totalSections: sections.length\n  }\n}));"
+      },
+      "id": "code-1",
+      "name": "Split Plan into Sections",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [960, 300]
+    },
+    {
+      "parameters": {
+        "resource": "aiContent",
+        "operation": "generateSection",
+        "sectionComponentType": "={{ $json.componentType }}",
+        "sectionPrompt": "={{ $json.intent + ($json.notes ? '\\n\\nNotes: ' + $json.notes : '') }}",
+        "sectionSystem": "You are a professional content writer for a tech company. Write engaging, specific content. Avoid generic placeholder text. Use concrete details and compelling language.",
+        "sectionPrevious": "={{ $json.previousSection }}",
+        "sectionNext": "={{ $json.nextSection }}",
+        "sectionContentType": "page",
+        "sectionModel": "gpt-4o"
+      },
+      "id": "generate-1",
+      "name": "Generate Section",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [1200, 300],
+      "credentials": {
+        "openAiApi": { "id": "1", "name": "OpenAI" },
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Collect all generated sections from the loop\n// Each generateSection result now returns a single section object\n// (with component: 'section' and nested components), not a page wrapper.\nconst allItems = $('Generate Section').all();\nconst sections = allItems.map(item => item.json.generatedContent);\n\nreturn [{ json: { sections } }];"
+      },
+      "id": "code-2",
+      "name": "Collect All Sections",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1440, 300]
+    },
+    {
+      "parameters": {
+        "resource": "story",
+        "operation": "createPage",
+        "name": "AI Analytics Platform",
+        "slug": "ai-analytics-platform",
+        "sections": "={{ JSON.stringify($json.sections) }}",
+        "createContentType": "page",
+        "path": "en",
+        "publish": false,
+        "uploadAssets": true,
+        "assetFolderName": "AI Generated"
+      },
+      "id": "create-1",
+      "name": "Create Page",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [1680, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{ "node": "Analyze Patterns", "type": "main", "index": 0 }]]
+    },
+    "Analyze Patterns": {
+      "main": [[{ "node": "Plan Page Structure", "type": "main", "index": 0 }]]
+    },
+    "Plan Page Structure": {
+      "main": [
+        [{ "node": "Split Plan into Sections", "type": "main", "index": 0 }]
+      ]
+    },
+    "Split Plan into Sections": {
+      "main": [[{ "node": "Generate Section", "type": "main", "index": 0 }]]
+    },
+    "Generate Section": {
+      "main": [[{ "node": "Collect All Sections", "type": "main", "index": 0 }]]
+    },
+    "Collect All Sections": {
+      "main": [[{ "node": "Create Page", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateId": "storyblok-kds-section-by-section" }
+}

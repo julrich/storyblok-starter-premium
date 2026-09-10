@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://cms.mydesignsystem.com/section.schema.json",
+  "title": "Section",
+  "description": "Component used to layout components into pages",
+  "type": "object",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "aiDraft": {
+          "type": "boolean",
+          "title": "AI Draft?",
+          "description": "If true, the section is marked as an AI-generated draft",
+          "default": false
+        },
+        "anchorId": {
+          "type": "string",
+          "title": "Anchor ID",
+          "description": "Optional unique ID for this section, enabling direct anchor links (e.g. /page#my-section)"
+        },
+        "components": {
+          "type": "array",
+          "title": "Content",
+          "description": "Allowed components for content",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "http://cms.mydesignsystem.com/info-table.schema.json"
+              },
+              {
+                "$ref": "http://cms.mydesignsystem.com/prompter.schema.json"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "$ref": "http://schema.mydesignsystem.com/section.schema.json"
+    }
+  ],
+  "additionalProperties": false
+}

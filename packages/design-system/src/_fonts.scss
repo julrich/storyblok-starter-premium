@@ -1,0 +1,47 @@
+/* Titillium Web – Light */
+@font-face {
+  font-family: "TitilliumWeb";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../static/fonts/TitilliumWeb-Light.woff2") format("woff2");
+}
+
+/* Titillium Web – Regular */
+@font-face {
+  font-family: "TitilliumWeb";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../static/fonts/TitilliumWeb-Regular.woff2") format("woff2");
+}
+
+/* Titillium Web – Medium
+   No dedicated Medium cut exists; SemiBold is the closest available weight.
+   Declared explicitly so `--ks-font-weight-medium` (500) does not fall through
+   to Bold, which is what happened before the migration. */
+@font-face {
+  font-family: "TitilliumWeb";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../static/fonts/TitilliumWeb-SemiBold.woff2") format("woff2");
+}
+
+/* Titillium Web – SemiBold */
+@font-face {
+  font-family: "TitilliumWeb";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../static/fonts/TitilliumWeb-SemiBold.woff2") format("woff2");
+}
+
+/* Titillium Web – Bold */
+@font-face {
+  font-family: "TitilliumWeb";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../static/fonts/TitilliumWeb-Bold.woff2") format("woff2");
+}

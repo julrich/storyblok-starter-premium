@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://cms.mydesignsystem.com/settings.schema.json",
+  "title": "Settings",
+  "description": "Abstracts global settings made for a website into JSON Schema",
+  "type": "object",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "theme": {
+          "type": "string",
+          "format": "theme",
+          "title": "Theme",
+          "description": "Select a token theme to apply globally — overrides default branding tokens"
+        },
+        "headerButton": {
+          "type": "object",
+          "title": "Header Button",
+          "description": "Configure a CTA button shown at the far right of the header navigation (opens in new tab)",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Enabled",
+              "description": "Show a CTA button at the right of the header navigation",
+              "default": false
+            },
+            "label": {
+              "type": "string",
+              "title": "Label",
+              "description": "Label text for the header CTA button",
+              "default": "Contact Us"
+            },
+            "url": {
+              "type": "string",
+              "title": "URL",
+              "description": "URL the header CTA button links to (opens in new tab)",
+              "format": "uri"
+            }
+          },
+          "additionalProperties": false
+        },
+        "bookDemoButton": {
+          "type": "object",
+          "title": "Book a Demo Button",
+          "description": "Configure the fixed Book a Demo button shown on all pages",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "title": "Enabled",
+              "description": "Show a fixed 'Book a Demo' button on all pages",
+              "default": false
+            },
+            "label": {
+              "type": "string",
+              "title": "Label",
+              "description": "Label text for the Book a Demo button",
+              "default": "Book a Demo"
+            },
+            "url": {
+              "type": "string",
+              "title": "URL",
+              "description": "URL the Book a Demo button links to",
+              "format": "uri"
+            },
+            "variant": {
+              "type": "string",
+              "title": "Variant",
+              "description": "Visual variant of the Book a Demo button",
+              "enum": ["primary", "secondary", "tertiary"],
+              "default": "primary"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    { "$ref": "http://schema.mydesignsystem.com/settings.schema.json" }
+  ],
+  "additionalProperties": false
+}

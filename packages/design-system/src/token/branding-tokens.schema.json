@@ -1,0 +1,467 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://schema.kickstartds.com/tokens/brand.schema.json",
+  "title": "kickstartDS Branding Design Tokens",
+  "type": "object",
+  "properties": {
+    "color": {
+      "type": "object",
+      "properties": {
+        "primary": {
+          "$ref": "#/definitions/colorPair"
+        },
+        "onPrimary": {
+          "$ref": "#/definitions/colorPair"
+        },
+        "bg": {
+          "$ref": "#/definitions/colorPair"
+        },
+        "fg": {
+          "$ref": "#/definitions/colorPair"
+        },
+        "link": {
+          "$ref": "#/definitions/colorPair"
+        },
+        "positive": {
+          "$ref": "#/definitions/colorPair"
+        },
+        "negative": {
+          "$ref": "#/definitions/colorPair"
+        },
+        "informative": {
+          "$ref": "#/definitions/colorPair"
+        },
+        "notice": {
+          "$ref": "#/definitions/colorPair"
+        },
+        "scale": {
+          "type": "object",
+          "properties": {
+            "1": {
+              "$ref": "#/definitions/fraction"
+            },
+            "2": {
+              "$ref": "#/definitions/fraction"
+            },
+            "3": {
+              "$ref": "#/definitions/fraction"
+            },
+            "4": {
+              "$ref": "#/definitions/fraction"
+            },
+            "5": {
+              "$ref": "#/definitions/fraction"
+            },
+            "6": {
+              "$ref": "#/definitions/fraction"
+            },
+            "7": {
+              "$ref": "#/definitions/fraction"
+            },
+            "8": {
+              "$ref": "#/definitions/fraction"
+            },
+            "9": {
+              "$ref": "#/definitions/fraction"
+            }
+          }
+        }
+      }
+    },
+    "font": {
+      "type": "object",
+      "description": "Controls font families and weights for headings, body, UI, and code. Adjust to match your brand typography.",
+      "properties": {
+        "family": {
+          "type": "object",
+          "properties": {
+            "display": {
+              "$ref": "#/definitions/fontFamily"
+            },
+            "copy": {
+              "$ref": "#/definitions/fontFamily"
+            },
+            "interface": {
+              "$ref": "#/definitions/fontFamily"
+            },
+            "mono": {
+              "$ref": "#/definitions/fontFamily"
+            }
+          }
+        },
+        "weight": {
+          "type": "object",
+          "properties": {
+            "light": {
+              "$ref": "#/definitions/fontWeight"
+            },
+            "regular": {
+              "$ref": "#/definitions/fontWeight"
+            },
+            "medium": {
+              "$ref": "#/definitions/fontWeight"
+            },
+            "semi-bold": {
+              "$ref": "#/definitions/fontWeight"
+            },
+            "bold": {
+              "$ref": "#/definitions/fontWeight"
+            }
+          }
+        },
+        "size": {
+          "type": "object",
+          "properties": {
+            "display": {
+              "$ref": "#/definitions/size"
+            },
+            "copy": {
+              "$ref": "#/definitions/size"
+            },
+            "interface": {
+              "$ref": "#/definitions/size"
+            },
+            "mono": {
+              "$ref": "#/definitions/size"
+            }
+          }
+        }
+      }
+    },
+    "spacing": {
+      "type": "object",
+      "properties": {
+        "factor": {
+          "allOf": [
+            {
+              "description": "spacing-factor controls the scaling of spacing-m relative to font-size-copy-m. 1 = smaller spacing, 1.5 = balanced spacing, 2 = larger spacing"
+            },
+            {
+              "$ref": "#/definitions/factor"
+            }
+          ]
+        },
+        "shrink-factor": {
+          "allOf": [
+            {
+              "description": "spacing-shrink-factor controls how much each smaller spacing step shrinks relative to the next larger step. Higher values shrink more rapidly. 1.5 (default), 1 (minimal), 2 (aggressive)"
+            },
+            {
+              "$ref": "#/definitions/factor"
+            }
+          ]
+        },
+        "grow-factor": {
+          "allOf": [
+            {
+              "description": "spacing-grow-factor controls how much each larger spacing step grows relative to the next smaller step. Higher values grow more rapidly. 1.5 (default), 1 (minimal), 2 (aggressive)"
+            },
+            {
+              "$ref": "#/definitions/factor"
+            }
+          ]
+        },
+        "bp-factor": {
+          "allOf": [
+            {
+              "description": "spacing-bp-factor controls how much spacing increases at larger breakpoints (responsive scaling). Higher values increase spacing more on large screens. 1.5 (default), 1 (minimal), 2 (aggressive)"
+            },
+            {
+              "$ref": "#/definitions/factor"
+            }
+          ]
+        }
+      }
+    },
+    "border": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "object",
+          "properties": {
+            "default": {
+              "$ref": "#/definitions/dimension"
+            }
+          }
+        },
+        "radius-factor": {
+          "allOf": [
+            {
+              "description": "border-radius-factor controls how rounded corners are. 1 = no border radius, 2 = maximum border radius"
+            },
+            {
+              "$ref": "#/definitions/factor"
+            }
+          ]
+        }
+      }
+    },
+    "box-shadow": {
+      "type": "object",
+      "properties": {
+        "blur-factor": {
+          "allOf": [
+            {
+              "description": "box-shadow-blur-factor controls shadow softness. 1 = no blur, 2 = maximum blur"
+            },
+            {
+              "$ref": "#/definitions/factor"
+            }
+          ]
+        },
+        "opacity-factor": {
+          "allOf": [
+            {
+              "description": "box-shadow-opacity-factor controls shadow transparency. 1 = fully transparent, 2 = fully opaque"
+            },
+            {
+              "$ref": "#/definitions/factor"
+            }
+          ]
+        },
+        "spread-factor": {
+          "allOf": [
+            {
+              "description": "box-shadow-spread-factor controls shadow size. 1 = negative spread, 1.5 = no spread, 2 = maximum spread"
+            },
+            {
+              "$ref": "#/definitions/factor"
+            }
+          ]
+        }
+      }
+    },
+    "duration": {
+      "type": "object",
+      "properties": {
+        "factor": {
+          "allOf": [
+            {
+              "description": "Controls animation and transition timing. transition-duration-base sets base speed for all transitions. 1 = faster transitions, 2 = slower transitions"
+            },
+            {
+              "$ref": "#/definitions/factor"
+            }
+          ]
+        }
+      }
+    },
+    "_fontHref": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "color",
+    "font",
+    "spacing",
+    "border",
+    "box-shadow",
+    "duration"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "color": {
+      "type": "object",
+      "properties": {
+        "$type": {
+          "const": "color"
+        },
+        "$value": {
+          "type": "object",
+          "properties": {
+            "colorSpace": {
+              "const": "srgb"
+            },
+            "components": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              ],
+              "minItems": 3,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "colorSpace",
+            "components"
+          ]
+        }
+      }
+    },
+    "colorPair": {
+      "type": "object",
+      "properties": {
+        "$root": {
+          "$ref": "#/definitions/color"
+        },
+        "inverted": {
+          "$ref": "#/definitions/color"
+        }
+      }
+    },
+    "fraction": {
+      "type": "object",
+      "properties": {
+        "$type": {
+          "const": "number"
+        },
+        "$value": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "$type",
+        "$value"
+      ]
+    },
+    "fontFamily": {
+      "type": "object",
+      "properties": {
+        "$type": {
+          "const": "fontFamily"
+        },
+        "$value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "$type",
+        "$value"
+      ]
+    },
+    "fontWeight": {
+      "type": "object",
+      "properties": {
+        "$type": {
+          "const": "fontWeight"
+        },
+        "$value": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "$type",
+        "$value"
+      ]
+    },
+    "dimension": {
+      "type": "object",
+      "properties": {
+        "$type": {
+          "const": "dimension"
+        },
+        "$value": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string",
+              "const": "px"
+            }
+          }
+        }
+      },
+      "required": [
+        "$type",
+        "$value"
+      ]
+    },
+    "size": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "$ref": "#/definitions/dimension"
+        },
+        "shrink-factor": {
+          "allOf": [
+            {
+              "description": "Determine scaling from m to xxs"
+            },
+            {
+              "$ref": "#/definitions/factor"
+            }
+          ]
+        },
+        "grow-factor": {
+          "allOf": [
+            {
+              "description": "Determine scaling from m to xxl"
+            },
+            {
+              "$ref": "#/definitions/factor"
+            }
+          ]
+        },
+        "bp-factor": {
+          "allOf": [
+            {
+              "title": "Breakpoint Factor",
+              "description": "Higher bp factor means large spacings increase more at bigger screen sizes than small spacings"
+            },
+            {
+              "$ref": "#/definitions/factor"
+            }
+          ]
+        }
+      }
+    },
+    "number": {
+      "type": "object",
+      "properties": {
+        "$type": {
+          "const": "number"
+        },
+        "$value": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "$type",
+        "$value"
+      ]
+    },
+    "factor": {
+      "type": "object",
+      "properties": {
+        "$type": {
+          "const": "number"
+        },
+        "$value": {
+          "type": "number",
+          "default": 1.5,
+          "minimum": 1,
+          "maximum": 2
+        }
+      },
+      "required": [
+        "$type",
+        "$value"
+      ]
+    }
+  }
+}

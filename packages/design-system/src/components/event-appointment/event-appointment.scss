@@ -1,0 +1,83 @@
+.dsa-event-appointment {
+  --g-link--color: var(--ks-text-color-interface);
+  --g-link--color-hover: var(--ks-text-color-interface);
+  --g-link--border-radius: var(--ks-border-radius-card);
+  --g-link--background: var(--ks-background-color-default);
+  --g-link--background-hover: var(--ks-background-color-default);
+  --g-link--text-decoration: none;
+  --g-link--text-decoration-hover: none;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--ks-spacing-inline-s);
+  padding: var(--ks-spacing-inset-s);
+  border: var(--ks-border-width-default) solid var(--ks-border-color-interface-interactive);
+  height: fit-content;
+  box-shadow: var(--ks-box-shadow-control);
+
+  // Inherit font size from parent to allow grid column sizing in em units
+  font: inherit;
+
+  // overwrite global link styles from kickstartDS
+  :root &,
+  html & {
+    transition: var(--ks-transition-hover);
+  }
+
+  &:hover {
+    border-color: var(--ks-border-color-interface-interactive-hover);
+  }
+
+  &__info {
+    display: flex;
+    gap: var(--ks-spacing-xxs);
+    text-decoration: none;
+    align-items: center;
+
+    &--date {
+      font-weight: var(--ks-font-weight-semi-bold);
+    }
+
+    &--time {
+      font-weight: var(--ks-font-weight-regular);
+    }
+  }
+
+  &__infos {
+    flex-direction: column;
+    display: flex;
+    gap: var(--ks-spacing-stack-xs);
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    color: var(--dsa-link--color);
+    font: var(--ks-font-interface-s);
+    align-self: flex-end;
+    font-weight: var(--ks-font-weight-semi-bold);
+    transition: var(--ks-transition-hover);
+    transition-property: color;
+
+    &:hover {
+      color: var(--dsa-link--color_hover);
+    }
+
+    .icon {
+      width: 1.75em;
+      height: 1.75em;
+    }
+  }
+
+  &__icon {
+    color: var(--ks-text-color-primary);
+    width: 1.75em;
+    height: 1.75em;
+  }
+
+  .l-container--rich-text {
+    container-type: normal;
+  }
+}

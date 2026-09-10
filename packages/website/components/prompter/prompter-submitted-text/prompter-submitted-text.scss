@@ -1,0 +1,16 @@
+.prompter-submitted-text {
+  display: flex;
+  gap: 0.75rem;
+  color: rgb(70, 70, 70);
+  font-family: var(--prompter-font-family);
+  font-size: 1.25rem;
+  line-height: 1.25;
+  align-items: center;
+  margin-top: 1rem;
+
+  .icon {
+    flex-shrink: 0;
+    height: 42px;
+    aspect-ratio: 1/1;
+  }
+}

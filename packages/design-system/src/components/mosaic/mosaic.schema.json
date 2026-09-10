@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/mosaic.schema.json",
+  "title": "Mosaic",
+  "description": "Mosaic component for displaying a collection of tiles in various layouts.",
+  "type": "object",
+  "properties": {
+    "layout": {
+      "title": "Layout",
+      "description": "Layout of the mosaic component",
+      "type": "string",
+      "enum": ["alternate", "textLeft", "textRight"],
+      "default": "alternate"
+    },
+    "largeHeadlines": {
+      "type": "boolean",
+      "title": "Large Headlines",
+      "description": "Make the headlines larger",
+      "default": false
+    },
+    "tile": {
+      "type": "array",
+      "title": "Tiles",
+      "description": "The tiles to display",
+      "items": { "$ref": "http://schema.mydesignsystem.com/tile.schema.json" },
+      "minItems": 1,
+      "maxItems": 20
+    }
+  },
+  "additionalProperties": false
+}

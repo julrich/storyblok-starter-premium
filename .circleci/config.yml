@@ -1,0 +1,25 @@
+version: 2.1
+
+defaults: &defaults
+  docker:
+    - image: cimg/ruby:3.4.7
+  resource_class: medium
+
+jobs:
+  deploy:
+    <<: *defaults
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Install Kamal
+          command: gem install kamal
+      - run:
+          name: Build & Deploy Website
+          command: kamal deploy
+
+workflows:
+  release:
+    jobs:
+      - deploy

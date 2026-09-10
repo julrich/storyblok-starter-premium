@@ -1,0 +1,10 @@
+@use "checkbox-group-tokens.scss";
+
+.dsa-checkbox-group {
+  span.c-form-check-group__label {
+    color: var(--dsa-checkbox-group__label--color, var(--ks-text-color-interface));
+    font: var(--dsa-checkbox-group__label--font, var(--ks-font-interface-s));
+    font-weight: var(--dsa-checkbox-group__label--font-weight, var(--ks-font-weight-semi-bold));
+    padding-bottom: var(--dsa-checkbox-group__label--padding-bottom, 0.25em);
+  }
+}

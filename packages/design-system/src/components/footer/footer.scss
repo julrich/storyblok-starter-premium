@@ -1,0 +1,203 @@
+@use "footer-tokens.scss";
+
+.dsa-footer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  background-color: var(--dsa-footer--background-color, var(--ks-background-color-default));
+
+  &__content {
+    padding: var(--l-section--space-small) var(--dsa-content--horizontal-spacing);
+    border-top: var(--dsa-footer--border-top, var(--ks-border-width-default) solid var(--ks-border-color-default));
+    max-width: var(--dsa-footer--max-width, var(--dsa-content--width_wide));
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--dsa-footer--gap-vertical, var(--ks-spacing-stack-l));
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--dsa-footer__columns--gap, var(--ks-spacing-stack-l) var(--ks-spacing-inline-xl));
+
+    @media (min-width: 48em) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 62em) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dsa-footer__column--gap, var(--ks-spacing-stack-s));
+  }
+
+  &__column-heading {
+    margin: 0;
+    font: var(--dsa-footer__column-heading--font, var(--ks-font-interface-s));
+    font-weight: var(--dsa-footer__column-heading--font-weight, var(--ks-font-weight-bold));
+    text-transform: var(--dsa-footer__column-heading--text-transform, uppercase);
+    letter-spacing: var(--dsa-footer__column-heading--letter-spacing, 0.05em);
+    color: var(--dsa-footer__column-heading--color, var(--ks-text-color-default));
+  }
+
+  // A linked column heading keeps the heading's own typography - it is still a
+  // heading, it just happens to be clickable - and only picks up link
+  // behaviour on hover.
+  &__column-heading-link {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    text-decoration: var(
+      --dsa-footer__column-heading-link--text-decoration,
+      none
+    );
+
+    &:hover {
+      color: var(
+        --dsa-footer__column-heading-link--color_hover,
+        var(--dsa-link--color_hover)
+      );
+      text-decoration: var(
+        --dsa-footer__column-heading-link--text-decoration_hover,
+        underline
+      );
+    }
+  }
+
+  // A one-dimensional menu: not a single group has a second level, so the
+  // headings are the menu rather than labels above a list. Flow them as a
+  // wrapping row instead of a grid of columns, and drop the column-label look
+  // (bold, uppercase, tracking) for the header's nav-link typography.
+  &__columns--flat {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--dsa-footer__columns_flat--gap, var(--ks-spacing-stack-s) var(--ks-spacing-inline-m));
+
+    .dsa-footer__column-heading {
+      font: var(--dsa-footer__column-heading_flat--font, var(--ks-font-interface-s));
+      font-family: var(--dsa-footer__column-heading_flat--font-family, var(--ks-font-family-display));
+      font-weight: var(--dsa-footer__column-heading_flat--font-weight, var(--ks-font-weight-medium));
+      text-transform: var(--dsa-footer__column-heading_flat--text-transform, none);
+      letter-spacing: var(--dsa-footer__column-heading_flat--letter-spacing, normal);
+      color: var(--dsa-footer__column-heading_flat--color, var(--ks-text-color-interface-interactive));
+    }
+
+    .dsa-footer__column-heading-link:hover {
+      color: var(--dsa-footer__column-heading_flat--color_hover, var(--ks-text-color-interface-interactive-hover));
+      text-decoration: var(--dsa-footer__column-heading-link_flat--text-decoration_hover, none);
+    }
+
+    // Keep the social icons at the far end rather than inline with the menu.
+    .dsa-footer__column--social {
+      margin-inline-start: auto;
+    }
+  }
+
+  &__nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--dsa-footer__nav-list--gap, var(--ks-spacing-stack-xs));
+  }
+
+  &__nav-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link:not(.c-button) {
+    font: var(--dsa-footer__link--font, var(--ks-font-interface-s));
+    font-weight: var(--dsa-footer__link--font-weight, var(--dsa-link--font-weight));
+    color: var(--dsa-footer__link--color, var(--dsa-link--color));
+    text-decoration: var(--dsa-footer__link--text-decoration, none);
+
+    &:hover {
+      text-decoration: var(--dsa-footer__link--text-decoration_hover, underline);
+      color: var(--dsa-footer__link--color_hover, var(--dsa-link--color_hover));
+    }
+  }
+
+  &__social {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--dsa-footer__social--gap, var(--ks-spacing-inline-s));
+  }
+
+  &__social-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dsa-footer__social-link--color, var(--ks-text-color-interface-interactive));
+
+    svg {
+      width: var(--dsa-footer__social-link--size, 1.5rem);
+      height: var(--dsa-footer__social-link--size, 1.5rem);
+    }
+
+    &:hover {
+      color: var(--dsa-footer__social-link--color_hover, var(--ks-text-color-interface-interactive-hover));
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--dsa-footer__bottom--gap, var(--ks-spacing-stack-s));
+    padding-top: var(--dsa-footer__bottom--padding-top, var(--ks-spacing-stack-m));
+    border-top: var(--dsa-footer__bottom--border-top, var(--ks-border-width-default) solid var(--ks-border-color-default));
+
+    @media (min-width: 48em) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__copyright {
+    margin: 0;
+    font: var(--dsa-footer__copyright--font, var(--ks-font-copy-xs));
+    color: var(--dsa-footer__copyright--color, var(--ks-text-color-default));
+  }
+
+  // The badge sits on its own line under the bottom bar rather than inside it,
+  // so it reads as a mark on the page instead of a third item competing with
+  // the logo and the copyright.
+  &__badge {
+    align-self: var(--dsa-footer__badge--align-self, center);
+    width: var(--dsa-footer__badge--width, 120px);
+    height: auto;
+
+    @media (min-width: 42em) {
+      width: var(--dsa-footer__badge--width_m, 150px);
+    }
+  }
+
+  &__legal-link:not(.c-button) {
+    font: inherit;
+    color: var(--dsa-footer__legal-link--color, var(--dsa-link--color));
+    text-decoration: var(--dsa-footer__legal-link--text-decoration, underline);
+
+    &:hover {
+      color: var(--dsa-footer__legal-link--color_hover, var(--dsa-link--color_hover));
+    }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "name": "Bulk Theme Apply: List Pages → Apply Theme to Matching Pages",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger-1",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "themeSlug",
+              "value": "corporate"
+            },
+            {
+              "name": "slugPrefix",
+              "value": ""
+            }
+          ],
+          "boolean": [
+            {
+              "name": "publish",
+              "value": false
+            }
+          ]
+        }
+      },
+      "id": "set-1",
+      "name": "Set Variables",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "resource": "theme",
+        "operation": "list"
+      },
+      "id": "list-themes-1",
+      "name": "List Themes",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [680, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const themeSlug = $('Set Variables').first().json.themeSlug;\nconst themes = $input.first().json.themes;\n\nconst match = themes.find(t => t.slug === themeSlug);\n\nif (!match) {\n  throw new Error(\n    `Theme \"${themeSlug}\" not found. Available themes: ${themes.map(t => t.slug).join(', ')}`\n  );\n}\n\nreturn [{ json: { themeUuid: match.uuid, themeName: match.name, themeSlug: match.slug } }];"
+      },
+      "id": "code-resolve-1",
+      "name": "Resolve Theme UUID",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "resource": "story",
+        "operation": "list",
+        "contentType": "page",
+        "startsWith": "={{ $('Set Variables').first().json.slugPrefix }}",
+        "perPage": 100,
+        "excludeContent": true
+      },
+      "id": "list-stories-1",
+      "name": "List Pages",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [1120, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const stories = $input.first().json.stories;\nconst themeUuid = $('Resolve Theme UUID').first().json.themeUuid;\nconst themeName = $('Resolve Theme UUID').first().json.themeName;\nconst publish = $('Set Variables').first().json.publish;\n\nif (!stories || stories.length === 0) {\n  throw new Error('No pages found matching the slug prefix.');\n}\n\nreturn stories.map(s => ({\n  json: {\n    storyId: String(s.id),\n    storySlug: s.full_slug,\n    storyName: s.name,\n    themeUuid,\n    themeName,\n    publish\n  }\n}));"
+      },
+      "id": "code-split-1",
+      "name": "Prepare Apply Batch",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "batchSize": 5
+      },
+      "id": "batch-1",
+      "name": "Split In Batches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [1560, 300]
+    },
+    {
+      "parameters": {
+        "resource": "theme",
+        "operation": "apply",
+        "applyStoryId": "={{ $json.storyId }}",
+        "applyThemeUuid": "={{ $json.themeUuid }}",
+        "applyPublish": "={{ $json.publish }}"
+      },
+      "id": "apply-theme-1",
+      "name": "Apply Theme",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [1780, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "time": 200,
+        "unit": "milliseconds"
+      },
+      "id": "wait-1",
+      "name": "Rate Limit Pause",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [2000, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $('Apply Theme').all();\n\nconst succeeded = items.filter(i => i.json.success === true).length;\nconst failed = items.length - succeeded;\nconst themeName = items[0]?.json._meta?.themeUuid || 'unknown';\n\nreturn [{\n  json: {\n    summary: `Applied theme to ${succeeded} page(s), ${failed} failure(s)`,\n    totalPages: items.length,\n    succeeded,\n    failed,\n    themeName: $('Resolve Theme UUID').first().json.themeName,\n    themeSlug: $('Resolve Theme UUID').first().json.themeSlug\n  }\n}];"
+      },
+      "id": "code-summary-1",
+      "name": "Summarize Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1780, 520]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{ "node": "Set Variables", "type": "main", "index": 0 }]]
+    },
+    "Set Variables": {
+      "main": [[{ "node": "List Themes", "type": "main", "index": 0 }]]
+    },
+    "List Themes": {
+      "main": [[{ "node": "Resolve Theme UUID", "type": "main", "index": 0 }]]
+    },
+    "Resolve Theme UUID": {
+      "main": [[{ "node": "List Pages", "type": "main", "index": 0 }]]
+    },
+    "List Pages": {
+      "main": [[{ "node": "Prepare Apply Batch", "type": "main", "index": 0 }]]
+    },
+    "Prepare Apply Batch": {
+      "main": [[{ "node": "Split In Batches", "type": "main", "index": 0 }]]
+    },
+    "Split In Batches": {
+      "main": [
+        [{ "node": "Apply Theme", "type": "main", "index": 0 }],
+        [{ "node": "Summarize Results", "type": "main", "index": 0 }]
+      ]
+    },
+    "Apply Theme": {
+      "main": [[{ "node": "Rate Limit Pause", "type": "main", "index": 0 }]]
+    },
+    "Rate Limit Pause": {
+      "main": [[{ "node": "Split In Batches", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateId": "storyblok-kds-bulk-theme-apply" }
+}

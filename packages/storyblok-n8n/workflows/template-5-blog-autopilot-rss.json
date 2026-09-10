@@ -1,0 +1,103 @@
+{
+  "name": "Blog Autopilot: RSS → Scrape → Generate → Create",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "hours", "hoursInterval": 6 }]
+        }
+      },
+      "id": "schedule-1",
+      "name": "Check RSS Every 6h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{ $env.RSS_FEED_URL || 'https://example.com/feed.xml' }}",
+        "options": {}
+      },
+      "id": "rss-1",
+      "name": "Read RSS Feed",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "resource": "space",
+        "operation": "scrapeUrl",
+        "scrapeUrlTarget": "={{ $json.link }}",
+        "scrapeSelector": "article"
+      },
+      "id": "scrape-1",
+      "name": "Scrape Article",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [720, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "aiContent",
+        "operation": "generate",
+        "system": "You are a professional blog content writer. Transform the provided article into a well-structured blog post using the kickstartDS Design System components. Create engaging content that maintains the key information while adapting it to our website's style.",
+        "prompt": "=Transform this article into a blog post with a hero section, text sections for the main content, and a CTA at the end.\n\nOriginal article:\n{{ $json.markdown }}",
+        "schemaMode": "auto",
+        "autoComponentType": "",
+        "autoSectionCount": 3,
+        "model": "gpt-4o"
+      },
+      "id": "generate-1",
+      "name": "Generate Blog Post",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [960, 300],
+      "credentials": {
+        "openAiApi": { "id": "1", "name": "OpenAI" },
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "story",
+        "operation": "createPage",
+        "name": "={{ $('Scrape Article').item.json.title }}",
+        "slug": "={{ $('Scrape Article').item.json.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') }}",
+        "sections": "={{ JSON.stringify($json.storyblokContent ? [$json.storyblokContent] : $json.designSystemProps?.section || []) }}",
+        "createContentType": "blog-post",
+        "path": "en/blog",
+        "publish": false,
+        "uploadAssets": true,
+        "assetFolderName": "Blog Autopilot"
+      },
+      "id": "create-1",
+      "name": "Create Blog Post",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [1200, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    }
+  ],
+  "connections": {
+    "Check RSS Every 6h": {
+      "main": [[{ "node": "Read RSS Feed", "type": "main", "index": 0 }]]
+    },
+    "Read RSS Feed": {
+      "main": [[{ "node": "Scrape Article", "type": "main", "index": 0 }]]
+    },
+    "Scrape Article": {
+      "main": [[{ "node": "Generate Blog Post", "type": "main", "index": 0 }]]
+    },
+    "Generate Blog Post": {
+      "main": [[{ "node": "Create Blog Post", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateId": "storyblok-kds-blog-autopilot-rss" }
+}

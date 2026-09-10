@@ -1,0 +1,275 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/split-even.schema.json",
+  "title": "Split Even",
+  "description": "Split even layout component for dividing content into two equal sections.",
+  "type": "object",
+  "properties": {
+    "contentMinWidth": {
+      "title": "Content Minimum Width",
+      "description": "Sets the minimum width for each half of the split layout",
+      "type": "string",
+      "enum": ["narrow", "medium", "wide"],
+      "default": "medium"
+    },
+    "contentGutter": {
+      "title": "Content Gutter",
+      "description": "Sets the space between the content inside the two halves of the split layout",
+      "type": "string",
+      "enum": ["small", "default", "large", "none"],
+      "default": "default"
+    },
+    "mobileReverse": {
+      "title": "Mobile Reverse",
+      "description": "Reverses the order of the sections on mobile devices",
+      "type": "boolean",
+      "default": false
+    },
+    "verticalAlign": {
+      "title": "Vertical Alignment",
+      "type": "string",
+      "description": "Aligns the content vertically within the sections",
+      "enum": ["top", "center", "bottom", "sticky"],
+      "default": "top"
+    },
+    "verticalGutter": {
+      "title": "Vertical Gutter",
+      "description": "Sets the vertical space between the content of the split layout",
+      "type": "string",
+      "enum": ["large", "default", "small", "none"],
+      "default": "default"
+    },
+    "horizontalGutter": {
+      "title": "Horizontal Gutter",
+      "description": "Sets the horizontal space between the content of the split layout",
+      "type": "string",
+      "enum": ["large", "default", "small", "none"],
+      "default": "default"
+    },
+    "firstLayout": {
+      "type": "object",
+      "properties": {
+        "layout": {
+          "title": "Layout",
+          "description": "Sets the layout of the first section",
+          "type": "string",
+          "enum": ["smallTiles", "largeTiles", "list"],
+          "default": "list"
+        },
+        "gutter": {
+          "title": "Gutter",
+          "description": "Sets the gutter size for the first section",
+          "type": "string",
+          "enum": ["none", "small", "default", "large"],
+          "default": "default"
+        },
+        "stretchVertically": {
+          "title": "Stretch Vertically",
+          "description": "Whether the first section should stretch vertically to match the height of the second section",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "secondLayout": {
+      "type": "object",
+      "properties": {
+        "layout": {
+          "title": "Layout",
+          "description": "Sets the layout of the second section",
+          "type": "string",
+          "enum": ["smallTiles", "largeTiles", "list"],
+          "default": "list"
+        },
+        "stretchVertically": {
+          "title": "Stretch Vertically",
+          "description": "Whether the second section should stretch vertically to match the height of the first section",
+          "type": "boolean",
+          "default": false
+        },
+        "gutter": {
+          "title": "Gutter",
+          "description": "Sets the gutter size for the first section",
+          "type": "string",
+          "enum": ["none", "small", "default", "large"],
+          "default": "default"
+        }
+      }
+    },
+    "firstComponents": {
+      "type": "array",
+      "title": "First",
+      "description": "Allowed components for the first half of the split layout",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "http://schema.mydesignsystem.com/blog-teaser.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/business-card.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/button.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/contact.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/content-nav.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/cta.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/divider.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/downloads.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/event-latest-teaser.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/event-list-teaser.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/faq.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/features.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/gallery.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/headline.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/hero.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/html.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/image-story.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/image-text.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/logos.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/mosaic.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/slider.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/stats.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/teaser-card.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/testimonials.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/text.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/video-curtain.schema.json"
+          }
+        ]
+      }
+    },
+    "secondComponents": {
+      "type": "array",
+      "title": "Second",
+      "description": "Allowed components for the second half of the split layout",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "http://schema.mydesignsystem.com/blog-teaser.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/business-card.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/button.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/contact.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/content-nav.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/cta.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/divider.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/downloads.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/event-latest-teaser.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/event-list-teaser.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/faq.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/features.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/gallery.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/headline.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/hero.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/html.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/image-story.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/image-text.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/logos.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/mosaic.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/slider.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/stats.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/teaser-card.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/testimonials.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/text.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/video-curtain.schema.json"
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}

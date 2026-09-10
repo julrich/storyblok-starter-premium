@@ -1,0 +1,25 @@
+import { Canvas, Meta, ArgTypes } from "@storybook/addon-docs/blocks";
+import LinkTo from "@storybook/addon-links/react";
+import * as DownloadsStories from "./Downloads.stories";
+
+<Meta of={DownloadsStories} />
+
+### Technical Details Only
+
+<Canvas of={DownloadsStories.TechnicalDetailsOnly} />
+
+### Properties
+
+<ArgTypes />
+
+### Description Only
+
+<Canvas of={DownloadsStories.DescriptionOnly} />
+
+### Complete
+
+<Canvas of={DownloadsStories.Complete} />
+
+### Mixed
+
+<Canvas of={DownloadsStories.Mixed} />

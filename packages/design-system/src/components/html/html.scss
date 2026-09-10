@@ -1,0 +1,84 @@
+@use "html-tokens.scss";
+
+.dsa-html {
+  &--sixteen-to-nine {
+    aspect-ratio: 16 / 9;
+  }
+
+  &--sixteen-to-ten {
+    aspect-ratio: 16 / 10;
+  }
+
+  &--four-to-three {
+    aspect-ratio: 4 / 3;
+  }
+
+  &--square {
+    aspect-ratio: 1;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__consent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--ks-spacing-stack-s);
+    background-position: center;
+    background-size: cover;
+    padding: var(--ks-spacing-inset-l);
+
+    .c-rich-text {
+      color: var(--dsa-html__consent--color, var(--ks-text-color-display));
+      font: var(--dsa-html__consent--font, var(--ks-font-interface-m));
+      font-weight: var(
+        --dsa-html__consent--font-weight,
+        var(--ks-font-weight-regular)
+      );
+      text-align: center;
+    }
+
+    &:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background-color: var(
+        --dsa-html__consent--background,
+        var(--ks-color-fg-inverted-alpha-6)
+      );
+    }
+
+    > * {
+      z-index: 1;
+    }
+
+    .l-container {
+      container-type: normal;
+    }
+
+    &--sixteen-to-nine {
+      aspect-ratio: 16 / 9;
+    }
+
+    &--sixteen-to-ten {
+      aspect-ratio: 16 / 10;
+    }
+
+    &--four-to-three {
+      aspect-ratio: 4 / 3;
+    }
+
+    &--square {
+      aspect-ratio: 1;
+    }
+  }
+}

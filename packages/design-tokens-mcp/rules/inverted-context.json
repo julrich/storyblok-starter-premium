@@ -1,0 +1,14 @@
+{
+  "id": "inverted-context",
+  "name": "Inverted Context Consistency",
+  "description": "Inverted token variants (--ks-*-inverted) are designed for use inside inverted contexts ([ks-inverted] sections). Using inverted tokens outside inverted contexts, or non-inverted tokens inside inverted contexts, can produce incorrect contrast.",
+  "severity": "info",
+  "category": "semantic-hierarchy",
+  "rule": "Tokens ending in '-inverted' (e.g., --ks-text-color-default-inverted, --ks-background-color-card-inverted) should only be used inside inverted contexts. Non-inverted tokens should be used in normal contexts. The design system automatically handles inversion via CSS attribute selectors, so manual inverted token usage is usually unnecessary.",
+  "invertedTokenPattern": "--ks-*-inverted",
+  "contextAttribute": "[ks-inverted]",
+  "exceptions": [
+    "Component tokens that explicitly define inverted variants (e.g., hero with dark overlay) may legitimately reference inverted tokens",
+    "Sections with mode='dark' or similar props may use inverted tokens as their base"
+  ]
+}

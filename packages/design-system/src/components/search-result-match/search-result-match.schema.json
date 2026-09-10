@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/search-result-match.schema.json",
+  "title": "Search Result Match",
+  "type": "object",
+  "properties": {
+    "title": {
+      "title": "Title",
+      "type": "string",
+      "description": "The title of the match.",
+      "examples": ["Panel Discussion: Ethics in AI"]
+    },
+    "snippet": {
+      "title": "Text",
+      "type": "string",
+      "description": "The main content or description of the search result.",
+      "examples": [
+        "Experts debate the ethical challenges and responsibilities of deploying AI technologies."
+      ]
+    },
+    "url": {
+      "title": "URL",
+      "type": "string",
+      "description": "A URL linking to the specific match or more information.",
+      "examples": [
+        "https://www.example.com/ai-conference-2023/panel-discussion"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

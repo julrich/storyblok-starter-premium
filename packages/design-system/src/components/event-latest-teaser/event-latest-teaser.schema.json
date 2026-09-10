@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/event-latest-teaser.schema.json",
+  "title": "Event Latest Teaser",
+  "description": "Display an event teaser with date, title and location",
+  "type": "object",
+  "properties": {
+    "date": {
+      "title": "Date",
+      "description": "The date of the event",
+      "type": "string",
+      "format": "date",
+      "examples": ["12.30.2022"]
+    },
+    "calendar": {
+      "type": "object",
+      "title": "Calendar",
+      "description": "Calendar icon to display the date",
+      "properties": {
+        "month": {
+          "title": "Month",
+          "description": "The month of the event",
+          "type": "string",
+          "examples": ["Dec"]
+        },
+        "day": {
+          "title": "Day",
+          "description": "The day of the event",
+          "type": "string",
+          "examples": ["30"]
+        }
+      }
+    },
+    "title": {
+      "title": "Headline",
+      "description": "Title of the event",
+      "type": "string",
+      "format": "markdown",
+      "examples": ["This is a event teaser title"]
+    },
+    "location": {
+      "title": "Location",
+      "description": "Location of the event",
+      "type": "string",
+      "format": "markdown",
+      "examples": ["This is a location"]
+    },
+    "url": {
+      "title": "URL",
+      "description": "The event entry URL to link",
+      "type": "string",
+      "format": "uri",
+      "examples": ["https://example.com"]
+    },
+    "cta": {
+      "title": "Call to Action",
+      "description": "Text for the call to action",
+      "type": "string",
+      "examples": ["Show event"]
+    },
+    "ariaLabel": {
+      "title": "ARIA Label",
+      "description": "ARIA label for accessibility",
+      "type": "string",
+      "examples": ["Event teaser for "]
+    },
+    "className": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["title", "date", "location"]
+}

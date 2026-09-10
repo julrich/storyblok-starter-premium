@@ -1,0 +1,17 @@
+@use "./border-color/border-color-preview.scss";
+@use "./background-color/background-color-preview.scss";
+@use "./color/color-preview.scss";
+@use "./font-size/font-size-preview.scss";
+@use "./spacing/spacing-preview.scss";
+@use "./shadow/shadow-preview.scss";
+@use "./border/border-preview.scss";
+@use "./transition/transition-preview.scss";
+
+.preview-page {
+  max-width: 900px;
+  margin: auto;
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+  padding-left: 4vw;
+  padding-right: 4vw;
+}

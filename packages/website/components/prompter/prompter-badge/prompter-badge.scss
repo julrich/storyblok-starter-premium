@@ -1,0 +1,22 @@
+.prompter-badge {
+  z-index: 99;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  font-family: var(--prompter-font-family);
+  font-size: 1rem;
+  line-height: 1.75;
+  font-weight: 700;
+  color: var(--prompter-color);
+  box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.2);
+  border: 3px solid var(--prompter-color);
+  background-size: cover;
+  border-radius: 99px;
+  padding: 0.15em 1em;
+  background-color: white;
+
+  &--saved {
+    background-color: var(--prompter-color);
+    color: white;
+  }
+}

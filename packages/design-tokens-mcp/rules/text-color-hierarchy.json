@@ -1,0 +1,172 @@
+{
+  "id": "text-color-hierarchy",
+  "name": "Text-Color Semantic Hierarchy",
+  "description": "Text-color tokens have distinct semantic roles. Each token family is designed for a specific type of content and should not be used outside its intended purpose.",
+  "severity": "warning",
+  "category": "semantic-hierarchy",
+  "tokenPattern": "--ks-text-color-*",
+  "tokens": {
+    "--ks-text-color-display": {
+      "role": "Display headings and hero text — high-impact, full-contrast type",
+      "validContexts": [
+        "h1",
+        "h2",
+        "hero-headline",
+        "cta-headline",
+        "display-text",
+        "page-title"
+      ],
+      "invalidContexts": [
+        "body-copy",
+        "form-labels",
+        "navigation-labels",
+        "captions",
+        "descriptions",
+        "card-copy"
+      ],
+      "rationale": "Display text-color uses full foreground color (no alpha) for maximum contrast, intended for type set in --ks-font-family-display at large sizes"
+    },
+    "--ks-text-color-default": {
+      "role": "Default UI text — headings below hero level, section headings, card titles, interface labels",
+      "validContexts": [
+        "h3",
+        "h4",
+        "nav-labels",
+        "card-titles",
+        "section-headings",
+        "ui-labels",
+        "tag-labels",
+        "breadcrumb-text"
+      ],
+      "invalidContexts": [
+        "body-copy-paragraphs",
+        "hero-headlines",
+        "long-form-content"
+      ],
+      "rationale": "Default uses fg-alpha-3 — slightly softened from pure foreground, appropriate for mid-hierarchy text elements"
+    },
+    "--ks-text-color-copy": {
+      "role": "Body copy — paragraph text, descriptions, long-form reading content",
+      "validContexts": [
+        "p",
+        "body-text",
+        "descriptions",
+        "captions",
+        "card-copy",
+        "list-items",
+        "article-text",
+        "faq-answer"
+      ],
+      "invalidContexts": [
+        "headings",
+        "navigation",
+        "buttons",
+        "form-labels",
+        "hero-headlines"
+      ],
+      "rationale": "Copy text-color is optimized for reading comfort at body sizes, paired with --ks-font-family-copy and --ks-line-height-copy-*"
+    },
+    "--ks-text-color-interface": {
+      "role": "Form controls and interactive UI chrome — inputs, selects, buttons",
+      "validContexts": [
+        "input-text",
+        "select-text",
+        "button-labels",
+        "tab-labels",
+        "form-labels",
+        "control-text",
+        "toggle-labels"
+      ],
+      "invalidContexts": [
+        "body-copy",
+        "headings",
+        "hero-text",
+        "article-text",
+        "descriptions"
+      ],
+      "rationale": "Interface uses fg-alpha-2 — designed for UI controls at --ks-font-family-interface sizes"
+    },
+    "--ks-text-color-card": {
+      "role": "Card surface text — text on card backgrounds with adjusted contrast",
+      "validContexts": ["card-text", "card-body", "card-labels", "teaser-text"],
+      "invalidContexts": ["hero-text", "page-body", "form-controls"],
+      "rationale": "Card text-color is tuned for contrast against --ks-background-color-card surfaces"
+    },
+    "--ks-text-color-on-primary": {
+      "role": "Text on primary-colored backgrounds — ensures contrast on brand-color surfaces",
+      "validContexts": [
+        "primary-button-label",
+        "primary-background-text",
+        "cta-on-primary",
+        "hero-on-primary"
+      ],
+      "invalidContexts": [
+        "default-background-text",
+        "card-text",
+        "body-copy-on-white"
+      ],
+      "rationale": "On-primary text-color is specifically designed for contrast against --ks-background-color-primary-* surfaces"
+    },
+    "--ks-text-color-primary": {
+      "role": "Primary-colored text — brand-color accent text for emphasis, links, highlights",
+      "validContexts": [
+        "accent-text",
+        "link-text",
+        "highlight-text",
+        "branded-labels"
+      ],
+      "invalidContexts": ["body-copy", "headings", "form-input-text"],
+      "rationale": "Primary text-color uses the brand primary color for text emphasis"
+    },
+    "--ks-text-color-positive": {
+      "role": "Positive/success state text — success messages, confirmations",
+      "validContexts": ["success-message", "positive-feedback", "valid-state"],
+      "invalidContexts": ["body-copy", "headings", "navigation"],
+      "rationale": "Semantic color for positive feedback states"
+    },
+    "--ks-text-color-negative": {
+      "role": "Negative/error state text — error messages, validation failures",
+      "validContexts": ["error-message", "negative-feedback", "invalid-state"],
+      "invalidContexts": ["body-copy", "headings", "navigation"],
+      "rationale": "Semantic color for negative/error feedback states"
+    },
+    "--ks-text-color-notice": {
+      "role": "Notice/warning state text — warnings, cautions",
+      "validContexts": ["warning-message", "notice-feedback", "caution-state"],
+      "invalidContexts": ["body-copy", "headings", "navigation"],
+      "rationale": "Semantic color for warning/notice feedback states"
+    },
+    "--ks-text-color-informative": {
+      "role": "Informative state text — info messages, tips, helper text",
+      "validContexts": ["info-message", "helper-text", "tip-text"],
+      "invalidContexts": ["body-copy", "headings", "navigation"],
+      "rationale": "Semantic color for informational feedback states"
+    }
+  },
+  "pairingRules": [
+    {
+      "token": "--ks-text-color-display",
+      "expectedFontFamily": "--ks-font-family-display",
+      "expectedLineHeight": "--ks-line-height-display-*",
+      "expectedFontSize": "--ks-font-size-display-*"
+    },
+    {
+      "token": "--ks-text-color-copy",
+      "expectedFontFamily": "--ks-font-family-copy",
+      "expectedLineHeight": "--ks-line-height-copy-*",
+      "expectedFontSize": "--ks-font-size-copy-*"
+    },
+    {
+      "token": "--ks-text-color-interface",
+      "expectedFontFamily": "--ks-font-family-interface",
+      "expectedLineHeight": "--ks-line-height-interface-*",
+      "expectedFontSize": "--ks-font-size-interface-*"
+    },
+    {
+      "token": "--ks-text-color-card",
+      "expectedFontFamily": "--ks-font-family-copy",
+      "expectedLineHeight": "--ks-line-height-copy-*",
+      "expectedFontSize": "--ks-font-size-copy-*"
+    }
+  ]
+}

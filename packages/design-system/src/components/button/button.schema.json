@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/button.schema.json",
+  "title": "Button",
+  "description": "Component used for user interaction",
+  "type": "object",
+  "properties": {
+    "label": {
+      "type": "string",
+      "title": "Label",
+      "description": "Text content to display inside the button",
+      "examples": ["Book a meeting"]
+    },
+    "url": {
+      "type": "string",
+      "title": "URL",
+      "description": "The URL to link to when the button is clicked",
+      "format": "uri"
+    },
+    "variant": {
+      "type": "string",
+      "title": "Variant",
+      "description": "Variant of button to be used",
+      "enum": ["primary", "secondary", "tertiary"],
+      "default": "secondary"
+    },
+    "icon": {
+      "type": "string",
+      "format": "icon",
+      "title": "Icon",
+      "description": "Choose an icon"
+    },
+    "size": {
+      "type": "string",
+      "title": "Size",
+      "description": "Size of button to use",
+      "enum": ["small", "medium", "large"],
+      "default": "medium"
+    },
+    "disabled": {
+      "type": "boolean",
+      "title": "Disabled?",
+      "description": "Whether the button should be disabled",
+      "default": false
+    },
+    "type": {
+      "type": "string",
+      "title": "Button Type",
+      "enum": ["button", "submit", "reset"]
+    }
+  },
+  "additionalProperties": false,
+  "required": ["label"]
+}

@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "dsa-storybook-mcp": {
+      "url": "http://localhost:6006/mcp",
+      "type": "http"
+    },
+    "Design System Design Tokens MCP": {
+      "url": "https://design-tokens-mcp.ruhmesmeile.com/mcp",
+      "type": "http"
+    }
+  },
+  "inputs": []
+}

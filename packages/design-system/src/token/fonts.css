@@ -1,0 +1,44 @@
+/* Montserrat – Light */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../static/fonts/Montserrat-Light.woff2") format("woff2");
+}
+
+/* Montserrat – Regular */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../static/fonts/Montserrat-Regular.woff2") format("woff2");
+}
+
+/* Montserrat – Medium */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../static/fonts/Montserrat-Medium.woff2") format("woff2");
+}
+
+/* Montserrat – SemiBold */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../static/fonts/Montserrat-SemiBold.woff2") format("woff2");
+}
+
+/* Montserrat – Bold */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../static/fonts/Montserrat-Bold.woff2") format("woff2");
+}

@@ -1,0 +1,19 @@
+:root {
+  // Duration
+  --ks-duration-immediate: 50ms;
+  --ks-duration-fast: 100ms;
+  --ks-duration-medium: 150ms;
+  --ks-duration-slow: 300ms;
+
+  // Timing Function
+  --ks-timing-function-bounce: cubic-bezier(0.17, 1, 0.5, 1.5);
+  --ks-timing-function-ease-out: ease-out;
+  --ks-timing-function-ease-in: ease-in;
+  --ks-timing-function-ease-in-out: ease-in-out;
+  --ks-timing-function-linear: linear;
+
+  // Transition
+  --ks-transition-collapse: var(--ks-duration-slow) var(--ks-timing-function-ease-out);
+  --ks-transition-hover: var(--ks-duration-fast) var(--ks-timing-function-ease-in-out);
+  --ks-transition-fade: var(--ks-duration-slow) var(--ks-timing-function-ease-out);
+}

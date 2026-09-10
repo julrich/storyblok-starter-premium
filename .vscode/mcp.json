@@ -1,0 +1,31 @@
+{
+  "servers": {
+    "Design System Storybook MCP": {
+      "url": "http://localhost:6006/mcp",
+      "type": "http"
+    },
+    "Design System Design Tokens MCP": {
+      "type": "streamable-http",
+      "url": "https://design-tokens-mcp.ruhmesmeile.com/mcp"
+    },
+    "Design System Component Builder MCP": {
+      "command": "node",
+      "args": [
+        "/home/julrich/Projects/kickstartDS/code/ds-agency-premium-mcp-demo/component-implementation-mcp/src/index.js"
+      ]
+    },
+    "ruhmesmeile Storyblok Starter MCP": {
+      "command": "node",
+      "args": [
+        "/home/julrich/Projects/kickstartDS/code/storyblok-starter-demo/mcp-server/dist/index.js"
+      ],
+      "env": {
+        "STORYBLOK_API_TOKEN": "ADDYOURS",
+        "STORYBLOK_OAUTH_TOKEN": "ADDYOURS",
+        "STORYBLOK_SPACE_ID": "ADDYOURS",
+        "OPENAI_API_KEY": "ADDYOURS"
+      }
+    }
+  },
+  "inputs": []
+}

@@ -1,0 +1,39 @@
+{
+  "categories": ["Content & Data"],
+  "subcategories": {
+    "Content & Data": ["Content Management"]
+  },
+  "resources": {
+    "primaryDocumentation": [
+      {
+        "url": "https://www.storyblok.com/docs/api"
+      }
+    ],
+    "credentialDocumentation": [
+      {
+        "url": "https://www.storyblok.com/docs/api/content-delivery/v2"
+      }
+    ]
+  },
+  "alias": [
+    "storyblok",
+    "kickstartds",
+    "kickstartDS",
+    "cms",
+    "content generation",
+    "openai",
+    "ai content",
+    "design system",
+    "story management",
+    "content migration",
+    "web scraping",
+    "content patterns",
+    "page planning",
+    "section generation",
+    "content audit",
+    "asset management",
+    "component introspection",
+    "content automation",
+    "headless cms"
+  ]
+}

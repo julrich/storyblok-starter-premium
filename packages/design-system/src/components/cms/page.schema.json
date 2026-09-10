@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/page.schema.json",
+  "title": "Page",
+  "description": "Abstracts a page concept into JSON schema",
+  "type": "object",
+  "required": ["seo"],
+  "properties": {
+    "section": {
+      "type": "array",
+      "title": "Sections",
+      "description": "Collection of sections (with their contents) to render on the page",
+      "items": {
+        "$ref": "http://schema.mydesignsystem.com/section.schema.json"
+      }
+    },
+    "header": {
+      "type": "object",
+      "title": "Header",
+      "description": "Header settings for the page",
+      "properties": {
+        "floating": {
+          "type": "boolean",
+          "title": "Toggle Floating",
+          "description": "Toggle default floating header behaviour set in global settings",
+          "default": false
+        },
+        "inverted": {
+          "type": "boolean",
+          "title": "Toggle Inverted",
+          "description": "Toggle default inverted header behaviour set in global settings",
+          "default": false
+        },
+        "logo": {
+          "title": "Logo",
+          "description": "Override for logo",
+          "type": "string",
+          "format": "image"
+        }
+      }
+    },
+    "footer": {
+      "type": "object",
+      "title": "Footer",
+      "description": "Footer settings for the page",
+      "properties": {
+        "inverted": {
+          "type": "boolean",
+          "title": "Toggle Inverted",
+          "description": "Toggle default inverted footer behaviour set in global settings",
+          "default": false
+        },
+        "logo": {
+          "title": "Logo",
+          "description": "Override for logo",
+          "type": "string",
+          "format": "image"
+        }
+      }
+    },
+    "token": {
+      "type": "string",
+      "title": "Local CSS custom property overrides",
+      "description": "CSS custom property overrides to be included in the global styles — layers on top of the selected theme"
+    },
+    "hidePageBreadcrumbs": {
+      "type": "boolean",
+      "title": "Hide Page Breadcrumbs",
+      "description": "Whether to hide breadcrumbs on this page",
+      "default": false
+    },
+    "seo": {
+      "$ref": "http://schema.mydesignsystem.com/seo.schema.json"
+    }
+  }
+}

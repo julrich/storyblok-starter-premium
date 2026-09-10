@@ -1,0 +1,18 @@
+.copy-tooltip {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -85%);
+  white-space: nowrap;
+  background-color: rgb(50, 50, 50);
+  color: white;
+  padding: 0.15em 0.5em;
+  border-radius: 0.25em;
+  font: var(--ks-font-interface-xs);
+  z-index: 10;
+  opacity: 0;
+  transition: var(--ks-transition-hover);
+  transition-property: transform, opacity;
+  pointer-events: none;
+}

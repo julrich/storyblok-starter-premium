@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/search-result.schema.json",
+  "title": "Search Result",
+  "description": "Search result component for displaying individual search results.",
+  "type": "object",
+  "properties": {
+    "url": {
+      "title": "URL",
+      "type": "string",
+      "description": "A URL linking to the search result or more information.",
+      "examples": ["https://www.example.com/ai-conference-2023"]
+    },
+    "title": {
+      "title": "Title",
+      "type": "string",
+      "description": "The title of the search result.",
+      "examples": ["AI Conference 2023"]
+    },
+    "imageColSize": {
+      "title": "Image Row Size",
+      "type": "string",
+      "description": "The reserved space of the image row.",
+      "default": "small",
+      "enum": ["none", "small", "large"]
+    },
+    "previewImage": {
+      "title": "Preview Image",
+      "type": "string",
+      "description": "A URL to an image preview for the search result."
+    },
+    "initialMatch": {
+      "title": "Initial Match",
+      "type": "string",
+      "description": "The initial search match or summary of the search result."
+    },
+    "matches": {
+      "title": "Matches",
+      "type": "array",
+      "description": "An array of search matches.",
+      "items": {
+        "$ref": "http://schema.mydesignsystem.com/search-result-match.schema.json"
+      }
+    },
+    "showLink": {
+      "title": "Show Link",
+      "type": "boolean",
+      "description": "Whether to display the link to the search result.",
+      "default": true
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,31 @@
+.token-font-swatch {
+  border-radius: 4px;
+  border: 1px solid var(--ks-border-color-interface-interactive);
+  background-color: var(--ks-color-bg);
+  padding: 0.5em;
+  position: relative;
+  transition: var(--ks-transition-hover);
+
+  &:hover {
+    background-color: var(--ks-color-bg-to-fg-9);
+
+    .copy-tooltip {
+      opacity: 1;
+      transform: translate(-50%, -120%);
+    }
+  }
+
+  &__canvas {
+    position: relative;
+    z-index: 2;
+    font: var(--ks-font-copy-l);
+
+    border-radius: 4px;
+  }
+
+  &__title {
+    margin-top: 0.5em;
+    font: var(--ks-font-mono-xs);
+    color: var(--ks-color-fg);
+  }
+}

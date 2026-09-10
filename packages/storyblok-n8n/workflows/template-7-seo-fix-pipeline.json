@@ -1,0 +1,112 @@
+{
+  "name": "SEO Fix Pipeline: List Pages → Detect Issues → Generate Fixes → Update",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "trigger-1",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "resource": "story",
+        "operation": "list",
+        "contentType": "page",
+        "perPage": 100,
+        "excludeContent": false
+      },
+      "id": "list-1",
+      "name": "List All Pages",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [480, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const stories = $input.first().json.stories;\nconst issues = [];\n\nfor (const story of stories) {\n  const content = story.content;\n  if (!content) continue;\n  \n  const seoIssues = [];\n  \n  // Check for missing meta description\n  if (!content.seo_description && !content.seo?.description) {\n    seoIssues.push('missing_meta_description');\n  }\n  \n  // Check for missing page title / headline in hero\n  const sections = Array.isArray(content.section) ? content.section : [];\n  const hero = sections.find(s => s.component === 'hero');\n  if (hero && (!hero.headline || hero.headline.length < 10)) {\n    seoIssues.push('weak_hero_headline');\n  }\n  \n  // Check for very short content\n  if (sections.length < 2) {\n    seoIssues.push('thin_content');\n  }\n  \n  if (seoIssues.length > 0) {\n    issues.push({\n      storyId: story.id,\n      slug: story.full_slug,\n      name: story.name,\n      issues: seoIssues,\n      currentContent: content\n    });\n  }\n}\n\nreturn issues.map(i => ({ json: i }));"
+      },
+      "id": "code-1",
+      "name": "Detect SEO Issues",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 300]
+    },
+    {
+      "parameters": {
+        "resource": "aiContent",
+        "operation": "generate",
+        "system": "You are an SEO specialist. Generate improvements for the identified issues. Be concise and professional.",
+        "prompt": "=Page: {{ $json.slug }}\nCurrent issues: {{ $json.issues.join(', ') }}\n\nGenerate:\n1. A compelling meta description (150-160 chars) if missing\n2. An improved hero headline if weak\n3. Suggestions for additional content sections if thin\n\nCurrent hero headline: {{ $json.currentContent.section?.[0]?.headline || 'none' }}",
+        "schemaMode": "custom",
+        "customSchemaName": "seo_fix",
+        "customSchema": "{\"type\":\"object\",\"properties\":{\"metaDescription\":{\"type\":\"string\",\"description\":\"SEO meta description, 150-160 characters\"},\"heroHeadline\":{\"type\":\"string\",\"description\":\"Improved hero headline\"},\"suggestions\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}},\"required\":[\"metaDescription\",\"heroHeadline\"],\"additionalProperties\":false}",
+        "model": "gpt-4o-mini"
+      },
+      "id": "generate-1",
+      "name": "Generate SEO Fixes",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [960, 300],
+      "credentials": {
+        "openAiApi": { "id": "1", "name": "OpenAI" },
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const fix = $json.generatedContent;\nconst original = $('Detect SEO Issues').item.json;\n\n// Build updated content with SEO fixes applied\nconst updatedContent = { ...original.currentContent };\n\n// Update meta description\nif (fix.metaDescription) {\n  updatedContent.seo_description = fix.metaDescription;\n}\n\n// Update hero headline if present\nif (fix.heroHeadline && Array.isArray(updatedContent.section)) {\n  const hero = updatedContent.section.find(s => s.component === 'hero');\n  if (hero) {\n    hero.headline = fix.heroHeadline;\n  }\n}\n\nreturn [{\n  json: {\n    storyId: original.storyId,\n    slug: original.slug,\n    updatedContent,\n    fixes: fix,\n    originalIssues: original.issues\n  }\n}];"
+      },
+      "id": "code-2",
+      "name": "Apply Fixes to Content",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1200, 300]
+    },
+    {
+      "parameters": {
+        "resource": "story",
+        "operation": "update",
+        "updateStoryId": "={{ $json.storyId }}",
+        "updateContent": "={{ JSON.stringify($json.updatedContent) }}",
+        "updatePublish": false,
+        "updateSkipValidation": true
+      },
+      "id": "update-1",
+      "name": "Update Story with Fixes",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [1440, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{ "node": "List All Pages", "type": "main", "index": 0 }]]
+    },
+    "List All Pages": {
+      "main": [[{ "node": "Detect SEO Issues", "type": "main", "index": 0 }]]
+    },
+    "Detect SEO Issues": {
+      "main": [[{ "node": "Generate SEO Fixes", "type": "main", "index": 0 }]]
+    },
+    "Generate SEO Fixes": {
+      "main": [
+        [{ "node": "Apply Fixes to Content", "type": "main", "index": 0 }]
+      ]
+    },
+    "Apply Fixes to Content": {
+      "main": [
+        [{ "node": "Update Story with Fixes", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": { "templateId": "storyblok-kds-seo-fix-pipeline" }
+}

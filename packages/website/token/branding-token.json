@@ -1,0 +1,83 @@
+{
+  "color": {
+    "primary": "#3065C0",
+    "primary-inverted": "#3065C0",
+    "background": "#fff",
+    "background-inverted": "#0F203E",
+    "foreground": "#06081f",
+    "foreground-inverted": "#fff",
+    "link": "#3065C0",
+    "link-inverted": "#98b2e0",
+    "positive": "#23831B",
+    "positive-inverted": "#6EDB64",
+    "informative": "#00718F",
+    "informative-inverted": "#64C2DB",
+    "notice": "#FF5D53",
+    "notice-inverted": "#F9DE55",
+    "negative": "#D21D48",
+    "negative-inverted": "#FF1A57"
+  },
+  "font": {
+    "display": {
+      "family": "Montserrat, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif",
+      "font-size": 16,
+      "line-height": 1.15,
+      "scale-ratio": 1.25,
+      "bp-factor": {
+        "phone": 1,
+        "tablet": 1.125,
+        "laptop": 1.25,
+        "desktop": 1.35
+      }
+    },
+    "copy": {
+      "family": "system-ui, -apple-system, BlinkMacSystemFont, 'Avenir Next', 'Avenir', 'Segoe UI', 'Lucida Grande', 'Helvetica Neue', 'Helvetica', 'Fira Sans', 'Roboto', 'Noto', 'Droid Sans', 'Cantarell', 'Oxygen', 'Ubuntu', 'Franklin Gothic Medium', 'Century Gothic', 'Liberation Sans', sans-serif",
+      "font-size": 16,
+      "line-height": 1.5,
+      "scale-ratio": 1.225,
+      "bp-factor": {
+        "tablet": 1.125
+      }
+    },
+    "interface": {
+      "family": "system-ui, -apple-system, BlinkMacSystemFont, 'Avenir Next', 'Avenir', 'Segoe UI', 'Lucida Grande', 'Helvetica Neue', 'Helvetica', 'Fira Sans', 'Roboto', 'Noto', 'Droid Sans', 'Cantarell', 'Oxygen', 'Ubuntu', 'Franklin Gothic Medium', 'Century Gothic', 'Liberation Sans', sans-serif",
+      "font-size": 16,
+      "line-height": 1.5,
+      "scale-ratio": 1.225,
+      "bp-factor": {
+        "tablet": 1.125
+      }
+    },
+    "mono": {
+      "family": "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace",
+      "font-size": 16,
+      "line-height": 1.5,
+      "scale-ratio": 1.225,
+      "bp-factor": {
+        "tablet": 1.125
+      }
+    }
+  },
+  "font-weight": {
+    "light": 300,
+    "regular": 400,
+    "semi-bold": 500,
+    "bold": 700
+  },
+  "spacing": {
+    "base": 14,
+    "scale-ratio": 1.375,
+    "bp-ratio": 1.225
+  },
+  "border-radius": "8px",
+  "box-shadow": {
+    "blur": "2.75px"
+  },
+  "breakpoints": {
+    "phone": 576,
+    "tablet": 768,
+    "laptop": 992,
+    "desktop": 1200,
+    "tv": 1952
+  }
+}

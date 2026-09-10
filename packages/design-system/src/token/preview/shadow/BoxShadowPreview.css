@@ -1,0 +1,19 @@
+.box-shadow-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+
+.box-shadow-label {
+  font: var(--ks-font-interface-m);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.box-shadow-token {
+  font: var(--ks-font-mono-m);
+  font-size: 0.8rem;
+  color: #888;
+}

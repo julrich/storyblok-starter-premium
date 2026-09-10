@@ -1,0 +1,44 @@
+.prompter-select-field {
+  position: relative;
+  width: 100%;
+
+  &:hover {
+    .prompter-select-field__icon {
+      filter: brightness(1.25);
+    }
+  }
+
+  .c-form-field__input {
+    transition: var(--prompter-interface-transition);
+    border: var(--prompter-interface-border, 2px solid #e0e0e0);
+    border-radius: 12px;
+    box-shadow: unset !important;
+    background: transparent;
+    cursor: pointer;
+    padding: var(--prompter-interface-padding);
+    font: var(--prompter-interface-font);
+
+    &:hover {
+      border-color: var(--prompter-interface-border-color-hover);
+    }
+
+    &:focus,
+    &:focus-visible,
+    &:active {
+      outline: none;
+      border-color: var(--prompter-interface-border-color-active);
+    }
+  }
+
+  .c-form-field__field {
+    svg.icon {
+      top: 50%;
+      transform: translateY(-50%);
+      right: 1.5rem;
+      margin: 0;
+      width: 1.75rem;
+      height: 1.75rem;
+      pointer-events: none;
+    }
+  }
+}

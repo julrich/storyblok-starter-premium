@@ -1,0 +1,97 @@
+@use "./selectors" as *;
+
+#{$selectors} {
+  // drhubert brand accent. Drives the teaser-card tag background and focus ring.
+  --ks-color-secondary: #953434;
+
+  // Text color on primary backgrounds (e.g., buttons)
+  //
+  // UPSTREAM BUG: --ks-brand-color-on-primary is never emitted. It is absent
+  // from all nine branding-tokens*.json themes and from the branding token
+  // schema, so this resolved to an invalid value and every consumer of
+  // --dsa-text-color-on-primary silently fell back to inherited text colour
+  // (black on solid buttons, black on teaser-card tags).
+  //
+  // The fallbacks restore the wiring the pre-monorepo site used
+  // (token/global-token.scss). If upstream ever emits the brand token it wins.
+  --dsa-text-color-on-primary-base: var(
+    --ks-brand-color-on-primary,
+    var(--ks-color-fg-inverted)
+  );
+  --dsa-text-color-on-primary-inverted-base: var(
+    --ks-brand-color-on-primary-inverted,
+    var(--ks-color-primary-inverted)
+  );
+
+  // Overlay styles
+  --dsa-overlay--background-color: var(--ks-color-fg-alpha-4);
+
+  // Overlay Box styles
+  --dsa-overlay-box_transparent--background-color: var(--ks-color-bg-alpha-4);
+  --dsa-overlay-box_transparent--backdrop-filter: blur(16px);
+  --dsa-overlay-box_transparent--box-shadow: var(--ks-box-shadow-surface);
+  --dsa-overlay-box_opaque--background-color: var(--ks-color-bg-alpha-2);
+  --dsa-overlay-box_opaque--backdrop-filter: blur(20px);
+  --dsa-overlay-box_opaque--box-shadow: var(--ks-box-shadow-surface);
+
+  --dsa-overlay-box--text-color: var(--ks-color-fg);
+
+  // Overlay Text styles
+  --dsa-overlay-text--shadow-base: 0 0 10px var(--ks-color-fg-alpha-3);
+  --dsa-overlay-text--shadow-inverted-base: 0 0 10px var(--ks-color-fg-alpha-3-inverted);
+
+  --dsa-overlay-text--text-color-base: var(--ks-text-color-display-inverted);
+  --dsa-overlay-text--text-color-inverted-base: var(--ks-text-color-display);
+
+  // Topic font styles
+  --dsa-topic--font: var(--ks-font-display-m);
+  --dsa-topic--font-weight: var(--ks-font-weight-semi-bold);
+  --dsa-topic--color: var(--ks-text-color-display);
+  --dsa-topic--font-family: var(--ks-font-family-display);
+
+  // Link styles
+  --dsa-link--font-weight: var(--ks-font-weight-medium);
+  --dsa-link--color: var(--ks-text-color-default-interactive);
+  --dsa-link--color_hover: var(--ks-text-color-default-interactive-hover);
+  --dsa-link--text-decoration: none;
+  --dsa-link--text-decoration_hover: none;
+
+  // Highlight typography (e.g., gradients in text)
+  --dsa-typo--highlight: var(--ks-color-primary);
+
+  // Outer padding for content
+  --dsa-content--horizontal-spacing: var(--ks-spacing-inset-l);
+  --dsa-content--vertical-spacing: var(--ks-spacing-xxl);
+
+  @media (min-width: 48em) {
+    --dsa-content--horizontal-spacing: var(--ks-spacing-inset-xl);
+  }
+
+  // Content width options (for content displayed in a width constrained container)
+  --dsa-content--width_narrow: calc(var(--ks-font-size-copy-m) * 34);
+  --dsa-content--width_default: calc(var(--ks-font-size-copy-m) * 50);
+  --dsa-content--width_wide: calc(var(--ks-font-size-copy-m) * 72);
+  --dsa-content--width_max: 100vw;
+  --dsa-content--width_full: 100vw;
+
+  // Tile width options (for content displayed in a grid of flex layout)
+  --dsa-tile--width_smallest: calc(var(--ks-font-size-copy-m) * 10);
+  --dsa-tile--width_small: calc(var(--ks-font-size-copy-m) * 14);
+  --dsa-tile--width_medium: calc(var(--ks-font-size-copy-m) * 20);
+  --dsa-tile--width_large: calc(var(--ks-font-size-copy-m) * 28);
+  --dsa-tile--width_largest: calc(var(--ks-font-size-copy-m) * 42);
+
+  // Logo height
+  --dsa-logo--height: 2rem;
+
+  @media (min-width: 48em) {
+    --dsa-logo--height: 2.25rem;
+  }
+
+  @media (min-width: 62em) {
+    --dsa-logo--height: 2.5rem;
+  }
+
+  // Header height calculation
+  --dsa-header--height: calc(var(--dsa-logo--height) + var(--ks-spacing-stack-m) + var(--ks-spacing-stack-m));
+}

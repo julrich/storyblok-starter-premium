@@ -1,0 +1,22 @@
+.dsa-search-result-match {
+  --g-link--border-radius: 0;
+
+  font: var(--ks-font-interface-m);
+  padding: var(--ks-spacing-stack-s) 0;
+  border-top: var(--ks-border-divider);
+  display: block;
+  margin-left: 1.25em;
+
+  &__snippet {
+    font: var(--ks-font-copy-m);
+  }
+
+  &__chevron {
+    width: 1em;
+    height: 1em;
+  }
+
+  &:last-child {
+    border-bottom: var(--ks-border-divider);
+  }
+}

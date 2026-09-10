@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "layout": {
+      "type": "string",
+      "enum": ["slider", "list", "alternating"],
+      "description": "Display layout for the testimonials"
+    },
+    "testimonial": {
+      "type": "array",
+      "description": "Array of testimonial items",
+      "items": {
+        "type": "object",
+        "properties": {
+          "quote": {
+            "type": "string",
+            "description": "Testimonial quote text (supports markdown)"
+          },
+          "name": {
+            "type": "string",
+            "description": "Author name"
+          },
+          "title": {
+            "type": "string",
+            "description": "Author job title or role"
+          },
+          "rating": {
+            "type": "number",
+            "description": "Rating from 1 to 5"
+          }
+        },
+        "required": ["quote", "name", "title"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["testimonial"],
+  "additionalProperties": false
+}

@@ -1,0 +1,42 @@
+.dsa-search-bar {
+  &__input-container {
+    position: relative;
+
+    .icon {
+      position: absolute;
+      left: var(--ks-spacing-inset-s);
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--ks-color-fg-alpha-6);
+      width: 1em;
+      height: 1em;
+    }
+  }
+
+  &__input {
+    .c-form-field__input {
+      padding: var(--ks-spacing-inset-xs);
+      font: var(--ks-font-interface-s);
+      padding-left: calc(var(--ks-spacing-inset-s) + 1em + var(--ks-spacing-xxs));
+    }
+  }
+
+  &__hint {
+    display: block;
+    font: var(--ks-font-interface-xs);
+    color: var(--ks-color-fg-alpha-4);
+    margin-top: var(--ks-spacing-stack-xs);
+
+    kbd {
+      font-size: 0.8em;
+      border-radius: 3px;
+    }
+  }
+
+  &__alternative-text {
+    margin-top: var(--ks-spacing-stack-s);
+    margin-bottom: 0;
+    font: var(--ks-font-interface-m);
+    color: var(--ks-text-color-interface);
+  }
+}

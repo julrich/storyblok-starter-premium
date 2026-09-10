@@ -1,0 +1,177 @@
+@use "@kickstartds/core/source/core/container";
+@use "event-list-teaser-tokens.scss";
+@include container.wrapper("event-list-teaser");
+
+.dsa-event-list-teaser {
+  --g-link--text-decoration: none;
+  --g-link--text-decoration-hover: none;
+  --g-link--border-radius: var(--ks-border-radius-card);
+  --g-link--background: var(--ks-background-color-card-interactive);
+  --g-link--background-hover: var(--ks-background-color-card-interactive-hover);
+
+  display: block;
+  border: var(--ks-border-card-interactive);
+  padding: var(--ks-spacing-inset-l);
+  flex-wrap: wrap-reverse;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--ks-spacing-stack-m) var(--ks-spacing-inline-m);
+  box-shadow: var(--ks-box-shadow-card);
+
+  // overwrite global link styles from kickstartDS
+  :root &,
+  html & {
+    transition: var(--ks-transition-hover);
+  }
+
+  &:hover {
+    border-color: var(--ks-border-color-card-interactive-hover);
+    box-shadow: var(--ks-box-shadow-card-hover);
+
+    .dsa-event-list-teaser__categories {
+      border-color: var(--ks-border-color-card-interactive-hover);
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ks-spacing-stack-xs);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ks-spacing-stack-s);
+    flex-basis: var(--dsa-tile--width_small);
+    flex-grow: 10;
+    flex-shrink: 1;
+  }
+
+  &__image {
+    flex-basis: var(--dsa-tile--width_small);
+
+    img {
+      object-fit: cover;
+      border-radius: var(--ks-border-radius-card);
+      width: 100%;
+      aspect-ratio: 4/3;
+    }
+  }
+
+  &__teaser-text {
+    font: var(--ks-font-copy-s);
+    color: var(--ks-text-color-interface);
+    margin: 0;
+  }
+
+  &__title {
+    max-width: var(--dsa-tile--width_large);
+    font: var(--ks-font-display-m);
+    font-weight: var(--ks-font-weight-semi-bold);
+    color: var(--ks-text-color-display);
+  }
+
+  &__category {
+    font: var(--ks-font-interface-xs);
+    font-weight: var(--ks-font-weight-semi-bold);
+    color: var(--ks-color-fg-alpha-4);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ks-spacing-xxs) var(--ks-spacing-xxs);
+    max-width: var(--dsa-tile--width_small);
+  }
+
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ks-spacing-stack-s) var(--ks-spacing-inline-s);
+  }
+
+  &__date {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ks-spacing-xxs);
+
+    > .dsa-event-list-teaser__info:first-child {
+      font-weight: var(--ks-font-weight-semi-bold);
+    }
+  }
+
+  &__location {
+    flex-basis: var(--dsa-tile--width_small);
+    flex-grow: 1;
+
+    &-name {
+      font-weight: var(--ks-font-weight-semi-bold);
+      color: var(--dsa-topic--color);
+      display: block;
+    }
+
+    &-address {
+      margin: 0;
+    }
+  }
+
+  &__infos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ks-spacing-stack-s);
+    border-top: var(--ks-border-divider);
+    border-bottom: var(--ks-border-divider);
+    padding-top: var(--ks-spacing-inset-s);
+    padding-bottom: var(--ks-spacing-inset-s);
+  }
+
+  &__info {
+    display: flex;
+    gap: calc(var(--ks-spacing-xxs) * 0.75);
+    font: var(--ks-font-interface-s);
+    justify-content: flex-start;
+    color: var(--ks-text-color-interface);
+
+    address {
+      font-style: normal;
+    }
+
+    &--location {
+      flex-basis: 100%;
+    }
+
+    .icon {
+      align-self: flex-start;
+      width: calc(var(--ks-font-size-interface-s) * var(--ks-line-height-interface-s));
+      height: calc(var(--ks-font-size-interface-s) * var(--ks-line-height-interface-s));
+      color: var(--ks-text-color-primary);
+      flex-shrink: 0;
+    }
+  }
+
+  &__cta {
+    font: var(--ks-font-interface-s);
+    font-weight: var(--ks-font-weight-semi-bold);
+    color: var(--dsa-link--color);
+    display: flex;
+    align-items: center;
+    text-wrap: nowrap;
+    width: fit-content;
+    transition: var(--ks-transition-hover);
+
+    &:hover {
+      color: var(--ks-text-color-primary-hover);
+    }
+
+    .icon {
+      width: calc(var(--ks-font-size-interface-s) * var(--ks-line-height-interface-s));
+      height: calc(var(--ks-font-size-interface-s) * var(--ks-line-height-interface-s));
+      color: inherit;
+      flex-shrink: 0;
+      flex-grow: 1;
+    }
+  }
+}

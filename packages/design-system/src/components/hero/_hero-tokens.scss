@@ -1,0 +1,93 @@
+@use "@kickstartds/core/source/core/container";
+@include container.wrapper("hero");
+
+.dsa-hero {
+  --dsa-hero--min-height: 18rem;
+  --dsa-hero--min-height_small: 12rem;
+  --dsa-hero__textbox--background-color: var(--ks-background-color-default);
+
+  @include container.size("≥", 640px, "hero") {
+    --dsa-hero--min-height: 24rem;
+    --dsa-hero--min-height_small: 14rem;
+    --dsa-hero__textbox--max-width: 50vw;
+    --dsa-hero__textbox--background-color: var(--dsa-overlay-box_transparent--background-color);
+  }
+
+  @include container.size("≥", 960px, "hero") {
+    --dsa-hero--min-height: 32rem;
+    --dsa-hero--min-height_small: 16rem;
+  }
+
+  @include container.size("≥", 1024px, "hero") {
+    --dsa-hero--min-height: 36rem;
+    --dsa-hero--min-height_small: 20rem;
+    --dsa-hero__textbox--max-width: var(--dsa-content--width_narrow);
+  }
+
+  --dsa-hero__headline--color: var(--dsa-headline--color);
+  --dsa-hero__subheadline--color: var(--dsa-headline__subheadline--color);
+
+  --dsa-hero_color-neutral__headline--color: var(--ks-text-color-default);
+  --dsa-hero_color-neutral__subheadline--color: var(--ks-text-color-default);
+
+  --dsa-hero__copy--color: var(--ks-text-color-default);
+  --dsa-hero__copy--font: var(--ks-font-copy-m);
+  --dsa-hero_highlight-text__copy--font: var(--ks-font-copy-l);
+  --dsa-hero_color-neutral__copy--color: var(--ks-text-color-default);
+
+  --dsa-hero__textbox--backdrop-filter: var(--dsa-overlay-box_transparent--backdrop-filter);
+  --dsa-hero__textbox--box-shadow: var(--dsa-overlay-box_transparent--box-shadow);
+  --dsa-hero__textbox--border-radius: var(--ks-border-radius-card);
+  --dsa-hero__textbox--max-width: var(--dsa-content--width_narrow);
+  --dsa-hero__textbox--padding: var(--ks-spacing-inset-l);
+  --dsa-hero_below__textbox--padding: var(--dsa-content--vertical-spacing);
+  --dsa-hero_offset__textbox--padding: var(--dsa-content--vertical-spacing);
+
+  --dsa-hero__skip-button--shadow: var(--dsa-overlay-text--shadow);
+  --dsa-hero__skip-button--color: var(--dsa-overlay-text--text-color);
+  --dsa-hero__skip-button--transform_hover: translateY(10%);
+
+  --dsa-hero__overlay--background: radial-gradient(
+    50% 125% at 100% 0%,
+    var(--ks-color-primary-alpha-5) 0%,
+    var(--ks-color-bg-alpha-4) 100%
+  );
+
+  --dsa-hero_corner__overlay--background: linear-gradient(
+    40deg,
+    var(--ks-background-color-default) 15%,
+    transparent 50%
+  );
+
+  --dsa-hero_left__overlay--background: linear-gradient(
+    90deg,
+    var(--ks-color-bg-alpha-1) var(--dsa-hero__textbox--max-width),
+    transparent
+  );
+
+  --dsa-hero_right__overlay--background: linear-gradient(
+    270deg,
+    var(--ks-color-bg-alpha-1) var(--dsa-hero__textbox--max-width),
+    transparent
+  );
+
+  --dsa-hero_offset__textbox--max-width: var(--dsa-content--width_default);
+  --dsa-hero_offset__textbox--offset: -10%;
+  --dsa-hero_offset__overlay--background: linear-gradient(
+    0deg,
+    var(--ks-background-color-default) 15%,
+    transparent 50%
+  );
+
+  --dsa-hero_below__textbox--max-width: var(--dsa-content--width_default);
+}
+
+// ─── drhubert overrides ───────────────────────────────────────────
+// Ported verbatim from the pre-monorepo website (components/hero/hero-tokens.scss).
+// Kept as a trailing block so the original selectors and specificity are
+// preserved; these win over the design system defaults above.
+:root {
+  .dsa-hero {
+    --dsa-hero__texbox--background-color: var(--ks-color-bg);
+  }
+}

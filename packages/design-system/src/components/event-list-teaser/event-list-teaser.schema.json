@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/event-list-teaser.schema.json",
+  "title": "Event List Teaser",
+  "description": "Display an event teaser with date, title and location",
+  "type": "object",
+  "properties": {
+    "category": {
+      "title": "Category",
+      "description": "Category of the event teaser",
+      "type": "string",
+      "examples": ["Category"]
+    },
+    "title": {
+      "title": "Headline",
+      "description": "Title of the event",
+      "type": "string",
+      "format": "markdown",
+      "examples": ["This is a event teaser title"]
+    },
+    "text": {
+      "title": "Text",
+      "description": "Short teaser text for the event",
+      "type": "string",
+      "format": "markdown",
+      "examples": [
+        "The Future of AI is here and now - Join us to explore the latest advancements in artificial intelligence. The Future of AI is here and now - Join us to explore the latest advancements in artificial intelligence."
+      ]
+    },
+    "date": {
+      "title": "Date",
+      "description": "The date of the event",
+      "type": "string",
+      "format": "date",
+      "examples": ["FRI, JAN 16"]
+    },
+    "time": {
+      "title": "Time",
+      "description": "The time of the event",
+      "type": "string",
+      "examples": ["10:00"]
+    },
+    "location": {
+      "title": "Location",
+      "description": "Location of the event",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Location Name",
+          "description": "Name of the location",
+          "examples": ["Stadthalle"]
+        },
+        "address": {
+          "type": "string",
+          "title": "Address",
+          "description": "Address of the location",
+          "examples": ["Köln"]
+        }
+      }
+    },
+    "tags": {
+      "title": "Tags",
+      "description": "Tags associated with the event",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "examples": ["AI", "Technology", "Innovation"]
+      },
+      "default": ["Topic 1", "Topic 2"]
+    },
+    "image": {
+      "title": "Image",
+      "description": "Image to display in the teaser",
+      "type": "object",
+      "properties": {
+        "src": {
+          "type": "string",
+          "format": "image",
+          "title": "Image Source",
+          "description": "URL of the image to display",
+          "examples": ["https://picsum.photos/seed/flower/800/600"]
+        },
+        "alt": {
+          "type": "string",
+          "title": "Alt Text",
+          "description": "Alt text of the image",
+          "examples": ["This is an image of a flower"]
+        }
+      }
+    },
+    "url": {
+      "title": "URL",
+      "description": "The event entry URL to link",
+      "type": "string",
+      "format": "uri",
+      "examples": ["https://example.com"]
+    },
+    "ctaText": {
+      "title": "Call to Action",
+      "description": "Text for the call to action",
+      "type": "string",
+      "examples": ["Show event"]
+    },
+    "ariaLabel": {
+      "title": "ARIA Label",
+      "description": "ARIA label for accessibility",
+      "type": "string"
+    },
+    "className": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["title", "date", "location"]
+}

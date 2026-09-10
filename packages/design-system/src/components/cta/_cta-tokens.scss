@@ -1,0 +1,23 @@
+.dsa-cta {
+  --dsa-cta--gap: var(--ks-spacing-stack-l) var(--ks-spacing-inline-l);
+  --dsa-cta--border-radius: var(--ks-border-radius-surface);
+
+  --dsa-cta__content--vertical-padding: var(--dsa-content--vertical-spacing);
+  --dsa-cta__content--horizontal-padding: var(--dsa-content--horizontal-spacing);
+  --dsa-cta__content--max-width: var(--dsa-tile--width_largest);
+
+  --dsa-cta__headline--color: var(--dsa-headline--color);
+  --dsa-cta__subheadline--color: var(--dsa-headline__subheadline--color);
+
+  --dsa-cta__copy--font: var(--ks-font-copy-m);
+  --dsa-cta__copy--color: var(--ks-text-color-default);
+
+  --dsa-cta__image--padding: var(--ks-spacing-inset-m);
+
+  --dsa-cta_color-neutral__headline--color: var(--ks-text-color-default);
+  --dsa-cta_color-neutral__subheadline--color: var(--ks-text-color-default);
+  --dsa-cta_color-neutral__copy--color: var(--ks-text-color-default);
+
+  --dsa-cta_highlight-text__headline--font: var(--dsa-headline_h1--font);
+  --dsa-cta_highlight-text__copy--font: var(--ks-font-copy-l);
+}

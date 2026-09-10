@@ -1,0 +1,484 @@
+:root,
+[ks-theme] {
+  --ks-border-color-accent-base: var(--ks-color-primary-to-bg-8);
+  --ks-border-color-accent-inverted-base: var(--ks-color-primary-inverted-to-bg-8);
+
+  --ks-border-color-clear-base: var(--ks-color-transparent);
+  --ks-border-color-clear-inverted-base: var(--ks-color-transparent);
+
+  --ks-border-color-clear-interactive-base: var(--ks-color-transparent);
+  --ks-border-color-clear-inverted-interactive-base: var(--ks-color-transparent);
+
+  --ks-border-color-clear-interactive-hover-base: var(--ks-color-primary-alpha-8);
+  --ks-border-color-clear-inverted-interactive-hover-base: var(--ks-color-primary-inverted-alpha-7);
+
+  --ks-border-color-clear-interactive-active-base: var(--ks-color-primary-alpha-7);
+  --ks-border-color-clear-inverted-interactive-active-base: var(--ks-color-primary-inverted-alpha-6);
+
+  --ks-border-color-clear-interactive-selected-base: var(--ks-color-primary-alpha-6);
+  --ks-border-color-clear-inverted-interactive-selected-base: var(--ks-color-primary-inverted-alpha-5);
+
+  --ks-border-color-default-base: var(--ks-color-fg-alpha-8);
+  --ks-border-color-default-inverted-base: var(--ks-color-fg-inverted-alpha-8);
+
+  --ks-border-color-interface-base: var(--ks-color-primary-alpha-8);
+  --ks-border-color-interface-inverted-base: var(--ks-color-fg-inverted-alpha-8);
+
+  --ks-border-color-interface-interactive-base: var(--ks-color-fg-alpha-7);
+  --ks-border-color-interface-inverted-interactive-base: var(--ks-color-fg-inverted-alpha-7);
+
+  --ks-border-color-interface-interactive-disabled-base: var(--ks-color-fg-alpha-8);
+  --ks-border-color-interface-inverted-interactive-disabled-base: var(--ks-color-fg-inverted-alpha-8);
+
+  --ks-border-color-interface-interactive-hover-base: var(--ks-color-fg-alpha-5);
+  --ks-border-color-interface-inverted-interactive-hover-base: var(--ks-color-fg-inverted-alpha-5);
+
+  --ks-border-color-interface-interactive-active-base: var(--ks-color-primary);
+  --ks-border-color-interface-inverted-interactive-active-base: var(--ks-color-fg-inverted-alpha-5);
+
+  --ks-border-color-interface-interactive-selected-base: var(--ks-color-primary);
+  --ks-border-color-interface-inverted-interactive-selected-base: var(--ks-color-primary-inverted);
+
+  --ks-border-color-card-base: var(--ks-color-fg-alpha-9);
+  --ks-border-color-card-inverted-base: var(--ks-color-fg-inverted-alpha-9);
+
+  --ks-border-color-card-interactive-base: var(--ks-color-fg-alpha-8);
+  --ks-border-color-card-inverted-interactive-base: var(--ks-color-fg-inverted-alpha-8);
+
+  --ks-border-color-card-interactive-disabled-base: var(--ks-color-fg-alpha-8);
+  --ks-border-color-card-inverted-interactive-disabled-base: var(--ks-color-fg-inverted-alpha-2);
+
+  --ks-border-color-card-interactive-hover-base: var(--ks-color-fg-alpha-5);
+  --ks-border-color-card-inverted-interactive-hover-base: var(--ks-color-fg-inverted-alpha-3);
+
+  --ks-border-color-card-interactive-active-base: var(--ks-color-fg-alpha-3);
+  --ks-border-color-card-inverted-interactive-active-base: var(--ks-color-fg-inverted-alpha-1);
+
+  --ks-border-color-card-interactive-selected-base: var(--ks-color-primary);
+  --ks-border-color-card-inverted-interactive-selected-base: var(--ks-color-primary-inverted);
+
+  --ks-border-color-primary-base: var(--ks-color-primary);
+  --ks-border-color-primary-inverted-base: var(--ks-color-primary-inverted);
+
+  --ks-border-color-primary-interactive-base: var(--ks-color-primary);
+  --ks-border-color-primary-inverted-interactive-base: var(--ks-color-primary-inverted);
+
+  --ks-border-color-primary-interactive-hover-base: var(--ks-color-primary-to-bg-2);
+  --ks-border-color-primary-inverted-interactive-hover-base: var(--ks-color-primary-inverted-to-bg-2);
+
+  --ks-border-color-primary-interactive-active-base: var(--ks-color-primary-to-bg-3);
+  --ks-border-color-primary-inverted-interactive-active-base: var(--ks-color-primary-inverted-to-bg-3);
+
+  --ks-border-color-primary-interactive-selected-base: var(--ks-color-primary);
+  --ks-border-color-primary-inverted-interactive-selected-base: var(--ks-color-primary-inverted);
+
+  --ks-border-color-primary-translucent-base: var(--ks-color-primary-alpha-2);
+  --ks-border-color-primary-inverted-translucent-base: var(--ks-color-primary-inverted-alpha-2);
+
+  --ks-border-color-positive-base: var(--ks-color-positive);
+  --ks-border-color-positive-inverted-base: var(--ks-color-positive-inverted);
+
+  --ks-border-color-positive-interactive-base: var(--ks-color-positive);
+  --ks-border-color-positive-inverted-interactive-base: var(--ks-color-positive-inverted);
+
+  --ks-border-color-positive-interactive-hover-base: var(--ks-color-positive-to-bg-2);
+  --ks-border-color-positive-inverted-interactive-hover-base: var(--ks-color-positive-inverted-to-bg-2);
+
+  --ks-border-color-positive-interactive-active-base: var(--ks-color-positive-to-bg-3);
+  --ks-border-color-positive-inverted-interactive-active-base: var(--ks-color-positive-inverted-to-bg-3);
+
+  --ks-border-color-positive-interactive-selected-base: var(--ks-color-positive);
+  --ks-border-color-positive-inverted-interactive-selected-base: var(--ks-color-positive-inverted);
+
+  --ks-border-color-positive-translucent-base: var(--ks-color-positive-alpha-2);
+  --ks-border-color-positive-inverted-translucent-base: var(--ks-color-positive-inverted-alpha-2);
+
+  --ks-border-color-informative-base: var(--ks-color-informative);
+  --ks-border-color-informative-inverted-base: var(--ks-color-informative-inverted);
+
+  --ks-border-color-informative-interactive-base: var(--ks-color-informative);
+  --ks-border-color-informative-inverted-interactive-base: var(--ks-color-informative-inverted);
+
+  --ks-border-color-informative-interactive-hover-base: var(--ks-color-informative-to-bg-2);
+  --ks-border-color-informative-inverted-interactive-hover-base: var(--ks-color-informative-inverted-to-bg-2);
+
+  --ks-border-color-informative-interactive-active-base: var(--ks-color-informative-to-bg-3);
+  --ks-border-color-informative-inverted-interactive-active-base: var(--ks-color-informative-inverted-to-bg-3);
+
+  --ks-border-color-informative-interactive-selected-base: var(--ks-color-informative);
+  --ks-border-color-informative-inverted-interactive-selected-base: var(--ks-color-informative-inverted);
+
+  --ks-border-color-informative-translucent-base: var(--ks-color-informative-alpha-2);
+  --ks-border-color-informative-inverted-translucent-base: var(--ks-color-informative-inverted-alpha-2);
+
+  --ks-border-color-notice-base: var(--ks-color-notice);
+  --ks-border-color-notice-inverted-base: var(--ks-color-notice-inverted);
+
+  --ks-border-color-notice-interactive-base: var(--ks-color-notice);
+  --ks-border-color-notice-inverted-interactive-base: var(--ks-color-notice-inverted);
+
+  --ks-border-color-notice-interactive-hover-base: var(--ks-color-notice-to-bg-2);
+  --ks-border-color-notice-inverted-interactive-hover-base: var(--ks-color-notice-inverted-to-bg-2);
+
+  --ks-border-color-notice-interactive-active-base: var(--ks-color-notice-to-bg-3);
+  --ks-border-color-notice-inverted-interactive-active-base: var(--ks-color-notice-inverted-to-bg-3);
+
+  --ks-border-color-notice-interactive-selected-base: var(--ks-color-notice);
+  --ks-border-color-notice-inverted-interactive-selected-base: var(--ks-color-notice-inverted);
+
+  --ks-border-color-notice-translucent-base: var(--ks-color-notice-alpha-2);
+  --ks-border-color-notice-inverted-translucent-base: var(--ks-color-notice-inverted-alpha-2);
+
+  --ks-border-color-negative-base: var(--ks-color-negative);
+  --ks-border-color-negative-inverted-base: var(--ks-color-negative-inverted);
+
+  --ks-border-color-negative-interactive-base: var(--ks-color-negative);
+  --ks-border-color-negative-inverted-interactive-base: var(--ks-color-negative-inverted);
+
+  --ks-border-color-negative-interactive-hover-base: var(--ks-color-negative-to-bg-2);
+  --ks-border-color-negative-inverted-interactive-hover-base: var(--ks-color-negative-inverted-to-bg-2);
+
+  --ks-border-color-negative-interactive-active-base: var(--ks-color-negative-to-bg-3);
+  --ks-border-color-negative-inverted-interactive-active-base: var(--ks-color-negative-inverted-to-bg-3);
+
+  --ks-border-color-negative-interactive-selected-base: var(--ks-color-negative);
+  --ks-border-color-negative-inverted-interactive-selected-base: var(--ks-color-negative-inverted);
+
+  --ks-border-color-negative-translucent-base: var(--ks-color-negative-alpha-2);
+  --ks-border-color-negative-inverted-translucent-base: var(--ks-color-negative-inverted-alpha-2);
+}
+:root {
+  --ks-border-color-accent: var(--ks-border-color-accent-base);
+  --ks-border-color-accent-inverted: var(--ks-border-color-accent-inverted-base);
+
+  --ks-border-color-clear: var(--ks-border-color-clear-base);
+  --ks-border-color-clear-inverted: var(--ks-border-color-clear-inverted-base);
+
+  --ks-border-color-clear-interactive: var(--ks-border-color-clear-interactive-base);
+  --ks-border-color-clear-inverted-interactive: var(--ks-border-color-clear-inverted-interactive-base);
+
+  --ks-border-color-clear-interactive-hover: var(--ks-border-color-clear-interactive-hover-base);
+  --ks-border-color-clear-inverted-interactive-hover: var(--ks-border-color-clear-inverted-interactive-hover-base);
+
+  --ks-border-color-clear-interactive-active: var(--ks-border-color-clear-interactive-active-base);
+  --ks-border-color-clear-inverted-interactive-active: var(--ks-border-color-clear-inverted-interactive-active-base);
+
+  --ks-border-color-clear-interactive-selected: var(--ks-border-color-clear-interactive-selected-base);
+  --ks-border-color-clear-inverted-interactive-selected: var(
+    --ks-border-color-clear-inverted-interactive-selected-base
+  );
+
+  --ks-border-color-default: var(--ks-border-color-default-base);
+  --ks-border-color-default-inverted: var(--ks-border-color-default-inverted-base);
+
+  --ks-border-color-interface: var(--ks-border-color-interface-base);
+  --ks-border-color-interface-inverted: var(--ks-border-color-interface-inverted-base);
+
+  --ks-border-color-interface-interactive: var(--ks-border-color-interface-interactive-base);
+  --ks-border-color-interface-inverted-interactive: var(--ks-border-color-interface-inverted-interactive-base);
+
+  --ks-border-color-interface-interactive-disabled: var(--ks-border-color-interface-interactive-disabled-base);
+  --ks-border-color-interface-inverted-interactive-disabled: var(
+    --ks-border-color-interface-inverted-interactive-disabled-base
+  );
+
+  --ks-border-color-interface-interactive-hover: var(--ks-border-color-interface-interactive-hover-base);
+  --ks-border-color-interface-inverted-interactive-hover: var(
+    --ks-border-color-interface-inverted-interactive-hover-base
+  );
+
+  --ks-border-color-interface-interactive-active: var(--ks-border-color-interface-interactive-active-base);
+  --ks-border-color-interface-inverted-interactive-active: var(
+    --ks-border-color-interface-inverted-interactive-active-base
+  );
+
+  --ks-border-color-interface-interactive-selected: var(--ks-border-color-interface-interactive-selected-base);
+  --ks-border-color-interface-inverted-interactive-selected: var(
+    --ks-border-color-interface-inverted-interactive-selected-base
+  );
+
+  --ks-border-color-card: var(--ks-border-color-card-base);
+  --ks-border-color-card-inverted: var(--ks-border-color-card-inverted-base);
+
+  --ks-border-color-card-interactive: var(--ks-border-color-card-interactive-base);
+  --ks-border-color-card-inverted-interactive: var(--ks-border-color-card-inverted-interactive-base);
+
+  --ks-border-color-card-interactive-disabled: var(--ks-border-color-card-interactive-disabled-base);
+  --ks-border-color-card-inverted-interactive-disabled: var(--ks-border-color-card-inverted-interactive-disabled-base);
+
+  --ks-border-color-card-interactive-hover: var(--ks-border-color-card-interactive-hover-base);
+  --ks-border-color-card-inverted-interactive-hover: var(--ks-border-color-card-inverted-interactive-hover-base);
+
+  --ks-border-color-card-interactive-active: var(--ks-border-color-card-interactive-active-base);
+  --ks-border-color-card-inverted-interactive-active: var(--ks-border-color-card-inverted-interactive-active-base);
+
+  --ks-border-color-card-interactive-selected: var(--ks-border-color-card-interactive-selected-base);
+  --ks-border-color-card-inverted-interactive-selected: var(--ks-border-color-card-inverted-interactive-selected-base);
+
+  --ks-border-color-primary: var(--ks-border-color-primary-base);
+  --ks-border-color-primary-inverted: var(--ks-border-color-primary-inverted-base);
+
+  --ks-border-color-primary-interactive: var(--ks-border-color-primary-interactive-base);
+  --ks-border-color-primary-inverted-interactive: var(--ks-border-color-primary-inverted-interactive-base);
+
+  --ks-border-color-primary-interactive-hover: var(--ks-border-color-primary-interactive-hover-base);
+  --ks-border-color-primary-inverted-interactive-hover: var(--ks-border-color-primary-inverted-interactive-hover-base);
+
+  --ks-border-color-primary-interactive-active: var(--ks-border-color-primary-interactive-active-base);
+  --ks-border-color-primary-inverted-interactive-active: var(
+    --ks-border-color-primary-inverted-interactive-active-base
+  );
+
+  --ks-border-color-primary-interactive-selected: var(--ks-border-color-primary-interactive-selected-base);
+  --ks-border-color-primary-inverted-interactive-selected: var(
+    --ks-border-color-primary-inverted-interactive-selected-base
+  );
+
+  --ks-border-color-primary-translucent: var(--ks-border-color-primary-translucent-base);
+  --ks-border-color-primary-inverted-translucent: var(--ks-border-color-primary-inverted-translucent-base);
+
+  --ks-border-color-positive: var(--ks-border-color-positive-base);
+  --ks-border-color-positive-inverted: var(--ks-border-color-positive-inverted-base);
+
+  --ks-border-color-positive-interactive: var(--ks-border-color-positive-interactive-base);
+  --ks-border-color-positive-inverted-interactive: var(--ks-border-color-positive-inverted-interactive-base);
+
+  --ks-border-color-positive-interactive-hover: var(--ks-border-color-positive-interactive-hover-base);
+  --ks-border-color-positive-inverted-interactive-hover: var(
+    --ks-border-color-positive-inverted-interactive-hover-base
+  );
+
+  --ks-border-color-positive-interactive-active: var(--ks-border-color-positive-interactive-active-base);
+  --ks-border-color-positive-inverted-interactive-active: var(
+    --ks-border-color-positive-inverted-interactive-active-base
+  );
+
+  --ks-border-color-positive-interactive-selected: var(--ks-border-color-positive-interactive-selected-base);
+  --ks-border-color-positive-inverted-interactive-selected: var(
+    --ks-border-color-positive-inverted-interactive-selected-base
+  );
+
+  --ks-border-color-positive-translucent: var(--ks-border-color-positive-translucent-base);
+  --ks-border-color-positive-inverted-translucent: var(--ks-border-color-positive-inverted-translucent-base);
+
+  --ks-border-color-informative: var(--ks-border-color-informative-base);
+  --ks-border-color-informative-inverted: var(--ks-border-color-informative-inverted-base);
+
+  --ks-border-color-informative-interactive: var(--ks-border-color-informative-interactive-base);
+  --ks-border-color-informative-inverted-interactive: var(--ks-border-color-informative-inverted-interactive-base);
+
+  --ks-border-color-informative-interactive-hover: var(--ks-border-color-informative-interactive-hover-base);
+  --ks-border-color-informative-inverted-interactive-hover: var(
+    --ks-border-color-informative-inverted-interactive-hover-base
+  );
+
+  --ks-border-color-informative-interactive-active: var(--ks-border-color-informative-interactive-active-base);
+  --ks-border-color-informative-inverted-interactive-active: var(
+    --ks-border-color-informative-inverted-interactive-active-base
+  );
+
+  --ks-border-color-informative-interactive-selected: var(--ks-border-color-informative-interactive-selected-base);
+  --ks-border-color-informative-inverted-interactive-selected: var(
+    --ks-border-color-informative-inverted-interactive-selected-base
+  );
+
+  --ks-border-color-informative-translucent: var(--ks-border-color-informative-translucent-base);
+  --ks-border-color-informative-inverted-translucent: var(--ks-border-color-informative-inverted-translucent-base);
+
+  --ks-border-color-notice: var(--ks-border-color-notice-base);
+  --ks-border-color-notice-inverted: var(--ks-border-color-notice-inverted-base);
+
+  --ks-border-color-notice-interactive: var(--ks-border-color-notice-interactive-base);
+  --ks-border-color-notice-inverted-interactive: var(--ks-border-color-notice-inverted-interactive-base);
+
+  --ks-border-color-notice-interactive-hover: var(--ks-border-color-notice-interactive-hover-base);
+  --ks-border-color-notice-inverted-interactive-hover: var(--ks-border-color-notice-inverted-interactive-hover-base);
+
+  --ks-border-color-notice-interactive-active: var(--ks-border-color-notice-interactive-active-base);
+  --ks-border-color-notice-inverted-interactive-active: var(--ks-border-color-notice-inverted-interactive-active-base);
+
+  --ks-border-color-notice-interactive-selected: var(--ks-border-color-notice-interactive-selected-base);
+  --ks-border-color-notice-inverted-interactive-selected: var(
+    --ks-border-color-notice-inverted-interactive-selected-base
+  );
+
+  --ks-border-color-notice-translucent: var(--ks-border-color-notice-translucent-base);
+  --ks-border-color-notice-inverted-translucent: var(--ks-border-color-notice-inverted-translucent-base);
+
+  --ks-border-color-negative: var(--ks-border-color-negative-base);
+  --ks-border-color-negative-inverted: var(--ks-border-color-negative-inverted-base);
+
+  --ks-border-color-negative-interactive: var(--ks-border-color-negative-interactive-base);
+  --ks-border-color-negative-inverted-interactive: var(--ks-border-color-negative-inverted-interactive-base);
+
+  --ks-border-color-negative-interactive-hover: var(--ks-border-color-negative-interactive-hover-base);
+  --ks-border-color-negative-inverted-interactive-hover: var(
+    --ks-border-color-negative-inverted-interactive-hover-base
+  );
+
+  --ks-border-color-negative-interactive-active: var(--ks-border-color-negative-interactive-active-base);
+  --ks-border-color-negative-inverted-interactive-active: var(
+    --ks-border-color-negative-inverted-interactive-active-base
+  );
+
+  --ks-border-color-negative-interactive-selected: var(--ks-border-color-negative-interactive-selected-base);
+  --ks-border-color-negative-inverted-interactive-selected: var(
+    --ks-border-color-negative-inverted-interactive-selected-base
+  );
+
+  --ks-border-color-negative-translucent: var(--ks-border-color-negative-translucent-base);
+  --ks-border-color-negative-inverted-translucent: var(--ks-border-color-negative-inverted-translucent-base);
+}
+
+[ks-inverted="true"] {
+  --ks-border-color-accent: var(--ks-border-color-accent-inverted-base);
+  --ks-border-color-accent-inverted: var(--ks-border-color-accent-base);
+
+  --ks-border-color-clear: var(--ks-border-color-clear-inverted-base);
+  --ks-border-color-clear-inverted: var(--ks-border-color-clear-base);
+
+  --ks-border-color-clear-interactive: var(--ks-border-color-clear-inverted-interactive-base);
+  --ks-border-color-clear-inverted-interactive: var(--ks-border-color-clear-interactive-base);
+
+  --ks-border-color-clear-interactive-hover: var(--ks-border-color-clear-inverted-interactive-hover-base);
+  --ks-border-color-clear-inverted-interactive-hover: var(--ks-border-color-clear-interactive-hover-base);
+
+  --ks-border-color-clear-interactive-active: var(--ks-border-color-clear-inverted-interactive-active-base);
+  --ks-border-color-clear-inverted-interactive-active: var(--ks-border-color-clear-interactive-active-base);
+
+  --ks-border-color-clear-interactive-selected: var(--ks-border-color-clear-inverted-interactive-selected-base);
+  --ks-border-color-clear-inverted-interactive-selected: var(--ks-border-color-clear-interactive-selected-base);
+
+  --ks-border-color-default: var(--ks-border-color-default-inverted-base);
+  --ks-border-color-default-inverted: var(--ks-border-color-default-base);
+
+  --ks-border-color-interface: var(--ks-border-color-interface-inverted-base);
+  --ks-border-color-interface-inverted: var(--ks-border-color-interface-base);
+
+  --ks-border-color-interface-interactive: var(--ks-border-color-interface-inverted-interactive-base);
+  --ks-border-color-interface-inverted-interactive: var(--ks-border-color-interface-interactive-base);
+
+  --ks-border-color-interface-interactive-disabled: var(--ks-border-color-interface-inverted-interactive-disabled-base);
+  --ks-border-color-interface-inverted-interactive-disabled: var(--ks-border-color-interface-interactive-disabled-base);
+
+  --ks-border-color-interface-interactive-hover: var(--ks-border-color-interface-inverted-interactive-hover-base);
+  --ks-border-color-interface-inverted-interactive-hover: var(--ks-border-color-interface-interactive-hover-base);
+
+  --ks-border-color-interface-interactive-active: var(--ks-border-color-interface-inverted-interactive-active-base);
+  --ks-border-color-interface-inverted-interactive-active: var(--ks-border-color-interface-interactive-active-base);
+
+  --ks-border-color-interface-interactive-selected: var(--ks-border-color-interface-inverted-interactive-selected-base);
+  --ks-border-color-interface-inverted-interactive-selected: var(--ks-border-color-interface-interactive-selected-base);
+
+  --ks-border-color-card: var(--ks-border-color-card-inverted-base);
+  --ks-border-color-card-inverted: var(--ks-border-color-card-base);
+
+  --ks-border-color-card-interactive: var(--ks-border-color-card-inverted-interactive-base);
+  --ks-border-color-card-inverted-interactive: var(--ks-border-color-card-interactive-base);
+
+  --ks-border-color-card-interactive-disabled: var(--ks-border-color-card-inverted-interactive-disabled-base);
+  --ks-border-color-card-inverted-interactive-disabled: var(--ks-border-color-card-interactive-disabled-base);
+
+  --ks-border-color-card-interactive-hover: var(--ks-border-color-card-inverted-interactive-hover-base);
+  --ks-border-color-card-inverted-interactive-hover: var(--ks-border-color-card-interactive-hover-base);
+
+  --ks-border-color-card-interactive-active: var(--ks-border-color-card-inverted-interactive-active-base);
+  --ks-border-color-card-inverted-interactive-active: var(--ks-border-color-card-interactive-active-base);
+
+  --ks-border-color-card-interactive-selected: var(--ks-border-color-card-inverted-interactive-selected-base);
+  --ks-border-color-card-inverted-interactive-selected: var(--ks-border-color-card-interactive-selected-base);
+
+  --ks-border-color-primary: var(--ks-border-color-primary-inverted-base);
+  --ks-border-color-primary-inverted: var(--ks-border-color-primary-base);
+
+  --ks-border-color-primary-interactive: var(--ks-border-color-primary-inverted-interactive-base);
+  --ks-border-color-primary-inverted-interactive: var(--ks-border-color-primary-interactive-base);
+
+  --ks-border-color-primary-interactive-hover: var(--ks-border-color-primary-inverted-interactive-hover-base);
+  --ks-border-color-primary-inverted-interactive-hover: var(--ks-border-color-primary-interactive-hover-base);
+
+  --ks-border-color-primary-interactive-active: var(--ks-border-color-primary-inverted-interactive-active-base);
+  --ks-border-color-primary-inverted-interactive-active: var(--ks-border-color-primary-interactive-active-base);
+
+  --ks-border-color-primary-interactive-selected: var(--ks-border-color-primary-inverted-interactive-selected-base);
+  --ks-border-color-primary-inverted-interactive-selected: var(--ks-border-color-primary-interactive-selected-base);
+
+  --ks-border-color-primary-translucent: var(--ks-border-color-primary-inverted-translucent-base);
+  --ks-border-color-primary-inverted-translucent: var(--ks-border-color-primary-translucent-base);
+
+  --ks-border-color-positive: var(--ks-border-color-positive-inverted-base);
+  --ks-border-color-positive-inverted: var(--ks-border-color-positive-base);
+
+  --ks-border-color-positive-interactive: var(--ks-border-color-positive-inverted-interactive-base);
+  --ks-border-color-positive-inverted-interactive: var(--ks-border-color-positive-interactive-base);
+
+  --ks-border-color-positive-interactive-hover: var(--ks-border-color-positive-inverted-interactive-hover-base);
+  --ks-border-color-positive-inverted-interactive-hover: var(--ks-border-color-positive-interactive-hover-base);
+
+  --ks-border-color-positive-interactive-active: var(--ks-border-color-positive-inverted-interactive-active-base);
+  --ks-border-color-positive-inverted-interactive-active: var(--ks-border-color-positive-interactive-active-base);
+
+  --ks-border-color-positive-interactive-selected: var(--ks-border-color-positive-inverted-interactive-selected-base);
+  --ks-border-color-positive-inverted-interactive-selected: var(--ks-border-color-positive-interactive-selected-base);
+
+  --ks-border-color-positive-translucent: var(--ks-border-color-positive-inverted-translucent-base);
+  --ks-border-color-positive-inverted-translucent: var(--ks-border-color-positive-translucent-base);
+
+  --ks-border-color-informative: var(--ks-border-color-informative-inverted-base);
+  --ks-border-color-informative-inverted: var(--ks-border-color-informative-base);
+
+  --ks-border-color-informative-interactive: var(--ks-border-color-informative-inverted-interactive-base);
+  --ks-border-color-informative-inverted-interactive: var(--ks-border-color-informative-interactive-base);
+
+  --ks-border-color-informative-interactive-hover: var(--ks-border-color-informative-inverted-interactive-hover-base);
+  --ks-border-color-informative-inverted-interactive-hover: var(--ks-border-color-informative-interactive-hover-base);
+
+  --ks-border-color-informative-interactive-active: var(--ks-border-color-informative-inverted-interactive-active-base);
+  --ks-border-color-informative-inverted-interactive-active: var(--ks-border-color-informative-interactive-active-base);
+
+  --ks-border-color-informative-interactive-selected: var(
+    --ks-border-color-informative-inverted-interactive-selected-base
+  );
+  --ks-border-color-informative-inverted-interactive-selected: var(
+    --ks-border-color-informative-interactive-selected-base
+  );
+
+  --ks-border-color-informative-translucent: var(--ks-border-color-informative-inverted-translucent-base);
+  --ks-border-color-informative-inverted-translucent: var(--ks-border-color-informative-translucent-base);
+
+  --ks-border-color-notice: var(--ks-border-color-notice-inverted-base);
+  --ks-border-color-notice-inverted: var(--ks-border-color-notice-base);
+
+  --ks-border-color-notice-interactive: var(--ks-border-color-notice-inverted-interactive-base);
+  --ks-border-color-notice-inverted-interactive: var(--ks-border-color-notice-interactive-base);
+
+  --ks-border-color-notice-interactive-hover: var(--ks-border-color-notice-inverted-interactive-hover-base);
+  --ks-border-color-notice-inverted-interactive-hover: var(--ks-border-color-notice-interactive-hover-base);
+
+  --ks-border-color-notice-interactive-active: var(--ks-border-color-notice-inverted-interactive-active-base);
+  --ks-border-color-notice-inverted-interactive-active: var(--ks-border-color-notice-interactive-active-base);
+
+  --ks-border-color-notice-interactive-selected: var(--ks-border-color-notice-inverted-interactive-selected-base);
+  --ks-border-color-notice-inverted-interactive-selected: var(--ks-border-color-notice-interactive-selected-base);
+
+  --ks-border-color-notice-translucent: var(--ks-border-color-notice-inverted-translucent-base);
+  --ks-border-color-notice-inverted-translucent: var(--ks-border-color-notice-translucent-base);
+
+  --ks-border-color-negative: var(--ks-border-color-negative-inverted-base);
+  --ks-border-color-negative-inverted: var(--ks-border-color-negative-base);
+
+  --ks-border-color-negative-interactive: var(--ks-border-color-negative-inverted-interactive-base);
+  --ks-border-color-negative-inverted-interactive: var(--ks-border-color-negative-interactive-base);
+
+  --ks-border-color-negative-interactive-hover: var(--ks-border-color-negative-inverted-interactive-hover-base);
+  --ks-border-color-negative-inverted-interactive-hover: var(--ks-border-color-negative-interactive-hover-base);
+
+  --ks-border-color-negative-interactive-active: var(--ks-border-color-negative-inverted-interactive-active-base);
+  --ks-border-color-negative-inverted-interactive-active: var(--ks-border-color-negative-interactive-active-base);
+
+  --ks-border-color-negative-interactive-selected: var(--ks-border-color-negative-inverted-interactive-selected-base);
+  --ks-border-color-negative-inverted-interactive-selected: var(--ks-border-color-negative-interactive-selected-base);
+
+  --ks-border-color-negative-translucent: var(--ks-border-color-negative-inverted-translucent-base);
+  --ks-border-color-negative-inverted-translucent: var(--ks-border-color-negative-translucent-base);
+}

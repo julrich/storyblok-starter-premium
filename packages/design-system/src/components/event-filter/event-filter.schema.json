@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/event-filter.schema.json",
+  "title": "Event Filter",
+  "description": "Event filter component for filtering events based on date and categories.",
+  "type": "object",
+  "properties": {
+    "datePicker": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title for the date picker",
+          "default": "Find Appointment"
+        },
+        "dateFromInput": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "Label for the date-from input",
+              "default": "From"
+            },
+            "placeholder": {
+              "type": "string",
+              "description": "Placeholder text for the date-from input",
+              "default": "Select a date"
+            }
+          }
+        },
+        "dateToInput": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "Label for the date-to input",
+              "default": "To"
+            },
+            "placeholder": {
+              "type": "string",
+              "description": "Placeholder text for the date-to input",
+              "default": "Select a date"
+            }
+          }
+        },
+        "toggle": {
+          "type": "boolean",
+          "description": "Toggle to enable or disable the date picker",
+          "default": true
+        }
+      }
+    },
+    "categories": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title for the categories filter",
+          "default": "Categories"
+        },
+        "categoryCheckboxes": {
+          "type": "array",
+          "title": "Label",
+          "description": "List of categories to filter appointments",
+          "items": {
+            "type": "string",
+            "description": "Category name",
+            "examples": ["Category Filter"]
+          }
+        },
+        "toggle": {
+          "type": "boolean",
+          "description": "Toggle to enable or disable the category filter",
+          "default": true
+        }
+      }
+    },
+    "applyButton": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Label for the button",
+          "default": "Filter Appointments"
+        },
+        "onClick": {
+          "type": "string",
+          "description": "Function to call on button click"
+        }
+      }
+    },
+    "resetButton": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Label for the button",
+          "default": "Reset Filters"
+        },
+        "onClick": {
+          "type": "string",
+          "description": "Function to call on button click"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,44 @@
+@use "radio-tokens.scss";
+
+.dsa-radio {
+  display: flex;
+
+  .c-form-check--radio {
+    --c-form-check_box--size: var(--dsa-radio--size, 1.125em);
+
+    --c-form-check_box--border: var(--dsa-radio--border, var(--ks-border-width-default) solid);
+    --c-form-check_box--border-color: var(--dsa-radio--border-color, var(--ks-border-color-interface-interactive));
+    --c-form-check_box-hover--border-color: var(
+      --dsa-radio--border-color_hover,
+      var(--ks-border-color-interface-interactive-hover)
+    );
+    --c-form-check_box-focus--border-color: var(
+      --dsa-radio--border-color_focus,
+      var(--ks-border-color-interface-interactive-active)
+    );
+    --c-form-check_box-checked--border-color: var(
+      --dsa-radio--border-color_checked,
+      var(--ks-border-color-interface-interactive-selected)
+    );
+    --c-form-check_box--background: var(--dsa-radio--background, var(--ks-background-color-interface-interactive));
+    --c-form-check_box-checked--background: var(
+      --dsa-radio--background_checked,
+      var(--ks-background-color-interface-interactive-selected)
+    );
+
+    --c-form-check_checkmark--color: var(--dsa-radio__checkmark--color, var(--ks-text-color-on-primary));
+
+    --c-form-check_box-focus--shadow: var(--dsa-radio--shadow_focus, 0 0 4px 0);
+    --c-form-check_box--border-radius: var(--dsa-radio--border-radius, var(--ks-border-radius-circle));
+
+    --c-form-check_checkmark--size: var(--dsa-radio__checkmark--size, calc(var(--dsa-radio--size) * 0.5));
+
+    font: var(--dsa-radio__label--font, var(--ks-font-interface-s));
+    font-weight: var(--dsa-radio__label--font-weight, var(--ks-font-weight-regular));
+    color: var(--dsa-radio__label--color, var(--ks-text-color-interface-interactive));
+
+    .c-form-check__label {
+      margin-left: var(--dsa-radio__label--margin-left, 0.5em);
+    }
+  }
+}

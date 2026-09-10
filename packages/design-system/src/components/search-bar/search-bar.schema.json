@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/search-bar.schema.json",
+  "title": "Search Bar",
+  "description": "Search bar component for user input and search functionality.",
+  "type": "object",
+  "properties": {
+    "placeholder": {
+      "title": "Placeholder",
+      "type": "string",
+      "description": "Placeholder text for the search input field.",
+      "examples": ["Search..."]
+    },
+    "buttonText": {
+      "type": "string",
+      "description": "Text displayed on the search button.",
+      "examples": ["Search"]
+    },
+    "hint": {
+      "type": "string",
+      "description": "Additional information or instructions related to the search functionality.",
+      "examples": ["Press <kbd>Enter</kbd> to search"]
+    },
+    "alternativeText": {
+      "type": "string",
+      "description": "Text to display when offering alternative results.",
+      "examples": ["Did you mean"]
+    },
+    "alternativeResult": {
+      "type": "string",
+      "description": "The alternative result to display when offering suggestions.",
+      "examples": ["AI Conference"]
+    }
+  },
+  "additionalProperties": false
+}

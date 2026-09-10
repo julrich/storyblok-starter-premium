@@ -1,0 +1,625 @@
+// Branding
+:root,
+[ks-theme],
+[ks-inverted="false"],
+[ks-inverted="true"] {
+  // Calculated BP Factor
+  --font-size-display-xxs-bp-factor: calc(1 * var(--font-size-display-bp-factor));
+  --font-size-display-xs-bp-factor: calc(var(--font-size-display-xxs-bp-factor) * var(--font-size-display-bp-factor));
+  --font-size-display-s-bp-factor: calc(var(--font-size-display-xs-bp-factor) * var(--font-size-display-bp-factor));
+  --font-size-display-m-bp-factor: calc(var(--font-size-display-s-bp-factor) * var(--font-size-display-bp-factor));
+  --font-size-display-l-bp-factor: calc(var(--font-size-display-m-bp-factor) * var(--font-size-display-bp-factor));
+  --font-size-display-xl-bp-factor: calc(var(--font-size-display-l-bp-factor) * var(--font-size-display-bp-factor));
+  --font-size-display-xxl-bp-factor: calc(var(--font-size-display-xl-bp-factor) * var(--font-size-display-bp-factor));
+
+  --font-size-copy-xxs-bp-factor: calc(1 * var(--font-size-copy-bp-factor));
+  --font-size-copy-xs-bp-factor: calc(var(--font-size-copy-xxs-bp-factor) * var(--font-size-copy-bp-factor));
+  --font-size-copy-s-bp-factor: calc(var(--font-size-copy-xs-bp-factor) * var(--font-size-copy-bp-factor));
+  --font-size-copy-m-bp-factor: calc(var(--font-size-copy-s-bp-factor) * var(--font-size-copy-bp-factor));
+  --font-size-copy-l-bp-factor: calc(var(--font-size-copy-m-bp-factor) * var(--font-size-copy-bp-factor));
+  --font-size-copy-xl-bp-factor: calc(var(--font-size-copy-l-bp-factor) * var(--font-size-copy-bp-factor));
+  --font-size-copy-xxl-bp-factor: calc(var(--font-size-copy-xl-bp-factor) * var(--font-size-copy-bp-factor));
+
+  --font-size-interface-xxs-bp-factor: calc(1 * var(--font-size-interface-bp-factor));
+  --font-size-interface-xs-bp-factor: calc(
+    var(--font-size-interface-xxs-bp-factor) * var(--font-size-interface-bp-factor)
+  );
+  --font-size-interface-s-bp-factor: calc(
+    var(--font-size-interface-xs-bp-factor) * var(--font-size-interface-bp-factor)
+  );
+  --font-size-interface-m-bp-factor: calc(
+    var(--font-size-interface-s-bp-factor) * var(--font-size-interface-bp-factor)
+  );
+  --font-size-interface-l-bp-factor: calc(
+    var(--font-size-interface-m-bp-factor) * var(--font-size-interface-bp-factor)
+  );
+  --font-size-interface-xl-bp-factor: calc(
+    var(--font-size-interface-l-bp-factor) * var(--font-size-interface-bp-factor)
+  );
+  --font-size-interface-xxl-bp-factor: calc(
+    var(--font-size-interface-xl-bp-factor) * var(--font-size-interface-bp-factor)
+  );
+
+  --font-size-mono-xxs-bp-factor: calc(1 * var(--font-size-mono-bp-factor));
+  --font-size-mono-xs-bp-factor: calc(var(--font-size-mono-xxs-bp-factor) * var(--font-size-mono-bp-factor));
+  --font-size-mono-s-bp-factor: calc(var(--font-size-mono-xs-bp-factor) * var(--font-size-mono-bp-factor));
+  --font-size-mono-m-bp-factor: calc(var(--font-size-mono-s-bp-factor) * var(--font-size-mono-bp-factor));
+  --font-size-mono-l-bp-factor: calc(var(--font-size-mono-m-bp-factor) * var(--font-size-mono-bp-factor));
+  --font-size-mono-xl-bp-factor: calc(var(--font-size-mono-l-bp-factor) * var(--font-size-mono-bp-factor));
+  --font-size-mono-xxl-bp-factor: calc(var(--font-size-mono-xl-bp-factor) * var(--font-size-mono-bp-factor));
+}
+
+// Base Token
+// Calculated Growth/Shrink of the font-size
+:root,
+[ks-theme],
+[ks-inverted="false"],
+[ks-inverted="true"] {
+  --ks-font-size-display-xxs-base: calc(
+    var(--ks-font-size-display-xs-base) * calc(var(--font-size-display-shrink-factor) * 1)
+  );
+  --ks-font-size-display-xs-base: calc(
+    var(--ks-font-size-display-s-base) * calc(var(--font-size-display-shrink-factor) * 1)
+  );
+  --ks-font-size-display-s-base: calc(
+    var(--ks-font-size-display-m-base) * calc(var(--font-size-display-shrink-factor) * 1)
+  );
+  --ks-font-size-display-m-base: var(--ks-brand-font-size-display-base);
+  --ks-font-size-display-l-base: calc(var(--ks-font-size-display-m-base) * var(--font-size-display-grow-factor));
+  --ks-font-size-display-xl-base: calc(var(--ks-font-size-display-l-base) * var(--font-size-display-grow-factor));
+  --ks-font-size-display-xxl-base: calc(var(--ks-font-size-display-xl-base) * var(--font-size-display-grow-factor));
+
+  --ks-font-size-copy-xxs-base: calc(var(--ks-font-size-copy-xs-base) * calc(var(--font-size-copy-shrink-factor) * 1));
+  --ks-font-size-copy-xs-base: calc(var(--ks-font-size-copy-s-base) * calc(var(--font-size-copy-shrink-factor) * 1));
+  --ks-font-size-copy-s-base: calc(var(--ks-font-size-copy-m-base) * calc(var(--font-size-copy-shrink-factor) * 1));
+  --ks-font-size-copy-m-base: var(--ks-brand-font-size-copy-base);
+  --ks-font-size-copy-l-base: calc(var(--ks-font-size-copy-m-base) * var(--font-size-copy-grow-factor));
+  --ks-font-size-copy-xl-base: calc(var(--ks-font-size-copy-l-base) * var(--font-size-copy-grow-factor));
+  --ks-font-size-copy-xxl-base: calc(var(--ks-font-size-copy-xl-base) * var(--font-size-copy-grow-factor));
+
+  --ks-font-size-interface-xxs-base: calc(
+    var(--ks-font-size-interface-xs-base) * calc(var(--font-size-interface-shrink-factor) * 1)
+  );
+  --ks-font-size-interface-xs-base: calc(
+    var(--ks-font-size-interface-s-base) * calc(var(--font-size-interface-shrink-factor) * 1)
+  );
+  --ks-font-size-interface-s-base: calc(
+    var(--ks-font-size-interface-m-base) * calc(var(--font-size-interface-shrink-factor) * 1)
+  );
+  --ks-font-size-interface-m-base: var(--ks-brand-font-size-interface-base);
+  --ks-font-size-interface-l-base: calc(var(--ks-font-size-interface-m-base) * var(--font-size-interface-grow-factor));
+  --ks-font-size-interface-xl-base: calc(var(--ks-font-size-interface-l-base) * var(--font-size-interface-grow-factor));
+  --ks-font-size-interface-xxl-base: calc(
+    var(--ks-font-size-interface-xl-base) * var(--font-size-interface-grow-factor)
+  );
+
+  --ks-font-size-mono-xxs-base: calc(var(--ks-font-size-mono-xs-base) * calc(var(--font-size-mono-shrink-factor) * 1));
+  --ks-font-size-mono-xs-base: calc(var(--ks-font-size-mono-s-base) * calc(var(--font-size-mono-shrink-factor) * 1));
+  --ks-font-size-mono-s-base: calc(var(--ks-font-size-mono-m-base) * calc(var(--font-size-mono-shrink-factor) * 1));
+  --ks-font-size-mono-m-base: var(--ks-brand-font-size-mono-base);
+  --ks-font-size-mono-l-base: calc(var(--ks-font-size-mono-m-base) * var(--font-size-mono-grow-factor));
+  --ks-font-size-mono-xl-base: calc(var(--ks-font-size-mono-l-base) * var(--font-size-mono-grow-factor));
+  --ks-font-size-mono-xxl-base: calc(var(--ks-font-size-mono-xl-base) * var(--font-size-mono-grow-factor));
+}
+
+// BP-Factor Calculation
+// (Low Breakpoint Scaling on Small font-sizes / High Breakpoint Scaling on Large font-sizes)
+:root,
+[ks-theme],
+[ks-inverted="false"],
+[ks-inverted="true"] {
+  --ks-font-size-display-xxs-bp-factor-phone: calc(1 * var(--font-size-display-xxs-bp-factor));
+  --ks-font-size-display-xxs-bp-factor-tablet: calc(
+    var(--ks-font-size-display-xxs-bp-factor-phone) * var(--font-size-display-xxs-bp-factor)
+  );
+  --ks-font-size-display-xxs-bp-factor-laptop: calc(
+    var(--ks-font-size-display-xxs-bp-factor-tablet) * var(--font-size-display-xxs-bp-factor)
+  );
+  --ks-font-size-display-xxs-bp-factor-desktop: calc(
+    var(--ks-font-size-display-xxs-bp-factor-laptop) * var(--font-size-display-xxs-bp-factor)
+  );
+
+  --ks-font-size-display-xs-bp-factor-phone: calc(1 * var(--font-size-display-xs-bp-factor));
+  --ks-font-size-display-xs-bp-factor-tablet: calc(
+    var(--ks-font-size-display-xs-bp-factor-phone) * var(--font-size-display-xs-bp-factor)
+  );
+  --ks-font-size-display-xs-bp-factor-laptop: calc(
+    var(--ks-font-size-display-xs-bp-factor-tablet) * var(--font-size-display-xs-bp-factor)
+  );
+  --ks-font-size-display-xs-bp-factor-desktop: calc(
+    var(--ks-font-size-display-xs-bp-factor-laptop) * var(--font-size-display-xs-bp-factor)
+  );
+
+  --ks-font-size-display-s-bp-factor-phone: calc(1 * var(--font-size-display-s-bp-factor));
+  --ks-font-size-display-s-bp-factor-tablet: calc(
+    var(--ks-font-size-display-s-bp-factor-phone) * var(--font-size-display-s-bp-factor)
+  );
+  --ks-font-size-display-s-bp-factor-laptop: calc(
+    var(--ks-font-size-display-s-bp-factor-tablet) * var(--font-size-display-s-bp-factor)
+  );
+  --ks-font-size-display-s-bp-factor-desktop: calc(
+    var(--ks-font-size-display-s-bp-factor-laptop) * var(--font-size-display-s-bp-factor)
+  );
+
+  --ks-font-size-display-m-bp-factor-phone: calc(1 * var(--font-size-display-m-bp-factor));
+  --ks-font-size-display-m-bp-factor-tablet: calc(
+    var(--ks-font-size-display-m-bp-factor-phone) * var(--font-size-display-m-bp-factor)
+  );
+  --ks-font-size-display-m-bp-factor-laptop: calc(
+    var(--ks-font-size-display-m-bp-factor-tablet) * var(--font-size-display-m-bp-factor)
+  );
+  --ks-font-size-display-m-bp-factor-desktop: calc(
+    var(--ks-font-size-display-m-bp-factor-laptop) * var(--font-size-display-m-bp-factor)
+  );
+
+  --ks-font-size-display-l-bp-factor-phone: calc(1 * var(--font-size-display-l-bp-factor));
+  --ks-font-size-display-l-bp-factor-tablet: calc(
+    var(--ks-font-size-display-l-bp-factor-phone) * var(--font-size-display-l-bp-factor)
+  );
+  --ks-font-size-display-l-bp-factor-laptop: calc(
+    var(--ks-font-size-display-l-bp-factor-tablet) * var(--font-size-display-l-bp-factor)
+  );
+  --ks-font-size-display-l-bp-factor-desktop: calc(
+    var(--ks-font-size-display-l-bp-factor-laptop) * var(--font-size-display-l-bp-factor)
+  );
+
+  --ks-font-size-display-xl-bp-factor-phone: calc(1 * var(--font-size-display-xl-bp-factor));
+  --ks-font-size-display-xl-bp-factor-tablet: calc(
+    var(--ks-font-size-display-xl-bp-factor-phone) * var(--font-size-display-xl-bp-factor)
+  );
+  --ks-font-size-display-xl-bp-factor-laptop: calc(
+    var(--ks-font-size-display-xl-bp-factor-tablet) * var(--font-size-display-xl-bp-factor)
+  );
+  --ks-font-size-display-xl-bp-factor-desktop: calc(
+    var(--ks-font-size-display-xl-bp-factor-laptop) * var(--font-size-display-xl-bp-factor)
+  );
+
+  --ks-font-size-display-xxl-bp-factor-phone: calc(1 * var(--font-size-display-xxl-bp-factor));
+  --ks-font-size-display-xxl-bp-factor-tablet: calc(
+    var(--ks-font-size-display-xxl-bp-factor-phone) * var(--font-size-display-xxl-bp-factor)
+  );
+  --ks-font-size-display-xxl-bp-factor-laptop: calc(
+    var(--ks-font-size-display-xxl-bp-factor-tablet) * var(--font-size-display-xxl-bp-factor)
+  );
+  --ks-font-size-display-xxl-bp-factor-desktop: calc(
+    var(--ks-font-size-display-xxl-bp-factor-laptop) * var(--font-size-display-xxl-bp-factor)
+  );
+
+  --ks-font-size-copy-xxs-bp-factor-phone: calc(1 * var(--font-size-copy-xxs-bp-factor));
+  --ks-font-size-copy-xxs-bp-factor-tablet: calc(
+    var(--ks-font-size-copy-xxs-bp-factor-phone) * var(--font-size-copy-xxs-bp-factor)
+  );
+  --ks-font-size-copy-xxs-bp-factor-laptop: calc(
+    var(--ks-font-size-copy-xxs-bp-factor-tablet) * var(--font-size-copy-xxs-bp-factor)
+  );
+  --ks-font-size-copy-xxs-bp-factor-desktop: calc(
+    var(--ks-font-size-copy-xxs-bp-factor-laptop) * var(--font-size-copy-xxs-bp-factor)
+  );
+
+  --ks-font-size-copy-xs-bp-factor-phone: calc(1 * var(--font-size-copy-xs-bp-factor));
+  --ks-font-size-copy-xs-bp-factor-tablet: calc(
+    var(--ks-font-size-copy-xs-bp-factor-phone) * var(--font-size-copy-xs-bp-factor)
+  );
+  --ks-font-size-copy-xs-bp-factor-laptop: calc(
+    var(--ks-font-size-copy-xs-bp-factor-tablet) * var(--font-size-copy-xs-bp-factor)
+  );
+  --ks-font-size-copy-xs-bp-factor-desktop: calc(
+    var(--ks-font-size-copy-xs-bp-factor-laptop) * var(--font-size-copy-xs-bp-factor)
+  );
+
+  --ks-font-size-copy-s-bp-factor-phone: calc(1 * var(--font-size-copy-s-bp-factor));
+  --ks-font-size-copy-s-bp-factor-tablet: calc(
+    var(--ks-font-size-copy-s-bp-factor-phone) * var(--font-size-copy-s-bp-factor)
+  );
+  --ks-font-size-copy-s-bp-factor-laptop: calc(
+    var(--ks-font-size-copy-s-bp-factor-tablet) * var(--font-size-copy-s-bp-factor)
+  );
+  --ks-font-size-copy-s-bp-factor-desktop: calc(
+    var(--ks-font-size-copy-s-bp-factor-laptop) * var(--font-size-copy-s-bp-factor)
+  );
+
+  --ks-font-size-copy-m-bp-factor-phone: calc(1 * var(--font-size-copy-m-bp-factor));
+  --ks-font-size-copy-m-bp-factor-tablet: calc(
+    var(--ks-font-size-copy-m-bp-factor-phone) * var(--font-size-copy-m-bp-factor)
+  );
+  --ks-font-size-copy-m-bp-factor-laptop: calc(
+    var(--ks-font-size-copy-m-bp-factor-tablet) * var(--font-size-copy-m-bp-factor)
+  );
+  --ks-font-size-copy-m-bp-factor-desktop: calc(
+    var(--ks-font-size-copy-m-bp-factor-laptop) * var(--font-size-copy-m-bp-factor)
+  );
+
+  --ks-font-size-copy-l-bp-factor-phone: calc(1 * var(--font-size-copy-l-bp-factor));
+  --ks-font-size-copy-l-bp-factor-tablet: calc(
+    var(--ks-font-size-copy-l-bp-factor-phone) * var(--font-size-copy-l-bp-factor)
+  );
+  --ks-font-size-copy-l-bp-factor-laptop: calc(
+    var(--ks-font-size-copy-l-bp-factor-tablet) * var(--font-size-copy-l-bp-factor)
+  );
+  --ks-font-size-copy-l-bp-factor-desktop: calc(
+    var(--ks-font-size-copy-l-bp-factor-laptop) * var(--font-size-copy-l-bp-factor)
+  );
+
+  --ks-font-size-copy-xl-bp-factor-phone: calc(1 * var(--font-size-copy-xl-bp-factor));
+  --ks-font-size-copy-xl-bp-factor-tablet: calc(
+    var(--ks-font-size-copy-xl-bp-factor-phone) * var(--font-size-copy-xl-bp-factor)
+  );
+  --ks-font-size-copy-xl-bp-factor-laptop: calc(
+    var(--ks-font-size-copy-xl-bp-factor-tablet) * var(--font-size-copy-xl-bp-factor)
+  );
+  --ks-font-size-copy-xl-bp-factor-desktop: calc(
+    var(--ks-font-size-copy-xl-bp-factor-laptop) * var(--font-size-copy-xl-bp-factor)
+  );
+
+  --ks-font-size-copy-xxl-bp-factor-phone: calc(1 * var(--font-size-copy-xxl-bp-factor));
+  --ks-font-size-copy-xxl-bp-factor-tablet: calc(
+    var(--ks-font-size-copy-xxl-bp-factor-phone) * var(--font-size-copy-xxl-bp-factor)
+  );
+  --ks-font-size-copy-xxl-bp-factor-laptop: calc(
+    var(--ks-font-size-copy-xxl-bp-factor-tablet) * var(--font-size-copy-xxl-bp-factor)
+  );
+  --ks-font-size-copy-xxl-bp-factor-desktop: calc(
+    var(--ks-font-size-copy-xxl-bp-factor-laptop) * var(--font-size-copy-xxl-bp-factor)
+  );
+
+  --ks-font-size-interface-xxs-bp-factor-phone: calc(1 * var(--font-size-interface-xxs-bp-factor));
+  --ks-font-size-interface-xxs-bp-factor-tablet: calc(
+    var(--ks-font-size-interface-xxs-bp-factor-phone) * var(--font-size-interface-xxs-bp-factor)
+  );
+  --ks-font-size-interface-xxs-bp-factor-laptop: calc(
+    var(--ks-font-size-interface-xxs-bp-factor-tablet) * var(--font-size-interface-xxs-bp-factor)
+  );
+  --ks-font-size-interface-xxs-bp-factor-desktop: calc(
+    var(--ks-font-size-interface-xxs-bp-factor-laptop) * var(--font-size-interface-xxs-bp-factor)
+  );
+
+  --ks-font-size-interface-xs-bp-factor-phone: calc(1 * var(--font-size-interface-xs-bp-factor));
+  --ks-font-size-interface-xs-bp-factor-tablet: calc(
+    var(--ks-font-size-interface-xs-bp-factor-phone) * var(--font-size-interface-xs-bp-factor)
+  );
+  --ks-font-size-interface-xs-bp-factor-laptop: calc(
+    var(--ks-font-size-interface-xs-bp-factor-tablet) * var(--font-size-interface-xs-bp-factor)
+  );
+  --ks-font-size-interface-xs-bp-factor-desktop: calc(
+    var(--ks-font-size-interface-xs-bp-factor-laptop) * var(--font-size-interface-xs-bp-factor)
+  );
+
+  --ks-font-size-interface-s-bp-factor-phone: calc(1 * var(--font-size-interface-s-bp-factor));
+  --ks-font-size-interface-s-bp-factor-tablet: calc(
+    var(--ks-font-size-interface-s-bp-factor-phone) * var(--font-size-interface-s-bp-factor)
+  );
+  --ks-font-size-interface-s-bp-factor-laptop: calc(
+    var(--ks-font-size-interface-s-bp-factor-tablet) * var(--font-size-interface-s-bp-factor)
+  );
+  --ks-font-size-interface-s-bp-factor-desktop: calc(
+    var(--ks-font-size-interface-s-bp-factor-laptop) * var(--font-size-interface-s-bp-factor)
+  );
+
+  --ks-font-size-interface-m-bp-factor-phone: calc(1 * var(--font-size-interface-m-bp-factor));
+  --ks-font-size-interface-m-bp-factor-tablet: calc(
+    var(--ks-font-size-interface-m-bp-factor-phone) * var(--font-size-interface-m-bp-factor)
+  );
+  --ks-font-size-interface-m-bp-factor-laptop: calc(
+    var(--ks-font-size-interface-m-bp-factor-tablet) * var(--font-size-interface-m-bp-factor)
+  );
+  --ks-font-size-interface-m-bp-factor-desktop: calc(
+    var(--ks-font-size-interface-m-bp-factor-laptop) * var(--font-size-interface-m-bp-factor)
+  );
+
+  --ks-font-size-interface-l-bp-factor-phone: calc(1 * var(--font-size-interface-l-bp-factor));
+  --ks-font-size-interface-l-bp-factor-tablet: calc(
+    var(--ks-font-size-interface-l-bp-factor-phone) * var(--font-size-interface-l-bp-factor)
+  );
+  --ks-font-size-interface-l-bp-factor-laptop: calc(
+    var(--ks-font-size-interface-l-bp-factor-tablet) * var(--font-size-interface-l-bp-factor)
+  );
+  --ks-font-size-interface-l-bp-factor-desktop: calc(
+    var(--ks-font-size-interface-l-bp-factor-laptop) * var(--font-size-interface-l-bp-factor)
+  );
+
+  --ks-font-size-interface-xl-bp-factor-phone: calc(1 * var(--font-size-interface-xl-bp-factor));
+  --ks-font-size-interface-xl-bp-factor-tablet: calc(
+    var(--ks-font-size-interface-xl-bp-factor-phone) * var(--font-size-interface-xl-bp-factor)
+  );
+  --ks-font-size-interface-xl-bp-factor-laptop: calc(
+    var(--ks-font-size-interface-xl-bp-factor-tablet) * var(--font-size-interface-xl-bp-factor)
+  );
+  --ks-font-size-interface-xl-bp-factor-desktop: calc(
+    var(--ks-font-size-interface-xl-bp-factor-laptop) * var(--font-size-interface-xl-bp-factor)
+  );
+
+  --ks-font-size-interface-xxl-bp-factor-phone: calc(1 * var(--font-size-interface-xxl-bp-factor));
+  --ks-font-size-interface-xxl-bp-factor-tablet: calc(
+    var(--ks-font-size-interface-xxl-bp-factor-phone) * var(--font-size-interface-xxl-bp-factor)
+  );
+  --ks-font-size-interface-xxl-bp-factor-laptop: calc(
+    var(--ks-font-size-interface-xxl-bp-factor-tablet) * var(--font-size-interface-xxl-bp-factor)
+  );
+  --ks-font-size-interface-xxl-bp-factor-desktop: calc(
+    var(--ks-font-size-interface-xxl-bp-factor-laptop) * var(--font-size-interface-xxl-bp-factor)
+  );
+
+  --ks-font-size-mono-xxs-bp-factor-phone: calc(1 * var(--font-size-mono-xxs-bp-factor));
+  --ks-font-size-mono-xxs-bp-factor-tablet: calc(
+    var(--ks-font-size-mono-xxs-bp-factor-phone) * var(--font-size-mono-xxs-bp-factor)
+  );
+  --ks-font-size-mono-xxs-bp-factor-laptop: calc(
+    var(--ks-font-size-mono-xxs-bp-factor-tablet) * var(--font-size-mono-xxs-bp-factor)
+  );
+  --ks-font-size-mono-xxs-bp-factor-desktop: calc(
+    var(--ks-font-size-mono-xxs-bp-factor-laptop) * var(--font-size-mono-xxs-bp-factor)
+  );
+
+  --ks-font-size-mono-xs-bp-factor-phone: calc(1 * var(--font-size-mono-xs-bp-factor));
+  --ks-font-size-mono-xs-bp-factor-tablet: calc(
+    var(--ks-font-size-mono-xs-bp-factor-phone) * var(--font-size-mono-xs-bp-factor)
+  );
+  --ks-font-size-mono-xs-bp-factor-laptop: calc(
+    var(--ks-font-size-mono-xs-bp-factor-tablet) * var(--font-size-mono-xs-bp-factor)
+  );
+  --ks-font-size-mono-xs-bp-factor-desktop: calc(
+    var(--ks-font-size-mono-xs-bp-factor-laptop) * var(--font-size-mono-xs-bp-factor)
+  );
+
+  --ks-font-size-mono-s-bp-factor-phone: calc(1 * var(--font-size-mono-s-bp-factor));
+  --ks-font-size-mono-s-bp-factor-tablet: calc(
+    var(--ks-font-size-mono-s-bp-factor-phone) * var(--font-size-mono-s-bp-factor)
+  );
+  --ks-font-size-mono-s-bp-factor-laptop: calc(
+    var(--ks-font-size-mono-s-bp-factor-tablet) * var(--font-size-mono-s-bp-factor)
+  );
+  --ks-font-size-mono-s-bp-factor-desktop: calc(
+    var(--ks-font-size-mono-s-bp-factor-laptop) * var(--font-size-mono-s-bp-factor)
+  );
+
+  --ks-font-size-mono-m-bp-factor-phone: calc(1 * var(--font-size-mono-m-bp-factor));
+  --ks-font-size-mono-m-bp-factor-tablet: calc(
+    var(--ks-font-size-mono-m-bp-factor-phone) * var(--font-size-mono-m-bp-factor)
+  );
+  --ks-font-size-mono-m-bp-factor-laptop: calc(
+    var(--ks-font-size-mono-m-bp-factor-tablet) * var(--font-size-mono-m-bp-factor)
+  );
+  --ks-font-size-mono-m-bp-factor-desktop: calc(
+    var(--ks-font-size-mono-m-bp-factor-laptop) * var(--font-size-mono-m-bp-factor)
+  );
+
+  --ks-font-size-mono-l-bp-factor-phone: calc(1 * var(--font-size-mono-l-bp-factor));
+  --ks-font-size-mono-l-bp-factor-tablet: calc(
+    var(--ks-font-size-mono-l-bp-factor-phone) * var(--font-size-mono-l-bp-factor)
+  );
+  --ks-font-size-mono-l-bp-factor-laptop: calc(
+    var(--ks-font-size-mono-l-bp-factor-tablet) * var(--font-size-mono-l-bp-factor)
+  );
+  --ks-font-size-mono-l-bp-factor-desktop: calc(
+    var(--ks-font-size-mono-l-bp-factor-laptop) * var(--font-size-mono-l-bp-factor)
+  );
+
+  --ks-font-size-mono-xl-bp-factor-phone: calc(1 * var(--font-size-mono-xl-bp-factor));
+  --ks-font-size-mono-xl-bp-factor-tablet: calc(
+    var(--ks-font-size-mono-xl-bp-factor-phone) * var(--font-size-mono-xl-bp-factor)
+  );
+  --ks-font-size-mono-xl-bp-factor-laptop: calc(
+    var(--ks-font-size-mono-xl-bp-factor-tablet) * var(--font-size-mono-xl-bp-factor)
+  );
+  --ks-font-size-mono-xl-bp-factor-desktop: calc(
+    var(--ks-font-size-mono-xl-bp-factor-laptop) * var(--font-size-mono-xl-bp-factor)
+  );
+
+  --ks-font-size-mono-xxl-bp-factor-phone: calc(1 * var(--font-size-mono-xxl-bp-factor));
+  --ks-font-size-mono-xxl-bp-factor-tablet: calc(
+    var(--ks-font-size-mono-xxl-bp-factor-phone) * var(--font-size-mono-xxl-bp-factor)
+  );
+  --ks-font-size-mono-xxl-bp-factor-laptop: calc(
+    var(--ks-font-size-mono-xxl-bp-factor-tablet) * var(--font-size-mono-xxl-bp-factor)
+  );
+  --ks-font-size-mono-xxl-bp-factor-desktop: calc(
+    var(--ks-font-size-mono-xxl-bp-factor-laptop) * var(--font-size-mono-xxl-bp-factor)
+  );
+}
+
+// font-sizes get BP-factor applied
+:root,
+[ks-theme],
+[ks-inverted="false"],
+[ks-inverted="true"] {
+  --ks-font-size-display-xxs: calc(var(--ks-font-size-display-xxs-base) * var(--ks-font-size-display-xxs-bp-factor, 1));
+  --ks-font-size-display-xs: calc(var(--ks-font-size-display-xs-base) * var(--ks-font-size-display-xs-bp-factor, 1));
+  --ks-font-size-display-s: calc(var(--ks-font-size-display-s-base) * var(--ks-font-size-display-s-bp-factor, 1));
+  --ks-font-size-display-m: calc(var(--ks-font-size-display-m-base) * var(--ks-font-size-display-m-bp-factor, 1));
+  --ks-font-size-display-l: calc(var(--ks-font-size-display-l-base) * var(--ks-font-size-display-l-bp-factor, 1));
+  --ks-font-size-display-xl: calc(var(--ks-font-size-display-xl-base) * var(--ks-font-size-display-xl-bp-factor, 1));
+  --ks-font-size-display-xxl: calc(var(--ks-font-size-display-xxl-base) * var(--ks-font-size-display-xxl-bp-factor, 1));
+
+  --ks-font-size-copy-xxs: calc(var(--ks-font-size-copy-xxs-base) * var(--ks-font-size-copy-xxs-bp-factor, 1));
+  --ks-font-size-copy-xs: calc(var(--ks-font-size-copy-xs-base) * var(--ks-font-size-copy-xs-bp-factor, 1));
+  --ks-font-size-copy-s: calc(var(--ks-font-size-copy-s-base) * var(--ks-font-size-copy-s-bp-factor, 1));
+  --ks-font-size-copy-m: calc(var(--ks-font-size-copy-m-base) * var(--ks-font-size-copy-m-bp-factor, 1));
+  --ks-font-size-copy-l: calc(var(--ks-font-size-copy-l-base) * var(--ks-font-size-copy-l-bp-factor, 1));
+  --ks-font-size-copy-xl: calc(var(--ks-font-size-copy-xl-base) * var(--ks-font-size-copy-xl-bp-factor, 1));
+  --ks-font-size-copy-xxl: calc(var(--ks-font-size-copy-xxl-base) * var(--ks-font-size-copy-xxl-bp-factor, 1));
+
+  --ks-font-size-interface-xxs: calc(
+    var(--ks-font-size-interface-xxs-base) * var(--ks-font-size-interface-xxs-bp-factor, 1)
+  );
+  --ks-font-size-interface-xs: calc(
+    var(--ks-font-size-interface-xs-base) * var(--ks-font-size-interface-xs-bp-factor, 1)
+  );
+  --ks-font-size-interface-s: calc(var(--ks-font-size-interface-s-base) * var(--ks-font-size-interface-s-bp-factor, 1));
+  --ks-font-size-interface-m: calc(var(--ks-font-size-interface-m-base) * var(--ks-font-size-interface-m-bp-factor, 1));
+  --ks-font-size-interface-l: calc(var(--ks-font-size-interface-l-base) * var(--ks-font-size-interface-l-bp-factor, 1));
+  --ks-font-size-interface-xl: calc(
+    var(--ks-font-size-interface-xl-base) * var(--ks-font-size-interface-xl-bp-factor, 1)
+  );
+  --ks-font-size-interface-xxl: calc(
+    var(--ks-font-size-interface-xxl-base) * var(--ks-font-size-interface-xxl-bp-factor, 1)
+  );
+
+  --ks-font-size-mono-xxs: calc(var(--ks-font-size-mono-xxs-base) * var(--ks-font-size-mono-xxs-bp-factor, 1));
+  --ks-font-size-mono-xs: calc(var(--ks-font-size-mono-xs-base) * var(--ks-font-size-mono-xs-bp-factor, 1));
+  --ks-font-size-mono-s: calc(var(--ks-font-size-mono-s-base) * var(--ks-font-size-mono-s-bp-factor, 1));
+  --ks-font-size-mono-m: calc(var(--ks-font-size-mono-m-base) * var(--ks-font-size-mono-m-bp-factor, 1));
+  --ks-font-size-mono-l: calc(var(--ks-font-size-mono-l-base) * var(--ks-font-size-mono-l-bp-factor, 1));
+  --ks-font-size-mono-xl: calc(var(--ks-font-size-mono-xl-base) * var(--ks-font-size-mono-xl-bp-factor, 1));
+  --ks-font-size-mono-xxl: calc(var(--ks-font-size-mono-xxl-base) * var(--ks-font-size-mono-xxl-bp-factor, 1));
+}
+
+// BP-factor gets redefined on each breakpoints
+@media (min-width: 36em) {
+  :root,
+  [ks-theme],
+  [ks-inverted="false"],
+  [ks-inverted="true"] {
+    --ks-font-size-display-bp-factor: var(--ks-font-size-display-bp-factor-phone);
+    --ks-font-size-display-xxs-bp-factor: var(--ks-font-size-display-xxs-bp-factor-phone);
+    --ks-font-size-display-xs-bp-factor: var(--ks-font-size-display-xs-bp-factor-phone);
+    --ks-font-size-display-s-bp-factor: var(--ks-font-size-display-s-bp-factor-phone);
+    --ks-font-size-display-m-bp-factor: var(--ks-font-size-display-m-bp-factor-phone);
+    --ks-font-size-display-l-bp-factor: var(--ks-font-size-display-l-bp-factor-phone);
+    --ks-font-size-display-xl-bp-factor: var(--ks-font-size-display-xl-bp-factor-phone);
+    --ks-font-size-display-xxl-bp-factor: var(--ks-font-size-display-xxl-bp-factor-phone);
+
+    --ks-font-size-copy-bp-factor: var(--ks-font-size-copy-bp-factor-phone);
+    --ks-font-size-copy-xxs-bp-factor: var(--ks-font-size-copy-xxs-bp-factor-phone);
+    --ks-font-size-copy-xs-bp-factor: var(--ks-font-size-copy-xs-bp-factor-phone);
+    --ks-font-size-copy-s-bp-factor: var(--ks-font-size-copy-s-bp-factor-phone);
+    --ks-font-size-copy-m-bp-factor: var(--ks-font-size-copy-m-bp-factor-phone);
+    --ks-font-size-copy-l-bp-factor: var(--ks-font-size-copy-l-bp-factor-phone);
+    --ks-font-size-copy-xl-bp-factor: var(--ks-font-size-copy-xl-bp-factor-phone);
+    --ks-font-size-copy-xxl-bp-factor: var(--ks-font-size-copy-xxl-bp-factor-phone);
+
+    --ks-font-size-interface-bp-factor: var(--ks-font-size-interface-bp-factor-phone);
+    --ks-font-size-interface-xxs-bp-factor: var(--ks-font-size-interface-xxs-bp-factor-phone);
+    --ks-font-size-interface-xs-bp-factor: var(--ks-font-size-interface-xs-bp-factor-phone);
+    --ks-font-size-interface-s-bp-factor: var(--ks-font-size-interface-s-bp-factor-phone);
+    --ks-font-size-interface-m-bp-factor: var(--ks-font-size-interface-m-bp-factor-phone);
+    --ks-font-size-interface-l-bp-factor: var(--ks-font-size-interface-l-bp-factor-phone);
+    --ks-font-size-interface-xl-bp-factor: var(--ks-font-size-interface-xl-bp-factor-phone);
+    --ks-font-size-interface-xxl-bp-factor: var(--ks-font-size-interface-xxl-bp-factor-phone);
+
+    --ks-font-size-mono-bp-factor: var(--ks-font-size-mono-bp-factor-phone);
+    --ks-font-size-mono-xxs-bp-factor: var(--ks-font-size-mono-xxs-bp-factor-phone);
+    --ks-font-size-mono-xs-bp-factor: var(--ks-font-size-mono-xs-bp-factor-phone);
+    --ks-font-size-mono-s-bp-factor: var(--ks-font-size-mono-s-bp-factor-phone);
+    --ks-font-size-mono-m-bp-factor: var(--ks-font-size-mono-m-bp-factor-phone);
+    --ks-font-size-mono-l-bp-factor: var(--ks-font-size-mono-l-bp-factor-phone);
+    --ks-font-size-mono-xl-bp-factor: var(--ks-font-size-mono-xl-bp-factor-phone);
+    --ks-font-size-mono-xxl-bp-factor: var(--ks-font-size-mono-xxl-bp-factor-phone);
+  }
+}
+
+@media (min-width: 48em) {
+  :root,
+  [ks-theme],
+  [ks-inverted="false"],
+  [ks-inverted="true"] {
+    --ks-font-size-display-xxs-bp-factor: var(--ks-font-size-display-xxs-bp-factor-tablet);
+    --ks-font-size-display-xs-bp-factor: var(--ks-font-size-display-xs-bp-factor-tablet);
+    --ks-font-size-display-s-bp-factor: var(--ks-font-size-display-s-bp-factor-tablet);
+    --ks-font-size-display-m-bp-factor: var(--ks-font-size-display-m-bp-factor-tablet);
+    --ks-font-size-display-l-bp-factor: var(--ks-font-size-display-l-bp-factor-tablet);
+    --ks-font-size-display-xl-bp-factor: var(--ks-font-size-display-xl-bp-factor-tablet);
+    --ks-font-size-display-xxl-bp-factor: var(--ks-font-size-display-xxl-bp-factor-tablet);
+
+    --ks-font-size-copy-xxs-bp-factor: var(--ks-font-size-copy-xxs-bp-factor-tablet);
+    --ks-font-size-copy-xs-bp-factor: var(--ks-font-size-copy-xs-bp-factor-tablet);
+    --ks-font-size-copy-s-bp-factor: var(--ks-font-size-copy-s-bp-factor-tablet);
+    --ks-font-size-copy-m-bp-factor: var(--ks-font-size-copy-m-bp-factor-tablet);
+    --ks-font-size-copy-l-bp-factor: var(--ks-font-size-copy-l-bp-factor-tablet);
+    --ks-font-size-copy-xl-bp-factor: var(--ks-font-size-copy-xl-bp-factor-tablet);
+    --ks-font-size-copy-xxl-bp-factor: var(--ks-font-size-copy-xxl-bp-factor-tablet);
+
+    --ks-font-size-interface-xxs-bp-factor: var(--ks-font-size-interface-xxs-bp-factor-tablet);
+    --ks-font-size-interface-xs-bp-factor: var(--ks-font-size-interface-xs-bp-factor-tablet);
+    --ks-font-size-interface-s-bp-factor: var(--ks-font-size-interface-s-bp-factor-tablet);
+    --ks-font-size-interface-m-bp-factor: var(--ks-font-size-interface-m-bp-factor-tablet);
+    --ks-font-size-interface-l-bp-factor: var(--ks-font-size-interface-l-bp-factor-tablet);
+    --ks-font-size-interface-xl-bp-factor: var(--ks-font-size-interface-xl-bp-factor-tablet);
+    --ks-font-size-interface-xxl-bp-factor: var(--ks-font-size-interface-xxl-bp-factor-tablet);
+
+    --ks-font-size-mono-xxs-bp-factor: var(--ks-font-size-mono-xxs-bp-factor-tablet);
+    --ks-font-size-mono-xs-bp-factor: var(--ks-font-size-mono-xs-bp-factor-tablet);
+    --ks-font-size-mono-s-bp-factor: var(--ks-font-size-mono-s-bp-factor-tablet);
+    --ks-font-size-mono-m-bp-factor: var(--ks-font-size-mono-m-bp-factor-tablet);
+    --ks-font-size-mono-l-bp-factor: var(--ks-font-size-mono-l-bp-factor-tablet);
+    --ks-font-size-mono-xl-bp-factor: var(--ks-font-size-mono-xl-bp-factor-tablet);
+    --ks-font-size-mono-xxl-bp-factor: var(--ks-font-size-mono-xxl-bp-factor-tablet);
+  }
+}
+
+@media (min-width: 62em) {
+  :root,
+  [ks-theme],
+  [ks-inverted="false"],
+  [ks-inverted="true"] {
+    --ks-font-size-display-xxs-bp-factor: var(--ks-font-size-display-xxs-bp-factor-laptop);
+    --ks-font-size-display-xs-bp-factor: var(--ks-font-size-display-xs-bp-factor-laptop);
+    --ks-font-size-display-s-bp-factor: var(--ks-font-size-display-s-bp-factor-laptop);
+    --ks-font-size-display-m-bp-factor: var(--ks-font-size-display-m-bp-factor-laptop);
+    --ks-font-size-display-l-bp-factor: var(--ks-font-size-display-l-bp-factor-laptop);
+    --ks-font-size-display-xl-bp-factor: var(--ks-font-size-display-xl-bp-factor-laptop);
+    --ks-font-size-display-xxl-bp-factor: var(--ks-font-size-display-xxl-bp-factor-laptop);
+
+    --ks-font-size-copy-xxs-bp-factor: var(--ks-font-size-copy-xxs-bp-factor-laptop);
+    --ks-font-size-copy-xs-bp-factor: var(--ks-font-size-copy-xs-bp-factor-laptop);
+    --ks-font-size-copy-s-bp-factor: var(--ks-font-size-copy-s-bp-factor-laptop);
+    --ks-font-size-copy-m-bp-factor: var(--ks-font-size-copy-m-bp-factor-laptop);
+    --ks-font-size-copy-l-bp-factor: var(--ks-font-size-copy-l-bp-factor-laptop);
+    --ks-font-size-copy-xl-bp-factor: var(--ks-font-size-copy-xl-bp-factor-laptop);
+    --ks-font-size-copy-xxl-bp-factor: var(--ks-font-size-copy-xxl-bp-factor-laptop);
+
+    --ks-font-size-interface-xxs-bp-factor: var(--ks-font-size-interface-xxs-bp-factor-laptop);
+    --ks-font-size-interface-xs-bp-factor: var(--ks-font-size-interface-xs-bp-factor-laptop);
+    --ks-font-size-interface-s-bp-factor: var(--ks-font-size-interface-s-bp-factor-laptop);
+    --ks-font-size-interface-m-bp-factor: var(--ks-font-size-interface-m-bp-factor-laptop);
+    --ks-font-size-interface-l-bp-factor: var(--ks-font-size-interface-l-bp-factor-laptop);
+    --ks-font-size-interface-xl-bp-factor: var(--ks-font-size-interface-xl-bp-factor-laptop);
+    --ks-font-size-interface-xxl-bp-factor: var(--ks-font-size-interface-xxl-bp-factor-laptop);
+
+    --ks-font-size-mono-xxs-bp-factor: var(--ks-font-size-mono-xxs-bp-factor-laptop);
+    --ks-font-size-mono-xs-bp-factor: var(--ks-font-size-mono-xs-bp-factor-laptop);
+    --ks-font-size-mono-s-bp-factor: var(--ks-font-size-mono-s-bp-factor-laptop);
+    --ks-font-size-mono-m-bp-factor: var(--ks-font-size-mono-m-bp-factor-laptop);
+    --ks-font-size-mono-l-bp-factor: var(--ks-font-size-mono-l-bp-factor-laptop);
+    --ks-font-size-mono-xl-bp-factor: var(--ks-font-size-mono-xl-bp-factor-laptop);
+    --ks-font-size-mono-xxl-bp-factor: var(--ks-font-size-mono-xxl-bp-factor-laptop);
+  }
+}
+
+@media (min-width: 75em) {
+  :root,
+  [ks-theme],
+  [ks-inverted="false"],
+  [ks-inverted="true"] {
+    --ks-font-size-display-xxs-bp-factor: var(--ks-font-size-display-xxs-bp-factor-desktop);
+    --ks-font-size-display-xs-bp-factor: var(--ks-font-size-display-xs-bp-factor-desktop);
+    --ks-font-size-display-s-bp-factor: var(--ks-font-size-display-s-bp-factor-desktop);
+    --ks-font-size-display-m-bp-factor: var(--ks-font-size-display-m-bp-factor-desktop);
+    --ks-font-size-display-l-bp-factor: var(--ks-font-size-display-l-bp-factor-desktop);
+    --ks-font-size-display-xl-bp-factor: var(--ks-font-size-display-xl-bp-factor-desktop);
+    --ks-font-size-display-xxl-bp-factor: var(--ks-font-size-display-xxl-bp-factor-desktop);
+
+    --ks-font-size-copy-xxs-bp-factor: var(--ks-font-size-copy-xxs-bp-factor-desktop);
+    --ks-font-size-copy-xs-bp-factor: var(--ks-font-size-copy-xs-bp-factor-desktop);
+    --ks-font-size-copy-s-bp-factor: var(--ks-font-size-copy-s-bp-factor-desktop);
+    --ks-font-size-copy-m-bp-factor: var(--ks-font-size-copy-m-bp-factor-desktop);
+    --ks-font-size-copy-l-bp-factor: var(--ks-font-size-copy-l-bp-factor-desktop);
+    --ks-font-size-copy-xl-bp-factor: var(--ks-font-size-copy-xl-bp-factor-desktop);
+    --ks-font-size-copy-xxl-bp-factor: var(--ks-font-size-copy-xxl-bp-factor-desktop);
+
+    --ks-font-size-interface-xxs-bp-factor: var(--ks-font-size-interface-xxs-bp-factor-desktop);
+    --ks-font-size-interface-xs-bp-factor: var(--ks-font-size-interface-xs-bp-factor-desktop);
+    --ks-font-size-interface-s-bp-factor: var(--ks-font-size-interface-s-bp-factor-desktop);
+    --ks-font-size-interface-m-bp-factor: var(--ks-font-size-interface-m-bp-factor-desktop);
+    --ks-font-size-interface-l-bp-factor: var(--ks-font-size-interface-l-bp-factor-desktop);
+    --ks-font-size-interface-xl-bp-factor: var(--ks-font-size-interface-xl-bp-factor-desktop);
+    --ks-font-size-interface-xxl-bp-factor: var(--ks-font-size-interface-xxl-bp-factor-desktop);
+
+    --ks-font-size-mono-xxs-bp-factor: var(--ks-font-size-mono-xxs-bp-factor-desktop);
+    --ks-font-size-mono-xs-bp-factor: var(--ks-font-size-mono-xs-bp-factor-desktop);
+    --ks-font-size-mono-s-bp-factor: var(--ks-font-size-mono-s-bp-factor-desktop);
+    --ks-font-size-mono-m-bp-factor: var(--ks-font-size-mono-m-bp-factor-desktop);
+    --ks-font-size-mono-l-bp-factor: var(--ks-font-size-mono-l-bp-factor-desktop);
+    --ks-font-size-mono-xl-bp-factor: var(--ks-font-size-mono-xl-bp-factor-desktop);
+    --ks-font-size-mono-xxl-bp-factor: var(--ks-font-size-mono-xxl-bp-factor-desktop);
+  }
+}

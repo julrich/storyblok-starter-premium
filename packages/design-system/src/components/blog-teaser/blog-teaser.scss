@@ -1,0 +1,82 @@
+@use "@kickstartds/core/source/core/container";
+@use "blog-teaser-tokens.scss";
+@include container.wrapper("post-teaser");
+
+.dsa-blog-teaser.c-post-teaser {
+  --c-teaser--background: var(--dsa-blog-teaser--background, transparent);
+  --c-post-teaser--gap: var(--dsa-blog-teaser--gap, var(--ks-spacing-stack-s) var(--ks-spacing-inline-s));
+  --c-teaser_text--spacing: var(--dsa-blog-teaser__copy--margin-top, var(--ks-spacing-stack-s));
+  --c-post-teaser--color: var(--dsa-blog-teaser__copy--color, var(--ks-text-color-copy));
+
+  .c-tag-label {
+    --c-tag-label--font: var(--dsa-blog-teaser__tag-label--font, var(--ks-font-interface-s));
+  }
+
+  .c-teaser {
+    overflow: visible;
+    cursor: pointer;
+
+    &:hover {
+      .c-rich-text {
+        color: var(--dsa-blog-teaser__copy--color_hover, var(--ks-text-color-interface-interactive-hover));
+
+        > :not(.c-post-meta) {
+          text-decoration: none;
+        }
+      }
+      .c-post-teaser__image {
+        img {
+          transform: var(--dsa-blog-teaser__image--transform, scale(1.05));
+        }
+      }
+    }
+  }
+
+  .c-post-teaser__image {
+    overflow: hidden;
+    border-radius: var(--dsa-blog-teaser__image--border-radius, var(--ks-border-radius-card));
+
+    img {
+      transition: var(--dsa-blog-teaser__image--transition, var(--ks-transition-fade));
+      transition-property: transform;
+    }
+  }
+
+  .c-post-meta {
+    --c-post-meta_author--font-weight: var(--ks-font-weight-semi-bold);
+    --c-post-meta--gap: 0.5em 0.75em;
+    --c-post-meta_item--font: var(--dsa-blog-teaser__meta--font, var(--ks-font-interface-s));
+    --c-post-meta_item--gap: 0.35em;
+    --c-post-meta_author--color: var(--dsa-blog-teaser__meta--color, var(--c-post-meta_item--color));
+    --c-post-meta_author--avatar-size: var(--dsa-blog-teaser__avatar--size, 2em);
+    --c-post-meta_author--gap: 0.35em;
+    --c-post-meta_author--font-weight: var(
+      --dsa-blog-teaser__meta__author--font-weight,
+      var(--ks-font-weight-semi-bold)
+    );
+    margin: 0;
+  }
+
+  .l-container--rich-text {
+    margin: 0;
+  }
+
+  .c-rich-text {
+    font: var(--dsa-blog-teaser__copy--font, var(--ks-font-copy-m));
+    transition: var(--ks-transition-hover);
+    transition-property: color;
+    display: flex;
+    flex-direction: column;
+    gap: var(--c-post-teaser--gap);
+  }
+
+  .c-teaser__topic {
+    font: var(--dsa-blog-teaser__topic--font, var(--dsa-topic--font, var(--ks-font-display-m)));
+    font-size: var(--dsa-blog-teaser__topic--font-size);
+    font-weight: var(--dsa-blog-teaser__topic--font-weight, var(--dsa-topic--font-weight)) !important;
+    text-align: left;
+    transition: var(--ks-transition-hover);
+    transition-property: text-shadow;
+    margin-bottom: var(--dsa-blog-teaser__topic--margin-bottom, 0.35em);
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/slider.schema.json",
+  "title": "Slider",
+  "description": "Slider component for displaying a carousel of content components.",
+  "type": "object",
+  "properties": {
+    "autoplay": {
+      "$ref": "http://schema.kickstartds.com/content/slider.schema.json#/properties/autoplay"
+    },
+    "nav": {
+      "$ref": "http://schema.kickstartds.com/content/slider.schema.json#/properties/nav"
+    },
+    "teaseNeighbours": {
+      "$ref": "http://schema.kickstartds.com/content/slider.schema.json#/properties/teaseNeighbours"
+    },
+    "equalHeight": {
+      "$ref": "http://schema.kickstartds.com/content/slider.schema.json#/properties/equalHeight"
+    },
+    "gap": {
+      "$ref": "http://schema.kickstartds.com/content/slider.schema.json#/properties/gap"
+    },
+    "arrows": {
+      "$ref": "http://schema.kickstartds.com/content/slider.schema.json#/properties/arrows"
+    },
+    "variant": {
+      "$ref": "http://schema.kickstartds.com/content/slider.schema.json#/properties/type"
+    },
+    "className": {
+      "$ref": "http://schema.kickstartds.com/content/slider.schema.json#/properties/className"
+    },
+    "components": {
+      "type": "array",
+      "title": "Content",
+      "description": "Allowed components for content",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "http://schema.mydesignsystem.com/cta.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/features.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/gallery.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/hero.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/image-text.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/logos.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/stats.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/teaser-card.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/testimonials.schema.json"
+          },
+          {
+            "$ref": "http://schema.mydesignsystem.com/text.schema.json"
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}

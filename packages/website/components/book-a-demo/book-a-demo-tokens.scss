@@ -1,0 +1,41 @@
+:root {
+  --dsa-book-a-demo--font: var(--ks-font-interface-m);
+  --dsa-book-a-demo--padding-inline: var(--ks-spacing-m);
+  --dsa-book-a-demo--padding-block: var(--ks-spacing-s);
+  --dsa-book-a-demo--border-radius: 0 5px 5px 0;
+  --dsa-book-a-demo--background-color: var(--ks-background-color-default);
+  --dsa-book-a-demo--box-shadow: var(--ks-box-shadow-surface);
+  --dsa-book-a-demo--box-shadow_hover: var(--ks-box-shadow-surface-hover);
+  --dsa-book-a-demo--z-index: 1000;
+  --dsa-book-a-demo--transition:
+    background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+  --dsa-book-a-demo_primary--background-color: var(
+    --dsa-button_primary--background-color,
+    var(--ks-background-color-primary-interactive)
+  );
+  --dsa-book-a-demo_primary--background-color_hover: var(
+    --dsa-button_primary--background-color_hover,
+    var(--ks-background-color-primary-interactive-hover)
+  );
+  --dsa-book-a-demo_primary--color: var(
+    --dsa-button_primary--color,
+    var(--ks-text-color-on-primary)
+  );
+
+  --dsa-book-a-demo_secondary--background-color: var(
+    --ks-background-color-secondary-interactive
+  );
+  --dsa-book-a-demo_secondary--background-color_hover: var(
+    --ks-background-color-secondary-interactive-hover
+  );
+  --dsa-book-a-demo_secondary--color: var(--ks-text-color-on-secondary);
+
+  --dsa-book-a-demo_tertiary--background-color: var(
+    --ks-background-color-default-interactive
+  );
+  --dsa-book-a-demo_tertiary--background-color_hover: var(
+    --ks-background-color-default-interactive-hover
+  );
+  --dsa-book-a-demo_tertiary--color: var(--ks-text-color-default);
+}

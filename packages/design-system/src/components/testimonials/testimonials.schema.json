@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/testimonials.schema.json",
+  "title": "Testimonials",
+  "description": "Display testimonials with an optional image and rating",
+  "type": "object",
+  "properties": {
+    "layout": {
+      "title": "Layout",
+      "description": "The testimonial layout",
+      "type": "string",
+      "enum": ["slider", "list", "alternating"],
+      "default": "slider"
+    },
+    "quoteSigns": {
+      "title": "Style of the quote signs",
+      "description": "The style of the quote signs",
+      "type": "string",
+      "enum": ["normal", "large", "none"],
+      "default": "normal"
+    },
+    "testimonial": {
+      "type": "array",
+      "title": "Testimonials",
+      "description": "Add testimonials featuring an image, a quote, a source and a rating",
+      "items": {
+        "title": "Testimonial",
+        "description": "Testimonial entry of Testimonials component",
+        "type": "object",
+        "properties": {
+          "quote": {
+            "$ref": "http://schema.mydesignsystem.com/testimonial.schema.json#/properties/quote"
+          },
+
+          "name": {
+            "$ref": "http://schema.mydesignsystem.com/testimonial.schema.json#/properties/name"
+          },
+          "title": {
+            "$ref": "http://schema.mydesignsystem.com/testimonial.schema.json#/properties/title"
+          },
+          "image": {
+            "$ref": "http://schema.mydesignsystem.com/testimonial.schema.json#/properties/image"
+          },
+          "rating": {
+            "$ref": "http://schema.mydesignsystem.com/testimonial.schema.json#/properties/rating"
+          }
+        },
+        "additionalProperties": false,
+        "required": ["quote", "name", "image"]
+      }
+    }
+  },
+  "additionalProperties": false
+}

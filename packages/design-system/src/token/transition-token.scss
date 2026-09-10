@@ -1,0 +1,22 @@
+:root {
+  // Duration
+  --ks-duration-base: calc(150ms * (var(--ks-brand-duration-factor) - 0.5));
+
+  --ks-duration-immediate: calc(var(--ks-duration-base) / 4);
+  --ks-duration-fast: calc(var(--ks-duration-base) / 2);
+  --ks-duration-medium: var(--ks-duration-base);
+  --ks-duration-slow: calc(var(--ks-duration-base) * 2);
+
+  // Timing Function
+  --ks-timing-function-bounce: cubic-bezier(0.15, 1, 0.5, 1.25);
+  --ks-timing-function-ease-out: ease-out;
+  --ks-timing-function-ease-in: ease-in;
+  --ks-timing-function-ease-in-out: ease-in-out;
+  --ks-timing-function-linear: linear;
+
+  // Transition
+  --ks-transition-collapse: var(--ks-duration-slow) var(--ks-timing-function-ease-out);
+  --ks-transition-hover: var(--ks-duration-fast) var(--ks-timing-function-ease-in-out);
+  --ks-transition-fade: var(--ks-duration-slow) var(--ks-timing-function-ease-out);
+  --ks-transition-toggle: var(--ks-duration-fast) var(--ks-timing-function-ease-in-out);
+}

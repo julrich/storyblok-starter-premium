@@ -1,0 +1,106 @@
+.dsa-event-registration {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ks-spacing-stack-s);
+
+  &__link {
+    width: fit-content;
+    font: var(--ks-font-interface-s);
+  }
+
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ks-spacing-stack-s) var(--ks-spacing-inline-s);
+  }
+
+  &__date {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ks-spacing-xxs);
+
+    > .dsa-event-registration__info:first-child {
+      font-weight: var(--ks-font-weight-semi-bold);
+    }
+  }
+
+  &__location {
+    flex-basis: var(--dsa-tile--width_small);
+    flex-grow: 1;
+
+    &-name {
+      font-weight: var(--ks-font-weight-semi-bold);
+      color: var(--dsa-topic--color);
+      display: block;
+    }
+
+    &-address {
+      margin: 0;
+    }
+  }
+
+  &__infos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ks-spacing-stack-s);
+    background: var(--ks-background-color-card);
+    border-radius: var(--ks-border-radius-card);
+    border: var(--ks-border-card);
+    padding: var(--ks-spacing-inset-stretch-m);
+  }
+
+  &__info {
+    display: flex;
+    gap: calc(var(--ks-spacing-xxs) * 0.75);
+    font: var(--ks-font-interface-s);
+    justify-content: flex-start;
+    color: var(--ks-text-color-interface);
+
+    address {
+      font-style: normal;
+    }
+
+    &--location {
+      flex-basis: 100%;
+    }
+
+    .icon {
+      align-self: flex-start;
+      width: calc(var(--ks-font-size-interface-s) * var(--ks-line-height-interface-s));
+      height: calc(var(--ks-font-size-interface-s) * var(--ks-line-height-interface-s));
+      color: var(--ks-text-color-primary);
+      flex-shrink: 0;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ks-spacing-stack-s);
+
+    .c-button {
+      align-self: flex-end;
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ks-spacing-stack-s);
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--ks-spacing-stack-xs) var(--ks-spacing-inline-m);
+  }
+
+  &__mandatory-text {
+    font: var(--ks-font-interface-xs);
+    color: var(--ks-color-fg-alpha-4);
+    font-style: italic;
+    flex-basis: var(--dsa-tile--width_small);
+  }
+}

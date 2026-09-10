@@ -1,0 +1,40 @@
+:root,
+[ks-inverted] {
+  //Global token for calculation of header height
+  --dsa-header--height: calc(
+    var(--dsa-logo--height) + var(--dsa-header--spacing-vertical) * 2
+  );
+  --dsa-header--spacing-vertical: var(--ks-spacing-inset-m);
+  --dsa-header--spacing-horizontal: var(--ks-spacing-inset-xl);
+  --dsa-header_floating--spacing-horizontal: var(--ks-spacing-inset-l);
+  --dsa-header_open--shadow: 0 0 0 100px var(--ks-color-fg-alpha-3);
+
+  @media (min-width: 62em) {
+    --dsa-header--spacing-horizontal: var(--dsa-content--horizontal-spacing);
+  }
+}
+
+.dsa-header {
+  --dsa-header--max-width: var(--dsa-content--width_wide);
+  --dsa-header--background: var(--ks-background-color-default);
+  --dsa-header--z-index: var(--ks-depth-modal);
+
+  --dsa-header_floating--background: var(
+    --dsa-overlay-box_opaque--background-color
+  );
+  --dsa-header_floating--backdrop-filter: var(
+    --dsa-overlay-box_opaque--backdrop-filter
+  );
+
+  --dsa-header__logo--height: var(--dsa-logo--height);
+}
+
+// ─── drhubert overrides ───────────────────────────────────────────
+// Ported verbatim from the pre-monorepo website (components/header/header-tokens.scss).
+// Kept as a trailing block so the original selectors and specificity are
+// preserved; these win over the design system defaults above.
+:root {
+  .dsa-header {
+    --dsa-header_floating--background: transparent;
+  }
+}

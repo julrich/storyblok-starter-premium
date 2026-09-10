@@ -1,0 +1,41 @@
+@use "@kickstartds/core/source/core/container";
+@include container.wrapper("business-card");
+
+.dsa-business-card {
+  --dsa-business-card--border: var(--ks-border-card);
+  --dsa-business-card--border-radius: var(--ks-border-radius-card);
+  --dsa-business-card--padding: var(--ks-spacing-inset-m);
+  --dsa-business-card--background-color: var(--ks-background-color-card);
+  --dsa-business-card--gap: var(--ks-spacing-stack-l);
+
+  @include container.size("≥", 640px, "business-card") {
+    --dsa-business-card--padding: var(--ks-spacing-inset-xl);
+  }
+
+  --dsa-business-card__image--aspect-ratio: 16 / 9;
+  --dsa-business-card__image--border-radius: var(--ks-border-radius-card);
+
+  --dsa-business-card__topic--font: var(--dsa-topic--font);
+  --dsa-business-card__topic--font-weight: var(--dsa-topic--font-weight);
+  --dsa-business-card__topic--color: var(--dsa-topic--color);
+  --dsa-business-card__topic--margin-top: var(--ks-spacing-stack-m);
+
+  --dsa-business-card__logo--max-width: var(--dsa-tile--width_small);
+
+  --dsa-business-card__address--gap: var(--ks-spacing-stack-l) var(--ks-spacing-inline-xl);
+
+  --dsa-business-card__infos--font: var(--ks-font-interface-m);
+  --dsa-business-card__infos--color: var(--ks-text-color-copy);
+
+  --dsa-business-card__avatar--border-radius: var(--ks-border-radius-control);
+  --dsa-business-card__avatar--size: calc(var(--dsa-tile--width_smallest) / 2);
+
+  --dsa-business-card__contact-items--gap: var(--ks-spacing-xxs);
+
+  --dsa-business-card__contact--gap: var(--ks-spacing-stack-s) var(--ks-spacing-inline-s);
+  --dsa-business-card__contact--icon-size: 1.25em;
+  --dsa-business-card__contact--font: var(--ks-font-interface-m);
+  --dsa-business-card__contact--font-weight: var(--ks-font-weight-semi-bold);
+  --dsa-business-card__contact--color: var(--ks-text-color-interface-interactive);
+  --dsa-business-card__contact--color_hover: var(--ks-text-color-interface-interactive-hover);
+}

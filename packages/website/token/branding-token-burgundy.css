@@ -1,0 +1,121 @@
+:root {
+  /* Colors */
+  --ks-brand-color-primary: #b70e87;
+  --ks-brand-color-primary-inverted: #f1d2e8;
+
+  --ks-brand-color-onPrimary: #fff;
+  --ks-brand-color-onPrimary-inverted: #460433;
+
+  --ks-brand-color-bg: #fff2fb;
+  --ks-brand-color-bg-inverted: #460433;
+
+  --ks-brand-color-fg: #06081f;
+  --ks-brand-color-fg-inverted: #f1d2e8;
+
+  --ks-brand-color-link: #b70e87;
+  --ks-brand-color-link-inverted: #fff2fb;
+
+  --ks-brand-color-positive: #23831b;
+  --ks-brand-color-positive-inverted: #6edb64;
+
+  --ks-brand-color-negative: #ff1a57;
+  --ks-brand-color-negative-inverted: #d21d48;
+
+  --ks-brand-color-informative: #64c2db;
+  --ks-brand-color-informative-inverted: #00718f;
+
+  --ks-brand-color-notice: #64c2db;
+  --ks-brand-color-notice-inverted: #00718f;
+
+  --ks-brand-color-scale-9: 5%;
+  --ks-brand-color-scale-8: 10%;
+  --ks-brand-color-scale-7: 19%;
+  --ks-brand-color-scale-6: 32%;
+  --ks-brand-color-scale-5: 50%;
+  --ks-brand-color-scale-4: 68%;
+  --ks-brand-color-scale-3: 81%;
+  --ks-brand-color-scale-2: 90%;
+  --ks-brand-color-scale-1: 95%;
+}
+
+:root {
+  /* Font Families */
+  --ks-brand-font-family-display: Montserrat, Baskerville,
+    "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+  --ks-brand-font-family-copy: system-ui, -apple-system, BlinkMacSystemFont,
+    "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue",
+    "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell",
+    "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic",
+    "Liberation Sans", sans-serif;
+  --ks-brand-font-family-interface: system-ui, -apple-system, BlinkMacSystemFont,
+    "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue",
+    "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell",
+    "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic",
+    "Liberation Sans", sans-serif;
+  --ks-brand-font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+    Consolas, "Liberation Mono", monospace;
+
+  /* Font Weights */
+  --ks-brand-font-weight-light: 300;
+  --ks-brand-font-weight-regular: 400;
+  --ks-brand-font-weight-medium: 500;
+  --ks-brand-font-weight-semi-bold: 600;
+  --ks-brand-font-weight-bold: 700;
+}
+
+/* Normalized user input tokens (range: 1-2) */
+
+/*
+Shrink Factor:      Determine scaling from m to xxs
+Grow Factor:        Determine scaling from m to xxl
+Breakpoint Factor:  Higher bp factor means large spacings increase
+                    more at bigger screen sizes than small spacings
+*/
+
+/* Font Size */
+:root {
+  --ks-brand-font-size-display-base: 20px;
+  --ks-brand-font-size-display-shrink-factor: 1.5;
+  --ks-brand-font-size-display-grow-factor: 1.5;
+  --ks-brand-font-size-display-bp-factor: 1.5;
+
+  --ks-brand-font-size-copy-base: 16px;
+  --ks-brand-font-size-copy-shrink-factor: 1.5;
+  --ks-brand-font-size-copy-grow-factor: 1.5;
+  --ks-brand-font-size-copy-bp-factor: 1.5;
+
+  --ks-brand-font-size-interface-base: 16px;
+  --ks-brand-font-size-interface-shrink-factor: 1.5;
+  --ks-brand-font-size-interface-grow-factor: 1.5;
+  --ks-brand-font-size-interface-bp-factor: 1.5;
+
+  --ks-brand-font-size-mono-base: 16px;
+  --ks-brand-font-size-mono-shrink-factor: 1.5;
+  --ks-brand-font-size-mono-grow-factor: 1.5;
+  --ks-brand-font-size-mono-bp-factor: 1.5;
+}
+
+/* Spacing */
+:root {
+  --ks-brand-spacing-base: 16px;
+  --ks-brand-spacing-shrink-factor: 1.5;
+  --ks-brand-spacing-grow-factor: 1.5;
+  --ks-brand-spacing-bp-factor: 1.5;
+}
+
+/* Border */
+:root {
+  --ks-brand-border-width-default: 1px;
+  --ks-brand-border-width-emphasized: 2px;
+
+  --ks-brand-border-radius-control: 0;
+  --ks-brand-border-radius-card: 0;
+  --ks-brand-border-radius-surface: 0;
+}
+
+/* Shadow */
+:root {
+  --ks-brand-box-shadow-control-blur: 1px;
+  --ks-brand-box-shadow-card-blur: 2px;
+  --ks-brand-box-shadow-surface-blur: 6px;
+}

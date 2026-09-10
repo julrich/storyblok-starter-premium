@@ -1,0 +1,72 @@
+@use "../../selectors" as *;
+
+#{$selectors} {
+  --dsa-headline--color: var(--ks-text-color-display);
+  --dsa-headline--font-weight: var(
+    --ks-font-weight-semi-bold,
+    var(--ks-font-weight-bold)
+  );
+  --dsa-headline--text-transform: none;
+  --dsa-headline--gap: 0.35em;
+
+  --dsa-headline--space-after_large: var(--ks-spacing-stack-l);
+  --dsa-headline--space-after_small: var(--ks-spacing-stack-m);
+  --dsa-headline--space-after_minimum: var(--ks-spacing-stack-s);
+
+  --dsa-headline--higlight-background: var(--dsa-typo--highlight);
+
+  --dsa-headline__subheadline--color: var(--ks-color-fg-alpha-4);
+  --dsa-headline__subheadline--font-weight: var(--ks-font-weight-bold);
+  --dsa-headline__subheadline--text-transform: none;
+  --dsa-headline__subheadline--letter-spacing: 0;
+  --dsa-headline__subheadline--font-family: var(--ks-font-family-copy);
+
+  --dsa-headline_h1--font: var(--ks-font-display-xxl);
+  --dsa-headline_h1__subheadline--font-size: 55%;
+  --dsa-headline_h1--space-after_large: var(--ks-spacing-stack-l);
+  --dsa-headline_h1--space-after_small: var(--ks-spacing-stack-m);
+  --dsa-headline_h1--space-after_minimum: var(--ks-spacing-stack-s);
+
+  --dsa-headline_h2--font: var(--ks-font-display-xl);
+  --dsa-headline_h2__subheadline--font-size: 60%;
+  --dsa-headline_h2--space-after_large: var(--ks-spacing-stack-l);
+  --dsa-headline_h2--space-after_small: var(--ks-spacing-stack-m);
+  --dsa-headline_h2--space-after_minimum: 0;
+
+  --dsa-headline_h3--font: var(--ks-font-display-l);
+  --dsa-headline_h3__subheadline--font-size: 65%;
+  --dsa-headline_h3--space-after_large: var(--ks-spacing-stack-m);
+  --dsa-headline_h3--space-after_small: var(--ks-spacing-stack-s);
+  --dsa-headline_h3--space-after_minimum: 0;
+
+  --dsa-headline_h4--font: var(--ks-font-display-m);
+  --dsa-headline_h4__subheadline--font-size: 70%;
+  --dsa-headline_h4--space-after_large: var(--ks-spacing-stack-m);
+  --dsa-headline_h4--space-after_small: var(--ks-spacing-stack-s);
+  --dsa-headline_h4--space-after_minimum: 0;
+
+  --dsa-headline_p--font: var(--ks-font-copy-m);
+  --dsa-headline_p__subheadline--font-size: 75%;
+  --dsa-headline_p--space-after_large: var(--ks-spacing-stack-xs);
+  --dsa-headline_p--space-after_small: var(--ks-spacing-xxs);
+  --dsa-headline_p--space-after_minimum: 0;
+
+  --dsa-headline__anchor--size: 0.875em;
+  --dsa-headline__anchor--margin-left: 0.25em;
+  --dsa-headline__anchor--transform: 0;
+}
+
+// ─── drhubert overrides ───────────────────────────────────────────
+// Ported verbatim from the pre-monorepo website (components/headline/headline-tokens.scss).
+// Kept as a trailing block so the original selectors and specificity are
+// preserved; these win over the design system defaults above.
+:root,
+[ks-inverted],
+[ks-theme] {
+  --dsa-headline--color: var(--ks-text-color-primary);
+  --dsa-headline--font-weight: var(--ks-font-weight-semi-bold);
+  --dsa-headline--higlight-background: linear-gradient(90deg, var(--ks-color-primary), var(--ks-color-primary));
+
+  --dsa-headline__subheadline--color: var(--ks-text-color-display);
+  --dsa-headline__subheadline--font-weight: var(--ks-font-weight-bold);
+}

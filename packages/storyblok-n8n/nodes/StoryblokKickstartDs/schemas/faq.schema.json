@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "questions": {
+      "type": "array",
+      "description": "Array of FAQ question and answer pairs",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "The question text (supports markdown)"
+          },
+          "answer": {
+            "type": "string",
+            "description": "The answer text (supports markdown)"
+          }
+        },
+        "required": ["question", "answer"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["questions"],
+  "additionalProperties": false
+}

@@ -1,0 +1,25 @@
+.dsa-content-nav {
+  --dsa-content-nav--padding: var(--ks-spacing-inset-m);
+  --dsa-content-nav--background-color: var(--ks-background-color-card);
+  --dsa-content-nav--gap: var(--ks-spacing-stack-m);
+  --dsa-content-nav--border: var(--ks-border-card);
+  --dsa-content-nav--border-radius: var(--ks-border-radius-card);
+
+  --dsa-content-nav__topic--font: var(--dsa-topic--font);
+  --dsa-content-nav__topic--font-weight: var(--dsa-topic--font-weight);
+  --dsa-content-nav__topic--color: var(--dsa-topic--color);
+
+  --dsa-content-nav__image--aspect-ratio: 16 / 9;
+  --dsa-content-nav__image--border-radius: var(--ks-border-radius-card);
+
+  --dsa-content-nav__links--gap: var(--ks-spacing-stack-xs);
+
+  --dsa-content-nav__link--color: var(--ks-text-color-interface-interactive);
+  --dsa-content-nav__link--color_hover: var(--ks-text-color-interface-interactive-hover);
+  --dsa-content-nav__link--icon-size: 1.25em;
+
+  --dsa-content-nav__toggle-more--font: var(--ks-font-interface-m);
+  --dsa-content-nav__toggle-more--font-weight: var(--dsa-link--font-weight);
+  --dsa-content-nav__toggle-more--color: var(--dsa-link--color);
+  --dsa-content-nav__toggle-more--margin-top: var(--ks-spacing-stack-xs);
+}

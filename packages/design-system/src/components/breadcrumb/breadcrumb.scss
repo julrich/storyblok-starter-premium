@@ -1,0 +1,27 @@
+@use "breadcrumb-tokens.scss";
+
+.dsa-breadcrumb {
+  display: flex;
+  gap: var(--dsa-breadcrumb--gap, var(--ks-spacing-xxs));
+  flex-wrap: wrap;
+  align-items: flex-start;
+  font: var(--dsa-breadcrumb--font, var(--ks-font-interface-xs));
+
+  .icon {
+    color: var(--dsa-breadcrumb__icon--color, var(--ks-color-fg-alpha-5));
+    width: var(--dsa-breadcrumb__icon--size, 1.5em);
+    height: var(--dsa-breadcrumb__icon--size, 1.5em);
+  }
+
+  &__link {
+    --g-link--color: var(--dsa-breadcrumb--color, var(--ks-text-color-interface-interactive));
+    --g-link--color-hover: var(--dsa-breadcrumb--color_hover, var(--ks-text-color-interface-interactive-hover));
+    font: inherit;
+  }
+
+  &__label {
+    color: var(--dsa-breadcrumb--color_active, var(--ks-text-color-interface-interactive-active));
+    font: inherit;
+    font-weight: var(--dsa-link--font-weight);
+  }
+}

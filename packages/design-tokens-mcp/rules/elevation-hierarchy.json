@@ -1,0 +1,63 @@
+{
+  "id": "elevation-hierarchy",
+  "name": "Elevation Scale",
+  "description": "Box-shadow tokens form an elevation hierarchy from subtle to prominent. Higher elevation should correspond to higher visual importance and larger element size.",
+  "severity": "info",
+  "category": "hierarchy",
+  "tokenPattern": "--ks-box-shadow-*",
+  "scale": [
+    {
+      "token": "--ks-box-shadow-control",
+      "hoverToken": "--ks-box-shadow-control-hover",
+      "level": 1,
+      "label": "Control",
+      "purpose": "Form inputs, small interactive elements, buttons",
+      "expectedComponentSize": "small",
+      "validContexts": [
+        "form-input",
+        "button",
+        "select",
+        "checkbox",
+        "radio",
+        "small-control",
+        "toggle"
+      ],
+      "invalidContexts": ["modal", "flyout", "overlay", "large-card"]
+    },
+    {
+      "token": "--ks-box-shadow-card",
+      "hoverToken": "--ks-box-shadow-card-hover",
+      "level": 2,
+      "label": "Card",
+      "purpose": "Cards, teasers, elevated content blocks",
+      "expectedComponentSize": "medium",
+      "validContexts": [
+        "card",
+        "teaser-card",
+        "content-block",
+        "panel",
+        "article-card",
+        "business-card"
+      ],
+      "invalidContexts": ["form-input", "button", "modal-overlay"]
+    },
+    {
+      "token": "--ks-box-shadow-surface",
+      "hoverToken": "--ks-box-shadow-surface-hover",
+      "level": 3,
+      "label": "Surface",
+      "purpose": "Modals, flyouts, overlays, prominent floating elements",
+      "expectedComponentSize": "large",
+      "validContexts": [
+        "modal",
+        "flyout",
+        "dropdown-menu",
+        "overlay",
+        "lightbox",
+        "nav-flyout",
+        "cookie-consent"
+      ],
+      "invalidContexts": ["form-input", "button", "inline-card"]
+    }
+  ]
+}

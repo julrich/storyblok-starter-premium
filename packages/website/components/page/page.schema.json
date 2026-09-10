@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://cms.mydesignsystem.com/page.schema.json",
+  "title": "Page",
+  "description": "Abstracts a page concept into JSON schema",
+  "type": "object",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "theme": {
+          "type": "string",
+          "format": "theme",
+          "title": "Theme",
+          "description": "Select a token theme for this page — overrides the global theme setting"
+        },
+        "hideBookDemoButton": {
+          "type": "boolean",
+          "title": "Hide Book a Demo Button",
+          "description": "Hide the Book a Demo button on this page",
+          "default": false
+        }
+      }
+    },
+    {
+      "$ref": "http://schema.mydesignsystem.com/page.schema.json"
+    }
+  ],
+  "additionalProperties": false
+}

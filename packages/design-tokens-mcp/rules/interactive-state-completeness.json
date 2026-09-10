@@ -1,0 +1,27 @@
+{
+  "id": "interactive-state-completeness",
+  "name": "Interactive State Completeness",
+  "description": "When a component defines interactive states for a token (e.g., hover, active, focus), all expected states should be defined together. Incomplete state sets lead to inconsistent interaction feedback.",
+  "severity": "warning",
+  "category": "completeness",
+  "rule": "If a component token defines a hover state (e.g., --dsa-button_primary--color_hover), it should also define the base interactive state and the active state. Missing states create gaps in the interaction model.",
+  "interactiveStates": ["hover", "active", "focus"],
+  "optionalStates": ["selected", "disabled", "checked", "open"],
+  "stateGroups": {
+    "color-states": {
+      "properties": ["color", "background-color", "border-color"],
+      "requiredStates": ["hover", "active"],
+      "description": "Color-related properties should define both hover and active states for complete interaction feedback"
+    },
+    "shadow-states": {
+      "properties": ["box-shadow"],
+      "requiredStates": ["hover"],
+      "description": "Box-shadow typically only needs a hover state for elevation change"
+    }
+  },
+  "exceptions": [
+    "Tertiary/ghost buttons may intentionally omit background-color base state (transparent by default)",
+    "Read-only or display-only elements don't need interactive states",
+    "Some properties (font-size, padding, border-radius) typically don't change on interaction"
+  ]
+}

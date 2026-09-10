@@ -1,0 +1,23 @@
+diff --git a/package.json b/package.json
+index cf06f9e57d3e25a77bb73b5cc8ae9fd84768c22d..fc4afb48d2135829f29d6288e6aba8f02b1c0d86 100755
+--- a/package.json
++++ b/package.json
+@@ -37,6 +37,7 @@
+     "lint": "eslint {src,tests}/**/*.js"
+   },
+   "exports": {
++    "./src/*": "./src/*",
+     ".": {
+       "import": "./dist/glide.esm.js",
+       "require": "./dist/glide.js",
+diff --git a/src/components/html.js b/src/components/html.js
+index e04eb23f732bf34595f082619e707fb189341a03..bc3c2c44c28c2526a7b49835344fdca95c87ddaf 100644
+--- a/src/components/html.js
++++ b/src/components/html.js
+@@ -1,5 +1,5 @@
+ import { warn } from '../utils/log'
+-import { exist, toArray } from '../utils/dom'
++import { toArray } from '../utils/dom'
+ import { define } from '../utils/object'
+ import { isString } from '../utils/unit'
+ 

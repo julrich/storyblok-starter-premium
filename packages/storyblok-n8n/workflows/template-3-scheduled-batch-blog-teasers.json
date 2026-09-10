@@ -1,0 +1,122 @@
+{
+  "name": "Schedule → Batch Generate Blog Teasers → Import",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 9 * * 1" }]
+        }
+      },
+      "id": "schedule-1",
+      "name": "Weekly Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://api.storyblok.com/v2/cdn/stories",
+        "qs": {
+          "token": "={{ $credentials.storyblokApi.apiToken }}",
+          "content_type": "blog-post",
+          "per_page": 10,
+          "sort_by": "created_at:desc"
+        },
+        "options": {}
+      },
+      "id": "fetch-posts-1",
+      "name": "Fetch Latest Blog Posts",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "batchSize": 3,
+        "options": {}
+      },
+      "id": "batch-1",
+      "name": "Split In Batches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [720, 300]
+    },
+    {
+      "parameters": {
+        "resource": "aiContent",
+        "operation": "generate",
+        "system": "You are a content marketer. Generate engaging blog teaser content based on the blog post information provided. The teaser should entice readers to click through to the full article.",
+        "prompt": "=Create a blog teaser for: \"{{ $json.name }}\". The post is about: {{ $json.content?.body || $json.full_slug }}. Generate a compelling teaser text and relevant tags.",
+        "schemaMode": "preset",
+        "presetSchema": "blog-teaser",
+        "model": "gpt-4o-mini"
+      },
+      "id": "generate-teaser-1",
+      "name": "Generate Blog Teaser",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [960, 300],
+      "credentials": {
+        "openAiApi": { "id": "1", "name": "OpenAI" },
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "aiContent",
+        "operation": "import",
+        "storyUid": "YOUR_BLOG_OVERVIEW_STORY_UID",
+        "placementMode": "prompter",
+        "prompterUid": "YOUR_PROMPTER_UID",
+        "page": "={{ JSON.stringify({ content: { section: [{ component: 'blog-teaser', ...($json.generatedContent) }] } }) }}",
+        "publish": false
+      },
+      "id": "import-teaser-1",
+      "name": "Import Teaser",
+      "type": "n8n-nodes-storyblok-kickstartds.storyblokKickstartDs",
+      "typeVersion": 1,
+      "position": [1200, 300],
+      "credentials": {
+        "storyblokApi": { "id": "2", "name": "Storyblok" }
+      }
+    },
+    {
+      "parameters": {
+        "functionCode": "const items = $input.all();\nconst summary = {\n  totalProcessed: items.length,\n  successful: items.filter(i => i.json.success).length,\n  failed: items.filter(i => i.json.error).length,\n  timestamp: new Date().toISOString()\n};\nreturn [{ json: summary }];"
+      },
+      "id": "summary-1",
+      "name": "Summarize Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1440, 300]
+    }
+  ],
+  "connections": {
+    "Weekly Schedule": {
+      "main": [
+        [{ "node": "Fetch Latest Blog Posts", "type": "main", "index": 0 }]
+      ]
+    },
+    "Fetch Latest Blog Posts": {
+      "main": [[{ "node": "Split In Batches", "type": "main", "index": 0 }]]
+    },
+    "Split In Batches": {
+      "main": [
+        [{ "node": "Generate Blog Teaser", "type": "main", "index": 0 }],
+        [{ "node": "Summarize Results", "type": "main", "index": 0 }]
+      ]
+    },
+    "Generate Blog Teaser": {
+      "main": [[{ "node": "Import Teaser", "type": "main", "index": 0 }]]
+    },
+    "Import Teaser": {
+      "main": [[{ "node": "Split In Batches", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateId": "storyblok-kds-batch-blog-teasers"
+  }
+}

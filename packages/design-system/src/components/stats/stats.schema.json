@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://schema.mydesignsystem.com/stats.schema.json",
+  "title": "Stats",
+  "description": "Component used to display stats with a number upcounter",
+  "type": "object",
+  "properties": {
+    "align": {
+      "title": "Align",
+      "description": "Alignment of the stats content",
+      "type": "string",
+      "enum": ["left", "center"],
+      "default": "center"
+    },
+    "stat": {
+      "title": "Stats",
+      "type": "array",
+      "description": "The stats to display with a number upcounter",
+      "items": {
+        "$ref": "http://schema.mydesignsystem.com/stat.schema.json"
+      },
+      "minItems": 1,
+      "maxItems": 4
+    }
+  },
+  "additionalProperties": false,
+  "required": ["stats"]
+}

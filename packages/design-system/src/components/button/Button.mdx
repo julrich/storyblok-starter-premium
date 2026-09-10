@@ -1,0 +1,32 @@
+import { Canvas, Meta, ArgTypes } from "@storybook/addon-docs/blocks";
+import LinkTo from "@storybook/addon-links/react";
+import * as ButtonStories from "./Button.stories";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+The Button component is used for user interaction. It can be customized with various props.
+
+<Canvas of={ButtonStories.PrimaryButton} />
+
+## Properties
+
+<ArgTypes />
+
+## Variants
+
+<Canvas of={ButtonStories.PrimaryButton} />
+<Canvas of={ButtonStories.SecondaryButton} />
+<Canvas of={ButtonStories.TertiaryButton} />
+<Canvas of={ButtonStories.PrimaryDisabledButton} />
+
+## Usage
+
+```jsx
+<Button label="My Button" variant="primary" />
+```
+
+## Design Tokens
+
+Refer to the [Colors](#) and [Typography](#) documentation for design tokens related to the [Button](#) component.

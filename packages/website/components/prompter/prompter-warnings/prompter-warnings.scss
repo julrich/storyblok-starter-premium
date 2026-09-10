@@ -1,0 +1,35 @@
+.prompter-warnings {
+  width: 100%;
+  font-family: var(--prompter-font-family);
+  background: #fffbeb;
+  border: 1px solid #fbbf24;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #92400e;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+
+    .icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      flex-shrink: 0;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  &__item {
+    font-size: 0.85rem;
+    color: #78350f;
+    line-height: 1.5;
+  }
+}
